@@ -1,0 +1,2126 @@
+[
+  {
+    "title": "Initial Deposit Extension",
+    "side": "buyer, seller",
+    "category": "Deposit",
+    "topic": "Deposit",
+    "tags": "Initial Deposit",
+    "snippet": "Buyer and Seller hereby agree to extend the initial deposit deadline to on or before <insert date>. All other terms and conditions shall remain the same.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Second Deposit Extension",
+    "side": "buyer, seller",
+    "category": "Deposit",
+    "topic": "Deposit",
+    "tags": "Second Deposit",
+    "snippet": "Buyer and Seller hereby agree to extend the second deposit deadline to on or before <insert date>. All other terms and conditions shall remain the same.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Pre-Closing Access for Improvements",
+    "side": "buyer, seller",
+    "category": "Access",
+    "topic": "Property Access",
+    "tags": "Access, Improvements, Renovations",
+    "snippet": "Seller hereby agrees that Buyer and Buyer's authorized representatives (including, but not limited to, licensed architects, general contractors, and design professionals) shall be permitted reasonable access to the Property prior to closing, for the limited purpose of planning improvements or renovations to the Property following Closing.\n\nSuch access shall:\n* Be coordinated through Seller or Seller's agent,\n* Require a minimum of 48 hours' written notice,\n* Occur during normal business hours,\n* Not interfere with Seller's use or occupancy of the Property,\n* Be at Buyer's sole risk and expense.\n\nBuyer agrees to indemnify, defend, and hold Seller harmless from any claims, damages, or liabilities arising out of such access, and shall ensure that any such professionals are appropriately licensed and insured. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Final Walkthrough",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Property Inspection",
+    "tags": "Access, Walkthrough, Inspection, Property Access",
+    "snippet": "Buyer shall have the right to conduct a final walkthrough of the property within 48 hours prior to closing to ensure the property is in substantially the same condition as at the time of contract execution, excluding normal wear and tear. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Buyer's Right to Final Walk-Through",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Final Walk-Through",
+    "tags": "Walkthrough, Final Walk-Through, Inspection, Property Condition, Effective Date, Agreed Repairs, Completion",
+    "snippet": "All parties agree Buyer shall have the right to conduct a final walk-through inspection of the Property within [X] hours of Closing to confirm the Property is in substantially the same condition as of the Effective Date, and that agreed repairs, if any, have been completed. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Repairs Verification at Final Walk-Through",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Repair Verification",
+    "tags": "Walkthrough, Repair Verification, Final Walk-Through, Agreed Repairs, Escrow, Seller Proceeds, Completion Confirmation",
+    "snippet": "All parties agree Buyer shall have the right during final walk-through to verify completion of all agreed repairs. Failure by Seller to complete repairs shall allow Buyer to escrow up to [$X] from Seller's proceeds until work is confirmed. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Utilities Active for Walk-Through",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Utility Continuation",
+    "tags": "Walkthrough, Utilities, Active, Closing, Final Walk-Through, Proper Inspection",
+    "snippet": "All parties agree Seller shall maintain all utilities active through Closing to allow Buyer to properly conduct the final walk-through. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Personal Property & Trash Removal",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Property Cleanup",
+    "tags": "Walkthrough, Personal Property, Trash Removal, Debris, Final Walk-Through, Property Cleanup",
+    "snippet": "All parties agree Seller shall remove all personal property not included in the sale and any debris or trash from the Property prior to final walk-through. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Post-Walk-Through Discovery",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Post-Discovery",
+    "tags": "Walkthrough, Post-Walk-Through, Material Damage, Loss, Notification, Resolution, Repair, Credit, Insurance Claim, Contract Cancellation, Deposit Refund",
+    "snippet": "All parties agree that if Buyer discovers material damage or loss to the Property during final walk-through, Buyer shall promptly notify Seller, and the parties shall have [X] days to resolve via repair, credit, or insurance claim assignment. If unresolved, Buyer may cancel and receive a full refund of deposit. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Waiver of Final Walk-Through",
+    "side": "buyer, seller",
+    "category": "Walkthrough",
+    "topic": "Walk-Through Waiver",
+    "tags": "Walkthrough, Waiver, Final Walk-Through, Present Condition, Seller Obligations, Agreement",
+    "snippet": "All parties agree that if Buyer elects to waive the final walk-through inspection, Buyer accepts the Property in its present condition, subject only to Seller's obligations expressly stated in this Agreement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller Warranty – Systems in Working Order",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "Systems Warranty",
+    "tags": "Warranty, Systems Warranty, HVAC, Plumbing, Electrical, Roof, Pool Equipment, Built-in Appliances, Working Order, Closing Date",
+    "snippet": "All parties agree Seller warrants that all major systems (HVAC, plumbing, electrical, roof, pool equipment, and built-in appliances) shall be in working order as of the Closing Date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller Warranty – Roof Condition",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "Roof Warranty",
+    "tags": "Warranty, Roof Warranty, Active Leaks, Transferable Warranty, Warranty Assignment, Closing Date",
+    "snippet": "All parties agree Seller warrants that the roof shall be free of active leaks as of the Closing Date, and any existing transferable roof warranty shall be assigned to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Home Warranty Plan Provided by Seller",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "Home Warranty",
+    "tags": "Warranty, Home Warranty, Licensed Provider, Major Systems, Appliances, One-Year Coverage, Closing",
+    "snippet": "All parties agree Seller shall purchase and provide Buyer with a one-year home warranty plan from a licensed provider at Closing, covering major systems and appliances. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Assignment of Manufacturer / Contractor Warranties",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "Warranty Assignment",
+    "tags": "Warranty, Warranty Assignment, Transferable Warranties, Roofing, Appliances, HVAC, Windows, Improvements, Documentation, Closing",
+    "snippet": "All parties agree Seller shall assign to Buyer at Closing all transferable warranties for roofing, appliances, HVAC, windows, and other improvements, along with related documentation. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Buyer Acknowledgement of \"As-Is\" Sale",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "As-Is Acknowledgement",
+    "tags": "Warranty, As-Is Sale, No Warranties, Present Condition, Specific Warranties, Agreement",
+    "snippet": "All parties agree Buyer accepts the Property in its present \"as-is\" condition, with no warranties expressed or implied, except as specifically set forth in this Agreement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Limited Warranty on Agreed Repairs",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "Repair Warranty",
+    "tags": "Warranty, Repair Warranty, Workmanlike Manner, Defects, Timeline, Post-Closing",
+    "snippet": "All parties agree Seller warrants that any repairs made prior to Closing shall be completed in a workmanlike manner and shall be free from defects for a period of [X] days after Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "No Warranty on Personal Property",
+    "side": "buyer, seller",
+    "category": "Warranty",
+    "topic": "Personal Property Warranty",
+    "tags": "Warranty, No Warranty, Personal Property, Condition, Functionality, Washer, Dryer, Refrigerator, Window Treatments",
+    "snippet": "All parties agree that Seller makes no warranty as to the condition or continued functionality of personal property items (e.g., washer, dryer, refrigerator, window treatments) that convey with the sale. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Buyer Name Correction",
+    "side": "buyer, seller",
+    "category": "Name",
+    "topic": "Party Information",
+    "tags": "Name, Buyer, Correction",
+    "snippet": "All parties hereby agree to amend the Contract to reflect the correct legal name of the Buyer as [Insert Corrected Buyer Name]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Title in LLC or Trust",
+    "side": "buyer, seller",
+    "category": "Name",
+    "topic": "Title Transfer",
+    "tags": "Name, Title, LLC, Trust, Ownership",
+    "snippet": "The parties agree that Buyer shall take title in the name of [Insert Name of LLC or Trust], and hereby amend the contract and all addenda accordingly. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Add Spouse as Buyer",
+    "side": "buyer, seller",
+    "category": "Name",
+    "topic": "Party Addition",
+    "tags": "Name, Buyer, Spouse, Addition",
+    "snippet": "All parties agree to amend the contract and all addenda to include [Spouse's Full Name] as an additional Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Remove Buyer from Contract",
+    "side": "buyer, seller",
+    "category": "Name",
+    "topic": "Party Removal",
+    "tags": "Name, Buyer, Removal, Obligations",
+    "snippet": "All parties agree that <Buyer's Full Name> is hereby removed as a Buyer to the Contract. The remaining Buyer(s) shall assume all obligations under the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Personal Property in As-Is Condition",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "As-Is Condition",
+    "tags": "Personal Property, As-Is, No Warranties, Present Condition",
+    "snippet": "All parties agree that any personal property included in the sale shall convey in its present \"as-is\" condition, with no warranties expressed or implied. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Removal of Unwanted Personal Property",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "Removal Timeline",
+    "tags": "Personal Property, Removal, Timeline, Abandoned Property, Buyer Responsibility",
+    "snippet": "All parties agree Seller shall remove all personal property not specifically included in the contract no later than [X] days prior to Closing. Any personal property remaining at Closing shall be deemed abandoned and become Buyer's responsibility. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Post-Closing Removal Agreement",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "Post-Closing Removal",
+    "tags": "Personal Property, Post-Closing, Seller Risk, Seller Expense, Loss Theft Damage, Buyer Non-Responsibility",
+    "snippet": "All parties agree Seller may leave the following personal property listed below in the subject property until [X] days after Closing, at Seller's sole risk and expense. Buyer shall not be responsible for loss, theft, or damage to such property. (list all items remaining at the subject property) All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Value Allocation Disclaimer",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "Value Disclaimer",
+    "tags": "Personal Property, Value Disclaimer, No Separate Value, Purchase Price, Financing, Appraisal",
+    "snippet": "All parties agree that no separate monetary value shall be assigned to personal property included in this sale, and such items shall not be considered part of the purchase price for financing or appraisal purposes. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Buyer Inspection of Personal Property",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "Buyer Inspection",
+    "tags": "Personal Property, Buyer Inspection, Final Walk-through, Present Condition, Contracted Condition",
+    "snippet": "All parties agree Buyer shall have the right to inspect included personal property during the final walk-through to confirm items are present and in substantially the same condition as when contracted. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Tenant-Owned Personal Property",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "Tenant Property",
+    "tags": "Personal Property, Tenant-Owned, Excluded from Sale, Tenant Property",
+    "snippet": "All parties agree Seller shall not convey any personal property owned by tenant(s), and Buyer acknowledges such items are excluded from the sale. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Hazardous / Restricted Items",
+    "side": "buyer, seller",
+    "category": "Personal Property",
+    "topic": "Hazardous Items",
+    "tags": "Personal Property, Hazardous Items, Restricted Items, Non-Transferable, Chemicals, Firearms, Alcohol Collections, Seller Responsibility",
+    "snippet": "All parties agree Seller shall not leave or convey hazardous, restricted, or non-transferable personal property (e.g., chemicals, firearms, alcohol collections, etc.). Seller shall be solely responsible for removal prior to Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Property Address Correction",
+    "side": "buyer, seller",
+    "category": "Address",
+    "topic": "Property Information",
+    "tags": "Address, Property, Correction",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect the correct property address as <Insert Correct Address>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Property Folio Number Correction",
+    "side": "buyer, seller",
+    "category": "Property",
+    "topic": "Property Information",
+    "tags": "Property, Folio, Correction, Identification",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect the correct property folio number as <Insert Correct Folio Number>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Property Address and Folio Number Correction",
+    "side": "buyer, seller",
+    "category": "Property",
+    "topic": "Property Information",
+    "tags": "Property, Address, Folio, Correction, Identification",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect the correct property address as <Insert Correct Address> and the correct property folio number as <Insert Correct Folio Number>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Property Legal Description Correction",
+    "side": "buyer, seller",
+    "category": "Property",
+    "topic": "Property Information",
+    "tags": "Property, Legal Description, Correction, Identification",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect the correct legal description of the property as follows: <Insert Correct Legal Description>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Property Damage Prior to Closing",
+    "side": "buyer, seller",
+    "category": "Property",
+    "topic": "Property Damage",
+    "tags": "Property, Damage, Casualty, Disaster, Repairs, Insurance Claim, Contract Cancellation, Deposit Refund",
+    "snippet": "All parties agree that if the Property is damaged by casualty or disaster prior to Closing, the parties shall have [X] days to agree on repairs or insurance claim assignment; otherwise, Buyer may cancel and deposit shall be refunded. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Property Utility Continuation",
+    "side": "buyer, seller",
+    "category": "Property",
+    "topic": "Utility Continuation",
+    "tags": "Property, Utilities, Continuation, Inspections, Walk-through, Buyer Occupancy, Closing Day",
+    "snippet": "All parties agree Seller shall maintain all utilities active through the day of Closing to allow for inspections, walk-through, and immediate Buyer occupancy. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Personal Property Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Personal Property",
+    "tags": "Inclusions, Personal Property, Items, Sale",
+    "snippet": "All parties agree to confirm that the following personal property and items described below are included in the sale, as part of the contract and all addenda: [Insert list of items, e.g., washer, dryer, chandelier, window treatments, etc.]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Personal Property – No Value Assigned",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Personal Property",
+    "tags": "Inclusions, Personal Property, No Value, Convenience",
+    "snippet": "All parties agree that any personal property remaining at the subject property at the time of closing is left for the mutual convenience of the buyer and seller, and no monetary value is assigned or shall be attributed to such items. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Appliance Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Appliances",
+    "tags": "Inclusions, Appliances, Refrigerator, Oven Range, Microwave, Dishwasher, Washer, Dryer, Built-in Appliances, Working Condition",
+    "snippet": "All parties agree that the following appliances shall be included in the sale in their current working condition: refrigerator(s), oven/range, microwave, dishwasher, washer, dryer, and any other built-in kitchen or laundry appliances. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Fixture & System Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Fixtures and Systems",
+    "tags": "Inclusions, Fixtures, Ceiling Fans, Light Fixtures, Window Treatments, Built-in Shelving, Built-in Speakers, Garage Door Openers, Pool Equipment, Irrigation Systems",
+    "snippet": "All parties agree that all fixtures, ceiling fans, light fixtures, window treatments, built-in shelving, built-in speakers, garage door openers, pool equipment, and irrigation systems shall be included in the sale, unless otherwise excluded in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Smart Home / Technology Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Smart Home Technology",
+    "tags": "Inclusions, Smart Home, Technology, Thermostats, Doorbell Cameras, Security Systems, Integrated Equipment, Third-Party Subscriptions, Cloud Services",
+    "snippet": "All parties agree the following smart home devices shall remain with the property: thermostats, doorbell cameras, security systems, and other integrated equipment. Buyer acknowledges that third-party subscriptions or cloud-based services are not included. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Outdoor & Recreational Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Outdoor Features",
+    "tags": "Inclusions, Outdoor, Recreational, Pool Equipment, Spa Equipment, Outdoor Kitchens, Built-in Grills, Attached Playsets, Sheds, Permanently Installed",
+    "snippet": "All parties agree the following outdoor property items shall remain: pool/spa equipment, outdoor kitchens, built-in grills, attached playsets, sheds (if not portable), and any permanently installed outdoor features. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Furniture / Staging Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Furniture and Staging",
+    "tags": "Inclusions, Furniture, Staging, Décor, Seller Ownership, Free of Liens, Conveyance",
+    "snippet": "All parties agree the following furniture, décor, or staging items shall remain with the property: [list items]. Seller affirms ownership and ability to convey such items free of liens. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller Warranty on Inclusions",
+    "side": "buyer, seller",
+    "category": "Inclusions",
+    "topic": "Seller Warranty",
+    "tags": "Inclusions, Seller Warranty, Working Order, Personal Property, Fixtures, Final Walk-through, Verification",
+    "snippet": "All parties agree Seller warrants that all included personal property and fixtures shall be in working order as of Closing. Buyer shall have the right to verify during final walk-through. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Personal Property Excluded",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Personal Property",
+    "tags": "Exclusions, Personal Property, Items, Sale",
+    "snippet": "All parties agree to clarify that the following personal property items, though previously mentioned, are excluded from the sale and shall not convey with the property: [Insert excluded items, e.g., dining room chandelier, mounted TVs, etc.], as part of the contract and all addenda. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Specific Item Exclusion",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Specific Items",
+    "tags": "Exclusions, Specific Items, Seller's Property, Dining Chandelier, Washer Dryer, Smart Home Devices",
+    "snippet": "All parties agree the following items are expressly excluded from the sale and shall remain Seller's property: [list items, e.g., dining chandelier, washer/dryer, smart home devices]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Landscaping / Outdoor Exclusions",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Landscaping",
+    "tags": "Exclusions, Landscaping, Outdoor Features, Potted Plants, Outdoor Furniture, Playsets",
+    "snippet": "All parties agree the following landscaping and outdoor features are excluded from the sale: [list items, e.g., potted plants, outdoor furniture, playsets]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Staging & Décor Items",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Staging Items",
+    "tags": "Exclusions, Staging, Décor, Furniture, Artwork, Decorative Items, Written Inclusion",
+    "snippet": "All parties agree that any furniture, staging items, artwork, or decorative items present at the time of showing are excluded from the sale unless specifically listed in writing as included. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Fixture vs. Personal Property Clarification - Buyer Protective",
+    "side": "buyer",
+    "category": "Exclusions",
+    "topic": "Fixture Clarification",
+    "tags": "Exclusions, Fixture, Personal Property, Buyer Protective, Bolt, Screw, Wiring, Plumbing, Permanent Installation",
+    "snippet": "All parties agree that any item attached to the property by bolt, screw, wiring, plumbing, or permanent installation shall be deemed a fixture and included in the sale unless expressly excluded in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Fixture vs. Personal Property Clarification - Seller Protective",
+    "side": "seller",
+    "category": "Exclusions",
+    "topic": "Fixture Clarification",
+    "tags": "Exclusions, Fixture, Personal Property, Seller Protective, Specifically Identified, Affixed Items",
+    "snippet": "All parties agree that only items specifically identified as included in the contract shall convey; all other items shall be deemed excluded, whether or not affixed. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Audio/Visual & Smart Home Exclusions",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Smart Home Devices",
+    "tags": "Exclusions, Audio Visual, Smart Home, Speakers, Cameras, Thermostats, Security Equipment, Removal",
+    "snippet": "All parties agree Seller shall remove personal smart home devices, including but not limited to speakers, cameras, thermostats, and security equipment, prior to Closing. Buyer acknowledges such systems are excluded unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Appliance Substitution",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Appliance Substitution",
+    "tags": "Exclusions, Appliance Substitution, Washer, Dryer, Refrigerator, Comparable Models, Written Notice",
+    "snippet": "All parties agree Seller reserves the right to substitute appliances (washer, dryer, refrigerator) with comparable working models prior to Closing, provided Buyer is notified in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller Removal Timeline",
+    "side": "buyer, seller",
+    "category": "Exclusions",
+    "topic": "Removal Timeline",
+    "tags": "Exclusions, Seller Removal, Timeline, Prior to Closing, After Closing, Mutual Agreement",
+    "snippet": "All parties agree Seller shall remove excluded items no later than [X] days prior to Closing or within [X] days after Closing if mutually agreed. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Property Condition at Closing",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Property Condition",
+    "tags": "Additional, Property Condition, Closing, Broom-Swept",
+    "snippet": "All parties agree that the property shall be delivered in broom-swept condition, free of personal belongings and debris, at the time of closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Seller's Property Disclosure Request",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Disclosure",
+    "tags": "Additional, Disclosure, Seller, Property Disclosure",
+    "snippet": "All parties agree that the seller shall deliver a fully completed and signed Seller's Property Disclosure Statement within five (5) days from the effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Resolution of Permits and Violations Prior to Closing",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Permits and Violations",
+    "tags": "Additional, Permits, Violations, Code, Closing",
+    "snippet": "All parties agree that the seller shall be solely responsible for resolving and closing all open, expired, or active permits and/or code violations affecting the subject property prior to closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Price Reduction",
+    "side": "buyer, seller",
+    "category": "Price",
+    "topic": "Sales Price",
+    "tags": "Price, Reduction, Sales Price, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect a reduced sales price from <original price> to <new price>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Price Reduction with Credit Removal",
+    "side": "buyer, seller",
+    "category": "Price",
+    "topic": "Sales Price",
+    "tags": "Price, Reduction, Sales Price, Credits, Concessions, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect a reduced sales price from <original price> to <new price>. Any and all previously agreed upon credits, contributions, or concessions from Seller to Buyer shall be deemed null and void. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Price Reduction and Credit Adjustment",
+    "side": "buyer, seller",
+    "category": "Price",
+    "topic": "Sales Price",
+    "tags": "Price, Reduction, Sales Price, Credits, Adjustment, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect a reduced sales price from <original price> to <new price>. Additionally, the previously agreed upon credit from Seller to Buyer is hereby reduced from <original credit amount> to <new credit amount>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Price Increase with Buyer Credit",
+    "side": "buyer, seller",
+    "category": "Price",
+    "topic": "Sales Price",
+    "tags": "Price, Increase, Sales Price, Credits, Closing Costs, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect an increased sales price from <original price> to <new price>. Seller agrees to credit Buyer <credit amount> at closing to be applied toward Buyer's closing costs and prepaid items. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Price Increase with Credit and Adjusted Commission Basis",
+    "side": "buyer, seller",
+    "category": "Price",
+    "topic": "Sales Price",
+    "tags": "Price, Increase, Sales Price, Credits, Commission, Net Purchase Price, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to reflect an increased sales price from <original price> to <new price>. Seller agrees to credit Buyer <credit amount> at closing to be applied toward Buyer's closing costs and prepaid items. It is further agreed that any real estate commissions due shall be calculated based on the net purchase price (defined as the new purchase price less the credit provided to Buyer). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Standard Tax Proration",
+    "side": "buyer, seller",
+    "category": "Prorations",
+    "topic": "Tax Proration",
+    "tags": "Prorations, Tax Proration, Real Property Taxes, Closing Date, Post-Closing Adjustment, Tax Bill",
+    "snippet": "All parties agree real property taxes shall be prorated as of the Closing Date based on the most recent tax bill available, subject to post-closing adjustment once the actual tax bill is issued. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "HOA/Condo Fees Proration",
+    "side": "buyer, seller",
+    "category": "Prorations",
+    "topic": "Association Fees",
+    "tags": "Prorations, HOA, Condo, Association Assessments, Regular Dues, Special Assessments, Closing Date",
+    "snippet": "All parties agree homeowner/condominium association assessments (regular dues) shall be prorated through the Closing Date. Any special assessments not yet due as of Closing shall be the responsibility of [Seller/Buyer], unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Rental Income / Security Deposit Proration",
+    "side": "buyer, seller",
+    "category": "Prorations",
+    "topic": "Rental Proration",
+    "tags": "Prorations, Rental Income, Security Deposits, Prepaid Rents, Tenant Estoppel, Closing Transfer",
+    "snippet": "All parties agree any rents collected, prepaid rents, and tenant security deposits shall be prorated and transferred at Closing, with Seller providing a signed Tenant's Estoppel. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Agricultural / Seasonal Income Proration",
+    "side": "buyer, seller",
+    "category": "Prorations",
+    "topic": "Agricultural Income",
+    "tags": "Prorations, Agricultural Income, Crop Proceeds, Seasonal Income, Closing Date, Proration",
+    "snippet": "All parties agree that agricultural income, crop proceeds, or seasonal income attributable to the Property shall be prorated between Buyer and Seller as of the Closing Date, unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "General Repairs Completion",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "General Repairs",
+    "tags": "Repairs, General Repairs, Inspection Report, Seller Expense, Receipts, Contractor Invoices, Timeline",
+    "snippet": "All parties agree Seller, at Seller's expense, shall complete all repairs outlines on the inspection report no later than [X] days prior to Closing and provide receipts or contractor invoices evidencing work. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Licensed Contractor Requirement",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Contractor Requirements",
+    "tags": "Repairs, Licensed Contractor, Insured Contractor, Permits, Handyman, Unlicensed Repairs",
+    "snippet": "All parties agree that any required repairs shall be performed by appropriately licensed and insured contractors, with all permits closed prior to Closing. Handyman or unlicensed repairs shall not satisfy this requirement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Walk-Through Repair Verification",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Repair Verification",
+    "tags": "Repairs, Walk-Through, Repair Verification, Final Walk-Through, Escrow, Seller Proceeds, Completion Confirmation",
+    "snippet": "All parties agree Buyer shall have the right to verify completion of agreed repairs during final walk-through. Failure to complete repairs as agreed shall allow Buyer to escrow up to [$X] from Seller's proceeds until work is confirmed. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Post-Closing Repair Escrow",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Post-Closing Escrow",
+    "tags": "Repairs, Post-Closing, Escrow, Seller Proceeds, Completion, Written Confirmation, Contractor Certification",
+    "snippet": "All parties agree that [$X] of Seller's proceeds shall be held in escrow at Closing to cover completion of repairs. Escrowed funds shall be released to Seller upon Buyer's written confirmation or contractor certification of completion. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Seller Repair",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Seller Repairs",
+    "tags": "Repairs, Seller Repair, Licensed Professionals, Re-inspection, Paid Receipts, 10 Days Prior",
+    "snippet": "All parties agree that Seller will, at Seller's expense, complete the following repairs: [List Repairs as Outlined on the Inspection Report]. Said repairs shall be performed by licensed professionals in the appropriate trades and completed no later than ten (10) days prior to Closing. Buyer shall have the right to re-inspect the subject property to confirm completion and quality of such repairs. Seller shall provide Buyer with paid receipts or invoices evidencing completion of all repairs. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Repair and Credit Hybrid",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Repair and Credit",
+    "tags": "Repairs, Repair and Credit, Licensed Professionals, Re-inspection, Paid Receipts, Closing Credit",
+    "snippet": "All parties agree that Seller will, at Seller's expense, complete the following repairs: [List Repairs as Outlined on the Inspection Report]. Said repairs shall be performed by licensed professionals in the appropriate trades and completed no later than ten (10) days prior to Closing. Buyer shall have the right to re-inspect the subject property to confirm completion and quality of such repairs. Seller shall provide Buyer with paid receipts or invoices evidencing completion of all repairs. In addition to the repairs, Seller shall provide Buyer a credit in the amount of $[AMOUNT] at Closing, to be applied towards buyer's closing costs, and/or any prepaid items. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Walk-Through Repairs Clause",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Walk-Through Repairs",
+    "tags": "Repairs, Walk-Through, Final Inspection, Utilities Connected, Property Condition, Repair Verification",
+    "snippet": "All parties agree that Buyer shall have the right to conduct a final walk-through inspection of the Property within [X days] prior to Closing, and Seller shall ensure that utilities remain connected for such inspection. Buyer may verify that the Property is in substantially the same condition as of the Effective Date and that any agreed repairs have been completed. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Repair Credit Cap",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Repair Credit Limit",
+    "tags": "Repairs, Repair Credit Cap, Aggregate Limit, Inspection Repairs, Buyer Responsibility, Cost Cap",
+    "snippet": "All parties agree that Seller shall not be required to provide repairs or credits under this Contract in excess of $[Amount] in the aggregate. Any inspection-related repair request or credit exceeding said amount shall be the sole responsibility of Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Escrow Holdback for Repairs/Compliance",
+    "side": "buyer, seller",
+    "category": "Repairs",
+    "topic": "Escrow Holdback",
+    "tags": "Repairs, Escrow Holdback, Repairs, Permits, Association Violations, Seller Proceeds, Escrow Release",
+    "snippet": "All parties agree that if repairs, permits, or association violations are not fully resolved prior to Closing, the sum of $[amount] shall be withheld from Seller's proceeds and held in escrow until such items are completed or satisfied, at which point funds shall be released to Seller. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Standard Disclosure Request",
+    "side": "buyer, seller",
+    "category": "Seller's Disclosure",
+    "topic": "Standard Disclosure",
+    "tags": "Seller's Disclosure, Standard Disclosure, Property Disclosure Statement, Effective Date, Timeline",
+    "snippet": "All parties agree Seller shall provide a completed and signed Seller's Property Disclosure Statement within [X] days of Effective Date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Updated Disclosure Requirement",
+    "side": "buyer, seller",
+    "category": "Seller's Disclosure",
+    "topic": "Updated Disclosure",
+    "tags": "Seller's Disclosure, Updated Disclosure, Material Changes, Amended Disclosure, Prior to Closing",
+    "snippet": "All parties agree Seller shall update and deliver an amended Seller's Property Disclosure Statement if any material changes to the condition of the subject property occur prior to Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Disclosure as Condition to Inspection Period",
+    "side": "buyer, seller",
+    "category": "Seller's Disclosure",
+    "topic": "Disclosure Condition",
+    "tags": "Seller's Disclosure, Disclosure Condition, Inspection Period, Property Disclosure Statement, Commencement",
+    "snippet": "All parties agree that the Inspection Period shall not commence until Buyer has received Seller's completed Seller's Property Disclosure Statement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Failure to Deliver Disclosure",
+    "side": "buyer, seller",
+    "category": "Seller's Disclosure",
+    "topic": "Disclosure Failure",
+    "tags": "Seller's Disclosure, Disclosure Failure, Effective Date, Contract Cancellation, Deposit Refund",
+    "snippet": "All parties agree that if Seller fails to provide the completed Seller's Property Disclosure Statement within [X] days of Effective Date, Buyer may cancel this Agreement and receive a refund of all deposits. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Third Deposit Extension",
+    "side": "buyer, seller",
+    "category": "Deposit",
+    "topic": "Deposit Timeline",
+    "tags": "Deposit, Extension, Third Deposit, Timeline",
+    "snippet": "Buyer and Seller hereby agree to extend the second deposit deadline to on or before <insert date>. All other terms and conditions shall remain the same.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Deposit Amount Modification",
+    "side": "buyer, seller",
+    "category": "Deposit",
+    "topic": "Deposit Amount",
+    "tags": "Deposit, Amount, Modification, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to modify the third deposit amount. The previously agreed upon <first, second or third> deposit of <original amount> shall be adjusted to <new amount>, due on the date originally specified. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Deposit Removal",
+    "side": "buyer, seller",
+    "category": "Deposit",
+    "topic": "Deposit Requirements",
+    "tags": "Deposit, Removal, Requirements, Amendment",
+    "snippet": "All parties agree to amend the contract and all addenda to remove the requirement for a <second, third> deposit. No <second, third> deposit shall be due, and all references to a <second, third> deposit shall be deemed null and void. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Change of Escrow and Closing Agent",
+    "side": "buyer, seller",
+    "category": "Title Selection",
+    "topic": "Escrow and Closing",
+    "tags": "Title Selection, Escrow, Closing Agent, Title Company",
+    "snippet": "All parties agree to amend the contract to designate <new company name, address, phone number and email for the closer> as the Escrow Agent and Closing Agent for this transaction, in place of the party named on line 33 of the contract. <New company name> shall be responsible for holding all deposits and conducting the closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Access & Scheduling Window",
+    "side": "buyer, seller",
+    "category": "Access",
+    "topic": "Property Access",
+    "tags": "Access, Scheduling, Inspections, Appraisal, Insurance, Notice",
+    "snippet": "All parties agree to provide reasonable property access for inspections, appraisal, and insurance within [X-hour] windows on [days/times], with [24] hours' notice. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Appraisal Gap Coverage",
+    "side": "buyer, seller",
+    "category": "Appraisal",
+    "topic": "Appraisal Shortfall",
+    "tags": "Appraisal, Gap Coverage, Shortfall, Lender Approval",
+    "snippet": "All parties agree Buyer may cover an appraisal shortfall up to [$X] to maintain current sales price and proceed to Closing, subject to final lender approval. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Appraisal Re-inspection",
+    "side": "buyer, seller",
+    "category": "Appraisal",
+    "topic": "Appraisal Updates",
+    "tags": "Appraisal, Re-inspection, Rush Appraisal, Lender Requirements",
+    "snippet": "All parties agree Buyer or Buyer's Lender may order, and parties will cooperate with, any lender-required re-inspection or rush appraisal update; associated access will be provided within [X] days. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "HOA/Condo Docs Delivery",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Documents",
+    "tags": "Additional, HOA, Condo, Association Documents, Delivery",
+    "snippet": "All parties agree this contract is subject to Seller (or association/management) providing all available and requested association documents, as outlined on section <insert section number here> of the condo rider within [X] days from effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "No Early/Post-Closing Occupancy Without Agreement",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Occupancy",
+    "tags": "Additional, Occupancy, Early Occupancy, Post-Closing, Keys",
+    "snippet": "All parties agree there will be no early occupancy or post-closing occupancy unless a separate, fully executed agreement is signed by all parties; until then, keys convey at Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Appraisal Order By Date",
+    "side": "buyer, seller",
+    "category": "Appraisal",
+    "topic": "Appraisal Timeline",
+    "tags": "Appraisal, Order Date, Timeline, Notification",
+    "snippet": "All parties agree Buyer will order the appraisal no later than [date] and will notify all parties in writing when scheduled. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Appraisal Contingency Extension - Buyer-Protective",
+    "side": "buyer",
+    "category": "Appraisal",
+    "topic": "Appraisal Extension",
+    "tags": "Appraisal, Extension, Buyer Protective, Appraisal Deadline, Timeline Extension",
+    "snippet": "All parties agree to extend the appraisal contingency period to <insert date>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Low Appraisal Negotiation",
+    "side": "buyer, seller",
+    "category": "Appraisal",
+    "topic": "Low Appraisal",
+    "tags": "Appraisal, Low Appraisal, Negotiation, Good Faith, Renegotiation Period, Contract Cancellation, Deposit Refund",
+    "snippet": "All parties agree that if the appraisal value is less than the purchase price, Buyer and Seller shall have [X] days to renegotiate terms in good faith. If no agreement is reached, either party may cancel, and deposit shall be returned to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller Right to Cure Appraisal Deficiency",
+    "side": "seller",
+    "category": "Appraisal",
+    "topic": "Appraisal Deficiency",
+    "tags": "Appraisal, Low Appraisal, Seller Right, Price Reduction, Appraised Value, Buyer Option, Proceed or Cancel",
+    "snippet": "All parties agree that if the appraisal returns below the purchase price, Seller shall have the option to reduce the purchase price to the appraised value within [X] days of receiving notice. If Seller declines, Buyer may proceed towards closing or cancel the contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Appraisal Waiver Acknowledgement",
+    "side": "buyer",
+    "category": "Appraisal",
+    "topic": "Appraisal Waiver",
+    "tags": "Appraisal, Waiver, No Contingency, Buyer Responsibility, Variance Acceptance",
+    "snippet": "All parties agree Buyer hereby waives the appraisal contingency and accepts responsibility for any variance between the appraised value and the purchase price. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Pending/Special Assessment Notice",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Assessments",
+    "tags": "Additional, Special Assessment, HOA, Association, Notice",
+    "snippet": "All parties agree Seller will notify Buyer in writing of any known voted or pending special assessments or material association notices received prior to Closing for this contract and all addenda. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Loan Type Change (Conventional ⇄ FHA/VA)",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Program",
+    "tags": "Financing, Loan Type, FHA, VA, USDA, Conventional, Pre-approval",
+    "snippet": "All parties agree Buyer may change the loan program to [FHA/VA/USDA/Conventional] without changing price or other terms, provided Buyer delivers an updated pre-approval within [X] days. Buyer and Seller will execute any program-specific forms required (e.g., FHA/VA Amendatory Clause) and cooperate with any program-required re-inspection/appraisal upon request. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Down Payment Modification",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Down Payment",
+    "tags": "Financing, Down Payment, Proof of Funds, Lender Letter",
+    "snippet": "All parties agree Buyer may adjust Buyer's down payment to [no less than __% of price], with no change to purchase price or Seller costs beyond previously agreed concessions. Buyer will provide updated proof of funds and updated lender letter within [X] days from effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Interest Rate / Points / Buydown",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Interest Rate",
+    "tags": "Financing, Interest Rate, Points, Buydown, Seller Credit, Closing Disclosure",
+    "snippet": "All parties agree Buyer may lock or adjust the interest rate and purchase discount points at Buyer's option; any Seller credit toward points/buydown shall not exceed [$X]/[__%] and will be applied only to allowable financing costs per lender guidelines. Any excess credit will be reduced to the allowable amount on the Closing Disclosure. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Loan Amount Change",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Amount",
+    "tags": "Financing, Loan Amount, PMI, MIP, Buydown, Appraisal, Loan Estimate",
+    "snippet": "All parties agree Buyer may adjust the base loan amount (e.g., PMI/MIP thresholds, buydown, appraisal outcome) without changing the purchase price or increasing Seller's costs beyond agreed concessions. Buyer will provide an updated Loan Estimate/approval within [X] days from effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Lender Change",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Lender",
+    "tags": "Financing, Lender Change, Appraisal, Re-inspection, Closing Extension, Disclosure",
+    "snippet": "All parties agree Buyer may change lenders by delivering written notice within [X] days form effective date. If a new appraisal or re-inspection is required, access will be provided within [X] days. Closing may be extended [up to __ business days] only to satisfy lender/underwriter and mandatory federal disclosure waiting periods. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "TRID / Disclosure Timing Cushion",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "TRID Compliance",
+    "tags": "Financing, TRID, Disclosure, Waiting Periods, Closing Date, Federal Compliance",
+    "snippet": "All parties agree the Closing Date may be adjusted [up to __ calendar days] solely to comply with mandatory federal disclosure/waiting periods (e.g., issuance or re-issuance of the Closing Disclosure) with prompt written notice to all parties. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Appraisal Transfer on Lender Change",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Appraisal Transfer",
+    "tags": "Financing, Appraisal Transfer, Lender Change, Reassignment, Access",
+    "snippet": "All parties agree Buyer will request an appraisal transfer/reassignment to any new lender; if not accepted, Buyer may order a new appraisal and will coordinate access within [X] days. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Rate-Lock Confirmation Status",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Rate Lock",
+    "tags": "Financing, Rate Lock, Expiration, Re-disclosure, TRID",
+    "snippet": "All parties agree Buyer will notify the file thread of rate-lock status and expiration date within [X] days of locking; any lender-required re-disclosure triggered by rate changes will be handled per the TRID clause herein for this contract and all addenda. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Updated Approval on Material Change",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Approval Updates",
+    "tags": "Financing, Conditional Approval, Pre-approval, Material Change, Closing Date",
+    "snippet": "All parties agree Buyer will provide an updated conditional approval or pre-approval within [X] days after any material change (loan type, down payment, loan amount, lender change), confirming ability to close on or before the agreed Closing Date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Loan Approval Deadline Extension",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Approval",
+    "tags": "Financing, Loan Approval, Deadline, Extension",
+    "snippet": "All parties agree the Buyer's loan approval dealdine as defined on (insert section here) is hereby extended to <DATE>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Loan Approval Extension / No Further Extensions",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Approval",
+    "tags": "Financing, Loan Approval, Extension, No Further Extensions, Final Extension",
+    "snippet": "All parties agree the Buyer's loan approval deadline, as defined in <enter section here>, is hereby extended to [DATE]. All parties agree that no additional extensions will be provided. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "No Outstanding Property-Related Conditions",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Approval",
+    "tags": "Financing, Loan Approval, Property Conditions, Extension, No Outstanding Conditions",
+    "snippet": "All parties agree the Buyer's loan approval dealdine as defined on (insert section here) is hereby extended to <DATE>. Buyer confirms there are no outstanding property-related conditions. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Effective Date Confirmation",
+    "side": "buyer, seller",
+    "category": "Effective Date",
+    "topic": "Contract Timeline",
+    "tags": "Effective Date, Contract Timeline, Date Confirmation",
+    "snippet": "All parties agree and acknowledge that the Effective Date of this Contract is [DATE]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Closing Date Extension",
+    "side": "buyer, seller",
+    "category": "Closing",
+    "topic": "Closing Timeline",
+    "tags": "Closing, Date Extension, Timeline",
+    "snippet": "All parties agree the closing date is hereby extended to [DATE]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Closing Date Extension — Per Diem to Seller",
+    "side": "buyer, seller",
+    "category": "Closing",
+    "topic": "Closing Timeline",
+    "tags": "Closing, Date Extension, Per Diem, Seller Compensation",
+    "snippet": "All parties agree the closing date is hereby extended to [DATE]. For the period from the previously scheduled closing date through the day before the new closing date, Buyer shall credit Seller [$X] per day as a per-diem consideration for the extension. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Closing Date Extension — Seller-Favorable Prorations",
+    "side": "buyer, seller",
+    "category": "Closing",
+    "topic": "Closing Timeline",
+    "tags": "Closing, Date Extension, Prorations, Seller-Favorable, Taxes, Association Dues",
+    "snippet": "All parties agree the closing date is hereby extended to [DATE]. For the period from the previously scheduled Closing Date through the day before the new Closing Date, prorations shall be adjusted to Seller's benefit such that Buyer credits Seller on the Closing Disclosure the daily prorated amounts for real property taxes and/or association dues/assessments. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Commission Split Clarification",
+    "side": "buyer, seller",
+    "category": "Commission",
+    "topic": "Commission Split",
+    "tags": "Commission, Split, Listing Broker, Selling Broker, Referral Fees, Third-Party Obligations",
+    "snippet": "All parties agree that the total commission of [X]% shall be divided between cooperating brokers as follows: [Y]% to Listing Broker and [Z]% to Selling Broker. Any referral fees or third-party obligations shall be the responsibility of the receiving broker. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Commission Protection / Procuring Cause",
+    "side": "buyer, seller",
+    "category": "Commission",
+    "topic": "Procuring Cause",
+    "tags": "Commission, Protection, Procuring Cause, Listing Broker, Buyer Introduction, Post-Expiration",
+    "snippet": "All parties agree Listing Broker shall be entitled to full commission if the Buyer introduced during the term of this Agreement closes on the Property within [X] days after expiration or cancellation of this Agreement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Commission Protection - Buyer Side",
+    "side": "buyer, seller",
+    "category": "Commission",
+    "topic": "Buyer Commission Protection",
+    "tags": "Commission, Protection, Buyer's Broker, Transaction Introduction, Commission Entitlement",
+    "snippet": "All parties agree Buyer's Broker shall remain entitled to commission if Buyer purchases the Property during the term of this Agreement, regardless of whether another party introduces the transaction. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Variable Commission Disclosure",
+    "side": "buyer, seller",
+    "category": "Commission",
+    "topic": "Variable Commission",
+    "tags": "Commission, Variable Commission, Disclosure, Representation, Offer Acceptance",
+    "snippet": "All parties agree that Listing Broker has disclosed the existence of a variable commission arrangement. Buyer acknowledges Seller may accept offers differently based on representation. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Commission Contingent on Closing",
+    "side": "buyer, seller",
+    "category": "Commission",
+    "topic": "Commission Payment",
+    "tags": "Commission, Payment, Closing Contingent, Funded Transaction, Written Agreement",
+    "snippet": "All parties agree that broker commissions are payable only upon successful closing and funded transaction, unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Reduction of Commission - Credits",
+    "side": "buyer, seller",
+    "category": "Commission",
+    "topic": "Commission Reduction",
+    "tags": "Commission, Reduction, Credits, Repairs, Seller's Broker, Closing Offset",
+    "snippet": "All parties agree Seller's Broker will reduce their commission from [$X] to [$X] to offset agreed Buyer credits and/or repairs at closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Vacant Delivery / Keys & Codes",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Property Delivery",
+    "tags": "Additional, Vacant Delivery, Keys, Codes, Access Devices, Tenants, Occupants",
+    "snippet": "All parties agree Seller will deliver the subject property at closing free of tenants, occupants, and future tenancies, with all personal items and trash removed. All keys, remotes, fobs, access devices, and access codes will be delivered to Buyer at the time of closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Keys/Access Inventory & Code Reset",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Property Access",
+    "tags": "Additional, Keys, Access, Inventory, Code Reset, Smart Home, Garage, Gate",
+    "snippet": "All parties agree Seller will provide a written inventory of keys/remotes/fobs/codes no later than [X] days before Closing and cooperate to reset/reprogram garage/gate/door and smart-home codes at Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Inventory",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Property Inventory",
+    "tags": "Additional, Inventory, Written Inventory, Timeline",
+    "snippet": "All parties agree Seller will provide a written inventory no later than [X] days after the effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Pre-Closing Occupancy Conditions (if using Rider T)",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Pre-Closing Occupancy",
+    "tags": "Tenant Occupancy, Pre-Closing, Rider T, Insurance, Deposit, Utilities",
+    "snippet": "All parties agree that if Buyer will take pre-Closing occupancy pursuant to Rider T, Buyer will (i) provide evidence of insurance naming the property address, (ii) place a deposit of [$X] with the closing agent, and (iii) transfer utilities effective [date]. Risk of loss and maintenance responsibility shall follow Section 6(a)/Rider T. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Post-Closing Occupancy Basics (if using Rider U)",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Post-Closing Occupancy",
+    "tags": "Tenant Occupancy, Post-Closing, Rider U, Daily Rate, Deposit, Vacate Date",
+    "snippet": "All parties agree that if Seller will occupy the subject property after closing pursuant to Rider U, Seller will pay [$X] per day through [vacate date], provide a deposit of [$Y], and deliver property broom-clean with no personal items at the end of the post occupancy term. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Properties Subject to Lease / Occupancy After Closing (when 6(b) is checked). Lease Package Delivery (5-Day Window)",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Lease Package",
+    "tags": "Tenant Occupancy, Lease Package, Rent Roll, Security Deposits, Property Manager",
+    "snippet": "All parties agree that within 5 days after Effective Date, Seller will deliver to Buyer complete copies of all written leases/occupancy agreements, any property manager agreement, current rent roll, and a schedule of security deposits/prepaid rent and future bookings, if any, consistent with Section 6(b). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Tenant Estoppel / Seller Affidavit",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Tenant Estoppel",
+    "tags": "Tenant Occupancy, Tenant Estoppel, Seller Affidavit, Closing Agent",
+    "snippet": "All parties agree Seller will obtain tenant estoppel letters in a form acceptable to buyer's closing agent within [X] days form closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Assignment of Leases; Deposits & Prepaids Transfer",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Lease Assignment",
+    "tags": "Tenant Occupancy, Assignment of Leases, Security Deposits, Prepaid Rents, Property Manager",
+    "snippet": "All parties agree that at Closing, Seller will execute an Assignment of Leases and Rents and credit Buyer for all security deposits and prepaid rents, with supporting ledger, and deliver any property manager change-of-management letter. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Prorations & Rents Beyond Closing",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Rent Prorations",
+    "tags": "Tenant Occupancy, Rent Prorations, Prepaid Rents, Closing Statement",
+    "snippet": "All parties agree that rents are prorated through the day before Closing; rents attributable to periods after Closing shall belong to Buyer, and unearned portions of prepaid rents shall be credited to Buyer on the closing statement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Short-Term/Vacation Bookings Transfer",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Vacation Rentals",
+    "tags": "Tenant Occupancy, Short-Term Rentals, Vacation Bookings, OTA, House Rules, Vendor Contacts",
+    "snippet": "All parties agree Seller will provide future booking ledger, OTA/payout schedules, house rules, and vendor contacts within [X] days from effective date; future stays after Closing and associated funds shall belong to Buyer, with appropriate credits to Buyer for any prepaid amounts. Cancellations or refunds for pre-Closing periods remain Seller's responsibility. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Tenant/Guest Notice of New Ownership",
+    "side": "buyer, seller",
+    "category": "Tenant Occupancy",
+    "topic": "Ownership Notice",
+    "tags": "Tenant Occupancy, Notice of New Ownership, Tenant Notice, Guest Notice, Remittance",
+    "snippet": "All parties agree Seller (or manager) will deliver a Notice of New Ownership/Remittance to tenants/guests effective at Closing and provide a copy to Buyer within [X] days after Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Walk-Throughs for Turnover Readiness",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Property Inspection",
+    "tags": "Additional, Walk-Throughs, Turnover, Vacant Delivery, Access Devices",
+    "snippet": "All parties agree Buyer may conduct up to [2] walk-throughs—one within [48] hours of Closing and one on the day of Closing—to verify vacant delivery, removal of personal items/trash, and functioning of access devices per Section 6(a). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Vendor Access for Turnover",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Vendor Access",
+    "tags": "Additional, Vendor Access, Turnover, Locksmith, IT, Smart Home, Cleaning",
+    "snippet": "All parties agree reasonable access will be provided for Buyer's vendors,  including but not limited to locksmith/IT/smart-home vendor and cleaning/trash-out within [X] days of Closing on [24] hours' notice to facilitate keys/codes reset and turnover. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Lockbox & Sign Removal",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Property Cleanup",
+    "tags": "Additional, Lockbox Removal, Sign Removal, Closing",
+    "snippet": "All parties agree any lockboxes and signage shall be removed no later than Closing.All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Personal Property Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Personal Property",
+    "tags": "Additional, Personal Property, Fixtures, Excluded Items, Included Items",
+    "snippet": "All parties agree attached fixtures convey with the sale; excluded items are limited to: [list]. Any additional personal property to convey wiht the sale shall be listed here: [list] and left on site at Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "HOA/Building Move-In/Move-Out Coordination",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "HOA Coordination",
+    "tags": "Additional, HOA, Building Access, Elevator Reservations, Gate Programming, Move-In",
+    "snippet": "All parties agree Seller will cooperate with any HOA/building access forms, elevator reservations, gate programming, and fees required for Buyer's move-in, with reasonable notice. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Allow Assignment",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Assignment Rights",
+    "tags": "Assignability, Assignment, Entity Control, Financing, Vesting, Estate Planning, Joint Liability",
+    "snippet": "All parties agree Buyer may assign this Contract to an entity controlled by the same principal(s) for financing/vesting/estate-planning purposes. Buyer remains jointly and severally liable and will deliver notice of assignee's legal name and EIN to closing agent within [X] days from effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Affiliate Assignment with Release",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Affiliate Assignment",
+    "tags": "Assignability, Affiliate Assignment, LLC, Trust, Release of Liability, Assumption Agreement",
+    "snippet": "All parties agree Buyer may assign this Contract to [named LLC/trust or any entity controlled by Buyer]; upon delivery of a written Assumption and/or Assignment Agreement signed by the assignee assuming all obligations, Buyer is released from further liability. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Lender/Title Vesting Change not an Assignment",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Vesting Changes",
+    "tags": "Assignability, Vesting Change, Trust, LLC, Lender Requirements, No Assignment",
+    "snippet": "All parties agree taking title in Buyer's trust/LLC or lender-required vesting name shall not be deemed an assignment and requires no Seller consent; Buyer remains liable under this Contract. Buyer will provide vesting name no later than [X] days before Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "1031 Exchange / QI Assignment",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "1031 Exchange",
+    "tags": "Assignability, 1031 Exchange, Qualified Intermediary, Tax Deferred Exchange",
+    "snippet": "All parties agree Buyer and/or Seller may complete a §1031 exchange; either party may assign to a qualified intermediary solely to effect the exchange at no additional cost or delay to the other party. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Additional Deposit on Assignment",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Assignment Deposits",
+    "tags": "Assignability, Additional Deposit, Third Party Assignment, Non-Refundable, Closing Agent",
+    "snippet": "All parties agree that upon any assignment to a third party, an additional deposit of [$X] will be delivered to the closing agent within [X] days of the assignment; such deposit is applied at Closing and non-refundable except in the event of Seller default or a contractual cancellation right. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "No Extensions Because of Assignment",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Assignment Timeline",
+    "tags": "Assignability, No Extensions, Deadlines, Contingencies, Closing Timeline",
+    "snippet": "All parties agree any assignment shall not extend or modify any deadlines or contingencies, including Closing, unless separately agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "No Assignment / Anti-Wholesaling — Seller-protective",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Anti-Wholesaling",
+    "tags": "Assignability, No Assignment, Anti-Wholesaling, Seller-Protective, No Marketing, No Recording",
+    "snippet": "All parties agree Buyer may not assign this Contract and may not advertise, list, or market the Property or this Contract for sale or assignment, nor record any memorandum/affidavit concerning this Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "No Assignment Except to Named Affiliate — Balanced",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Limited Assignment",
+    "tags": "Assignability, Named Affiliate, LLC, Trust, Joint Liability, Assignment Mechanics",
+    "snippet": "All parties agree Buyer may not assign this Contract except to [Named LLC/Trust]; assignor remains liable and shall deliver the executed Assignment/Assumption to closing agent within [X] days after effective date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Assignment Mechanics & Assumption — Neutral",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Assignment Process",
+    "tags": "Assignability, Assignment Mechanics, Legal Name, EIN, Assumption, Escrow, Deposits",
+    "snippet": "All parties agree any assignment shall be in writing, identify the assignee's legal name/EIN, and include the assignee's assumption of all obligations under this Contract. Buyer shall deliver a copy to Seller and closing agent within [X] days of execution. Deposits remain with the existing escrow and shall be credited to the assignee at Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "No Price Spread / No Seller Costs — Seller-protective",
+    "side": "buyer, seller",
+    "category": "Assignability",
+    "topic": "Assignment Costs",
+    "tags": "Assignability, No Price Spread, No Seller Costs, Seller-Protective, Purchase Price, No Compensation",
+    "snippet": "All parties agree Seller owes no fee or compensation to Buyer or any assignee connected to any assignment; purchase price and Seller costs remain unchanged. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Application & Response Time",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Application",
+    "tags": "Financing, Loan Application, Response Time, Document Requests, Timeline",
+    "snippet": "All parties agree Buyer will submit a completed loan application by [DATE] and respond to lender document requests within [48] hours. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Automatic Status Updates",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Status",
+    "tags": "Financing, Status Updates, Loan Approval Period, Appraisal Status, Conditional Approval, Property Conditions",
+    "snippet": "All parties agree Buyer will provide lender status updates every [X] business days through the Loan Approval Period confirming but not limited to: application received, appraisal ordered/scheduled/completed, conditional approval status, any outstanding or statisfied property-related conditions, and anticipated closing timeline. This is in addition to Section 8(b)(ii). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Denial/Status Letter on Termination",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Denial",
+    "tags": "Financing, Loan Denial, Termination, Section 8(b)(iv), Denial Letter, Redacted Details",
+    "snippet": "All parties agree that if Buyer terminates this contract under Section 8(b)(iv), Buyer shall provide a lender denial letter confirming inability to grant a Loan Approval (personal financial details may be redacted). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Appraisal Order & Access Window",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Appraisal Timeline",
+    "tags": "Financing, Appraisal Order, Access Window, Re-inspection, Timeline",
+    "snippet": "All parties agree Buyer will order appraisal by [DATE] and schedule access within [X] days; if a re-inspection is required, access will be provided within [X] days. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Insurance Binder & Inspections",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Insurance Requirements",
+    "tags": "Financing, Insurance Binder, Wind Mitigation, 4-Point Inspection, Buyer Expense, Access",
+    "snippet": "All parties agree Buyer will apply for insurance within [X] days from closing and may order wind mitigation and/or 4-Point at Buyer's expense; access will be provided consistent with Section 6 and 8(b). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "No Silent Waiver to Cash (Buyer-protective)",
+    "side": "buyer, seller",
+    "category": "Financing",
+    "topic": "Loan Contingency",
+    "tags": "Financing, No Silent Waiver, Buyer-Protective, Section 8(b), Loan Approval Period, Automatic Extension",
+    "snippet": "All parties agree that failure to deliver a notice under Section 8(b)(iii) or (iv) by the Loan Approval Period expiration does not convert this sale to cash under Section 8(b)(v); instead, this Contract shall automatically extend the Loan Approval Period to [DATE] unless the parties agree otherwise in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Reissue Credit + Prior Policy Copy",
+    "side": "buyer, seller",
+    "category": "Title Selection",
+    "topic": "Title Policy",
+    "tags": "Title Selection, Reissue Credit, Title Policy, Owner Policy, Closing Statement",
+    "snippet": "All parties agree Seller will provide a legible copy of the most recent owner's title policy (if any) within 5 days; closing agent shall apply any available reissue/simultaneous-issue credits to the applicable title premium(s) on the closing statement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Municipal Lien + Open Permit Cure",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Municipal Liens",
+    "tags": "Additional, Municipal Lien Search, Open Permits, Expired Permits, Code Fines, Cure Requirements",
+    "snippet": "All parties agree Seller will order a municipal lien search and open/expired permit search, deliver results by [X] days before Closing, and cure any monetary liens, code fines, or open/expired permits prior to Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Survey & Encroachments—Cure or Credit",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Survey Issues",
+    "tags": "Additional, Survey, Encroachments, Boundary Overlaps, Setback Violations, Cure or Credit, Cancellation Rights",
+    "snippet": "All parties agree if a new or updated survey reveals encroachments, boundary overlaps, or setback violations, Seller will cure them all prior to closing or provide a credit of [$X] at Closing; failing agreement on cure/credit by [X] days before Closing, either party may cancel this contract with all deposits returned to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Special Assessments—Seller Pays in Full",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Special Assessments",
+    "tags": "Additional, Special Assessments, Improvement Liens, Seller Payment, Effective Date",
+    "snippet": "All parties agree all special assessments and improvement liens existing as of the Effective Date shall be paid in full by Seller at or before Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Buyer Assumes Special Assessments After Closing",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Special Assessments",
+    "tags": "Additional, Special Assessments, Buyer Assumption, Installments, No Credit, No Price Change",
+    "snippet": "All parties agree installments of any special assessment due after Closing shall be assumed by Buyer, with no credit to Buyer and no change to price, except amounts billed and due on/before Closing which shall be paid by Seller. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Survey at Buyer's Cost; No Seller Obligation to Cure Minor Matters",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Survey Requirements",
+    "tags": "Additional, Survey, Buyer Cost, Minor Matters, Residential Use, Marketable Title",
+    "snippet": "All parties agree Buyer will obtain any new/updated survey at Buyer's expense and Seller shall have no obligation to cure survey matters that do not materially interfere with current residential use, provided seller can deliver a clean and marketable title. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Capital Contributions/Transfer Fees to Buyer",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Fees",
+    "tags": "Additional, Capital Contributions, Transfer Fees, Initiation Fees, Application Fees, Buyer Payment",
+    "snippet": "All parties agree association capital contributions, initiation fees, and transfer/application fees shall be paid by Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Closing Services - Adopt Option (i)",
+    "side": "buyer, seller",
+    "category": "Title Selection",
+    "topic": "Closing Services",
+    "tags": "Title Selection, Closing Services, Option (i), Seller Designates, Owner Policy, Lender Policy",
+    "snippet": "All parties agree that Paragraph 9(c) Option (i) shall govern, notwithstanding any box checked: Seller shall designate the Closing Agent and pay for the Owner's Policy and Charges; Buyer shall pay premiums for any lender's title policy and endorsements. This clause amends and supersedes any inconsistent marking in Paragraph 9(c). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Closing Services - Adopt Option (ii)",
+    "side": "buyer, seller",
+    "category": "Title Selection",
+    "topic": "Closing Services",
+    "tags": "Title Selection, Closing Services, Option (ii), Buyer Designates, Owner Policy, Lender Policy",
+    "snippet": "All parties agree that Paragraph 9(c) Option (ii) shall govern, notwithstanding any box checked: Buyer shall designate the Closing Agent and pay for the Owner's Policy and Charges and the premiums for any lender's title policy and endorsements. This clause amends and supersedes any inconsistent marking in Paragraph 9(c). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Closing Services - Adopt Option (iii) – Miami-Dade/Broward Regional Provision",
+    "side": "buyer, seller",
+    "category": "Title Selection",
+    "topic": "Closing Services",
+    "tags": "Title Selection, Closing Services, Option (iii), Miami-Dade, Broward, Regional Provision, Buyer Designates, Seller Costs",
+    "snippet": "All parties agree that Paragraph 9(c) Option (iii) (Miami-Dade/Broward Regional Provision) shall govern, notwithstanding any box checked: Buyer designates the Closing Agent and pays the premiums for the Owner's Policy, any lender's policy and endorsements, and any post-closing continuation; Seller pays actual costs for (A) title search/continuation acceptable to Buyer's title underwriter, not to exceed $[200.00 or other amount], (B) tax search, and (C) municipal lien search. This clause amends and supersedes any inconsistent marking in Paragraph 9(c). All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Name the Closing Agent - Deposit Transfer",
+    "side": "buyer, seller",
+    "category": "Title Selection",
+    "topic": "Closing Agent",
+    "tags": "Title Selection, Closing Agent, Deposit Transfer, Wire Transfer, Duplicate Fees, Company Information",
+    "snippet": "All parties agree the Closing Agent is [Company/Attorney, Address, Email, Phone]. Any Earnest Money Deposit held by [current holder] shall be transferred by wire to the Closing Agent within [X] business days of this Addendum. Any duplicate title/transfer fees caused solely by this change will be paid by [Buyer/Seller]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Holdback for Uncertain Amounts",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Special Assessment Holdback",
+    "tags": "Additional, Holdback, Special Assessments, Unbilled Amounts, Seller Proceeds, 90 Days, Final Bills",
+    "snippet": "All parties agree the Closing Agent shall hold back $[X] from Seller's proceeds to cover unbilled/understated special assessments attributable to periods on/before Closing. Any unused portion shall be released to Seller upon confirmation of final bills within [90] days. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Buyer Assumes All Installments After Closing",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Special Assessment Assumption",
+    "tags": "Additional, Special Assessments, Buyer Assumption, Installments, No Credit, Prorations Only",
+    "snippet": "All parties agree Buyer shall assume and pay all installments due after Closing for any special assessment; no credit shall be due to Buyer other than prorations required for the year of Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Permit Docs & Open-Permit Search (Neutral)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Permit Documentation",
+    "tags": "Additional, Permit Documentation, Open Permit Search, Municipal Lien Search, Plans, Final Inspections",
+    "snippet": "All parties agree Seller will, within [5] days from effective date, deliver any plans, permits, final inspections, and contractor info in Seller's possession and order a municipal lien/open-permit search. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Cure of Open/Expired Permits (Buyer-protective)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Permit Cure",
+    "tags": "Additional, Open Permits, Expired Permits, Code Violations, Cure Requirements, Holdback, Governmental Fees",
+    "snippet": "All parties agree Seller shall cure any open/expired permits or code violations attributable to pre-Closing work and pay any related governmental/contractor fees. If cure cannot be completed by [X] days before Closing, the Closing Agent shall hold back [$X] from Seller's proceeds to complete cure after Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Credit in Lieu of Permit Closure",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Permit Credit",
+    "tags": "Additional, Permit Credit, Open Permits, Expired Permits, Code Violations, Buyer Assumption, Credit in Lieu",
+    "snippet": "All parties agree, in lieu of seller completing teh closure of any open/expired permits or code violations before Closing, the parties may elect a credit to Buyer of [$X] at Closing to resolve the item(s), with Buyer assuming all and any open/expired permits or code violation. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Unpermitted Improvements—Disclosure",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Unpermitted Work",
+    "tags": "Additional, Unpermitted Improvements, Disclosure, Cure Options, Credit, Termination Rights",
+    "snippet": "All parties agree that if unpermitted improvements are identified prior to closing, Seller will promptly disclose and provide any available documents; the parties will elect to either (i) cure issues, (ii) credit the buyer [$X], or (iii) elect to terminate this contract with all Deposits returned to the buyer if no agreement is reached by [X] days before Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Mold Assessment Right & Access (Buyer-protective)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Mold Assessment",
+    "tags": "Additional, Mold Assessment, Licensed Specialist, Microbial Growth, Remediation, Credit, Termination Rights",
+    "snippet": "All parties agree Buyer may obtain a mold assessment by a licensed specialist within [X] days form effective date; reasonable access will be provided. If elevated microbial growth is reported, all parties will elect (i) Seller remediation by licensed remediator with clearance test, (ii) a credit to the buyer in the mount of [$X], or (iii) termination of this conttract if unresolved by [date]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "No Warranty; Buyer Reliance on Inspections (Seller-protective)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Mold Warranty",
+    "tags": "Additional, No Mold Warranty, Buyer Reliance, Seller-Protective, No Remediation Obligation",
+    "snippet": "All parties agree Seller makes no representation or warranty regarding mold; Buyer shall rely on Buyer's own inspections and reports, and Seller shall have no obligation to remediate unless otherwise agreed herein. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Clerical Fix: Entity Signature",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Entity Signature Correction",
+    "tags": "Additional, Clerical Fix, Entity Signature, Authorized Representative, Signature Correction, Binding Signature",
+    "snippet": "All parties agree this Addendum serves to correct the signatures on the Purchase and Sale Agreement and all related transaction documents, confirming that the [Buyer/Seller] is [ENTITY NAME, LLC/INC/etc.], duly represented by [AUTHORIZED REPRESENTATIVE NAME]. Any signature previously applied in the name of the entity shall be deemed the valid and binding signature of the entity through its authorized representative. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Entity Signature Correction (Seller or Buyer)",
+    "side": "buyer, seller",
+    "category": "Corrections",
+    "topic": "Entity Signature Correction",
+    "tags": "Corrections, Entity Signature, Authorized Representative, Signature Correction, Binding Signature, Entity Confirmation",
+    "snippet": "All parties agree this Addendum serves to correct the signatures on the Purchase and Sale Agreement and all related transaction documents, confirming that the [Buyer/Seller] is [ENTITY NAME, LLC/INC/etc.], duly represented by [AUTHORIZED REPRESENTATIVE NAME]. Any signature previously applied in the name of the entity shall be deemed the valid and binding signature of the entity through its authorized representative. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Individual Signed in Error (Should Be Entity)",
+    "side": "buyer, seller",
+    "category": "Corrections",
+    "topic": "Individual to Entity Correction",
+    "tags": "Corrections, Individual Signature Error, Entity Correction, Authorized Representative, Individual Capacity, Entity Binding",
+    "snippet": "All parties agree this Addendum corrects the signatures on the Purchase and Sale Agreement and related transaction documents to reflect that the true [Buyer/Seller] is [ENTITY NAME, LLC/INC/etc.], duly represented by [AUTHORIZED REPRESENTATIVE NAME]. Any prior signature applied by [INDIVIDUAL NAME] in an individual capacity shall be deemed made on behalf of the entity only. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Entity Signed in Error (Should Be Individual)",
+    "side": "buyer, seller",
+    "category": "Corrections",
+    "topic": "Entity to Individual Correction",
+    "tags": "Corrections, Entity Signature Error, Individual Correction, Individual Capacity, Entity Binding, Individual Binding",
+    "snippet": "All parties agree this Addendum corrects the signatures on the Purchase and Sale Agreement and related transaction documents to reflect that the true [Buyer/Seller] is [INDIVIDUAL NAME] in an individual capacity. Any prior signature applied in the name of [ENTITY NAME] shall be deemed the valid and binding signature of [INDIVIDUAL NAME]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Credit from Seller",
+    "side": "buyer, seller",
+    "category": "Inspections",
+    "topic": "Repair Credit",
+    "tags": "Inspections, Credit from Seller, Repair Credit, Closing Costs, Prepaid Items, Lender Allowable",
+    "snippet": "All parties agree that Seller will, in lieu of completing repairs, provide Buyer a credit in the amount of $[AMOUNT] at Closing, which shall be applied toward Buyer's closing costs, prepaid items, and/or other allowable charges as permitted by Buyer's lender. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Credit from Seller",
+    "side": "buyer, seller",
+    "category": "Credits",
+    "topic": "Seller Credit",
+    "tags": "Credits, Credit from Seller, Repair Credit, Closing Costs, Prepaid Items, Lender Allowable",
+    "snippet": "All parties agree that Seller will, in lieu of completing repairs, provide Buyer a credit in the amount of $[AMOUNT] at Closing, which shall be applied toward Buyer's closing costs, prepaid items, and/or other allowable charges as permitted by Buyer's lender. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "As Is with Credit",
+    "side": "buyer, seller",
+    "category": "Inspections",
+    "topic": "As Is Concession",
+    "tags": "Inspections, As Is, Credit Concession, Inspection Findings, No Repairs, Price Reduction",
+    "snippet": "All parties agree that although the Property is being sold in \"As Is\" condition, Seller will provide Buyer a credit in the amount of $[AMOUNT] at Closing as a concession in consideration of inspection findings. This credit shall not obligate Seller to make any repairs, and in the event the credit is not permitted by Buyer's lender, the Purchase Price shall be reduced by the same amount unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Buyer Accepts Subject Property As Is",
+    "side": "buyer, seller",
+    "category": "Inspections",
+    "topic": "As Is Acceptance",
+    "tags": "Inspections, As Is Acceptance, Inspection Period, Contingency Satisfaction, No Repairs",
+    "snippet": "All parties agree that Buyer has conducted all inspections and accepts the subject property in its present \"As Is\" condition. All parties agree that upon execution of this Addendum, Buyer's Inspection Period as provided in the Contract shall be deemed satisfied. Buyer shall proceed toward Closing subject only to the remaining terms and contingencies of the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Inspection Period Termination Upon Execution",
+    "side": "buyer, seller",
+    "category": "Inspections",
+    "topic": "Inspection Period Termination",
+    "tags": "Inspections, Inspection Period, Termination, Contingency Removal, Execution",
+    "snippet": "All parties agree that upon execution of this Addendum, Buyer's Inspection Period as provided in the Contract shall be deemed satisfied. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Credit from Agents",
+    "side": "buyer, seller",
+    "category": "Credits",
+    "topic": "Agent Commission Credit",
+    "tags": "Credits, Agent Credit, Commission Credit, Listing Agent, Selling Agent, Closing Costs, Price Reduction",
+    "snippet": "All parties agree that <Listing and/or Selling Agent> will provide Buyer a credit in the amount of $[AMOUNT] at Closing from their commission proceeds. This credit will shall be applied toward Buyer's closing costs, prepaid items, and/or other allowable charges as permitted by Buyer's lender. In the event the lender does not permit such a credit, the parties agree to reduce the Purchase Price by the same amount unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Agent Credit to Seller",
+    "side": "buyer, seller",
+    "category": "Credits",
+    "topic": "Agent Commission Credit to Seller",
+    "tags": "Credits, Agent Credit, Commission Credit, Listing Agent, Selling Agent, Seller Proceeds, Closing Statement",
+    "snippet": "All parties agree that <Listing Agent and/or Selling agent> shall provide a credit in the amount of $[AMOUNT] from their commission at Closing, which shall be applied as a credit to Seller's proceeds on the Closing Statement. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Inspection Period Extension",
+    "side": "buyer, seller",
+    "category": "Inspections",
+    "topic": "Inspection Period Extension",
+    "tags": "Inspections, Inspection Period, Extension, Section 12(a), Timeline Extension",
+    "snippet": "All parties agree that the Buyer's Inspection Period as defined in section 12 (a) of the Contract is hereby extended to [insert date]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Inspection Period Extension – Lack of Access",
+    "side": "buyer, seller",
+    "category": "Inspections",
+    "topic": "Inspection Period Extension",
+    "tags": "Inspections, Inspection Period, Extension, Lack of Access, Reasonable Access, Section 12(a)",
+    "snippet": "All parties agree that the Buyer's Inspection Period as defined in section 12 (a) of the Contract is hereby extended to [insert date] due to Buyer not having been granted reasonable access to the subject property.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Escrow Agent Release Authorization",
+    "side": "buyer, seller",
+    "category": "Escrow",
+    "topic": "Escrow Release",
+    "tags": "Escrow, Deposit, Dispute Resolution, Written Agreement, Court Order, Release Authorization",
+    "snippet": "All parties agree that in the event of a dispute concerning the Deposit, the Escrow Agent is authorized to release the funds in accordance with a written agreement signed by Buyer and Seller, or as otherwise directed by a court of competent jurisdiction. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Escrow Agent Selection Clarification",
+    "side": "buyer, seller",
+    "category": "Escrow",
+    "topic": "Escrow Agent",
+    "tags": "Escrow, Escrow Agent, Deposit Delivery, Agent Selection, Contract Compliance",
+    "snippet": "All parties agree that [ESCROW AGENT NAME] shall serve as Escrow Agent for this transaction, and all Deposits shall be delivered to said Escrow Agent in accordance with the terms of the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Broker Non-Liability Clarifier",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Broker Liability",
+    "tags": "Additional, Broker Non-Liability, Facilitator Role, No Representations, Independent Inspections, Professional Reliance",
+    "snippet": "All parties agree that Buyer and Seller acknowledge Broker's role as facilitator only and confirm that Broker has made no representations or warranties regarding the physical condition of the Property, square footage, zoning, permits, or any other material facts. Buyer and Seller agree to rely solely upon their own inspections, investigations, and consultations with appropriate licensed professionals. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Professional Recommendation Acknowledgment",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Professional Recommendations",
+    "tags": "Additional, Professional Recommendations, Independent Inspections, Structural, Mechanical, Electrical, Environmental, Legal",
+    "snippet": "All parties agree that Buyer has been advised to obtain independent professional inspections and evaluations of the Property, including but not limited to structural, mechanical, electrical, environmental, and legal matters, and that Buyer shall rely exclusively on such independent advice. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Sight Unseen Disclosure",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Sight Unseen Purchase",
+    "tags": "Additional, Sight Unseen, No Personal Inspection, Broker Advice, Independent Inspections, Hold Harmless",
+    "snippet": "All parties agree that Buyer is purchasing the Property without having personally viewed or inspected the Property prior to execution of the Contract. Buyer acknowledges and accepts that Broker has advised Buyer to obtain independent inspections and evaluations and that Broker makes no representations or warranties regarding the condition, size, layout, or value of the subject property. Buyer agrees to hold Broker harmless from any claims arising from Buyer's decision to proceed without an in-person inspection. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Transaction Broker / Limited Representation Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Transaction Broker",
+    "tags": "Additional, Transaction Broker, Limited Representation, Florida Statute, Fiduciary Capacity, Independent Representation",
+    "snippet": "All parties agree that Broker is acting in the capacity of a Transaction Broker as defined by Florida Statute, providing limited representation to both Buyer and Seller in this transaction. Buyer and Seller acknowledge that Broker does not represent either party in a fiduciary capacity or as a single agent and that limited representation allows Broker to assist both parties in a manner that does not fully satisfy the duties owed to a fiduciary agent. Buyer and Seller further acknowledge that they have been advised of their right to seek independent representation. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Survey Cure Extension",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Survey Issues",
+    "tags": "Additional, Survey Cure, Extension, Survey Issues, Closing Extension, Resolution",
+    "snippet": "All parties agree that if Buyer's survey discloses matters requiring cure pursuant to the Contract, Buyer and Seller agree to extend Closing for a period not to exceed [X] days to allow for resolution of survey-related issues. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Ingress/Egress Verification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Access Verification",
+    "tags": "Additional, Ingress, Egress, Access Verification, Licensed Surveyor, Governmental Authority, Contract Cancellation",
+    "snippet": "All parties agree that Seller shall provide, at or prior to Closing, written verification from a licensed surveyor or governmental authority confirming legal ingress and egress to the Property. If such verification cannot be obtained, Buyer may cancel this Contract and receive a refund of any and all deposits. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Lease Assignment and Prorations",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Lease Assignment",
+    "tags": "Additional, Lease Assignment, Tenant Deposits, Rent Rolls, Prepaid Rents, Tenant Agreements",
+    "snippet": "All parties agree that Seller shall deliver, at Closing, all original leases, amendments, tenant deposits, rent rolls, and any other tenant-related agreements affecting the Property. Buyer shall receive a credit at Closing for all tenant deposits and prepaid rents. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Lien Satisfaction Guarantee",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Lien Satisfaction",
+    "tags": "Additional, Lien Satisfaction, Claims of Lien, Potential Liens, Escrow Holdback, Lien Release",
+    "snippet": "All parties agree that Seller shall satisfy and remove, prior to or at Closing, any and all liens, claims of lien, or potential liens filed against the Property. If Seller is unable to remove such liens prior to Closing, funds from Seller's proceeds shall be escrowed in an amount sufficient to satisfy the lien(s) until full release is obtained. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Closing Cost Allocation",
+    "side": "buyer, seller",
+    "category": "Credits",
+    "topic": "Seller Closing Cost Credit",
+    "tags": "Credits, Closing Cost Allocation, Seller Credit, Prepaid Items, Lender Charges, Price Reduction",
+    "snippet": "All parties agree that Seller shall contribute the sum of $[AMOUNT] toward Buyer's closing costs, prepaid items, and/or lender-required charges, as permitted by Buyer's lender. If Buyer's lender does not allow a Seller credit, the Purchase Price shall be reduced by the same amount unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Proration Adjustment Agreement",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Proration Adjustments",
+    "tags": "Additional, Proration Adjustment, Taxes, Association Dues, Recurring Expenses, No Further Adjustments",
+    "snippet": "All parties agree that any prorations of taxes, association dues, or other recurring expenses shall be calculated based on the most current and available information as of Closing. If the actual amounts differ after Closing, no further adjustments shall be required unless otherwise agreed in writing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Personal Property Conveyance Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Personal Property",
+    "tags": "Additional, Personal Property, Conveyance, Appliances, Furniture, Equipment, Free of Liens",
+    "snippet": "All parties agree that the following personal property items shall transfer to Buyer at Closing in their present condition, free of liens or claims: [LIST ITEMS, e.g., appliances, furniture, equipment]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Early Document Delivery",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Document Delivery",
+    "tags": "Additional, Early Document Delivery, Closing Agent, Deeds, Affidavits, Estoppel Letters, Association Approvals",
+    "snippet": "All parties agree that Seller shall provide the Closing Agent with all necessary documents for Closing, including but not limited to deeds, affidavits, estoppel letters, and association approvals, no later than [X days] prior to Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Tax and Assessment Credit",
+    "side": "buyer, seller",
+    "category": "Credits",
+    "topic": "Tax Credit",
+    "tags": "Credits, Tax Credit, Assessment Credit, CDD Assessments, Special Assessments, Escrow Holdback, Unpaid Taxes",
+    "snippet": "All parties agree that if, after Closing, it is determined that real estate taxes, community development district (CDD) assessments, or other special assessments applicable to the Property for periods prior to Closing were unpaid or underpaid, Seller shall provide Buyer with a credit in the amount of such unpaid or underpaid charges, or funds from Seller's proceeds shall be escrowed at Closing in an amount reasonably estimated to cover same. If escrow is established and actual amounts are later determined to be less than the escrowed sum, the unused balance shall be refunded to Seller. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "1031 Exchange Cooperation Clause",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "1031 Exchange",
+    "tags": "Additional, 1031 Exchange, Like-Kind Exchange, IRS Code Section 1031, Cooperation, No Additional Cost, No Delay",
+    "snippet": "All parties agree to cooperate in good faith with any Internal Revenue Code Section 1031 like-kind exchange requested by Buyer or Seller, provided that such cooperation shall be at no additional cost or liability to the non-exchanging party, and Closing shall not be delayed as a result thereof. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Notice Delivery Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Notice Delivery",
+    "tags": "Additional, Notice Delivery, Email Delivery, Effective Notice, Contract Notices",
+    "snippet": "All parties agree that all notices under the Contract may be delivered by email to the addresses listed below, and such delivery shall constitute effective notice under the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "FIRPTA Compliance Clause",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "FIRPTA Compliance",
+    "tags": "Additional, FIRPTA, Foreign Person, Withholding Certificate, Exemption Documents, IRS Withholding, Escrow Agent",
+    "snippet": "All parties agree that if Seller is a \"foreign person\" as defined by FIRPTA, Seller shall provide the necessary withholding certificate or exemption documents prior to Closing. In the event Buyer is required to withhold funds pursuant to FIRPTA, Buyer's obligation to withhold shall be satisfied by Escrow Agent, who is hereby authorized to withhold and remit such funds to the Internal Revenue Service on Buyer's behalf. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Buyer Waiver Reinforcement",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Buyer Waiver",
+    "tags": "Additional, Buyer Waiver, No Representations, Broker Protection, Standard X, Inspection Reliance",
+    "snippet": "All parties agree that Buyer acknowledges Broker and licensees have made no representations or warranties regarding the physical condition of the subject property and that Buyer has relied solely on Buyer's inspections and evaluations. This acknowledgment is made in addition to and not in limitation of Standard X of the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Attorney Review Clause",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Attorney Review",
+    "tags": "Additional, Attorney Review, Contract Approval, Written Notice, Contract Termination, Deposit Refund",
+    "snippet": "All parties agree that this Contract shall be subject to review and approval by each party's attorney within [X] days of Effective Date. If either party's attorney disapproves the Contract within this period by written notice, the Contract shall terminate and the Deposit shall be refunded to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Kick-Out Clause (Seller Protection)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Kick-Out Clause",
+    "tags": "Additional, Kick-Out Clause, Seller Protection, Contingent Sale, Acceptable Offer, Contingency Removal",
+    "snippet": "All parties agree that this Contract is contingent upon the sale and closing of Buyer's property located at [address] on or before [date]. In the event Seller receives another acceptable offer during this period, Seller may deliver written notice to Buyer requiring Buyer to remove this contingency within [X] days or this Contract shall terminate and the Deposit refunded to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Pre-Closing Occupancy Agreement",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Pre-Closing Occupancy",
+    "tags": "Additional, Pre-Closing Occupancy, Buyer Occupancy, Occupancy Fee, Utilities, Maintenance, Insurance",
+    "snippet": "All parties agree that Buyer shall be permitted to occupy the Property prior to Closing beginning on [date] and shall pay Seller the sum of $[amount] per day as occupancy fee until Closing. Buyer shall be responsible for utilities, maintenance, and insurance during such occupancy. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Post-Closing Occupancy Agreement",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Post-Closing Occupancy",
+    "tags": "Additional, Post-Closing Occupancy, Seller Occupancy, Occupancy Fee, Utilities, Maintenance, Insurance",
+    "snippet": "All parties agree that Seller shall be permitted to remain in occupancy of the Property after Closing until [date] and shall pay Buyer the sum of $[amount] per day as occupancy fee. Seller shall remain responsible for utilities, insurance, and maintenance during such occupancy. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Post-Closing Occupancy – Escrow Holdback",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Post-Closing Occupancy with Escrow",
+    "tags": "Additional, Post-Closing Occupancy, Escrow Holdback, Liquidated Damages, Timely Vacating, Property Condition",
+    "snippet": "All parties agree that Seller shall be permitted to remain in occupancy of the subject property after Closing until [date]. Buyer and Seller agree that the sum of $[amount] shall be held in escrow from Seller's proceeds at Closing and shall be released to Seller upon timely vacating of the Property in accordance with this agreement. In the event Seller fails to vacate by the agreed date, Buyer shall be entitled to retain the escrowed funds as liquidated damages. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Final Walkthrough Condition – Occupancy Protection",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Occupancy Walkthrough",
+    "tags": "Additional, Occupancy Walkthrough, Pre-Closing Occupancy, Post-Closing Occupancy, Property Condition, Damage Responsibility",
+    "snippet": "All parties agree that in the event of pre-closing or post-closing occupancy, the occupying party shall permit the non-occupying party to conduct a walk-through inspection immediately prior to occupancy and again immediately following the occupancy period to confirm condition of the Property. Any damages caused during the occupancy period shall be the responsibility of the occupying party. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Pre-Closing Occupancy – Buyer",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Pre-Closing Buyer Occupancy",
+    "tags": "Additional, Pre-Closing Occupancy, Buyer Occupancy, Occupancy Fee, Utilities, Maintenance, Insurance, Existing Condition",
+    "snippet": "All parties agree that Buyer shall be permitted to occupy the Property prior to Closing beginning on [date]. Buyer shall pay Seller the sum of $[amount] per day as an occupancy fee until the date of Closing. Buyer shall be responsible for all utilities, maintenance, and insurance during such occupancy, and shall accept the subject property in its existing condition subject to the terms of the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Utility Continuation",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Utility Services",
+    "tags": "Additional, Utility Continuation, Water, Electricity, Gas, Active Service, Walk-Through Inspection",
+    "snippet": "All parties agree that Seller shall maintain all utilities to the subject property, including but not limited to water, electricity, and gas, in active service through the date of Closing and Buyer's final walk-through inspection. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Home Warranty",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Home Warranty",
+    "tags": "Additional, Home Warranty, Major Systems, Appliances, One-Year Coverage, Provider Name, Cost Cap",
+    "snippet": "All parties agree that Seller shall, at Seller's expense, provide Buyer at Closing with a one-year home warranty plan covering major systems and appliances of the subject property, issued by [Provider Name], at a cost not to exceed $[Amount]. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Closing Extension Buffer",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Closing Extension",
+    "tags": "Additional, Closing Extension Buffer, Written Notice, Lender Requirements, Title Requirements, Association Requirements",
+    "snippet": "All parties agree that either Buyer or Seller may extend the Closing Date by up to [X] days upon written notice to the other party, for the limited purpose of finalizing lender, title, or association-related requirements. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Wire Fraud Acknowledgment",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Wire Fraud Protection",
+    "tags": "Additional, Wire Fraud, Wire Fraud Notice, Verbal Confirmation, Wiring Instructions, Escrow Agent, Closing Agent",
+    "snippet": "All parties agree that they have read and understand the Wire Fraud Notice contained in this Contract and acknowledge that they have been advised to verbally confirm all wiring instructions with the Escrow Agent or Closing Agent prior to transmitting funds. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Foreign Buyer Affidavit Clause",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Foreign Buyer Compliance",
+    "tags": "Additional, Foreign Buyer, Florida Statute Chapter 692, Affidavit, Real Property Purchase, Compliance",
+    "snippet": "All parties agree that Buyer shall, at or prior to Closing, execute and deliver to Seller a signed affidavit in compliance with Florida Statute Chapter 692 certifying that Buyer is not prohibited from purchasing real property under said statute. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Address for Notices Confirmation",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Notice Addresses",
+    "tags": "Additional, Address for Notices, Official Addresses, Written Notice, Change of Address, Effective Notice",
+    "snippet": "All parties agree that the addresses provided below for Buyer and Seller shall be the official addresses for notice under the Contract unless and until a party provides written notice of a change of address. Notices delivered to the listed addresses shall be deemed effective. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Brokerage Compensation Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Brokerage Compensation",
+    "tags": "Additional, Brokerage Compensation, Closing Agent, Listing Broker, Cooperating Broker, Brokerage Agreements, Fee Satisfaction",
+    "snippet": "All parties agree that Seller and Buyer authorize the Closing Agent to disburse at Closing the full brokerage compensation as agreed between the Listing Broker and Cooperating Broker, as set forth in separate brokerage agreements, and further agree that such disbursement shall fully satisfy all obligations of the parties under this Contract with respect to brokerage fees. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Attorney Review Reminder (Protective Clause)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Attorney Review Reminder",
+    "tags": "Additional, Attorney Review Reminder, Independent Legal Counsel, Legal Advice, Protective Clause",
+    "snippet": "All parties acknowledge that each party has been advised of their right to seek independent legal counsel prior to signing. The parties confirm that they have either obtained such counsel or elected to proceed without it. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Broker Information Correction",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Broker Information",
+    "tags": "Additional, Broker Information Correction, Sales Associate, License Numbers, Brokerage Affiliations, Compensation Instructions, Clerical Correction",
+    "snippet": "All parties agree that the Broker and Sales Associate information set forth in this Contract, including names, license numbers, brokerage affiliations, and compensation instructions, may be corrected or updated by written notice to Closing Agent signed by the parties or their respective Brokers prior to Closing. Such corrections shall be deemed clerical in nature and shall not affect the validity, enforceability, or other terms of the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Broker Information Clerical",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Broker Information",
+    "tags": "Additional, Broker Information Clerical, Line 643, Contract Amendment, Clerical Correction",
+    "snippet": "All parties agree to amend the Broker and Sales Associate information set forth on line 643 of the contract as follows: <insert details here>. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Buyer's Association Application Deadline Extension (Buyer Protective)",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Application",
+    "tags": "Additional, Association Application, Deadline Extension, Buyer Protective, Three Business Days, Application Form",
+    "snippet": "All parties agree that upon Seller and/or Association delivering written application form and instructions on how to file the same to Buyer, Buyer shall have no more than three (3) business days to complete and submit the required application to the condominium association or management company. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Association Approval Deadline Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Approval",
+    "tags": "Additional, Association Approval, Deadline Clarification, Application Package, Default, Timely Compliance",
+    "snippet": "All parties agree that if Buyer's approval by the Condominium Association is required, Seller shall deliver the application package to Buyer within [X] days of Effective Date, and Buyer shall complete and return the application within [Y] days thereafter. Failure by either party to timely comply shall be deemed a default under the Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Association Delay Extension - Buyer Protective",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Delay",
+    "tags": "Additional, Association Delay, Buyer Protective, Automatic Extension, Inspection Contingency, Financing Contingency",
+    "snippet": "All parties agree that if the Condominium Association has not provided an approval or denial by the stated deadline despite Buyer's timely application, the Inspection and Financing contingencies (if applicable) shall automatically be extended until [X] days after written notice of approval or denial is received. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Right of First Refusal – Association Inaction",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Right of First Refusal",
+    "tags": "Additional, Right of First Refusal, Association Inaction, Deemed Waiver, Closing Proceed, No Further Obligation",
+    "snippet": "All parties agree that if the Condominium Association or its members hold a Right of First Refusal and fail to exercise or waive such Right within the stated time period, then such Right shall be deemed waived. Buyer and Seller may proceed to Closing without further obligation under this provision. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller's Cooperation with Application",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Seller Cooperation",
+    "tags": "Additional, Seller Cooperation, Association Application, Estoppel Certificates, Payment Confirmations, Association Forms",
+    "snippet": "All parties agree that Seller shall promptly cooperate with Buyer in connection with Buyer's Condominium Association application, including providing any and all association forms, estoppel certificates, payment confirmations, and any additional information required by the Association. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Association Fees Disclosure",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Fees",
+    "tags": "Additional, Association Fees, Disclosure, Condominium Assessments, Special Assessments, Capital Contributions, Contract Cancellation",
+    "snippet": "All parties agree that Seller shall deliver to Buyer a written disclosure of all current condominium assessments, special assessments, capital contributions, and/or other fees due at or after Closing, including rent or land use fees if applicable, within [X] days of Effective Date. Buyer shall have the right to cancel this Contract within [Y] days of receipt of such disclosure if not acceptable to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Special Assessment Allocation – Seller Protection",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Special Assessment Allocation",
+    "tags": "Additional, Special Assessment, Seller Protection, Effective Date, Lump Sum, Installments, Assessment Responsibility",
+    "snippet": "All parties agree that Seller shall be responsible only for special or additional assessments levied by the Condominium Association and due prior to the Effective Date. Buyer shall be responsible for any assessments approved or levied after the Effective Date, whether payable in a lump sum or installments, regardless of when due. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Special Assessment Allocation – Buyer Protection",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Special Assessment Allocation",
+    "tags": "Additional, Special Assessment, Buyer Protection, Effective Date, Under Discussion, Approved Assessments, Seller Responsibility",
+    "snippet": "All parties agree that Seller shall remain responsible for the payment of all special or additional assessments that were approved or under discussion by the Condominium Association prior to the Effective Date, even if such assessments become due and payable after Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Association Document Delivery Deadline",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Association Documents",
+    "tags": "Additional, Association Documents, Florida Statute 718.503, Document Delivery, Document Review, Contract Termination",
+    "snippet": "All parties agree that Seller shall deliver to Buyer all condominium documents required under Florida Statute 718.503 within [X] days of Effective Date. Buyer shall have [Y] days after receipt to review the documents and may terminate the Contract by written notice if not acceptable. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Milestone/Structural Report Contingency",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Milestone Reports",
+    "tags": "Additional, Milestone Report, Structural Report, Turnover Report, Reserve Study, Contract Termination, Deposit Refund",
+    "snippet": "All parties agree that if the Condominium Association has not completed the required milestone inspection report, turnover report, or structural integrity reserve study as of Closing, Buyer shall have the right to terminate the Contract by written notice and receive a refund of the Deposit. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Parking & Storage Assignment Clarification",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Parking and Storage",
+    "tags": "Additional, Parking Assignment, Storage Assignment, Declaration, Association Approval, Seller Cooperation",
+    "snippet": "All parties agree that Seller shall assign to Buyer, at Closing, the exclusive right to use the following parking space(s), garage(s), or storage unit(s): [describe spaces/units], as set forth in the Declaration. If such rights are subject to Association approval, Seller shall cooperate to secure same prior to Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Seller Cooperation with Buyer's Document Requests",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Document Cooperation",
+    "tags": "Additional, Seller Cooperation, Association Documents, Budgets, Financials, Insurance Policies, Board Minutes",
+    "snippet": "All parties agree that Seller shall promptly cooperate with Buyer's requests for Association documents, including budgets, financials, insurance policies, and board meeting minutes, and shall deliver any documents in Seller's possession within [X] days of Buyer's written request. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Fines and Violations Clearance",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "HOA Fines and Violations",
+    "tags": "Additional, HOA Fines, HOA Violations, Clearance, Effective Date, Closing Date, Property Compliance",
+    "snippet": "All parties agree that Seller shall satisfy and remove, at or prior to Closing, any fines or violations imposed by the Homeowners' Association against the Property as of the Effective Date or Closing Date. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "HOA Estoppel Letter",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "HOA Estoppel",
+    "tags": "Additional, HOA Estoppel Letter, Assessments, Special Assessments, Fines, Fees, Compliance Matters, Current Balances, Violations, Pending Assessments",
+    "snippet": "All parties agree that Seller shall, at Seller's expense, obtain and deliver to Buyer, no later than [X] days prior to Closing, a written estoppel letter from the Homeowners' Association (or management company) confirming the status of all assessments, special assessments, fines, fees, and compliance matters affecting the Property. The estoppel letter shall reflect the current balances owed, if any, and confirm whether any violations or pending assessments exist as of the date of issuance. If the estoppel letter discloses unpaid charges, Seller shall satisfy such charges in full at or prior to Closing. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Digital Signatures Authorization",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Digital Signatures",
+    "tags": "Additional, Digital Signatures, Electronic Signatures, DocuSign, Dotloop, Adobe Sign, Original Signatures, Binding Signatures",
+    "snippet": "All parties agree that signatures transmitted electronically, including but not limited to DocuSign, Dotloop, Adobe Sign, or similar secure digital platforms, shall be deemed original and binding for all purposes under this Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Third-Party Approval Contingency",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Third-Party Approval",
+    "tags": "Additional, Third-Party Approval, Probate Court, Corporate Seller, Relocation Company, Short Sale Approval, Contract Termination, Deposit Refund",
+    "snippet": "All parties agree that this Contract is contingent upon the approval of [third party – e.g., probate court, corporate seller, relocation company, or lender short sale approval] no later than [date]. If such approval is not obtained by that date, either party may terminate the Contract and Buyer shall receive a refund of the Deposit. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "high"
+  },
+  {
+    "title": "Flood Zone / Insurance Disclosure",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Flood Zone Insurance",
+    "tags": "Additional, Flood Zone, Insurance Disclosure, Special Insurance Coverage, Contract Cancellation, Deposit Refund, Written Notice",
+    "snippet": "All parties agree that if the Property is located in a designated flood zone or requires special insurance coverage as determined by Buyer's lender or insurance provider, Buyer shall have [X] days from receipt of written notice to cancel this Contract by written notice to Seller, in which case the Deposit shall be refunded to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Buyer Deposit Protection",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Short Sale Deposit Protection",
+    "tags": "Additional, Buyer Deposit Protection, Short Sale, Lender Approval, Unacceptable Conditions, Immediate Refund",
+    "snippet": "All parties agree that in the event the Short Sale is not approved by Seller's Lender, or if approval is granted subject to conditions unacceptable to Buyer, Buyer shall be entitled to an immediate refund of the Deposit without further action. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Buyer's Right to Cancel After X Days",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Short Sale Timeline",
+    "tags": "Additional, Buyer's Right to Cancel, Short Sale Approval, Timeline, Written Notice, Deposit Refund",
+    "snippet": "All parties agree that if Short Sale Approval has not been received within [X] days of the Effective Date, Buyer may terminate this Contract by written notice to Seller and receive a refund of the Deposit. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Appraisal Contingency Overlay",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Short Sale Appraisal",
+    "tags": "Additional, Appraisal Contingency, Short Sale, Purchase Price, Financing, Contract Cancellation, Deposit Refund",
+    "snippet": "All parties agree that in addition to Short Sale Approval, this Contract is contingent upon the subject property appraising at or above the Purchase Price for Buyer's financing purposes. If the Property does not appraise, Buyer may cancel this Contract and the Deposit shall be refunded to Buyer. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Lender Processing Delays",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Short Sale Delays",
+    "tags": "Additional, Lender Processing Delays, Short Sale, Multiple Review Levels, Seller's Lender, No Liability",
+    "snippet": "All parties agree that Seller and Buyer acknowledge Short Sale processing is controlled by Seller's Lender and may require multiple levels of review. Neither Seller nor Buyer shall be liable for delays caused solely by Seller's Lender, provided both parties comply with their obligations under this Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "low"
+  },
+  {
+    "title": "Backup Offer Handling",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Short Sale Backup Offers",
+    "tags": "Additional, Backup Offer Handling, Written Notice, Buyer Option, Continue or Terminate, Deposit Refund",
+    "snippet": "All parties agree that if Seller elects to accept a back-up offer during the pendency of this Contract, Seller shall provide Buyer with written notice of same. Buyer shall then have the option to continue under this Contract or terminate and receive a refund of the Deposit. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  },
+  {
+    "title": "Cash Buyer Short Sale",
+    "side": "buyer, seller",
+    "category": "Additional",
+    "topic": "Cash Buyer Short Sale",
+    "tags": "Additional, Cash Buyer, Short Sale, No Financing, Lender Approval, Approval Deadline, Extension Option, Contract Termination",
+    "snippet": "All parties agree that although Buyer is not obtaining financing for the purchase of the Property, this Contract remains contingent upon Seller's Lender(s) approving the Short Sale on or before [X] days from the Effective Date (\"Approval Deadline\"). If Short Sale Approval has not been received by the Approval Deadline, Buyer may, at Buyer's option, (a) extend the Approval Deadline once for up to [Y] days by written notice to Seller, or (b) terminate this Contract by written notice to Seller, in which event the Deposit shall be refunded to Buyer, thereby releasing Buyer and Seller from all further obligations under this Contract. All other terms and conditions shall remain in full force and effect.",
+    "risk_level": "medium"
+  }
+]
