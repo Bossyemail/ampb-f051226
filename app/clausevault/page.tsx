@@ -19,10 +19,13 @@ export default function ClauseVaultPage() {
 
   // Cycle through background images every 6 hours, starting from image 1
   useEffect(() => {
-    const now = new Date();
-    const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
-    const imageIndex = Math.floor(hoursSinceEpoch / 6) % 35; // Change every 6 hours, cycle through 35 images
-    setCurrentBgIndex(imageIndex);
+    const getCurrentImageIndex = () => {
+      const now = new Date();
+      const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
+      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images
+    };
+
+    setCurrentBgIndex(getCurrentImageIndex());
   }, []);
 
   // Check if user should be redirected to app
@@ -57,7 +60,7 @@ export default function ClauseVaultPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
           style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
+            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}${currentBgIndex < 35 ? '.jpg' : '.jpeg'})`,
           }}
         />
         {/* Subtle overlay for readability */}

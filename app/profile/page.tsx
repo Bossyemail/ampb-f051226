@@ -25,7 +25,7 @@ export default function ProfilePage() {
     const getCurrentImageIndex = () => {
       const now = new Date();
       const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
-      return Math.floor(hoursSinceEpoch / 6) % 35;
+      return Math.floor(hoursSinceEpoch / 6) % 106;
     };
 
     setCurrentBgIndex(getCurrentImageIndex());
@@ -92,7 +92,7 @@ export default function ProfilePage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
           style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
+            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}${currentBgIndex < 35 ? '.jpg' : '.jpeg'})`,
           }}
         />
         {/* Subtle overlay for readability */}
