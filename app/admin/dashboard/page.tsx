@@ -74,12 +74,10 @@ export default function AdminDashboard() {
       return;
     }
 
-    // Check if user is admin (you can customize this logic)
-    if (user?.emailAddresses?.[0]?.emailAddress !== 'your-admin-email@clausevault.co') {
-      router.push('/clausevault');
-      return;
-    }
-
+    // For development - allow any signed-in user to access
+    // TODO: Update this with your actual admin email when ready for production
+    console.log('Current user email:', user?.emailAddresses?.[0]?.emailAddress);
+    
     loadDashboardData();
   }, [isSignedIn, user, router]);
 
@@ -214,7 +212,7 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <span className="text-white/80 text-sm">
-                Welcome, {user?.firstName || 'Admin'}
+                Welcome, {user?.firstName || 'Admin'} ({user?.emailAddresses?.[0]?.emailAddress})
               </span>
               <button
                 onClick={loadDashboardData}
