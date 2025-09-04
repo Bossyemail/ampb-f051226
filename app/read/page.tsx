@@ -20,7 +20,6 @@ export default function ReadPage() {
           muted
           playsInline
           preload="metadata"
-          loading="lazy"
         >
           <source src="/videos/books-video.mp4" type="video/mp4" />
         </video>

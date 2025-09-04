@@ -91,7 +91,6 @@ export default function ElevatePage() {
             muted
             playsInline
             preload="metadata"
-            loading="lazy"
           >
             <source src="/videos/office-background.mp4" type="video/mp4" />
           </video>
@@ -242,7 +241,6 @@ export default function ElevatePage() {
               muted
               playsInline
               preload="metadata"
-              loading="lazy"
             >
               <source src="/videos/office-background.mp4" type="video/mp4" />
             </video>

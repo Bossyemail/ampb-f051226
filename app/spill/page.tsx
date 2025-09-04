@@ -1,11 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import StickyNavigation from "@/components/StickyNavigation";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { useState } from 'react';
 
 function PremiumFAQ() {
@@ -23,7 +20,7 @@ function PremiumFAQ() {
       a: "No spam, no selling lists, unsubscribe anytime with one click. Your inbox is safe."
     }
   ];
-  const [open, setOpen] = useState(null);
+  const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="mt-20">
       <h2 className="text-center text-xl font-semibold tracking-tight text-white mb-8">Quick Answers</h2>
@@ -68,7 +65,6 @@ export default function SpillPage() {
           muted
           playsInline
           preload="metadata"
-          loading="lazy"
         >
           <source src="/videos/office-background.mp4" type="video/mp4" />
         </video>
@@ -113,7 +109,7 @@ export default function SpillPage() {
                       aria-label="Send Me the Snarkletter"
                     >
                       Send Me the Snarkletter
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronDown className="w-4 h-4" />
                     </button>
                   </motion.div>
                 </div>
@@ -228,12 +224,12 @@ export default function SpillPage() {
               aria-label="Send Me the Snarkletter"
             >
               Send Me the Snarkletter
-              <ChevronRight className="w-4 h-4" />
+                              <ChevronDown className="w-4 h-4" />
             </button>
           </div>
         </div>
       </main>
-      <Footer />
+      
     </div>
   );
 }

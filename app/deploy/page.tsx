@@ -85,7 +85,6 @@ export default function DeployPage() {
             muted
             playsInline
             preload="metadata"
-            loading="lazy"
           >
             <source src="/videos/clause-vault.mp4" type="video/mp4" />
           </video>
@@ -235,7 +234,6 @@ export default function DeployPage() {
               muted
               playsInline
               preload="metadata"
-              loading="lazy"
             >
               <source src="/videos/office-background.mp4" type="video/mp4" />
             </video>

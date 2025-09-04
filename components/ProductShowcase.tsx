@@ -112,7 +112,6 @@ export default function ProductShowcase() {
           muted 
           playsInline
           preload="auto"
-          defaultmuted
         >
           <source src="/videos/books-video.mp4" type="video/mp4" />
         </video>
@@ -151,8 +150,6 @@ export default function ProductShowcase() {
           muted 
           playsInline
           preload="auto"
-          defaultmuted
-          loading="lazy"
         >
           <source src="/videos/bossy-email.mp4" type="video/mp4" />
         </video>
@@ -194,8 +191,6 @@ export default function ProductShowcase() {
           muted 
           playsInline
           preload="auto"
-          defaultmuted
-          loading="lazy"
         >
           <source src="/videos/clause-vault.mp4" type="video/mp4" />
         </video>
@@ -237,8 +232,6 @@ export default function ProductShowcase() {
           muted 
           playsInline
           preload="auto"
-          defaultmuted
-          loading="lazy"
         >
           <source src="/videos/tc-services.mp4" type="video/mp4" />
         </video>

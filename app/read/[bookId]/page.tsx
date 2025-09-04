@@ -10,16 +10,24 @@ import { getBookById, books } from '@/lib/books';
 import { notFound } from 'next/navigation';
 
 interface BookPageProps {
-  params: {
+  params: Promise<{
     bookId: string;
-  };
+  }>;
 }
 
 export default function BookPage({ params }: BookPageProps) {
-  const book = getBookById(params.bookId);
+  const [bookId, setBookId] = React.useState<string>('');
+  const [book, setBook] = React.useState(getBookById(''));
+
+  React.useEffect(() => {
+    params.then((resolvedParams) => {
+      setBookId(resolvedParams.bookId);
+      setBook(getBookById(resolvedParams.bookId));
+    });
+  }, [params]);
 
   if (!book) {
-    notFound();
+    return <div>Loading...</div>;
   }
 
   const handlePurchase = (format: string) => {

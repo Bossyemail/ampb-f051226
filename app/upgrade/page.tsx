@@ -18,7 +18,6 @@ export default function UpgradePage() {
             muted
             playsInline
             preload="metadata"
-            loading="lazy"
           >
             <source src="/videos/bossy-email.mp4" type="video/mp4" />
           </video>
@@ -94,7 +93,6 @@ export default function UpgradePage() {
               muted
               playsInline
               preload="metadata"
-              loading="lazy"
             >
               <source src="/videos/office-background.mp4" type="video/mp4" />
             </video>

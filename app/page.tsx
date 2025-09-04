@@ -26,7 +26,6 @@ export default function Home() {
           muted
           playsInline
           preload="metadata"
-          loading="lazy"
         >
           <source src="/videos/miami-skyline.mp4" type="video/mp4" />
         </video>

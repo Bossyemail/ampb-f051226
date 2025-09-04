@@ -353,7 +353,7 @@ export default function AboutPage() {
             muted
             playsInline
             preload="metadata"
-            loading="lazy"
+
           >
             <source src="/videos/office-background.mp4" type="video/mp4" />
           </video>
