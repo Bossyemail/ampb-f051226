@@ -205,21 +205,18 @@ export default function AdminDashboard() {
               <span className="text-white/60 text-sm">Admin Dashboard</span>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-white/80 text-sm">
+              <span className="text-white/80 text-sm font-mono">
                 Welcome, Admin (Development Mode)
               </span>
               <button
                 onClick={loadDashboardData}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+                className="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-mono text-sm hover:bg-white/20 transition-all duration-200 border border-white/20"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
                 Refresh
               </button>
               <button
                 onClick={() => router.push('/clausevault')}
-                className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                className="bg-white text-black px-4 py-2 rounded-lg font-mono text-sm hover:bg-gray-200 transition-all duration-200"
               >
                 Back to App
               </button>
@@ -232,22 +229,21 @@ export default function AdminDashboard() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="flex space-x-1 bg-white/10 backdrop-blur-sm rounded-lg p-1">
           {[
-            { id: 'overview', label: 'Overview', icon: '📊' },
-            { id: 'users', label: 'Users', icon: '👥' },
-            { id: 'analytics', label: 'Analytics', icon: '📈' },
-            { id: 'security', label: 'Security', icon: '🛡️' }
+            { id: 'overview', label: 'Overview' },
+            { id: 'users', label: 'Users' },
+            { id: 'analytics', label: 'Analytics' },
+            { id: 'security', label: 'Security' }
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setSelectedView(tab.id as any)}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-md transition-all ${
+              className={`flex-1 px-4 py-2 rounded-md transition-all duration-200 font-mono text-sm ${
                 selectedView === tab.id
                   ? 'bg-white text-black font-medium'
                   : 'text-white/60 hover:text-white hover:bg-white/5'
               }`}
             >
-              <span>{tab.icon}</span>
-              <span>{tab.label}</span>
+              {tab.label}
             </button>
           ))}
         </div>
@@ -264,42 +260,30 @@ export default function AdminDashboard() {
             {/* KPI Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-white/60 text-sm">Total Users</p>
-                    <p className="text-3xl font-bold text-white">{kpis.totalUsers}</p>
-                  </div>
-                  <div className="text-4xl">👥</div>
+                <div>
+                  <p className="text-white/60 text-sm font-mono mb-2">Total Users</p>
+                  <p className="text-4xl font-bold text-white font-mono">{kpis.totalUsers}</p>
                 </div>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-white/60 text-sm">Monthly Revenue</p>
-                    <p className="text-3xl font-bold text-white">{formatCurrency(kpis.mrr)}</p>
-                  </div>
-                  <div className="text-4xl">💰</div>
+                <div>
+                  <p className="text-white/60 text-sm font-mono mb-2">Monthly Revenue</p>
+                  <p className="text-4xl font-bold text-white font-mono">{formatCurrency(kpis.mrr)}</p>
                 </div>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-white/60 text-sm">Active Users</p>
-                    <p className="text-3xl font-bold text-white">{kpis.activeUsers}</p>
-                  </div>
-                  <div className="text-4xl">✅</div>
+                <div>
+                  <p className="text-white/60 text-sm font-mono mb-2">Active Users</p>
+                  <p className="text-4xl font-bold text-white font-mono">{kpis.activeUsers}</p>
                 </div>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-white/60 text-sm">Total Copies</p>
-                    <p className="text-3xl font-bold text-white">{kpis.totalCopies}</p>
-                  </div>
-                  <div className="text-4xl">📋</div>
+                <div>
+                  <p className="text-white/60 text-sm font-mono mb-2">Total Copies</p>
+                  <p className="text-4xl font-bold text-white font-mono">{kpis.totalCopies}</p>
                 </div>
               </div>
             </div>
@@ -307,7 +291,7 @@ export default function AdminDashboard() {
             {/* Revenue Breakdown */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-xl font-semibold text-white mb-4">Revenue Breakdown</h3>
+                <h3 className="text-xl font-semibold text-white mb-4 font-mono">Revenue Breakdown</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-white/80">Monthly Plans</span>
@@ -331,7 +315,7 @@ export default function AdminDashboard() {
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-xl font-semibold text-white mb-4">Usage Analytics</h3>
+                <h3 className="text-xl font-semibold text-white mb-4 font-mono">Usage Analytics</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-white/80">Avg Copies per User</span>
@@ -358,29 +342,29 @@ export default function AdminDashboard() {
             className="space-y-6"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h3 className="text-xl font-semibold text-white mb-4">Active Users</h3>
+              <h3 className="text-xl font-semibold text-white mb-4 font-mono">Active Users</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-white/20">
-                      <th className="text-white/60 font-medium py-3 px-4">Name</th>
-                      <th className="text-white/60 font-medium py-3 px-4">Email</th>
-                      <th className="text-white/60 font-medium py-3 px-4">Plan</th>
-                      <th className="text-white/60 font-medium py-3 px-4">Sign Up</th>
-                      <th className="text-white/60 font-medium py-3 px-4">Last Active</th>
-                      <th className="text-white/60 font-medium py-3 px-4">Copies</th>
-                      <th className="text-white/60 font-medium py-3 px-4">Status</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Name</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Email</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Plan</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Sign Up</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Last Active</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Copies</th>
+                      <th className="text-white/60 font-medium py-3 px-4 font-mono text-sm">Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     {users.map((user) => (
                       <tr key={user.id} className="border-b border-white/10">
-                        <td className="text-white py-3 px-4">
+                        <td className="text-white py-3 px-4 font-mono text-sm">
                           {user.firstName} {user.lastName}
                         </td>
-                        <td className="text-white/80 py-3 px-4">{user.email}</td>
+                        <td className="text-white/80 py-3 px-4 font-mono text-sm">{user.email}</td>
                         <td className="py-3 px-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          <span className={`px-2 py-1 rounded-full text-xs font-mono font-medium ${
                             user.plan === 'yearly' 
                               ? 'bg-green-500/20 text-green-400' 
                               : 'bg-blue-500/20 text-blue-400'
@@ -388,11 +372,11 @@ export default function AdminDashboard() {
                             {user.plan === 'yearly' ? 'Yearly' : 'Monthly'}
                           </span>
                         </td>
-                        <td className="text-white/80 py-3 px-4">{formatDate(user.signUpDate)}</td>
-                        <td className="text-white/80 py-3 px-4">{formatDate(user.lastActive)}</td>
-                        <td className="text-white py-3 px-4">{user.totalCopies}</td>
+                        <td className="text-white/80 py-3 px-4 font-mono text-sm">{formatDate(user.signUpDate)}</td>
+                        <td className="text-white/80 py-3 px-4 font-mono text-sm">{formatDate(user.lastActive)}</td>
+                        <td className="text-white py-3 px-4 font-mono text-sm">{user.totalCopies}</td>
                         <td className="py-3 px-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          <span className={`px-2 py-1 rounded-full text-xs font-mono font-medium ${
                             user.status === 'active' 
                               ? 'bg-green-500/20 text-green-400' 
                               : 'bg-red-500/20 text-red-400'
@@ -418,7 +402,7 @@ export default function AdminDashboard() {
             {/* Growth Projections */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-xl font-semibold text-white mb-4">Growth Projections</h3>
+                <h3 className="text-xl font-semibold text-white mb-4 font-mono">Growth Projections</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-white/80">Current MRR</span>
@@ -440,7 +424,7 @@ export default function AdminDashboard() {
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <h3 className="text-xl font-semibold text-white mb-4">User Growth</h3>
+                <h3 className="text-xl font-semibold text-white mb-4 font-mono">User Growth</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-white/80">Monthly Growth Rate</span>
@@ -464,7 +448,7 @@ export default function AdminDashboard() {
 
             {/* Usage Analytics */}
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h3 className="text-xl font-semibold text-white mb-4">Usage Analytics</h3>
+              <h3 className="text-xl font-semibold text-white mb-4 font-mono">Usage Analytics</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-white mb-2">{kpis.avgCopiesPerUser}</div>
@@ -490,7 +474,7 @@ export default function AdminDashboard() {
             className="space-y-6"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <h3 className="text-xl font-semibold text-white mb-4">Security Alerts</h3>
+              <h3 className="text-xl font-semibold text-white mb-4 font-mono">Security Alerts</h3>
               {abuseAlerts.length === 0 ? (
                 <p className="text-white/60">No security alerts at this time.</p>
               ) : (
