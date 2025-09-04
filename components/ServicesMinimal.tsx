@@ -22,7 +22,7 @@ const services: Service[] = [
     href: "/bossyemail",
   },
   {
-    title: "ClauseVault",
+            title: "clausevault",
     desc: "Legal language that actually makes sense — faster addenda, fewer fires.",
     icon: <FileText className="w-6 h-6" />,
     href: "/clausevault",

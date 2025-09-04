@@ -88,7 +88,7 @@ export default function ClauseVaultAppPage() {
   // Tutorial steps
   const tutorialSteps = [
     {
-      title: "Welcome to ClauseVault!",
+      title: "Welcome to clausevault!",
       content: "Let's take a quick tour to get you started. This tutorial will show you how to find and use clauses effectively.",
       target: null,
       position: "center"
@@ -131,7 +131,7 @@ export default function ClauseVaultAppPage() {
     },
     {
       title: "You're All Set!",
-      content: "That's it! You now know how to use ClauseVault effectively. The tutorial won't show again, but you can always access help from the settings.",
+      content: "That's it! You now know how to use clausevault effectively. The tutorial won't show again, but you can always access help from the settings.",
       target: null,
       position: "center"
     }
@@ -714,7 +714,7 @@ export default function ClauseVaultAppPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
                       </div>
-                      <h3 className="text-lg font-medium text-white mb-2">Welcome to ClauseVault</h3>
+                      <h3 className="text-lg font-medium text-white mb-2">Welcome to clausevault</h3>
                       <p className="text-gray-300">Select categories above or search to find the clauses you need</p>
                     </div>
                   )}
@@ -815,77 +815,123 @@ export default function ClauseVaultAppPage() {
 
       {/* Custom Clause Modal */}
       {showCustomModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-6">
-          <div className="bg-[#252A33] rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-6"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+          >
+            {/* Header */}
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-light text-white tracking-wide">Create Custom Clause</h2>
+              <div>
+                <h2 className="text-2xl font-bold text-white font-mono lowercase mb-1">create custom clause</h2>
+                <p className="text-white/60 text-sm">Add your own clause to the library</p>
+              </div>
               <button 
                 onClick={() => setShowCustomModal(false)}
-                className="text-white/60 hover:text-white transition-colors"
+                className="w-8 h-8 flex items-center justify-center text-white/60 hover:text-white transition-colors rounded-lg hover:bg-white/10"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
             
+            {/* Success Message */}
             {showSuccessMessage && (
-              <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 text-sm font-light">
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 text-sm"
+              >
                 ✅ Custom clause created successfully! It's now available in your clauses list.
-              </div>
+              </motion.div>
             )}
             
+            {/* Form */}
             <form onSubmit={(e) => { 
               e.preventDefault(); 
               console.log('Form submitted, customClause:', customClause);
               handleCustomClauseSubmit(); 
             }} className="space-y-6">
+              
+              {/* Clause Title */}
               <div>
-                <label className="block text-white/80 text-xs font-light tracking-wide mb-3">Clause Title</label>
+                <label className="block text-white/80 text-xs font-medium tracking-wide mb-2">Clause Title</label>
                 <input
                   type="text"
                   value={customClause.title}
                   onChange={(e) => setCustomClause(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all font-light"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all text-sm"
                   placeholder="Enter clause title"
                   required
                 />
               </div>
               
+              {/* Clause Text */}
               <div>
-                <label className="block text-white/80 text-xs font-light tracking-wide mb-3">Clause Text</label>
+                <label className="block text-white/80 text-xs font-medium tracking-wide mb-2">Clause Text</label>
                 <textarea
                   value={customClause.snippet}
                   onChange={(e) => setCustomClause(prev => ({ ...prev, snippet: e.target.value }))}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all font-light"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all text-sm resize-none"
                   placeholder="Enter your custom clause text"
-                  rows={8}
+                  rows={10}
                   required
                 />
               </div>
               
+              {/* Category */}
               <div>
-                <label className="block text-white/80 text-xs font-light tracking-wide mb-3">Category</label>
+                <label className="block text-white/80 text-xs font-medium tracking-wide mb-2">Category</label>
                 <input
                   type="text"
                   value={customClause.category}
                   onChange={(e) => setCustomClause(prev => ({ ...prev, category: e.target.value }))}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all font-light"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all text-sm"
                   placeholder="e.g., Deposit, Closing"
                 />
               </div>
               
-              <div className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  id="favorite"
-                  checked={customClause.isFavorite}
-                  onChange={(e) => setCustomClause(prev => ({ ...prev, isFavorite: e.target.checked }))}
-                  className="w-4 h-4 text-red-500 bg-white/10 border-white/20 rounded focus:ring-red-500 focus:ring-2"
-                />
-                <label htmlFor="favorite" className="text-white/80 text-sm font-light">Mark as favorite</label>
+              {/* Favorite Heart */}
+              <div className="flex items-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setCustomClause(prev => ({ ...prev, isFavorite: !prev.isFavorite }))}
+                  className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all ${
+                    customClause.isFavorite 
+                      ? 'text-red-400 hover:text-red-300' 
+                      : 'text-white/60 hover:text-white/80'
+                  }`}
+                  aria-label={customClause.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  <svg 
+                    className="w-5 h-5" 
+                    fill={customClause.isFavorite ? "currentColor" : "none"} 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={1.5} 
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" 
+                    />
+                  </svg>
+                </button>
+                <span className="text-white/80 text-sm">
+                  {customClause.isFavorite ? 'Added to favorites' : 'Mark as favorite'}
+                </span>
               </div>
               
+              {/* Submit Button */}
               <div className="pt-6">
                 <button
                   type="submit"
@@ -897,14 +943,14 @@ export default function ClauseVaultAppPage() {
                       console.log('Missing required fields');
                     }
                   }}
-                  className="w-full bg-white text-black px-6 py-3 font-medium hover:bg-gray-200 transition-colors rounded-lg"
+                  className="w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-3 font-medium transition-all rounded-lg backdrop-blur-sm hover:border-white/50"
                 >
                   Create Clause
                 </button>
               </div>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
 
       {/* Toast Notification */}

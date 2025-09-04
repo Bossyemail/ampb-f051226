@@ -122,7 +122,7 @@ function AboutTabs() {
                 </p>
               </div>
               <div className="p-4 ring-1 ring-white/10 bg-white/0">
-                <h3 className="text-white font-semibold text-sm">ClauseVault</h3>
+                <h3 className="text-white font-semibold text-sm">clausevault</h3>
                 <p className="text-neutral-300 text-[13px] mt-1">
                   A searchable library of field-tested clauses so you stop reinventing the wheel.
                 </p>

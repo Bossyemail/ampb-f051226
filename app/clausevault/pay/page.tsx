@@ -22,7 +22,7 @@ export default function ClauseVaultPayPage() {
     const checkAccess = async () => {
       // Check if user has existing access
       if (user && user.publicMetadata.clausevaultAccess) {
-        // User already has access - redirect to ClauseVault
+        // User already has access - redirect to clausevault
         router.push('/clausevault');
         return;
       }
@@ -143,7 +143,7 @@ export default function ClauseVaultPayPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">
-              Stop the endless search at midnight. ClauseVault is your plug-and-play clause library built for Florida contracts and real estate chaos. Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.
+              Stop the endless search at midnight. clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos. Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.
             </p>
           </motion.div>
 

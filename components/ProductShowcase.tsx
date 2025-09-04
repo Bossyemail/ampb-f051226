@@ -179,7 +179,7 @@ export default function ProductShowcase() {
         </div>
       </motion.div>
       
-      {/* Third Section - ClauseVault Video */}
+              {/* Third Section - clausevault Video */}
       <motion.div 
         className="h-[450px] w-full relative"
         initial={{ opacity: 0, y: 50 }}
@@ -203,7 +203,7 @@ export default function ProductShowcase() {
         <div className="absolute inset-0 flex items-center justify-start">
           <div className="text-left px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1">
-              CLAUSEVAULT
+              clausevault
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-white mb-1">
               Your Contract's Secret Weapon

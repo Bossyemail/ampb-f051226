@@ -55,7 +55,7 @@ const items: Item[] = [
     ),
   },
   {
-    title: "ClauseVault Pro",
+            title: "clausevault Pro",
     desc:
       "Your Secret Weapon for Bulletproof Contracts\nStop copy-pasting outdated clauses. Get a vetted library built for South Florida real estate — and keep your deals airtight.",
     href: "/clausevault",

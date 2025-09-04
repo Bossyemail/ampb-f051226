@@ -110,7 +110,7 @@ export default function ReadPage() {
           {/* Book 2 */}
           <div className="bg-white/5 ring-1 ring-white/10 p-8 rounded-xl flex flex-col items-center text-center">
             <img src="/images/books/clausevault-guide.jpg" alt="ClauseVault Field Guide — book cover" className="w-40 h-60 object-cover mb-4 rounded shadow-lg" />
-            <h3 className="text-xl font-semibold text-white mb-2">ClauseVault Field Guide</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">clausevault Field Guide</h3>
             <p className="text-neutral-300 mb-4">Language wins deals—and survives audits. This guide gives you drop-in clauses for the moments that usually get vague, rewritten, or litigated. Clean phrasing. Measurable terms. Fewer “we meant…” emails.</p>
             <ul className="mb-4 space-y-1 text-neutral-300 text-[13px] text-left">
               <li>• Credits, repairs, and timelines—made measurable</li>

@@ -107,7 +107,7 @@ export default function AdminDashboard() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-3xl font-bold mb-2">ClauseVault Analytics</h1>
+          <h1 className="text-3xl font-bold mb-2">clausevault Analytics</h1>
           <p className="text-gray-400">Business insights and user activity</p>
         </motion.div>
 

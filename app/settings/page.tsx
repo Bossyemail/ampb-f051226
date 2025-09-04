@@ -198,12 +198,12 @@ export default function SettingsPage() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-              <h3 className="text-white font-medium mb-2">ClauseVault</h3>
+              <h3 className="text-white font-medium mb-2 font-mono lowercase">clausevault</h3>
               <p className="text-white/60 text-sm mb-4">
                 Version 1.0.0 • Built for Florida real estate professionals
               </p>
               <div className="text-xs text-white/40">
-                © 2024 ClauseVault. All rights reserved.
+                © 2025 clausevault. All rights reserved.
               </div>
             </div>
           </motion.div>
@@ -219,7 +219,7 @@ export default function SettingsPage() {
           {/* Disclaimer below the line - Left justified */}
           <div className="mt-2 text-left">
             <p className="text-xs text-white/40 font-light">
-              Customize your ClauseVault experience and preferences.
+              Customize your clausevault experience and preferences.
             </p>
           </div>
         </div>

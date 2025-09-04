@@ -102,7 +102,7 @@ export default function DeployPage() {
                       transition={{ duration: 0.5, delay: 0.3 }}
                       className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
                     >
-                      Meet ClauseVault
+                      Meet clausevault
                     </motion.h2>
                     <motion.p 
                       initial={{ opacity: 0, y: 8 }}
@@ -130,7 +130,7 @@ export default function DeployPage() {
                         aria-label="Get ClauseVault Now"
                         onClick={() => handleButtonClick('Get ClauseVault Now', 'hero')}
                       >
-                        Get ClauseVault Now →
+                        Get clausevault Now →
                       </button>
                     </motion.div>
                   </div>
@@ -247,7 +247,7 @@ export default function DeployPage() {
           <a href="/signup" 
              className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
              onClick={() => handleButtonClick('Get ClauseVault Now', 'signup')}>
-            Get ClauseVault Now →
+                                    Get clausevault Now →
           </a>
           <p className="text-sm text-gray-400 mt-2">No fluff. Cancel anytime.</p>
         </div>
@@ -261,7 +261,7 @@ export default function DeployPage() {
                   Your Personal Deal-Closing Clause Library
                 </h2>
                 <p className="text-gray-300 leading-relaxed mb-8">
-                  ClauseVault is basically me—two decades of contract management,<br />
+                  clausevault is basically me—two decades of contract management,<br />
                   agent wrangling, and deal-saving—trapped inside a tool.
                 </p>
               </div>
@@ -362,13 +362,13 @@ export default function DeployPage() {
             Stop Drafting. Start Closing.
           </h2>
           <p className="text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto">
-            Every clause you draft from scratch is time you could spend on a deal. ClauseVault makes sure your next clause is the right one—fast, protective, and impossible to ignore.
+            Every clause you draft from scratch is time you could spend on a deal. clausevault makes sure your next clause is the right one—fast, protective, and impossible to ignore.
           </p>
           <button 
             className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
             onClick={() => handleButtonClick('Get ClauseVault Now', 'final-cta')}
           >
-            Get ClauseVault Now
+            Get clausevault Now
             <ChevronRight className="w-4 h-4" />
           </button>
           <p style={{marginTop: "15px", fontSize: "0.9rem", color: "#aaa"}}>

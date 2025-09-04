@@ -33,7 +33,7 @@ const services: Service[] = [
     href: "/bossyemail",
   },
   {
-    title: "ClauseVault",
+            title: "clausevault",
     desc: "Legal language that actually makes sense — faster addenda, fewer fires.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" className="text-[#D6C3F3]">

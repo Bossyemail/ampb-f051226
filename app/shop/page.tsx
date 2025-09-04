@@ -35,7 +35,7 @@ export default function ShopPage() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.02)_0%,transparent_50%)] opacity-20"></div>
               <div className="relative z-10">
                 <div className="cap text-zinc-400">Tool</div>
-                <h3 className="mt-2 text-xl font-semibold text-white">ClauseVault Pro</h3>
+                <h3 className="mt-2 text-xl font-semibold text-white">clausevault Pro</h3>
                 <p className="mt-2 text-zinc-300">The searchable clause library you wish you had sooner.</p>
                 <a href="#" className="mt-6 inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-black/20 rounded">
                   Join Waitlist <ChevronRight className="w-4 h-4" />
@@ -78,7 +78,7 @@ export default function ShopPage() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.015)_0%,transparent_60%)] opacity-10"></div>
               <div className="relative z-10">
                 <div className="cap text-zinc-400">Book</div>
-                <h3 className="mt-2 text-xl font-semibold text-white">ClauseVault Field Guide</h3>
+                <h3 className="mt-2 text-xl font-semibold text-white">clausevault Field Guide</h3>
                 <p className="mt-2 text-zinc-300">Drop-in clauses that save your ass (and your license).</p>
                 <a href="#" className="mt-6 inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-black/20 rounded">
                   Buy on Amazon <ChevronRight className="w-4 h-4" />

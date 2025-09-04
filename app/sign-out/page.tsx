@@ -23,7 +23,7 @@ export default function SignOutPage() {
           )
         ]);
         
-        setStatus("Redirecting to ClauseVault...");
+        setStatus("Redirecting to clausevault...");
         // Small delay to ensure session is fully cleared
         setTimeout(() => {
           router.push('/clausevault');
@@ -31,7 +31,7 @@ export default function SignOutPage() {
         
       } catch (error) {
         console.error("Sign out error:", error);
-        setStatus("Redirecting to ClauseVault...");
+        setStatus("Redirecting to clausevault...");
         router.push('/clausevault');
       }
     };

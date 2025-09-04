@@ -53,7 +53,7 @@ export default function ProfilePage() {
     {
       icon: MessageSquare,
       title: "Share Feedback",
-      description: "Help us improve ClauseVault",
+      description: "Help us improve clausevault",
       action: () => {
         window.open('mailto:support@clausevault.co?subject=Feedback', '_blank');
       }
@@ -70,7 +70,7 @@ export default function ProfilePage() {
     {
       icon: Play,
       title: "Take Tour",
-      description: "Revisit the ClauseVault tutorial",
+      description: "Revisit the clausevault tutorial",
       action: () => {
         router.push('/clausevault/app?tour=true');
       }
