@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Lock, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useUser, useAuth } from "@clerk/nextjs";
 
@@ -130,36 +130,21 @@ export default function ClauseVaultPayPage() {
             <h1 className="text-4xl md:text-5xl font-mono font-bold text-white mb-2 tracking-wider lowercase">
               clausevault
             </h1>
-            <p className="text-sm text-gray-300 mb-8">
-              Searchable, copy-ready real estate clauses.
+            <p className="text-sm text-white/60 -mt-1 mb-8">
+              Searchable, copy-ready clauses
             </p>
           </motion.div>
 
-          {/* Features */}
+          {/* Description */}
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="space-y-3 max-w-sm mx-auto">
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-gray-200">Covers all contingencies.</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-gray-200">50+ ready-to-paste clauses</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-gray-200">Built by a local Agent with 20+ years in the trenches</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                <span className="text-sm text-gray-200">Built to save you time—and protect your commission</span>
-              </div>
-            </div>
+            <p className="text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">
+              Stop the endless search at midnight. ClauseVault is your plug-and-play clause library built for Florida contracts and real estate chaos. Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.
+            </p>
           </motion.div>
 
           {/* Pricing Options */}
@@ -202,9 +187,8 @@ export default function ClauseVaultPayPage() {
             >
               {/* Recommended Badge */}
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-                  <Star className="w-3 h-3" />
-                  SAVE 33%
+                <div className="bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-medium px-3 py-1 rounded-full">
+                  3 MONTHS FREE
                 </div>
               </div>
 
@@ -243,7 +227,6 @@ export default function ClauseVaultPayPage() {
                 </>
               ) : (
                 <>
-                  <Lock className="w-4 h-4" />
                   Get {selectedPlan === 'yearly' ? 'Yearly' : 'Monthly'} Access
                   <ArrowRight className="w-4 h-4" />
                 </>
