@@ -225,6 +225,9 @@ export default function AdminDashboard() {
         </div>
       </header>
 
+      {/* Spacing */}
+      <div className="h-8"></div>
+
       {/* Navigation Tabs */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="flex space-x-1 bg-white/10 backdrop-blur-sm rounded-lg p-1">
@@ -249,6 +252,9 @@ export default function AdminDashboard() {
         </div>
       </div>
 
+      {/* Spacing */}
+      <div className="h-6"></div>
+
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
         {selectedView === 'overview' && (
@@ -268,15 +274,15 @@ export default function AdminDashboard() {
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div>
-                  <p className="text-white/60 text-sm font-mono mb-2">Monthly Revenue</p>
+                  <p className="text-white/60 text-sm font-mono mb-2">MRR</p>
                   <p className="text-4xl font-bold text-white font-mono">{formatCurrency(kpis.mrr)}</p>
                 </div>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div>
-                  <p className="text-white/60 text-sm font-mono mb-2">Active Users</p>
-                  <p className="text-4xl font-bold text-white font-mono">{kpis.activeUsers}</p>
+                  <p className="text-white/60 text-sm font-mono mb-2">ARR</p>
+                  <p className="text-4xl font-bold text-white font-mono">{formatCurrency(kpis.arr)}</p>
                 </div>
               </div>
 
@@ -449,7 +455,7 @@ export default function AdminDashboard() {
             {/* Usage Analytics */}
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
               <h3 className="text-xl font-semibold text-white mb-4 font-mono">Usage Analytics</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-white mb-2">{kpis.avgCopiesPerUser}</div>
                   <div className="text-white/60 text-sm">Avg Copies per User</div>
@@ -461,6 +467,29 @@ export default function AdminDashboard() {
                 <div className="text-center">
                   <div className="text-4xl font-bold text-white mb-2">{Math.round((kpis.yearlyUsers / kpis.totalUsers) * 100)}%</div>
                   <div className="text-white/60 text-sm">Yearly Plan %</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-white mb-2">2.4K</div>
+                  <div className="text-white/60 text-sm">Site Visits (30d)</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Engagement Metrics */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <h3 className="text-xl font-semibold text-white mb-4 font-mono">Engagement Metrics</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-white mb-2">87%</div>
+                  <div className="text-white/60 text-sm">User Retention</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-white mb-2">12.5</div>
+                  <div className="text-white/60 text-sm">Avg Session Duration (min)</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-white mb-2">3.2</div>
+                  <div className="text-white/60 text-sm">Pages per Session</div>
                 </div>
               </div>
             </div>
