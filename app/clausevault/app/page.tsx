@@ -44,8 +44,8 @@ export default function ClauseVaultAppPage() {
   const [tutorialStep, setTutorialStep] = useState(0);
   const [tutorialCompleted, setTutorialCompleted] = useState(false);
   const [copyCount, setCopyCount] = useState(0);
-  const [copyLimitReached, setCopyLimitReached] = useState(false);
   const [recentCopies, setRecentCopies] = useState<Array<{clauseId: string, timestamp: number}>>([]);
+  const [suspiciousActivity, setSuspiciousActivity] = useState(false);
   
   const router = useRouter();
   const { isSignedIn } = useAuth();
@@ -88,32 +88,15 @@ export default function ClauseVaultAppPage() {
     }
   }, []);
 
-  // Content Protection & Copy Monitoring System
+  // Content Protection & Abuse Detection System
   useEffect(() => {
-    // Load user's copy count from localStorage
+    // Load user's copy count from localStorage (for admin monitoring only)
     const savedCopyCount = localStorage.getItem('clausevault-copy-count');
-    const lastResetDate = localStorage.getItem('clausevault-copy-reset-date');
-    
-    // Check if we need to reset the counter (monthly)
-    const now = new Date();
-    const currentMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
-    
-    if (lastResetDate !== currentMonth) {
-      // New month, reset counter
-      localStorage.setItem('clausevault-copy-reset-date', currentMonth);
-      localStorage.setItem('clausevault-copy-count', '0');
-      setCopyCount(0);
-      setCopyLimitReached(false);
-    } else if (savedCopyCount) {
-      // Same month, load existing count
-      const count = parseInt(savedCopyCount);
-      setCopyCount(count);
-      if (count >= 150) { // Increased to 150/month for legitimate use
-        setCopyLimitReached(true);
-      }
+    if (savedCopyCount) {
+      setCopyCount(parseInt(savedCopyCount));
     }
 
-    // Load recent copies for legitimate use detection
+    // Load recent copies for abuse detection
     const savedRecentCopies = localStorage.getItem('clausevault-recent-copies');
     if (savedRecentCopies) {
       setRecentCopies(JSON.parse(savedRecentCopies));
@@ -129,7 +112,6 @@ export default function ClauseVaultAppPage() {
       // Prevent Ctrl/Cmd + C (copy)
       if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
         e.preventDefault();
-        showCopyLimitWarning();
         return false;
       }
       // Prevent Ctrl/Cmd + A (select all)
@@ -157,68 +139,56 @@ export default function ClauseVaultAppPage() {
     };
   }, []);
 
-  // Show copy limit warning
-  const showCopyLimitWarning = () => {
-    setToast({
-      show: true,
-      message: 'Copy limit reached. Contact support for assistance.',
-      type: 'warning'
-    });
+  // Abuse detection function
+  const detectAbuse = (recentCopies: Array<{clauseId: string, timestamp: number}>) => {
+    const now = Date.now();
+    const oneHour = 60 * 60 * 1000;
+    const oneDay = 24 * oneHour;
+    
+    // Check for rapid copying (potential automation)
+    const copiesInLastHour = recentCopies.filter(copy => now - copy.timestamp < oneHour);
+    const copiesInLastDay = recentCopies.filter(copy => now - copy.timestamp < oneDay);
+    
+    // Suspicious patterns
+    if (copiesInLastHour.length > 20) return 'rapid_copying'; // More than 20 in 1 hour
+    if (copiesInLastDay.length > 100) return 'bulk_extraction'; // More than 100 in 1 day
+    if (copiesInLastHour.length > 10 && copiesInLastHour.length === recentCopies.length) return 'automated_copying'; // All copies in last hour
+    
+    return null;
   };
 
-  // Enhanced copy function with monitoring and legitimate use detection
+  // Enhanced copy function with abuse detection
   const handleCopyClause = async (clause: Clause) => {
-    if (copyLimitReached) {
-      showCopyLimitWarning();
-      return;
-    }
-
     try {
-      // Add watermark to copied content
-      const watermarkedContent = `${clause.snippet}\n\n---\nCopied from clausevault.co`;
+      // Copy clean content (no watermarks)
+      await navigator.clipboard.writeText(clause.snippet);
       
-      await navigator.clipboard.writeText(watermarkedContent);
-      
-      // Update copy count
+      // Update copy count for admin monitoring
       const newCount = copyCount + 1;
       setCopyCount(newCount);
       localStorage.setItem('clausevault-copy-count', newCount.toString());
       
-      // Track recent copies for legitimate use detection
+      // Track recent copies for abuse detection
       const now = Date.now();
       const newRecentCopy = { clauseId: clause.title, timestamp: now };
-      const updatedRecentCopies = [newRecentCopy, ...recentCopies].slice(0, 20); // Keep last 20
+      const updatedRecentCopies = [newRecentCopy, ...recentCopies].slice(0, 50); // Keep last 50
       setRecentCopies(updatedRecentCopies);
       localStorage.setItem('clausevault-recent-copies', JSON.stringify(updatedRecentCopies));
       
-      // Check if limit reached
-      if (newCount >= 150) { // Increased to 150/month
-        setCopyLimitReached(true);
-        setToast({
-          show: true,
-          message: 'Monthly copy limit reached. Contact support for assistance.',
-          type: 'warning'
-        });
-        
-        // Send alert to admin
-        sendCopyLimitAlert(clause.title, newCount, 'limit_reached');
-      } else {
-        // Check for legitimate use patterns (multiple copies in short time)
-        const recentCopiesInLastHour = updatedRecentCopies.filter(
-          copy => now - copy.timestamp < 60 * 60 * 1000
-        );
-        
-        if (recentCopiesInLastHour.length >= 5) {
-          // Likely building an addendum - log for admin review
-          sendCopyLimitAlert(clause.title, newCount, 'legitimate_use_pattern', recentCopiesInLastHour.length);
-        }
-        
-        setToast({
-          show: true,
-          message: 'Clause copied successfully!',
-          type: 'success'
-        });
+      // Check for abuse patterns
+      const abuseType = detectAbuse(updatedRecentCopies);
+      if (abuseType) {
+        setSuspiciousActivity(true);
+        sendAbuseAlert(clause.title, newCount, abuseType, updatedRecentCopies.length);
       }
+      
+      // Show success message
+      setToast({
+        show: true,
+        message: 'Clause copied successfully!',
+        type: 'success'
+      });
+      
     } catch (error) {
       console.error('Failed to copy:', error);
       setToast({
@@ -229,12 +199,12 @@ export default function ClauseVaultAppPage() {
     }
   };
 
-  // Send copy limit alert to admin
-  const sendCopyLimitAlert = async (
+  // Send abuse alert to admin
+  const sendAbuseAlert = async (
     clauseTitle: string, 
     copyCount: number, 
-    alertType: 'limit_reached' | 'legitimate_use_pattern' = 'limit_reached',
-    recentCopiesCount?: number
+    abuseType: 'rapid_copying' | 'bulk_extraction' | 'automated_copying',
+    recentCopiesCount: number
   ) => {
     try {
       // Send alert to admin API
@@ -248,21 +218,20 @@ export default function ClauseVaultAppPage() {
           clauseTitle,
           copyCount,
           timestamp: new Date().toISOString(),
-          alertType,
+          alertType: 'abuse_detected',
+          abuseType,
           recentCopiesCount,
-          message: alertType === 'legitimate_use_pattern' 
-            ? `User showing legitimate use pattern: ${recentCopiesCount} copies in last hour`
-            : 'User has reached monthly copy limit'
+          message: `Potential abuse detected: ${abuseType} - ${recentCopiesCount} copies tracked`
         })
       });
 
       if (response.ok) {
-        console.log('🚨 Copy alert sent to admin successfully');
+        console.log('🚨 Abuse alert sent to admin successfully');
       } else {
-        console.error('Failed to send copy alert to admin');
+        console.error('Failed to send abuse alert to admin');
       }
     } catch (error) {
-      console.error('Error sending copy alert:', error);
+      console.error('Error sending abuse alert:', error);
     }
   };
 
@@ -420,20 +389,13 @@ export default function ClauseVaultAppPage() {
     setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 3000);
   };
 
-  // Enhanced copy to clipboard functionality with monitoring
+  // Enhanced copy to clipboard functionality with abuse detection
   const copyToClipboard = async (text: string, title: string) => {
-    if (copyLimitReached) {
-      showCopyLimitWarning();
-      return;
-    }
-
     try {
-      // Add watermark to copied content
-      const watermarkedContent = `${text}\n\n---\nCopied from clausevault.co`;
+      // Copy clean content (no watermarks)
+      await navigator.clipboard.writeText(text);
       
-      await navigator.clipboard.writeText(watermarkedContent);
-      
-      // Update copy count
+      // Update copy count for admin monitoring
       const newCount = copyCount + 1;
       setCopyCount(newCount);
       localStorage.setItem('clausevault-copy-count', newCount.toString());
@@ -441,28 +403,22 @@ export default function ClauseVaultAppPage() {
       // Add to recents
       addToRecents(title);
       
-      // Check if limit reached
-      if (newCount >= 150) { // Increased to 150/month
-        setCopyLimitReached(true);
-        showToast('Monthly copy limit reached. Contact support for assistance.', 'warning');
-        
-        // Send alert to admin
-        sendCopyLimitAlert(title, newCount, 'limit_reached');
-      } else {
-        // Check for legitimate use patterns (multiple copies in short time)
-        const now = Date.now();
-        const recentCopiesInLastHour = recentCopies.filter(
-          copy => now - copy.timestamp < 60 * 60 * 1000
-        );
-        
-        if (recentCopiesInLastHour.length >= 5) {
-          // Likely building an addendum - log for admin review
-          sendCopyLimitAlert(title, newCount, 'legitimate_use_pattern', recentCopiesInLastHour.length);
-        }
-        
-        // Show success toast (no copy count visible to user)
-        showToast(`Copied "${title}"`);
+      // Track recent copies for abuse detection
+      const now = Date.now();
+      const newRecentCopy = { clauseId: title, timestamp: now };
+      const updatedRecentCopies = [newRecentCopy, ...recentCopies].slice(0, 50); // Keep last 50
+      setRecentCopies(updatedRecentCopies);
+      localStorage.setItem('clausevault-recent-copies', JSON.stringify(updatedRecentCopies));
+      
+      // Check for abuse patterns
+      const abuseType = detectAbuse(updatedRecentCopies);
+      if (abuseType) {
+        setSuspiciousActivity(true);
+        sendAbuseAlert(title, newCount, abuseType, updatedRecentCopies.length);
       }
+      
+      // Show success message
+      showToast(`Copied "${title}"`);
       
       console.log('Clause copied to clipboard!');
     } catch (err) {
@@ -607,9 +563,9 @@ export default function ClauseVaultAppPage() {
               {/* Hidden Admin Panel - Only visible to you */}
               {isSignedIn && copyCount > 100 && (
                 <div className="text-right text-xs">
-                  <div className="text-yellow-400">Admin: {copyCount}/150</div>
-                  {copyLimitReached && (
-                    <div className="text-red-400">⚠️ Limit</div>
+                  <div className="text-yellow-400">Admin: {copyCount}</div>
+                  {suspiciousActivity && (
+                    <div className="text-red-400">🚨 Suspicious</div>
                   )}
                 </div>
               )}
