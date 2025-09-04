@@ -3,15 +3,22 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { userId, clauseTitle, copyCount, timestamp } = body;
+    const { userId, clauseTitle, copyCount, timestamp, alertType, recentCopiesCount, message } = body;
 
     // Log the alert (you can replace this with your preferred notification method)
-    console.log('🚨 COPY LIMIT ALERT RECEIVED:', {
+    const alertMessage = alertType === 'legitimate_use_pattern' 
+      ? `User showing legitimate use pattern: ${recentCopiesCount} copies in last hour`
+      : 'User has reached monthly copy limit - investigate usage pattern';
+    
+    console.log('🚨 COPY ALERT RECEIVED:', {
       userId,
       clauseTitle,
       copyCount,
       timestamp,
-      message: 'User has reached 50 copy limit - investigate usage pattern'
+      alertType,
+      recentCopiesCount,
+      message: alertMessage,
+      action: alertType === 'legitimate_use_pattern' ? 'Monitor - likely building addendum' : 'Investigate immediately'
     });
 
     // You can add various notification methods here:
