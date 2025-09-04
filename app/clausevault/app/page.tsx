@@ -39,10 +39,12 @@ export default function ClauseVaultAppPage() {
     isFavorite: false
   });
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+  const [toast, setToast] = useState({ show: false, message: '', type: 'success' as 'success' | 'error' | 'warning' });
   const [showTutorial, setShowTutorial] = useState(false);
   const [tutorialStep, setTutorialStep] = useState(0);
   const [tutorialCompleted, setTutorialCompleted] = useState(false);
+  const [copyCount, setCopyCount] = useState(0);
+  const [copyLimitReached, setCopyLimitReached] = useState(false);
   
   const router = useRouter();
   const { isSignedIn } = useAuth();
@@ -84,6 +86,151 @@ export default function ClauseVaultAppPage() {
       window.history.replaceState({}, '', window.location.pathname);
     }
   }, []);
+
+  // Content Protection & Copy Monitoring System
+  useEffect(() => {
+    // Load user's copy count from localStorage
+    const savedCopyCount = localStorage.getItem('clausevault-copy-count');
+    const lastResetDate = localStorage.getItem('clausevault-copy-reset-date');
+    
+    // Check if we need to reset the counter (monthly)
+    const now = new Date();
+    const currentMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
+    
+    if (lastResetDate !== currentMonth) {
+      // New month, reset counter
+      localStorage.setItem('clausevault-copy-reset-date', currentMonth);
+      localStorage.setItem('clausevault-copy-count', '0');
+      setCopyCount(0);
+      setCopyLimitReached(false);
+    } else if (savedCopyCount) {
+      // Same month, load existing count
+      const count = parseInt(savedCopyCount);
+      setCopyCount(count);
+      if (count >= 50) {
+        setCopyLimitReached(true);
+      }
+    }
+
+    // Content protection: Disable right-click, text selection, and keyboard shortcuts
+    const preventCopy = (e: any) => {
+      e.preventDefault();
+      return false;
+    };
+
+    const preventKeyboardShortcuts = (e: any) => {
+      // Prevent Ctrl/Cmd + C (copy)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+        e.preventDefault();
+        showCopyLimitWarning();
+        return false;
+      }
+      // Prevent Ctrl/Cmd + A (select all)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', preventCopy);
+    
+    // Disable text selection
+    document.addEventListener('selectstart', preventCopy);
+    document.addEventListener('dragstart', preventCopy);
+    
+    // Disable keyboard shortcuts
+    document.addEventListener('keydown', preventKeyboardShortcuts);
+
+    return () => {
+      document.removeEventListener('contextmenu', preventCopy);
+      document.removeEventListener('selectstart', preventCopy);
+      document.removeEventListener('dragstart', preventCopy);
+      document.removeEventListener('keydown', preventKeyboardShortcuts);
+    };
+  }, []);
+
+  // Show copy limit warning
+  const showCopyLimitWarning = () => {
+    setToast({
+      show: true,
+      message: 'Copy limit reached. Contact support for assistance.',
+      type: 'warning'
+    });
+  };
+
+  // Enhanced copy function with monitoring
+  const handleCopyClause = async (clause: Clause) => {
+    if (copyLimitReached) {
+      showCopyLimitWarning();
+      return;
+    }
+
+    try {
+      // Add watermark to copied content
+      const watermarkedContent = `${clause.snippet}\n\n---\nCopied from clausevault.co`;
+      
+      await navigator.clipboard.writeText(watermarkedContent);
+      
+      // Update copy count
+      const newCount = copyCount + 1;
+      setCopyCount(newCount);
+      localStorage.setItem('clausevault-copy-count', newCount.toString());
+      
+      // Check if limit reached
+      if (newCount >= 50) {
+        setCopyLimitReached(true);
+        setToast({
+          show: true,
+          message: 'Monthly copy limit reached. Contact support for assistance.',
+          type: 'warning'
+        });
+        
+        // Send alert to admin (you can replace this with your preferred notification method)
+        sendCopyLimitAlert(clause.title, newCount);
+      } else {
+        setToast({
+          show: true,
+          message: `Clause copied! (${newCount}/50 copies this month)`,
+          type: 'success'
+        });
+      }
+    } catch (error) {
+      console.error('Failed to copy:', error);
+      setToast({
+        show: true,
+        message: 'Failed to copy clause',
+        type: 'error'
+      });
+    }
+  };
+
+  // Send copy limit alert to admin
+  const sendCopyLimitAlert = async (clauseTitle: string, copyCount: number) => {
+    try {
+      // Send alert to admin API
+      const response = await fetch('/api/admin/copy-limit-alert', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: isSignedIn ? 'Authenticated User' : 'Unknown',
+          clauseTitle,
+          copyCount,
+          timestamp: new Date().toISOString()
+        })
+      });
+
+      if (response.ok) {
+        console.log('🚨 Copy limit alert sent to admin successfully');
+      } else {
+        console.error('Failed to send copy limit alert to admin');
+      }
+    } catch (error) {
+      console.error('Error sending copy limit alert:', error);
+    }
+  };
 
   // Tutorial steps
   const tutorialSteps = [
@@ -234,20 +381,44 @@ export default function ClauseVaultAppPage() {
   };
 
   // Show toast notification
-  const showToast = (message: string, type: 'success' | 'error' = 'success') => {
+  const showToast = (message: string, type: 'success' | 'error' | 'warning' = 'success') => {
     setToast({ show: true, message, type });
     setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 3000);
   };
 
-  // Copy to clipboard functionality
+  // Enhanced copy to clipboard functionality with monitoring
   const copyToClipboard = async (text: string, title: string) => {
+    if (copyLimitReached) {
+      showCopyLimitWarning();
+      return;
+    }
+
     try {
-      await navigator.clipboard.writeText(text);
+      // Add watermark to copied content
+      const watermarkedContent = `${text}\n\n---\nCopied from clausevault.co`;
+      
+      await navigator.clipboard.writeText(watermarkedContent);
+      
+      // Update copy count
+      const newCount = copyCount + 1;
+      setCopyCount(newCount);
+      localStorage.setItem('clausevault-copy-count', newCount.toString());
+      
       // Add to recents
       addToRecents(title);
       
-      // Show success toast
-      showToast(`Copied "${title}"`);
+      // Check if limit reached
+      if (newCount >= 50) {
+        setCopyLimitReached(true);
+        showToast('Monthly copy limit reached. Contact support for assistance.', 'warning');
+        
+        // Send alert to admin
+        sendCopyLimitAlert(title, newCount);
+      } else {
+        // Show success toast with copy count
+        showToast(`Copied "${title}" (${newCount}/50 copies this month)`);
+      }
+      
       console.log('Clause copied to clipboard!');
     } catch (err) {
       console.error('Failed to copy text: ', err);
@@ -388,6 +559,20 @@ export default function ClauseVaultAppPage() {
               <span className="text-white/60 text-xs -mt-1">Searchable, copy-ready clauses</span>
             </div>
             <div className="flex items-center gap-4">
+              {/* Copy Counter Display */}
+              {isSignedIn && (
+                <div className="text-right">
+                  <div className="text-white/80 text-sm">
+                    Copies: {copyCount}/50
+                  </div>
+                  {copyLimitReached && (
+                    <div className="text-red-400 text-xs">
+                      Limit reached
+                    </div>
+                  )}
+                </div>
+              )}
+              
               {!tutorialCompleted && (
                 <button
                   onClick={startTutorial}
