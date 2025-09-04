@@ -69,17 +69,11 @@ export default function AdminDashboard() {
 
   // Check admin access
   useEffect(() => {
-    if (!isSignedIn) {
-      router.push('/sign-in');
-      return;
-    }
-
-    // For development - allow any signed-in user to access
-    // TODO: Update this with your actual admin email when ready for production
-    console.log('Current user email:', user?.emailAddresses?.[0]?.emailAddress);
-    
+    // For development - load data immediately
+    // TODO: Add proper authentication check for production
+    console.log('Loading dashboard data...');
     loadDashboardData();
-  }, [isSignedIn, user, router]);
+  }, []);
 
   const loadDashboardData = async () => {
     try {
@@ -212,7 +206,7 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <span className="text-white/80 text-sm">
-                Welcome, {user?.firstName || 'Admin'} ({user?.emailAddresses?.[0]?.emailAddress})
+                Welcome, Admin (Development Mode)
               </span>
               <button
                 onClick={loadDashboardData}
