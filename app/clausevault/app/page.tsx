@@ -279,7 +279,7 @@ export default function ClauseVaultAppPage() {
       {/* Main Content */}
       <div className="relative z-10 flex-1 flex flex-col mx-auto max-w-4xl px-6 min-h-screen">
         {/* Search and Categories Section */}
-        <div className="pt-12 pb-6 space-y-4">
+        <div className="pt-8 pb-6 space-y-3">
           {/* Action Icons */}
           <div className="flex justify-end gap-2">
             {/* Recents Icon */}
@@ -363,10 +363,8 @@ export default function ClauseVaultAppPage() {
             <>
               <div className="flex flex-col gap-0.5">
                 <span className="text-white/60 text-xs whitespace-nowrap mb-2">Access by Category:</span>
-                <div className="flex items-center gap-2 overflow-x-auto categories-scroll pb-1" style={{
-                  scrollbarWidth: 'thin',
-                  scrollbarColor: 'rgba(255,255,255,0.08) transparent'
-                }}>
+                <div className="relative">
+                  <div className="flex items-center gap-2 overflow-x-auto categories-scroll pb-1">
                   {["all", "Access", "Additional", "Address", "Appraisal", "Assignability", "Closing", "Commission", "Credits", "Deposit", "Disclosure", "Earnest", "Escrow", "Financing", "Home", "Inspection", "Insurance", "Lien", "Loan", "Occupancy", "Possession", "Property", "Repair", "Sale", "Seller", "Termination", "Title", "Utilities", "Warranty"].map((category) => (
                     <button
                       key={category}
@@ -388,6 +386,9 @@ export default function ClauseVaultAppPage() {
                       Clear Filters
                     </button>
                   )}
+                  </div>
+                  {/* Fade indicator for scrollable content */}
+                  <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/60 to-transparent pointer-events-none" />
                 </div>
               </div>
 
