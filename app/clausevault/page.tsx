@@ -22,7 +22,7 @@ export default function ClauseVaultPage() {
     const getCurrentImageIndex = () => {
       const now = new Date();
       const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
-      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images
+      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images (all .jpg)
     };
 
     setCurrentBgIndex(getCurrentImageIndex());
@@ -60,7 +60,7 @@ export default function ClauseVaultPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
           style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}${currentBgIndex < 35 ? '.jpg' : '.jpeg'})`,
+            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
           }}
         />
         {/* Subtle overlay for readability */}
@@ -93,7 +93,7 @@ export default function ClauseVaultPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="text-xs -mt-1 text-white/80"
+          className="text-xs -mt-1 text-white/80 mb-6"
         >
           Searchable, copy-ready real estate clauses.
         </motion.p>

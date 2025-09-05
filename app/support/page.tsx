@@ -75,7 +75,7 @@ export default function SupportPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
           style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}${currentBgIndex < 35 ? '.jpg' : '.jpeg'})`,
+            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
           }}
         />
         {/* Subtle overlay for readability */}
@@ -87,18 +87,21 @@ export default function SupportPage() {
       {/* Header */}
       <header className="relative z-10">
         <div className="max-w-4xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => router.push('/clausevault/app')}
+              className="text-white/60 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <div className="flex flex-col">
               <button
-                onClick={() => router.push('/clausevault/app')}
-                className="text-white/60 hover:text-white transition-colors"
+                onClick={() => router.push('/clausevault')}
+                className="text-2xl font-bold text-white font-mono lowercase hover:text-white/80 transition-colors text-left"
               >
-                <ArrowLeft className="w-5 h-5" />
+                clausevault
               </button>
-              <div className="flex flex-col">
-                <h1 className="text-2xl font-bold text-white font-mono lowercase">clausevault</h1>
-                <span className="text-white/60 text-xs -mt-1">Support & Help</span>
-              </div>
+              <span className="text-white/60 text-xs -mt-1">Searchable, copy-ready clauses</span>
             </div>
           </div>
         </div>
@@ -114,7 +117,7 @@ export default function SupportPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-xl font-medium text-white mb-6 text-center">Get Support</h2>
+            <h2 className="text-xl font-medium text-white mb-6 text-left">Get Support</h2>
             <div className="space-y-4">
               {supportOptions.map((option, index) => (
                 <motion.div
@@ -154,8 +157,8 @@ export default function SupportPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h2 className="text-xl font-medium text-white mb-6 text-center">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <h2 className="text-xl font-medium text-white mb-6 text-left">Frequently Asked Questions</h2>
+            <div className="space-y-3">
               {faqItems.map((item, index) => (
                 <motion.div
                   key={item.question}
@@ -166,7 +169,7 @@ export default function SupportPage() {
                 >
                   <button
                     onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                    className="w-full p-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
                   >
                     <h3 className="text-white font-medium">{item.question}</h3>
                     <svg
@@ -186,9 +189,9 @@ export default function SupportPage() {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="px-6 pb-6"
+                      className="px-4 pb-4"
                     >
-                      <p className="text-white/60 text-sm leading-relaxed">{item.answer}</p>
+                      <p className="text-white/60 text-sm">{item.answer}</p>
                     </motion.div>
                   )}
                 </motion.div>
@@ -199,14 +202,54 @@ export default function SupportPage() {
       </div>
 
       {/* Footer */}
+      {/* Footer with icons above line and disclaimer below */}
       <footer className="fixed bottom-0 left-0 right-0 pb-4 z-50 pointer-events-none">
         <div className="max-w-4xl mx-auto px-6">
+          {/* Icons above the line - Right side only */}
+          <div className="flex justify-end mb-1">
+            <div className="flex items-center gap-2 pointer-events-auto">
+              {/* User Profile Icon */}
+              <button
+                onClick={() => router.push('/profile')}
+                className="w-8 h-8 flex items-center justify-center text-white/80 hover:text-white transition-all duration-200"
+                aria-label="User Profile"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </button>
+
+              {/* Email Support Icon */}
+              <button
+                onClick={() => router.push('/support')}
+                className="w-8 h-8 flex items-center justify-center text-white/80 hover:text-white transition-all duration-200"
+                aria-label="Email Support"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </button>
+
+              {/* Settings Icon */}
+              <button
+                onClick={() => router.push('/settings')}
+                className="w-8 h-8 flex items-center justify-center text-white/80 hover:text-white transition-all duration-200"
+                aria-label="Settings"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
           {/* Thin line */}
-          <div className="h-px bg-white/10 w-full"></div>
-          
-          {/* Disclaimer below the line - Left justified */}
-          <div className="mt-2 text-left">
-            <p className="text-xs text-white/40 font-light">
+          <div className="w-full h-px bg-white/20 mb-2" />
+
+          {/* Disclaimer below the line */}
+          <div className="text-center">
+            <p className="text-white/40 text-xs">
               Need help? Contact support@clausevault.co for assistance.
             </p>
           </div>

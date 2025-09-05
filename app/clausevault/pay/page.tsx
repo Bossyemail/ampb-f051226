@@ -21,7 +21,7 @@ export default function ClauseVaultPayPage() {
 
     const checkAccess = async () => {
       // Check if user has existing access
-      if (user && user.publicMetadata.clausevaultAccess) {
+      if (user && user.publicMetadata?.clausevaultAccess) {
         // User already has access - redirect to clausevault
         router.push('/clausevault');
         return;

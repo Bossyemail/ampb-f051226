@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useUser, useAuth, useClerk } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 interface Clause {
   id?: string;
@@ -292,7 +293,7 @@ export default function ClauseVaultAppPage() {
     const getCurrentImageIndex = () => {
       const now = new Date();
       const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
-      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images
+      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images (all .jpg)
     };
 
     setCurrentBgIndex(getCurrentImageIndex());
@@ -333,29 +334,36 @@ export default function ClauseVaultAppPage() {
   useEffect(() => {
     let filtered: Clause[] = [];
 
-    // Only show clauses if categories are selected OR if there's a search query
-    if (selectedCategories.length > 0 || searchQuery.trim()) {
-      // Start with all clauses
-      filtered = [...clauses];
+    // Start with all clauses
+    filtered = [...clauses];
 
-      // Apply search filter first
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase();
-        filtered = filtered.filter(clause =>
-          clause.title.toLowerCase().includes(query) ||
-          clause.snippet.toLowerCase().includes(query) ||
-          clause.category.toLowerCase().includes(query)
-        );
-      }
+    // Apply search filter first (if there's a search query)
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(clause =>
+        clause.title.toLowerCase().includes(query) ||
+        clause.snippet.toLowerCase().includes(query) ||
+        clause.category.toLowerCase().includes(query) ||
+        clause.tags.toLowerCase().includes(query) ||
+        clause.topic.toLowerCase().includes(query) ||
+        clause.side.toLowerCase().includes(query)
+      );
+    }
 
-      // Then apply category filter
-      if (selectedCategories.length > 0 && !selectedCategories.includes("all")) {
-        filtered = filtered.filter(clause =>
-          selectedCategories.includes(clause.category)
-        );
-      } else if (selectedCategories.includes("all")) {
-        // "All" category shows all clauses (already set above)
-      }
+    // Then apply category filter (if categories are selected)
+    if (selectedCategories.length > 0 && !selectedCategories.includes("all")) {
+      filtered = filtered.filter(clause =>
+        selectedCategories.includes(clause.category)
+      );
+    } else if (selectedCategories.includes("all")) {
+      // "All" category shows all clauses (already set above)
+      // Sort alphabetically by title when "All" is selected
+      filtered = filtered.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    // If no search query and no categories selected, show empty results
+    if (!searchQuery.trim() && selectedCategories.length === 0) {
+      filtered = [];
     }
 
     setFilteredClauses(filtered);
@@ -542,7 +550,7 @@ export default function ClauseVaultAppPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
           style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}${currentBgIndex < 35 ? '.jpg' : '.jpeg'})`,
+            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
           }}
         />
         {/* Subtle overlay for readability */}
@@ -552,59 +560,49 @@ export default function ClauseVaultAppPage() {
       </div>
 
       {/* Header */}
-      <header className="relative z-10">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col">
-              <h1 className="text-2xl font-bold text-white font-mono lowercase">clausevault</h1>
-              <span className="text-white/60 text-xs -mt-1">Searchable, copy-ready clauses</span>
-            </div>
-            <div className="flex items-center gap-4">
-              {/* Hidden Admin Panel - Only visible to you */}
-              {isSignedIn && copyCount > 100 && (
-                <div className="text-right text-xs">
-                  <div className="text-yellow-400">Admin: {copyCount}</div>
-                  {suspiciousActivity && (
-                    <div className="text-red-400">🚨 Suspicious</div>
-                  )}
-                </div>
-              )}
-              
-              {!tutorialCompleted && (
-                <button
-                  onClick={startTutorial}
-                  className="text-white/60 hover:text-white transition-colors text-sm"
-                >
-                  Take Tour
-                </button>
-              )}
-              {isSignedIn ? (
-                <button
-                  onClick={handleSignOut}
-                  className="text-white/80 hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <span>Sign Out</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                </button>
-              ) : (
-                <button
-                  onClick={() => router.push('/sign-in')}
-                  className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-                >
-                  Sign In
-                </button>
-              )}
-            </div>
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col">
+            <Link href="/clausevault" className="text-2xl font-bold text-white font-mono lowercase hover:text-white/80 transition-colors">
+              clausevault
+            </Link>
+            <span className="text-white/60 text-xs -mt-1">Searchable, copy-ready clauses</span>
+          </div>
+          <div className="flex items-center gap-4">
+            {/* Hidden Admin Panel - Only visible to you */}
+            {isSignedIn && copyCount > 100 && (
+              <div className="text-right text-xs">
+                <div className="text-yellow-400">Admin: {copyCount}</div>
+                {suspiciousActivity && (
+                  <div className="text-red-400">🚨 Suspicious</div>
+                )}
+              </div>
+            )}
+            
+            {isSignedIn ? (
+              <button
+                onClick={handleSignOut}
+                className="text-white/80 hover:text-white transition-colors flex items-center gap-2"
+              >
+                <span>Sign Out</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+              </button>
+            ) : (
+              <button
+                onClick={() => router.push('/sign-in')}
+                className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+              >
+                Sign In
+              </button>
+            )}
           </div>
         </div>
-      </header>
+      </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex-1 flex flex-col mx-auto max-w-4xl px-6 min-h-screen">
-        {/* Search and Categories Section */}
-        <div className="pt-8 pb-6 space-y-3">
+      {/* Search and Categories Section */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-8 pb-6 space-y-3">
           {/* Action Icons */}
           <div className="flex justify-end gap-2">
             {/* Recents Icon */}
@@ -693,7 +691,7 @@ export default function ClauseVaultAppPage() {
                 <span className="text-white/60 text-xs whitespace-nowrap mb-2">Access by Category:</span>
                 <div className="relative">
                   <div className="flex items-center gap-2 overflow-x-auto categories-scroll pb-0.5">
-                  {["all", "Access", "Additional", "Address", "Appraisal", "Assignability", "Closing", "Commission", "Credits", "Deposit", "Disclosure", "Earnest", "Escrow", "Financing", "Home", "Inspection", "Insurance", "Lien", "Loan", "Occupancy", "Possession", "Property", "Repair", "Sale", "Seller", "Termination", "Title", "Utilities", "Warranty"].map((category) => (
+                  {["all", "Access", "Additional", "Address", "Appraisal", "Assignability", "Closing", "Commission", "Corrections", "Credits", "Deposit", "Effective Date", "Escrow", "Exclusions", "Financing", "Inclusions", "Inspections", "Name", "Personal Property", "Price", "Property", "Prorations", "Repairs", "Seller's Disclosure", "Tenant Occupancy", "Title Selection", "Walkthrough", "Warranty"].map((category) => (
                     <button
                       key={category}
                       onClick={() => handleCategorySelect(category)}
@@ -724,15 +722,16 @@ export default function ClauseVaultAppPage() {
           )}
         </div>
 
-        {/* Main Content - SCROLLABLE CONTAINER WITH FIXED BOUNDARIES */}
+      {/* Main Content - SCROLLABLE CONTAINER WITH FIXED BOUNDARIES */}
+      <div className="relative z-10 flex-1 flex flex-col mx-auto max-w-4xl px-6 min-h-screen">
         <div className="flex-1 flex flex-col">
-          {/* Scrollable Content Area - Fixed between category line and footer */}
-          <div className="flex-1 overflow-y-auto scrollbar-hide px-6" style={{
+          {/* Scrollable Content Area - Fixed between category line and footer icons */}
+          <div className="flex-1 overflow-y-auto scrollbar-hide pb-24" style={{
             scrollbarWidth: 'thin',
             scrollbarColor: 'rgba(255,255,255,0.2) transparent'
           }}>
             {/* Content Container - Normal layout, not centered */}
-            <div className="py-6 pb-32">
+            <div className="pt-2 pb-6">
               {/* Recents View */}
               {currentView === 'recents' && (
                 <div>
@@ -1008,13 +1007,13 @@ export default function ClauseVaultAppPage() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+            className="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl p-6 max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-white font-mono lowercase mb-1">create custom clause</h2>
-                <p className="text-white/60 text-sm">Add your own clause to the library</p>
+                <h2 className="text-lg font-bold text-white mb-1">Create your custom clause</h2>
+                <p className="text-white/60 text-xs">Add your own clause to the library</p>
               </div>
               <button 
                 onClick={() => setShowCustomModal(false)}
@@ -1042,7 +1041,7 @@ export default function ClauseVaultAppPage() {
               e.preventDefault(); 
               console.log('Form submitted, customClause:', customClause);
               handleCustomClauseSubmit(); 
-            }} className="space-y-6">
+            }} className="space-y-4">
               
               {/* Clause Title */}
               <div>
@@ -1063,9 +1062,9 @@ export default function ClauseVaultAppPage() {
                 <textarea
                   value={customClause.snippet}
                   onChange={(e) => setCustomClause(prev => ({ ...prev, snippet: e.target.value }))}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all text-sm resize-none"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all text-sm resize-y min-h-[120px]"
                   placeholder="Enter your custom clause text"
-                  rows={10}
+                  rows={6}
                   required
                 />
               </div>
@@ -1083,7 +1082,7 @@ export default function ClauseVaultAppPage() {
               </div>
               
               {/* Favorite Heart */}
-              <div className="flex items-center gap-3 pt-2">
+              <div className="flex items-center gap-2 pt-1">
                 <button
                   type="button"
                   onClick={() => setCustomClause(prev => ({ ...prev, isFavorite: !prev.isFavorite }))}
@@ -1114,7 +1113,7 @@ export default function ClauseVaultAppPage() {
               </div>
               
               {/* Submit Button */}
-              <div className="pt-6">
+              <div className="pt-4">
                 <button
                   type="submit"
                   onClick={() => {
@@ -1230,9 +1229,9 @@ export default function ClauseVaultAppPage() {
             <div className="flex items-center gap-2 pointer-events-auto">
               {/* User Profile Icon */}
               <button
-                onClick={() => router.push('/profile')}
+                onClick={() => router.push('/settings')}
                 className="w-8 h-8 flex items-center justify-center text-white/80 hover:text-white transition-all duration-200"
-                aria-label="User Profile"
+                aria-label="User Settings"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
