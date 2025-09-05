@@ -93,9 +93,9 @@ export default function ClauseVaultPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="text-xs -mt-1 text-white/80 mb-6"
+          className="text-xs -mt-4 text-white/60"
         >
-          Searchable, copy-ready real estate clauses.
+          Searchable, copy-ready clauses.
         </motion.p>
 
         <motion.ul 
@@ -126,7 +126,15 @@ export default function ClauseVaultPage() {
             transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
             className="hover:text-white/80 transition-colors cursor-default"
           >
-            ↑ Built for South Florida — editable for anywhere
+            ↑ Built for South Florida
+          </motion.li>
+          <motion.li 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+            className="hover:text-white/80 transition-colors cursor-default"
+          >
+            ↑ Editable for anywhere
           </motion.li>
         </motion.ul>
 
