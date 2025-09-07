@@ -130,10 +130,10 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
                 key={item.href}
                 href={item.href}
                 onClick={() => handleNavClick(item.href, item.label.toLowerCase())}
-                className={`text-xs font-medium tracking-widest uppercase transition-colors ${
+                className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${
                   pathname === item.href
                     ? 'text-white'
-                    : 'text-gray-400 hover:text-white'
+                    : 'text-white hover:text-gray-300'
                 }`}
               >
                 {item.label}
@@ -150,7 +150,7 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => trackEvent('click', 'social', social.name.toLowerCase())}
-                className="w-10 h-10 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                className="w-8 h-8 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                 aria-label={social.name}
               >
                 {social.icon}
@@ -191,7 +191,7 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
                       : 'text-gray-300 hover:bg-white/5 hover:text-white'
                   }`}
                 >
-                  <span className="text-sm font-medium tracking-widest uppercase">
+                  <span className="text-xs font-medium tracking-widest uppercase">
                     {item.label}
                   </span>
                   <ChevronRight className="w-4 h-4" />
@@ -207,7 +207,7 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => trackEvent('click', 'social', social.name.toLowerCase())}
-                    className="w-10 h-10 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                    className="w-8 h-8 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                     aria-label={social.name}
                   >
                     {social.icon}

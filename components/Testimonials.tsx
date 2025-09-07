@@ -165,7 +165,119 @@ const testimonials: Testimonial[] = [
     rating: 5
   },
   {
-    quote: "I have had the pleasure of working with Aylen for many years now. When I have a transaction where she is the TC I am instantly happy because I know she is extremely efficient, responsive and effective. She goes above and beyond her role. In fact, I have told her before that she should charge more because of her expertise, professionalism and ability to prevent- and solve problems- should they arise. Agents, buyers and sellers are all in GREAT hands with, Aylen!  MAKE TC’S GREAT AGAIN!",
+    quote: "Aylen is absolutely incredible to work with. Her attention to detail and proactive communication makes every transaction seamless. She anticipates needs before they arise and always keeps everyone informed throughout the process. I wouldn't trust anyone else with my deals.",
+    author: "Judith L.",
+    role: "Top Producer",
+    company: "Coldwell Banker Realty",
+    rating: 5,
+    result: "Seamless transactions with proactive communication"
+  },
+  {
+    quote: "Aylen was such a huge help to us throughout our closing process! She made everything smooth and stress-free, and it was truly a pleasure working with her. We couldn't have done it without her support.",
+    author: "Ms. Palmer",
+    role: "Happy Buyer",
+    company: "",
+    rating: 5,
+    result: "Smooth and stress-free closing process"
+  },
+  {
+    quote: "Working with Aylen has transformed how I handle my real estate business. Her expertise and efficiency allow me to focus on what I do best - selling. Every transaction is handled with precision and care. She's become an essential part of my success.",
+    author: "Andres E.",
+    role: "Top Producer",
+    company: "Coldwell Banker Realty",
+    rating: 5,
+    result: "Transformed business operations with precision and care"
+  },
+  {
+    quote: "Aylen is fast, sharp, and always on top of the details. Her quickness and professionalism make every transaction smoother. She's the kind of partner you want on your side when deadlines matter.",
+    author: "Robert R.",
+    role: "Attorney",
+    company: "",
+    rating: 5,
+    result: "Fast, sharp, and always on top of details"
+  },
+  {
+    quote: "Aylen's professionalism and knowledge are unmatched. She handles every aspect of the transaction with such expertise that I never have to worry about anything falling through the cracks. Her communication is clear, timely, and always helpful.",
+    author: "Fernando A.",
+    role: "Top Producer",
+    company: "Coldwell Banker Realty",
+    rating: 5,
+    result: "Unmatched professionalism with clear communication"
+  },
+  {
+    quote: "Other people wouldn't even return our calls. Aylen not only answered, but she answered every single question we threw her way — and trust me, there were a lot. She made us feel confident every step of the way, and for that, we're forever grateful.",
+    author: "Denise M",
+    role: "Happy Buyer",
+    company: "",
+    rating: 5,
+    result: "Answered every question with confidence"
+  },
+  {
+    quote: "I've been working with Aylen for years and she consistently delivers exceptional service. Her ability to manage complex transactions while keeping everyone informed is remarkable. She's not just a transaction coordinator - she's a true partner in my business success.",
+    author: "Laura G.",
+    role: "Top Producer",
+    company: "Coldwell Banker Realty",
+    rating: 5,
+    result: "True business partner with exceptional service"
+  },
+  {
+    quote: "Timing wasn't exactly on our side — we sold, then the market went wild, and suddenly finding a new home felt impossible. But Aylen stuck with us, navigated the chaos, and made sure we landed in the right place. Now we've got the dream pool and a tiki hut we didn't even know we needed. Worth every ounce of stress.",
+    author: "Happy Seller & Buyer",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Navigated market chaos to find dream home"
+  },
+  {
+    quote: "Most people would have thrown in the towel after months of probate and foreclosure delays — but not Aylen. She stuck with us for a whole year, kept us sane, and never let us lose sight of the goal. In the end, we got the dream home we'd been waiting for, and it was worth every minute.",
+    author: "Grateful Homebuyer",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Stuck with us for a whole year through delays"
+  },
+  {
+    quote: "Inherited property comes with enough stress on its own — the last thing I wanted was a long, drawn-out sale. Aylen jumped in, took charge, and had the Coral Gables home sold in under 30 days. Fast, smooth, and done. Exactly what I needed.",
+    author: "Satisfied Seller",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Sold inherited property in under 30 days"
+  },
+  {
+    quote: "Aylen went above and beyond to help us find the perfect home with the land my husband wanted, in exactly the location we had dreamed of. With our hectic schedules, she made the process seamless — we signed during our lunch break and funded before the end of the workday. It truly couldn't have been easier.",
+    author: "Happy Buyer",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Seamless process with perfect timing"
+  },
+  {
+    quote: "Aylen is my secret weapon. I don't touch a transaction without her. She keeps the chaos under control, knows exactly how to guide a deal to closing, and saves me (and my clients) more times than I can count. Simply put — she's the closer behind the closer.",
+    author: "Nathalys F.",
+    role: "Top Producer",
+    company: "Coldwell Banker Realty",
+    rating: 5,
+    result: "The closer behind the closer"
+  },
+  {
+    quote: "Back in 2009, when the market was in the toilet, I was searching for a fixer-upper under $50,000. Most listing agents holding all the REO properties wouldn't even bother to answer the phone. Then I was referred to Aylen, and from our very first call I knew she was different — she took me seriously. She found me a home for just $25,000, and I remodeled it into exactly what I wanted. Our family still lives here today, and the value has skyrocketed little by little. It turned out to be one of the best decisions I've ever made.",
+    author: "Happy Buyer",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Found $25K home in 2009 market crash"
+  },
+  {
+    quote: "I needed to sell my home quickly and move out of state. Aylen made it happen — we closed in just 30 days. All I had to do was take my passport and go; she even took care of disposing of the personal property so I didn't have to worry about a thing. She turned what could have been overwhelming into a smooth, stress-free process.",
+    author: "Relieved Seller",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "30-day closing with out-of-state move"
+  },
+  {
+    quote: "I have had the pleasure of working with Aylen for many years now. When I have a transaction where she is the TC I am instantly happy because I know she is extremely efficient, responsive and effective. She goes above and beyond her role. In fact, I have told her before that she should charge more because of her expertise, professionalism and ability to prevent- and solve problems- should they arise. Agents, buyers and sellers are all in GREAT hands with, Aylen!  MAKE TC'S GREAT AGAIN!",
     author: "Lourdes F.",
     role: "VP of Lending",
     company: "",
@@ -308,16 +420,18 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4"
         >
-          What Other People Said<br />(When I Didn&apos;t Pay Them To)
+          What Other People Said<br />(No NDA Required)
         </motion.h2>
-        <motion.p 
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          You could ignore these. You could assume everyone here is lying or exaggerating. But if you&apos;re wondering whether I actually deliver on what I say… well, these people clearly think so. (Either that, or I&apos;m very good at bribery. But you decide.)
-        </motion.p>
+          <p>They swear I deliver. Either that, or I&apos;m way better at bribery than I thought.</p>
+          <p>Turns out contract triage is a marketable skill.</p>
+          <p>Real feedback. Zero bribes. Pinky swear.</p>
+        </motion.div>
       </div>
 
             {/* Testimonials Container */}
@@ -353,7 +467,7 @@ export default function Testimonials() {
                     </div>
                     <div>
                       <div className="text-white group-hover/neon:text-white font-medium text-sm">
-                        {testimonial.author.split(' ')[0]} {testimonial.author.split(' ')[1]?.[0] || ''}.
+                        {testimonial.author}
                       </div>
                       <div className="text-gray-400 group-hover/neon:text-gray-300 text-xs">
                         {testimonial.company}

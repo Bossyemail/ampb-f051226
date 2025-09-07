@@ -101,10 +101,28 @@ export default function ElevatePage() {
               <div className="grid grid-cols-6 gap-8">
                 <div className="col-span-3">
                   <div className="text-left">
-                    <motion.h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2">{/* Hero Heading */}
-                      A Tailored Transaction Coordinating Service for the Agents Who Need It Most.
+                    <motion.p 
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      className="text-sm italic text-gray-300 mb-2"
+                    >
+                      Here is
+                    </motion.p>
+                    <motion.h2 
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
+                    >
+                      A Tailored TC Service for Agents Who Refuse to Compromise.
                     </motion.h2>
-                    <motion.p className="text-sm italic text-gray-300 mb-6">{/* Hero Subheading */}
+                    <motion.p 
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                      className="text-sm italic text-gray-300 mb-6"
+                    >
                       Local • Licensed • Experienced
                     </motion.p>
                     <motion.p
@@ -113,12 +131,12 @@ export default function ElevatePage() {
                       transition={{ duration: 0.5, delay: 0.6 }}
                       className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
                     >
-                      Our licensed, local team ensures every deal is handled with precision, speed, and discretion — exactly what your reputation demands.
+                      Your deals deserve more than checklists. Our licensed South Florida team delivers precision, speed, and discretion — so your reputation stays flawless and your clients stay protected.
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
                     >
                       <button
                         className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
@@ -151,7 +169,7 @@ export default function ElevatePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">20+</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">20+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
               </motion.div>
 
@@ -162,7 +180,7 @@ export default function ElevatePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">Local</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">Local</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SOUTH FLORIDA</p>
               </motion.div>
 
@@ -173,7 +191,7 @@ export default function ElevatePage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 1.0 }}
                           >
-                            <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">Zero</p>
+                            <p className="text-white/60 text-4xl font-mono tracking-wider text-right">Zero</p>
                             <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">RISK TOLERANCE</p>
                           </motion.div>
             </div>
@@ -181,55 +199,25 @@ export default function ElevatePage() {
         </section>
 
         {/* Problem Section */}
-        <section className="py-20 px-4 lg:px-8 relative z-10" style={{backgroundColor: "#114B4D"}}>
+        <section className="py-20 px-4 lg:px-8 relative z-10 bg-[#282828]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center space-y-6">
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">{/* Section Heading */}
+              <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">{/* Section Heading */}
                 Transaction Coordination.<br /><em>Redefined.</em>
               </h2>
               <p className="text-gray-300 leading-relaxed text-base text-center max-w-3xl mx-auto">
-                We don’t just manage paperwork — we protect your reputation, your time, and your sanity. Our team is licensed, experienced, and local to South Florida, with 30+ years of combined expertise in lending, operations, title, and sales. We bring deep knowledge of area-specific regulations and a true bird’s-eye view of every deal, delivering unmatched transactional expertise.
+                We don't just push paperwork — we protect your reputation, your time, and your sanity. With 30+ years of combined expertise in lending, title, and sales, we bring unmatched local knowledge and airtight execution to every closing. From contract to keys, nothing slips through the cracks.
               </p>
               <div className="font-medium text-white text-center">
-                We’re not for every agent — and that’s intentional.
+                We're not for everyone — and that's intentional.
               </div>
               <p className="text-gray-300 leading-relaxed text-base text-center max-w-3xl mx-auto">
-                We partner with seasoned, full-time professionals who spend their days with clients and their nights drafting addenda at 11 PM. If that’s you, we’ll help you stop drowning in admin and start focusing on closings and future business.
+                We partner exclusively with full-time professionals who value precision and speed. If you're serious about scaling your business and done with chasing signatures at 11 PM, you're in the right place.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Pain Point + Transformation Section */}
-        <section className="pt-8 pb-6 px-4 lg:px-8 relative z-10 bg-[#282828]">
-          <div className="relative z-10">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
-                
-                {/* Before Elevate */}
-                <div className="bg-[#282828] p-4 text-left">
-                  <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wider">
-                    BEFORE
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-sm">
-                    You’re buried in admin work, giving up nights and weekends to chase paperwork. You spend your days with clients and your nights writing addenda at 11 PM. Your reputation is on the line with every deal, but you’re too busy to make sure every detail is flawless.
-                  </p>
-                </div>
-
-                {/* After Elevate */}
-                <div className="bg-[#282828] p-4 text-right">
-                  <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wider">
-                    AFTER
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-sm">
-                    You have a licensed, experienced partner at your side — every detail handled with airtight precision. No missed deadlines. No compliance gaps. You focus on closings while we protect your reputation, your time, and your sanity with true white-glove service.
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Product Demo Section */}
         <section className="bg-[#282828] w-full">
@@ -262,11 +250,14 @@ export default function ElevatePage() {
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8 space-y-4">
-                <h2 className="text-2xl md:text-3xl font-bold mb-1">
-                  Your Transaction Coordination Partner — <span className="italic font-normal">Redefined</span>
+                <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+                  Your Partner in Business — <span className="italic font-normal">On Demand</span>
                 </h2>
                 <p className="text-gray-300 leading-relaxed">
-                  We don’t just manage paperwork — we protect your reputation, your time, and your sanity with unmatched expertise.
+                  We don't just manage paperwork
+                </p>
+                <p className="text-gray-300 leading-relaxed -mt-4">
+                  — we protect your reputation, your time, and your sanity with unmatched expertise.
                 </p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
@@ -289,7 +280,10 @@ export default function ElevatePage() {
               </div>
               <div className="text-center mt-8 mb-8">
                 <p className="text-gray-400 italic text-sm">
-                  This isn’t about replacing you — it’s about adding value, competence, and structure your clients will notice immediately.
+                  This isn't about replacing you
+                </p>
+                <p className="text-gray-400 italic text-sm">
+                  — it's about adding value, competence, and structure your clients will notice immediately.
                 </p>
               </div>
             </div>
@@ -297,46 +291,125 @@ export default function ElevatePage() {
         </section>
 
         {/* How It Works Section */}
-        <section className="bg-[#282828] text-white py-16">
+        <section className="bg-[#282828] text-white pt-8 pb-16">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-center text-2xl font-bold mb-1">
-              Who We’re For
+            <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+              Our Ideal Client Is…
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-8 items-center mt-10">
+            <div className="space-y-6 mt-10">
               {/* 1 - Seasoned */}
-              <div className="flex justify-center">
-                <span className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-none font-sans mb-2" style={{WebkitTextStroke: "2px white", color: "transparent", fontFamily: "Arial, sans-serif"}}>
-                  1
-                </span>
+              <div className="flex items-center space-x-2">
+                <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
+                <span className="text-white/20 text-2xl mx-2">\</span>
+                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Seasoned Pro</h3>
+                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                <div className="text-base text-gray-300 py-1">
+                  <p>You've closed enough deals to know the basics—and you're running this like a full-time business. The numbers prove it.</p>
+                </div>
               </div>
-              <div className="flex flex-col justify-center text-center md:text-left items-center md:items-start">
-                <h3 className="text-lg font-semibold mb-1">Seasoned</h3>
-                <p className="text-sm opacity-80 max-w-xs">
-                  You’ve closed enough deals to know the basics—and you’re running this like a full-time business. The numbers prove it.
-                </p>
-              </div>
+              
+              <hr className="border-t border-white/10" />
+              
               {/* 2 - Partner-Ready */}
-              <div className="flex justify-center">
-                <span className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-none font-sans mb-2" style={{WebkitTextStroke: "2px white", color: "transparent", fontFamily: "Arial, sans-serif"}}>
-                  2
-                </span>
+              <div className="flex items-center space-x-2">
+                <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
+                <span className="text-white/20 text-2xl mx-2">\</span>
+                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Partner-Ready Agent</h3>
+                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                <div className="text-base text-gray-300 py-1">
+                  <p className="text-base">You're ready to install systems and protocols, delegate real work, and stop being your own bottleneck. You understand that delegation is how you scale.</p>
+                </div>
               </div>
-              <div className="flex flex-col justify-center text-center md:text-left items-center md:items-start">
-                <h3 className="text-lg font-semibold mb-1">Partner-Ready</h3>
-                <p className="text-sm opacity-80 max-w-xs">
-                  You’re ready to install systems and protocols, delegate real work, and stop being your own bottleneck.
-                </p>
-              </div>
+              
+              <hr className="border-t border-white/10" />
+              
               {/* 3 - Process-Driven */}
-              <div className="flex justify-center">
-                <span className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-none font-sans mb-2" style={{WebkitTextStroke: "2px white", color: "transparent", fontFamily: "Arial, sans-serif"}}>
-                  3
-                </span>
+              <div className="flex items-center space-x-2">
+                <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
+                <span className="text-white/20 text-2xl mx-2">\</span>
+                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Process-Driven Closer</h3>
+                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                <div className="text-base text-gray-300 py-1">
+                  <p>You value compliance, fast communication, and decisive moves. You respect timelines—and the team that protects them.</p>
+                </div>
               </div>
-              <div className="flex flex-col justify-center text-center md:text-left items-center md:items-start">
-                <h3 className="text-lg font-semibold mb-1">Process-Driven</h3>
-                <p className="text-sm opacity-80 max-w-xs">
-                  You value compliance, fast communication, and decisive moves. You respect timelines—and the team that protects them.
+              
+              <hr className="border-t border-white/10" />
+              
+              {/* 4 - Growth-Focused */}
+              <div className="flex items-center space-x-2">
+                <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
+                <span className="text-white/20 text-2xl mx-2">\</span>
+                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Growth-Focused Hustler</h3>
+                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                <div className="text-base text-gray-300 py-1">
+                  <p className="text-base">You're not just maintaining — you're scaling.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Who We're NOT For Section */}
+            <div className="mt-20">
+              <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+                Who We're Not For (and That's OK)
+              </h2>
+              <div className="space-y-6 mt-10">
+                {/* 01 - Part-Timers */}
+                <div className="flex items-center space-x-2">
+                  <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
+                  <span className="text-white/20 text-2xl mx-2">\</span>
+                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Part-Timer</h3>
+                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                  <div className="text-base text-gray-300 py-1">
+                    <p>If real estate is your side hustle, we're not your people. We partner with full-time professionals who treat this like a career, not a weekend gig.</p>
+                  </div>
+                </div>
+                
+                <hr className="border-t border-white/10" />
+                
+                {/* 02 - Fire-Drills Only */}
+                <div className="flex items-center space-x-2">
+                  <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
+                  <span className="text-white/20 text-2xl mx-2">\</span>
+                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Fire-Drill Caller</h3>
+                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                  <div className="text-base text-gray-300 py-1">
+                    <p>If you only call for help when your deal is already on fire, it's too late. We prevent chaos — we don't just mop it up.</p>
+                  </div>
+                </div>
+                
+                <hr className="border-t border-white/10" />
+                
+                {/* 03 - Control Freaks */}
+                <div className="flex items-center space-x-2">
+                  <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
+                  <span className="text-white/20 text-2xl mx-2">\</span>
+                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Control Freak</h3>
+                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                  <div className="text-base text-gray-300 py-1">
+                    <p className="text-base">If you can't let go of the paperwork and insist on micromanaging every addendum at 11 PM, we're not a fit.</p>
+                  </div>
+                </div>
+                
+                <hr className="border-t border-white/10" />
+                
+                {/* 04 - Cut-Rate Chasers */}
+                <div className="flex items-center space-x-2">
+                  <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
+                  <span className="text-white/20 text-2xl mx-2">\</span>
+                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Discount Shopper</h3>
+                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
+                  <div className="text-base text-gray-300 py-1">
+                    <p>If you're shopping for "the cheapest TC," keep shopping. We're about precision, compliance, and protecting your reputation — not bargain-bin shortcuts.</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Call to Action Text */}
+              <div className="text-center mt-12">
+                <hr className="border-t border-white/10 w-32 mx-auto mb-8" />
+                <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
+                  If you saw yourself in the list above, book the call. If you didn't, no hard feelings — we're not here for everyone, and we like it that way. But if you just thought, 'finally, someone who actually gets it,' then what are you waiting for? You're our kind of client.
                 </p>
               </div>
             </div>
@@ -345,8 +418,8 @@ export default function ElevatePage() {
 
         {/* Final CTA Section */}
         <section style={{backgroundColor: "#282828", padding: "60px 20px", textAlign: "center", color: "#fff"}}>
-          <h2 className="text-center text-2xl font-bold mb-1">
-            Let’s See If We’re a <em>Good</em> Fit
+          <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+            Let's See If We're a <em>Good</em> Fit
           </h2>
           <p className="text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto">
             Because we work closely with each agent, space is limited. Schedule a call today to see how we can help you close more deals, with less stress.

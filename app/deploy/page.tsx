@@ -11,6 +11,7 @@ import { structuredData, organizationData, breadcrumbData } from './structured-d
 export default function DeployPage() {
   const startTime = useRef(Date.now());
   const scrollDepth = useRef(0);
+  const [activeTab, setActiveTab] = useState(1);
 
   useEffect(() => {
     // Track page view
@@ -95,13 +96,21 @@ export default function DeployPage() {
               <div className="grid grid-cols-5 gap-8">
                 <div className="col-span-2">
                   <div className="text-left">
-                    <motion.h2 
+                    <motion.p 
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
+                      className="text-sm italic text-gray-300 mb-2"
+                    >
+                      Hi,
+                    </motion.p>
+                    <motion.h2 
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
                       className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
                     >
-                      Meet clausevault
+                      Meet ClauseVault
                     </motion.h2>
                     <motion.p 
                       initial={{ opacity: 0, y: 8 }}
@@ -109,27 +118,35 @@ export default function DeployPage() {
                       transition={{ duration: 0.5, delay: 0.5 }}
                       className="text-sm italic text-gray-300 mb-6"
                     >
-                      Smart Clause Library • Scenario Specific
+                      Searchable, Copy Ready Clause Library • Scenario Specific
                     </motion.p>
                     <motion.p 
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.6 }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                    >
+                      Deal-ready contract language you can copy, paste, and send in minutes.
+                    </motion.p>
+                    <motion.p 
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.7 }}
                       className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
                     >
-                      Deal-ready contract language you can copy, paste, and send in minutes. No jargon. No hesitation. Just the exact words you need, in plain English.
+                      No jargon. No hesitation. Just the exact words you need, in plain English.
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
                     >
                       <button 
                         className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         aria-label="Get ClauseVault Now"
                         onClick={() => handleButtonClick('Get ClauseVault Now', 'hero')}
                       >
-                        Get clausevault Now →
+                        Get ClauseVault Now →
                       </button>
                     </motion.div>
                   </div>
@@ -153,7 +170,7 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">500+</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">250+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">CLAUSES</p>
               </motion.div>
 
@@ -164,7 +181,7 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">Instant</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">Instant</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SEARCH</p>
               </motion.div>
 
@@ -175,7 +192,7 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">1000+</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">1000+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ACTIVE USERS</p>
               </motion.div>
             </div>
@@ -183,43 +200,23 @@ export default function DeployPage() {
         </section>
 
         {/* Problem Section */}
-        <section className="py-10 px-4 lg:px-8 relative z-10" style={{backgroundColor: "#8B5E3C"}}>
+        <section className="pt-16 pb-4 px-4 lg:px-8 relative z-10 bg-[#282828]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">
-                Your On-Demand Contract Wingman
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
+                The Cheat Code for Your Contracts
               </h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Two decades of real-world contract fixes, distilled into plain-English clauses you can actually use—searchable, edit-ready, and deal-tested for every situation.
+              <p className="text-base text-gray-300 leading-relaxed mb-4">
+                Deals don't die because you can't sell.<br />
+                They die when contracts fall apart — missing clauses, sloppy addenda, loopholes that cost commissions.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Pain Point + Transformation Section */}
-        <section className="py-4 px-4 lg:px-8 relative z-10 bg-[#282828]">
-          <div className="relative z-10">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10">
-                {/* Before ClauseVault */}
-                <div className="bg-[#282828] p-4 text-left">
-                  <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wider">
-                    BEFORE CLAUSEVAULT
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    Dig through old contracts, copy-paste from colleagues, and hope you got it right.
-                  </p>
-                </div>
-                {/* After ClauseVault */}
-                <div className="bg-[#282828] p-4 text-right">
-                  <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wider">
-                    AFTER CLAUSEVAULT
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    The exact wording you need, ready to use. Save time, avoid mistakes, look like a pro.
-                  </p>
-                </div>
-              </div>
+              <p className="text-base text-gray-300 leading-relaxed mb-4">
+                That's why I built ClauseVault.
+              </p>
+              <p className="text-base text-gray-300 leading-relaxed mb-16">
+                A searchable library of razor-sharp, battle-tested clauses designed to keep your paperwork airtight.<br />
+                And your closings alive.
+              </p>
             </div>
           </div>
         </section>
@@ -245,133 +242,119 @@ export default function DeployPage() {
           <a href="/signup" 
              className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
              onClick={() => handleButtonClick('Get ClauseVault Now', 'signup')}>
-                                    Get clausevault Now →
+                                    Get ClauseVault Now →
           </a>
           <p className="text-sm text-gray-400 mt-2">No fluff. Cancel anytime.</p>
         </div>
 
-        {/* Solution Section */}
+
+
+        {/* Tab System */}
         <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-center text-2xl font-bold mb-1">
-                  Your Personal Deal-Closing Clause Library
-                </h2>
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  clausevault is basically me—two decades of contract management,<br />
-                  agent wrangling, and deal-saving—trapped inside a tool.
-                </p>
+              {/* Tab Navigation */}
+              <div className="flex justify-center mb-8">
+                <div className="flex space-x-1 bg-white/5 p-1 rounded-lg">
+                  <button 
+                    onClick={() => setActiveTab(1)}
+                    className={`px-12 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                      activeTab === 1 
+                        ? 'text-white bg-white/10' 
+                        : 'text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    Your Contract Safety Net
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab(2)}
+                    className={`px-12 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                      activeTab === 2 
+                        ? 'text-white bg-white/10' 
+                        : 'text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    Never Miss a Detail
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab(3)}
+                    className={`px-12 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                      activeTab === 3 
+                        ? 'text-white bg-white/10' 
+                        : 'text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    Built by a Pro
+                  </button>
+                </div>
               </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {[
-                  {
-                    title: "500+",
-                    description: "Clauses"
-                  },
-                  {
-                    title: "Instant",
-                    description: "Search"
-                  },
-                  {
-                    title: "Proven",
-                    description: "Language"
-                  },
-                  {
-                    title: "Fire Drill",
-                    description: "Mode"
-                  }
-                ].map((feature, index) => (
-                  <div key={index} className="text-center">
-                    <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center mt-8">
-                <p className="text-gray-400 italic text-sm">
-                  It's not "clauses for everyone." It's clauses for you—the agent who actually wants to look like they know what they're doing.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works Section */}
-        <section className="bg-[#282828] text-white py-16">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-center text-2xl font-bold mb-1">
-              From <em>Stuck</em> to <em>Sent</em> in Under 2 Minutes
-            </h2>
-
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-8 items-center">
               
-              {/* Step 1 */}
-              <div className="flex justify-center">
-                <span className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-none font-sans"
-                      style={{WebkitTextStroke: "2px white", color: "transparent", fontFamily: "Arial, sans-serif"}}>
-                  1
-                </span>
+              {/* Tab Content */}
+              <div className="text-center">
+                {activeTab === 1 && (
+                  <div className="text-white text-base leading-relaxed space-y-2">
+                    <p>I've worked on thousands of contracts.</p>
+                    <p>I know exactly where deals go sideways.</p>
+                    <p>ClauseVault fixes that:</p>
+                    <p>Searchable Library → 250+ real-world clauses.</p>
+                    <p>Deal-Saving Language → Close loopholes & save commissions.</p>
+                    <p>Built for Real Estate → Agents, TCs, and teams.</p>
+                    <p>Miami Edge → A little city flair while you lock down deals.</p>
+                    <p>💡 Think of it as a contract cheat code — protection without panic.</p>
+                  </div>
+                )}
+                {activeTab === 2 && (
+                  <div className="text-white text-base leading-relaxed space-y-2">
+                    <p>Because "Missing a Clause" Shouldn't Cost You a Closing</p>
+                    <p>One sloppy line = lost deal.</p>
+                    <p>One loophole = weeks of fallout.</p>
+                    <p>One missed clause = thousands gone.</p>
+                    <p>ClauseVault makes sure you never gamble with your contracts again.</p>
+                  </div>
+                )}
+                {activeTab === 3 && (
+                  <div className="text-white text-base leading-relaxed space-y-2">
+                    <p>Built by a TC Who's Worked on Thousands of Contracts</p>
+                    <p>I've seen it all:</p>
+                    <p>Missed deadlines.</p>
+                    <p>Loopholes that blew up deals.</p>
+                    <p>Vague clauses that caused weeks of fallout.</p>
+                    <p>ClauseVault isn't theory.</p>
+                    <p>It's the exact language I've used in South Florida's wildest markets —</p>
+                    <p>packaged for agents who want to stay three steps ahead.</p>
+                  </div>
+                )}
               </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-lg font-semibold mb-1">Search</h3>
-                <p className="text-sm opacity-80">
-                  Find the clause you need (escrow, repairs, financing).
-                </p>
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex justify-center">
-                <span className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-none font-sans"
-                      style={{WebkitTextStroke: "2px white", color: "transparent", fontFamily: "Arial, sans-serif"}}>
-                  2
-                </span>
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-lg font-semibold mb-1">Customize</h3>
-                <p className="text-sm opacity-80">
-                  Add names, dates, and specifics.
-                </p>
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex justify-center">
-                <span className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-none font-sans"
-                      style={{WebkitTextStroke: "2px white", color: "transparent", fontFamily: "Arial, sans-serif"}}>
-                  3
-                </span>
-              </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-lg font-semibold mb-1">Deploy</h3>
-                <p className="text-sm opacity-80">
-                  The language does the heavy lifting. You get the deal.
-                </p>
-              </div>
-
             </div>
           </div>
         </section>
 
-        {/* Final CTA Section */}
-        <section style={{backgroundColor: "#282828", padding: "60px 20px", textAlign: "center", color: "#fff"}}>
-          <h2 className="text-center text-2xl font-bold mb-1">
-            Stop Drafting. Start Closing.
-          </h2>
-          <p className="text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto">
-            Every clause you draft from scratch is time you could spend on a deal. clausevault makes sure your next clause is the right one—fast, protective, and impossible to ignore.
-          </p>
-          <button 
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Get ClauseVault Now', 'final-cta')}
-          >
-            Get clausevault Now
-            <ChevronRight className="w-4 h-4" />
-          </button>
-          <p style={{marginTop: "15px", fontSize: "0.9rem", color: "#aaa"}}>
-            No fluff. Cancel anytime.
-          </p>
+
+
+        {/* Final CTA */}
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
+                Stop Drafting. Start Closing.
+              </h2>
+              <p className="text-base text-gray-300 leading-relaxed mb-2">
+                Every clause you write from scratch is time you could spend on a deal.
+              </p>
+              <p className="text-base text-gray-300 leading-relaxed mb-6">
+                ClauseVault makes sure your next clause is airtight, fast, and impossible to ignore.
+              </p>
+              <button 
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                onClick={() => handleButtonClick('Get ClauseVault Now', 'final-cta')}
+              >
+                Get ClauseVault Now →
+              </button>
+              <p className="text-sm text-gray-400 mt-2">
+                No fluff. Cancel anytime.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
