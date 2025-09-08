@@ -222,7 +222,7 @@ export default function DeployPage() {
         </section>
 
         {/* Product Demo Section */}
-        <section className="bg-[#282828] w-full">
+        <section className="bg-[#282828] w-full relative">
           <div className="relative w-full pt-[40%] overflow-hidden">
             <video
               className="absolute top-0 left-0 w-full h-full object-cover"
@@ -237,54 +237,68 @@ export default function DeployPage() {
           </div>
         </section>
 
-        {/* Signup Section */}
-        <div className="bg-[#282828] text-center py-8">
-          <a href="/signup" 
-             className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-             onClick={() => handleButtonClick('Get ClauseVault Now', 'signup')}>
-                                    Get ClauseVault Now →
-          </a>
-          <p className="text-sm text-gray-400 mt-2">No fluff. Cancel anytime.</p>
-        </div>
+        {/* Gradient Blend */}
+        <div className="h-32 bg-gradient-to-b from-transparent to-[#282828]"></div>
 
-
-
-        {/* Tab System */}
+        {/* Ticker System */}
         <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
-          <div className="relative z-10">
-            <div className="max-w-4xl mx-auto">
-              {/* Tab Navigation */}
-              <div className="flex justify-center mb-8">
-                <div className="flex space-x-1 bg-white/5 p-1 rounded-lg">
+          <div className="max-w-4xl mx-auto">
+            {/* Ticker Navigation */}
+            <div className="flex justify-center mb-8">
+              <div className="grid grid-cols-3 gap-8">
                   <button 
                     onClick={() => setActiveTab(1)}
-                    className={`px-12 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
-                      activeTab === 1 
-                        ? 'text-white bg-white/10' 
-                        : 'text-gray-300 hover:text-white'
+                    className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                      activeTab === 1 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                     }`}
                   >
-                    Your Contract Safety Net
+                    <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                      activeTab === 1 ? 'text-white' : 'text-white/60'
+                    }`}>
+                      01
+                    </span>
+                    <span className="text-neutral-500">\</span>
+                    <span className={`transition-colors duration-300 ${
+                      activeTab === 1 ? 'text-white' : 'text-white/60'
+                    }`}>
+                      Your Contract Safety Net
+                    </span>
                   </button>
                   <button 
                     onClick={() => setActiveTab(2)}
-                    className={`px-12 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
-                      activeTab === 2 
-                        ? 'text-white bg-white/10' 
-                        : 'text-gray-300 hover:text-white'
+                    className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                      activeTab === 2 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                     }`}
                   >
-                    Never Miss a Detail
+                    <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                      activeTab === 2 ? 'text-white' : 'text-white/60'
+                    }`}>
+                      02
+                    </span>
+                    <span className="text-neutral-500">\</span>
+                    <span className={`transition-colors duration-300 ${
+                      activeTab === 2 ? 'text-white' : 'text-white/60'
+                    }`}>
+                      Never Miss a Detail
+                    </span>
                   </button>
                   <button 
                     onClick={() => setActiveTab(3)}
-                    className={`px-12 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
-                      activeTab === 3 
-                        ? 'text-white bg-white/10' 
-                        : 'text-gray-300 hover:text-white'
+                    className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                      activeTab === 3 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                     }`}
                   >
-                    Built by a Pro
+                    <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                      activeTab === 3 ? 'text-white' : 'text-white/60'
+                    }`}>
+                      03
+                    </span>
+                    <span className="text-neutral-500">\</span>
+                    <span className={`transition-colors duration-300 ${
+                      activeTab === 3 ? 'text-white' : 'text-white/60'
+                    }`}>
+                      Built by a Pro
+                    </span>
                   </button>
                 </div>
               </div>
@@ -293,44 +307,25 @@ export default function DeployPage() {
               <div className="text-center">
                 {activeTab === 1 && (
                   <div className="text-white text-base leading-relaxed space-y-2">
-                    <p>I've worked on thousands of contracts.</p>
-                    <p>I know exactly where deals go sideways.</p>
-                    <p>ClauseVault fixes that:</p>
-                    <p>Searchable Library → 250+ real-world clauses.</p>
-                    <p>Deal-Saving Language → Close loopholes & save commissions.</p>
-                    <p>Built for Real Estate → Agents, TCs, and teams.</p>
-                    <p>Miami Edge → A little city flair while you lock down deals.</p>
-                    <p>💡 Think of it as a contract cheat code — protection without panic.</p>
+                    <p>Every deal hides landmines. I've spent 20+ years watching where agents trip — missed deadlines, vague addenda, sloppy clauses. ClauseVault is your safety net: real-world clauses written to close loopholes, protect commissions, and keep your deals airtight.</p>
+                    <p>How it works: Negotiate → Search the library → Copy → Paste → Done.</p>
                   </div>
                 )}
                 {activeTab === 2 && (
                   <div className="text-white text-base leading-relaxed space-y-2">
-                    <p>Because "Missing a Clause" Shouldn't Cost You a Closing</p>
-                    <p>One sloppy line = lost deal.</p>
-                    <p>One loophole = weeks of fallout.</p>
-                    <p>One missed clause = thousands gone.</p>
-                    <p>ClauseVault makes sure you never gamble with your contracts again.</p>
+                    <p>In real estate sales, the devil isn't in the details — it is the details. One wrong word, one unchecked box, one missed date, and your deal (and paycheck) can vanish. ClauseVault gives you a searchable library of 250+ clauses, so you can move fast without cutting corners.</p>
+                    <p>How it works: Spot the issue → Search the fix → Drop it in → Keep closing.</p>
                   </div>
                 )}
                 {activeTab === 3 && (
                   <div className="text-white text-base leading-relaxed space-y-2">
-                    <p>Built by a TC Who's Worked on Thousands of Contracts</p>
-                    <p>I've seen it all:</p>
-                    <p>Missed deadlines.</p>
-                    <p>Loopholes that blew up deals.</p>
-                    <p>Vague clauses that caused weeks of fallout.</p>
-                    <p>ClauseVault isn't theory.</p>
-                    <p>It's the exact language I've used in South Florida's wildest markets —</p>
-                    <p>packaged for agents who want to stay three steps ahead.</p>
+                    <p>This isn't theory or recycled jargon. ClauseVault was built by someone who's drafted, reviewed, and rescued thousands of contracts in the real trenches of South Florida real estate. I know exactly where the industry breaks — and I built the tool I wish existed years ago.</p>
+                    <p>How it works: Real problems → Real clauses → Real solutions.</p>
                   </div>
                 )}
               </div>
             </div>
-          </div>
         </section>
-
-
-
         {/* Final CTA */}
         <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
           <div className="relative z-10">

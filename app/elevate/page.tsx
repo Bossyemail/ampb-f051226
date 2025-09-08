@@ -138,14 +138,16 @@ export default function ElevatePage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.8 }}
                     >
-                      <button
-                        className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                      <a
+                        href="https://form.jotform.com/252496909826069"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         aria-label="Schedule a discovery call"
-                        onClick={() => handleButtonClick('Schedule a Discovery Call', 'hero')}
+                        onClick={() => handleButtonClick('Are We a Fit?', 'hero')}
                       >
-                        Schedule a Discovery Call
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
+                        Are We a Fit? <span>{'>'}</span>
+                      </a>
                       <div className="mt-6"></div>
                     </motion.div>
                   </div>
@@ -237,10 +239,12 @@ export default function ElevatePage() {
 
         {/* Signup Section */}
         <div className="bg-[#282828] text-center py-8">
-          <a href="/contact"
-            className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Book a Fit Call', 'signup')}>
-            Book a Fit Call →
+          <a href="https://form.jotform.com/252496909826069"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+            onClick={() => handleButtonClick('Are We a Fit?', 'signup')}>
+            Are We a Fit? <span>{'>'}</span>
           </a>
           <p className="text-sm text-gray-400 mt-2">Limited space available.</p>
         </div>
@@ -424,12 +428,15 @@ export default function ElevatePage() {
           <p className="text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto">
             Because we work closely with each agent, space is limited. Schedule a call today to see how we can help you close more deals, with less stress.
           </p>
-          <button
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Book a Fit Call', 'final-cta')}
+          <a
+            href="https://form.jotform.com/252496909826069"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+            onClick={() => handleButtonClick('Are We a Fit?', 'final-cta')}
           >
-            Book Your Fit Call &rarr;
-          </button>
+            Are We a Fit? <span>{'>'}</span>
+          </a>
           <p style={{marginTop: "15px", fontSize: "0.9rem", color: "#aaa"}}>
             Limited space available.
           </p>

@@ -12,6 +12,17 @@ export default function ClauseVaultPage() {
   const { isSignedIn } = useAuth();
   const [isAnimationPaused, setIsAnimationPaused] = useState(false);
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [currentImageNumber, setCurrentImageNumber] = useState(1);
+  
+  // Available background images (excluding missing ones like 54, 55)
+  const availableImages = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 56, 57, 58, 59, 60,
+    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+    81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100,
+    101, 102, 103, 104, 105, 106
+  ];
 
 
   const handleMouseEnter = () => setIsAnimationPaused(true);
@@ -22,7 +33,12 @@ export default function ClauseVaultPage() {
     const getCurrentImageIndex = () => {
       const now = new Date();
       const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
-      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images (all .jpg)
+      const arrayIndex = Math.floor(hoursSinceEpoch / 6) % availableImages.length;
+      const imageNumber = availableImages[arrayIndex];
+      console.log('Current image number:', imageNumber); // Debug log
+      console.log('Image path:', `/images/clausevault/clausevault-bg-${imageNumber}.jpg`); // Debug log
+      setCurrentImageNumber(imageNumber);
+      return arrayIndex;
     };
 
     setCurrentBgIndex(getCurrentImageIndex());
@@ -54,14 +70,15 @@ export default function ClauseVaultPage() {
 
   // Show landing page
   return (
-    <div className="min-h-screen flex font-sans relative">
+    <div className="min-h-screen flex font-sans relative" style={{ background: 'transparent' }}>
       {/* Background Image - Same as product page */}
-      <div className="fixed inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-          style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
-          }}
+      <div className="fixed inset-0 z-10">
+        <img 
+          src={`/images/clausevault/clausevault-bg-${currentImageNumber}.jpg`}
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          onLoad={() => console.log('Image loaded successfully')}
+          onError={(e) => console.log('Image failed to load:', e.target.src)}
         />
         {/* Subtle overlay for readability */}
         <div className="absolute inset-0 bg-black/60" />
@@ -70,7 +87,7 @@ export default function ClauseVaultPage() {
       </div>
 
       {/* Login Button - Top Right */}
-      <div className="absolute top-6 right-6 z-50">
+      <div className="absolute top-6 right-6 z-30">
         <button 
           onClick={() => router.push('/sign-in?redirect_url=/clausevault/app')}
           className="px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors font-medium"
@@ -80,7 +97,7 @@ export default function ClauseVaultPage() {
       </div>
       
       {/* Left Side */}
-      <div className="w-1/2 bg-black/90 backdrop-blur-sm text-white flex flex-col justify-start pt-12 px-12 space-y-4 font-body text-sm relative z-10">
+      <div className="w-1/2 bg-black/90 backdrop-blur-sm text-white flex flex-col justify-start pt-12 px-12 space-y-4 font-body text-sm relative z-20">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -244,11 +261,10 @@ export default function ClauseVaultPage() {
       </div>
 
       {/* Right Side - Full Height Animation */}
-      <div className="w-1/2 relative z-10 px-6">
+      <div className="w-1/2 relative z-20 px-6">
         <div className="min-h-screen overflow-hidden relative m-0" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className="scrolling-content text-white" style={{ 
-            animationPlayState: isAnimationPaused ? 'paused' : 'running',
-            animation: 'scrollUp 45s linear infinite',
+            animation: isAnimationPaused ? 'scrollUp 45s linear infinite paused' : 'scrollUp 45s linear infinite running',
             position: 'absolute',
             top: '100%'
           }}>

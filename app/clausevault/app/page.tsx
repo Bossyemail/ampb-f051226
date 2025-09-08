@@ -26,6 +26,17 @@ export default function ClauseVaultAppPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [currentImageNumber, setCurrentImageNumber] = useState(1);
+  
+  // Available background images (excluding missing ones like 54, 55)
+  const availableImages = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 56, 57, 58, 59, 60,
+    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+    81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100,
+    101, 102, 103, 104, 105, 106
+  ];
   const [typedPlaceholder, setTypedPlaceholder] = useState("");
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
@@ -293,7 +304,11 @@ export default function ClauseVaultAppPage() {
     const getCurrentImageIndex = () => {
       const now = new Date();
       const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
-      return Math.floor(hoursSinceEpoch / 6) % 106; // Change every 6 hours, cycle through 106 images (all .jpg)
+      const arrayIndex = Math.floor(hoursSinceEpoch / 6) % availableImages.length;
+      const imageNumber = availableImages[arrayIndex];
+      console.log('Current image number:', imageNumber); // Debug log
+      setCurrentImageNumber(imageNumber);
+      return arrayIndex;
     };
 
     setCurrentBgIndex(getCurrentImageIndex());
@@ -504,7 +519,9 @@ export default function ClauseVaultAppPage() {
   // Handle sign out
   const handleSignOut = async () => {
     try {
+      console.log('Signing out...');
       await signOut();
+      console.log('Sign out successful, redirecting...');
       router.push('/clausevault');
     } catch (error) {
       console.error('Error signing out:', error);
@@ -544,14 +561,15 @@ export default function ClauseVaultAppPage() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" style={{ background: 'transparent' }}>
       {/* Background Image */}
-      <div className="fixed inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-          style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}.jpg)`,
-          }}
+      <div className="fixed inset-0 z-10">
+        <img 
+          src={`/images/clausevault/clausevault-bg-${currentImageNumber}.jpg`}
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          onLoad={() => console.log('Image loaded successfully')}
+          onError={(e) => console.log('Image failed to load:', e.target.src)}
         />
         {/* Subtle overlay for readability */}
         <div className="absolute inset-0 bg-black/60" />
@@ -560,7 +578,7 @@ export default function ClauseVaultAppPage() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-4">
+      <div className="relative z-20 max-w-4xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <Link href="/clausevault" className="text-2xl font-bold text-white font-mono lowercase hover:text-white/80 transition-colors">
@@ -602,7 +620,7 @@ export default function ClauseVaultAppPage() {
       </div>
 
       {/* Search and Categories Section */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-8 pb-6 space-y-3">
+      <div className="relative z-20 max-w-4xl mx-auto px-6 pt-8 pb-6 space-y-3">
           {/* Action Icons */}
           <div className="flex justify-end gap-2">
             {/* Recents Icon */}
@@ -723,7 +741,7 @@ export default function ClauseVaultAppPage() {
         </div>
 
       {/* Main Content - SCROLLABLE CONTAINER WITH FIXED BOUNDARIES */}
-      <div className="relative z-10 flex-1 flex flex-col mx-auto max-w-4xl px-6 min-h-screen">
+      <div className="relative z-20 flex-1 flex flex-col mx-auto max-w-4xl px-6 min-h-screen">
         <div className="flex-1 flex flex-col">
           {/* Scrollable Content Area - Fixed between category line and footer icons */}
           <div className="flex-1 overflow-y-auto scrollbar-hide pb-24" style={{
@@ -1222,7 +1240,7 @@ export default function ClauseVaultAppPage() {
       )}
 
       {/* Footer with icons above line and disclaimer below */}
-      <footer className="fixed bottom-0 left-0 right-0 pb-4 z-50 pointer-events-none">
+      <footer className="fixed bottom-0 left-0 right-0 pb-4 z-30 pointer-events-none">
         <div className="max-w-4xl mx-auto px-6">
           {/* Icons above the line - Right side only */}
           <div className="flex justify-end mb-1">

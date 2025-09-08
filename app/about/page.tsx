@@ -279,6 +279,244 @@ function AboutTabs() {
 export default function AboutPage() {
   const startTime = useRef(Date.now());
   const scrollDepth = useRef(0);
+  const [activeTickerItem, setActiveTickerItem] = useState<string | null>('story');
+
+  const tickerItems = [
+    {
+      id: 'story',
+      number: '01',
+      title: 'Story',
+      content: (
+        <>
+          <div className="relative mb-6">
+            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
+              01
+            </span>
+            <p>The phone was ringing. A loan officer was waving a file. On line two, a client wanted "someone older and more experienced." I was 18, working the front desk of a lending firm. Two lessons came fast: This industry wasn't built for me. I'd have to be so good they couldn't ignore me.</p>
+          </div>
+          
+          <p className="mb-6">Back then, there was no tech to lean on. Contracts were faxed, files lived in manila folders, and "transaction management" meant a stack of sticky notes and a highlighter. Fast-forward two decades and now the panic is that AI will unlock a Supra box and take the agent's job.</p>
+          
+          <p className="mb-6">I've had a front row seat to every shift in between — from the paper-heavy days to Zillow connecting all MLS feeds nationwide, to DocuSign changing signatures forever, to today's wave of AI tools that promise to replace what experience still does better.</p>
+          
+          <p className="mb-6">I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late. Two recessions and thousands of contracts later, I'm still here: the fixer who gets the 6:30 p.m. "everything's on fire" text, the compliance hawk who spots risks before attorneys do, and now the builder creating software to fix the gaps the industry still pretends aren't there.</p>
+          
+          <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
+        </>
+      )
+    },
+    {
+      id: 'what-i-do',
+      number: '02',
+      title: 'What I Do',
+      content: (
+        <>
+          <div className="relative mb-6">
+            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
+              02
+            </span>
+            <p>I keep deals alive, clean, and compliant — and I've been doing it since before "transaction coordinator" was even a job title.</p>
+          </div>
+          
+          <p className="mb-6">Here's what that looks like today:</p>
+          
+          <ul className="mb-6">
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Support from Contract to Closing.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Critical deadlines tracked before they become fire drills.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Compliance handled without you having to chase it.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Agents free to actually sell instead of babysitting paperwork.</span>
+            </li>
+          </ul>
+          
+          <p>I've seen this business evolve from hand-signed contracts to e-signatures, from file cabinets to cloud storage, and now to AI drafting clauses. Through all of it, one truth hasn't changed: deals don't close on technology — they close on precision, discipline and know-how. That's what I deliver.</p>
+        </>
+      )
+    },
+    {
+      id: 'who-im-for',
+      number: '03',
+      title: 'Who I\'m For',
+      content: (
+        <>
+          <div className="relative mb-6">
+            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
+              03
+            </span>
+            <p>I love what I do, but here's the thing — in real estate sales we're all independent contractors. That means we get to choose each other. I don't believe in forced fits. If we work together, it's because we both know it's the right move: you value precision and systems, and I bring the experience and chaos control to back you up.</p>
+          </div>
+          
+          <p className="mb-6">I work best with:</p>
+          
+          <ul className="mb-6">
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Full-time agents who treat this like a career, not a side hustle.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Producers with volume who understand leverage and don't want their growth capped by paperwork.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Teams that run like businesses and know that systems and compliance are non-negotiable.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Operators who value reputation — because in this industry, your name is your currency.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Pros who understand tools are helpers, not saviors. AI might draft an addendum, but it can't stop you from blowing a deadline.</span>
+            </li>
+          </ul>
+          
+          <p className="mb-6">Who I don't work with:</p>
+          
+          <ul className="mb-6">
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Side-hustlers looking for a discount.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Fire-drill agents who only call when the house is already burning down.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span>Anyone who thinks "compliance" is optional until their broker or the state comes knocking.</span>
+            </li>
+          </ul>
+          
+          <p>If you want a checkbox-pusher, you've got options. If you want a partner who sees the whole board, anticipates the problems, and protects your business like it's their own — you're in the right place.</p>
+        </>
+      )
+    },
+    {
+      id: 'how-i-work',
+      number: '04',
+      title: 'How I Work',
+      content: (
+        <>
+          <div className="relative mb-6">
+            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
+              04
+            </span>
+            <p>Technology has changed. Principles haven't. From the moment a contract hits my desk to the day the keys change hands, I follow a protocol for every step and every contingency. Reviewing documents, tracking deadlines, coordinating with all parties, keeping communication clean — nothing is left to chance.</p>
+          </div>
+          
+          <p className="mb-6">Every deal runs on systems, not fire drills. If there's risk, you'll hear it from me first. If there's a shortcut that looks tempting, I'll guide you back to the path that's legally, ethically, and morally right — because protecting your reputation matters more than saving two minutes.</p>
+          
+          <p className="mb-6">Here's what you can expect working with me:</p>
+          
+          <ul className="mb-6">
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Calm over Chaos.</strong> Every deal gets a process — so you're not waking up to fire drills.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Transparency, Always.</strong> You'll know where things stand without having to ask. If there's a risk, you'll hear it from me first.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Proactive {'>'} Reactive.</strong> I don't wait for problems to land in your lap. I flag them before they cost you a commission.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Selective Roster.</strong> I only work with agents who respect the process — because that's how I keep the quality high.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Partnership Mindset.</strong> I don't just move paper. I safeguard your contracts, your compliance, and your credibility.</span>
+            </li>
+          </ul>
+          
+          <p className="mb-6">Yes, I use the tools — from e-sign to AI. I even build my own. But the tech doesn't matter without someone who knows the terrain, the rules, and how to keep the deal alive.</p>
+          
+          <p>That's me.</p>
+        </>
+      )
+    },
+    {
+      id: 'rules-i-live-by',
+      number: '05',
+      title: 'Rules I Live By',
+      content: (
+        <>
+          <div className="relative mb-6">
+            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
+              05
+            </span>
+            <p>These aren't motivational quotes. They're survival tactics from two decades in the trenches. The industry changes — fax machines, e-signatures, AI — but these rules hold no matter what.</p>
+          </div>
+          
+          <ul className="mb-6">
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Audit-Proof or Bust</strong> → If it feels risky, it is.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Say No Faster</strong> → Boundaries are the real luxury.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Match Their Pace</strong> → A client's speed is their trust.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Corazón — Breathe</strong> → Panic is optional; prep isn't.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Add Value First</strong> → Invoice second. Goodwill compounds.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Assume the Plot Twist</strong> → Every deal has one. Plan for it.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Structure {'>'} Chaos</strong> → If it's not in writing, it didn't happen.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Stay in the Arena</strong> → Real advice comes from those still doing it.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Move Fast & Break Nothing</strong> → Speed with safeguards beats chaos.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Be So Good</strong> → They can't ignore you (especially the ones who tried).</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>Loyalty Is a Two-Way Street</strong> → I protect those who protect the work.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-white/60 mr-3 mt-1">›</span>
+              <span><strong>You're Only as Good as Your Last Deal</strong> → Reputations reset every closing.</span>
+            </li>
+          </ul>
+          
+          <p>Steal these until you make your own. Mine were built in the trenches to keep deals from catching fire — mantras that tame chaos, keep contracts clean, and remind you that boring closings are the goal.</p>
+        </>
+      )
+    }
+  ];
 
   useEffect(() => {
     // Track page view
@@ -345,25 +583,22 @@ export default function AboutPage() {
         <StickyNavigation />
 
         {/* Hero Section */}
-        <section className="relative h-[650px] w-full -mt-32">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-
-          >
-            <source src="/videos/office-background.mp4" type="video/mp4" />
-          </video>
+        <section 
+          className="relative h-[1100px] w-full -mt-32"
+          style={{
+            backgroundImage: 'url(/images/IMG_6635.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 10%',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60" />
-          <div className="absolute inset-0 flex items-center pt-64">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/60" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900 to-transparent" />
+          <div className="absolute inset-0 flex items-center pt-20">
             <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-              <div className="grid grid-cols-5 gap-8">
-                <div className="col-span-2">
-                  <div className="text-left max-w-lg">
+              <div className="flex items-start justify-between">
+                <div className="text-left max-w-sm pr-8">
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -372,12 +607,12 @@ export default function AboutPage() {
                     >
                       Hey there,
                     </motion.p>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <motion.h1
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
+                        className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1"
                         style={{ textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
                       >
                         I&apos;m <span className="italic font-bold">Aylen<br />Montenegro</span>
@@ -386,39 +621,45 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.25 }}
-                        className="w-16 h-px bg-white/10 mb-2"
+                        className="w-16 h-px bg-white/10 mb-1"
                       />
                       <motion.p
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-sm italic text-gray-300 mb-6"
+                        className="text-sm italic text-gray-300 mb-3"
                       >
-                        Real Estate Consultant • Deal Flow Architect • SaaS Builder • Author
+                        Deal Flow Architect • SaaS Builder • Author
                       </motion.p>
                     </div>
-                    <motion.p
+                    <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="font-body text-base text-gray-300 max-w-lg leading-relaxed mt-4"
+                      className="font-body text-base text-gray-300 max-w-lg leading-relaxed mt-4 space-y-2"
                     >
-                      I close contracts and contain chaos—calm, clean, on time. Twenty years in the arena gave me pattern recognition your deals can bank on. I also build software that keep closings boring—the good kind.
-                    </motion.p>
+                      <p>I close contracts and contain chaos — calm, clean, on time.</p>
+                      
+                      <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worked every corner of this business, and now I'm building software to keep closings boring — the good kind.</p>
+                      
+                      <p>This space is different. It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
+                      
+                      
+                      <p>Because business should be smart, profitable, and yes — even a little fun.</p>
+                    </motion.div>
                   </div>
                 </div>
-                <div className="col-span-3">
+                <div className="flex-1">
                   {/* Right side space for stats overlay */}
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* STATS OVERLAY */}
-          <aside
-            className="pointer-events-none absolute right-6 top-80 hidden w-56 select-none lg:block"
-            aria-label="Aylen Montenegro stats"
-          >
+            
+            {/* STATS OVERLAY */}
+            <aside
+              className="pointer-events-none absolute right-6 top-80 hidden w-72 select-none lg:block"
+              aria-label="Aylen Montenegro stats"
+            >
             <div className="space-y-6">
               {/* item */}
               <motion.div
@@ -426,7 +667,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">20+</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">20+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
               </motion.div>
 
@@ -437,7 +678,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">South</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">South</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">FLORIDA</p>
               </motion.div>
 
@@ -448,24 +689,76 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">Real</p>
+                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">Real</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ESTATE EXPERT</p>
               </motion.div>
             </div>
           </aside>
+          {/* Interactive About Sections Ticker - Full width within hero, no constraints */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="absolute bottom-4 left-0 right-0 grid grid-cols-5 gap-8 w-full text-sm whitespace-nowrap px-8 lg:px-16 py-8"
+          >
+            {tickerItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveTickerItem(activeTickerItem === item.id ? null : item.id)}
+                className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                  activeTickerItem === item.id ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                }`}
+              >
+                <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  activeTickerItem === item.id ? 'text-white' : 'text-white/60'
+                }`}>
+                  {item.number}
+                </span>
+                <span className="text-neutral-500">\</span>
+                <span className={`transition-colors duration-300 ${
+                  activeTickerItem === item.id ? 'text-white' : 'text-white'
+                }`}>
+                  {item.title}
+                </span>
+              </button>
+            ))}
+          </motion.div>
         </section>
 
-        {/* ABOUT (Tabbed / Glassy / Compact) Section - directly under hero */}
-        <section id="about-tabs" className="bg-gradient-to-b from-neutral-900 to-neutral-950 py-12">
-          <div className="mx-auto max-w-6xl px-8 lg:px-16">
-            {/* Heading - no label, no box */}
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">
-              Contracts. Closings. Chaos control.
-            </h2>
-            {/* Tabs */}
-            <AboutTabs />
-          </div>
-        </section>
+        {/* Ticker Content Section */}
+        {activeTickerItem && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="bg-neutral-900 pt-0 pb-8"
+          >
+            <div className="mx-auto max-w-4xl px-4 lg:px-8">
+              {tickerItems
+                .filter(item => item.id === activeTickerItem)
+                .map((item) => (
+                  <div key={item.id} className="text-left">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className="text-base text-gray-300 leading-relaxed max-w-4xl space-y-4"
+                    >
+                      <div>
+                        {typeof item.content === 'string' ? (
+                          <p>{item.content}</p>
+                        ) : (
+                          item.content
+                        )}
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
+            </div>
+          </motion.section>
+        )}
+
 
         {/* Solution Section */}
         <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
@@ -518,9 +811,9 @@ export default function AboutPage() {
 
         {/* Signup Section - moved after Bird's-Eye View */}
         <div className="bg-[#282828] text-center py-8">
-          <a href="/contact"
+          <a href="mailto:hello@aylenmontenegro.com"
             className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Contact Aylen', 'signup')}>
+            onClick={() => handleButtonClick('Contact Aylen', 'email')}>
             Contact Aylen →
           </a>
           <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
