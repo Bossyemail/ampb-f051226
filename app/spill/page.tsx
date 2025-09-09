@@ -4,7 +4,234 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import StickyNavigation from "@/components/StickyNavigation";
 import Footer from "@/components/Footer";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+
+// Confetti component
+function Confetti({ isActive }: { isActive: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number>();
+  const particlesRef = useRef<Array<{
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    color: string;
+    size: number;
+    life: number;
+  }>>([]);
+
+  useEffect(() => {
+    if (!isActive) return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+
+    // Create confetti particles
+    const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff'];
+    for (let i = 0; i < 50; i++) {
+      particlesRef.current.push({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        vx: (Math.random() - 0.5) * 8,
+        vy: (Math.random() - 0.5) * 8 - 2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: Math.random() * 4 + 2,
+        life: 1
+      });
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particlesRef.current = particlesRef.current.filter(particle => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.vy += 0.1; // gravity
+        particle.life -= 0.02;
+
+        if (particle.life > 0) {
+          ctx.save();
+          ctx.globalAlpha = particle.life;
+          ctx.fillStyle = particle.color;
+          ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+          ctx.restore();
+          return true;
+        }
+        return false;
+      });
+
+      if (particlesRef.current.length > 0) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    animate();
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isActive]);
+
+  if (!isActive) return null;
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none z-10"
+    />
+  );
+}
+
+// Scratch-off component
+function ScratchOffCard({ children, scratchText = "SCRATCH TO REVEAL" }: { children: React.ReactNode; scratchText?: string }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isScratched, setIsScratched] = useState(false);
+  const [isScratching, setIsScratching] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = container.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+
+    // Create scratch surface
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#666666');
+    gradient.addColorStop(0.5, '#888888');
+    gradient.addColorStop(1, '#666666');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Add scratch text
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 16px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(scratchText, canvas.width / 2, canvas.height / 2);
+
+    // Add some texture
+    ctx.fillStyle = '#999999';
+    for (let i = 0; i < 50; i++) {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const size = Math.random() * 3;
+      ctx.fillRect(x, y, size, size);
+    }
+  }, []);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsScratching(true);
+    scratch(e.clientX, e.clientY);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isScratching) {
+      scratch(e.clientX, e.clientY);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsScratching(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
+    setIsScratching(true);
+    const touch = e.touches[0];
+    scratch(touch.clientX, touch.clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault();
+    if (isScratching) {
+      const touch = e.touches[0];
+      scratch(touch.clientX, touch.clientY);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsScratching(false);
+  };
+
+  const scratch = (clientX: number, clientY: number) => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const rect = container.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+
+    // Create circular scratch area
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Check if enough is scratched
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    let transparentPixels = 0;
+    
+    for (let i = 3; i < data.length; i += 4) {
+      if (data[i] === 0) transparentPixels++;
+    }
+    
+    const scratchPercentage = (transparentPixels / (data.length / 4)) * 100;
+    
+    if (scratchPercentage > 30) {
+      setIsScratched(true);
+      setShowConfetti(true);
+      // Hide confetti after animation completes
+      setTimeout(() => setShowConfetti(false), 2000);
+    }
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="relative group backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-6 rounded-none transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-14px_rgba(211,204,214,.35)] cursor-crosshair"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {children}
+      {!isScratched && (
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full cursor-crosshair"
+          style={{ touchAction: 'none' }}
+        />
+      )}
+      <Confetti isActive={showConfetti} />
+    </div>
+  );
+}
 
 function PremiumFAQ() {
   const faqData = [
@@ -87,7 +314,7 @@ function PremiumFAQ() {
 
 export default function SpillPage() {
   return (
-    <div className="min-h-screen bg-[#212124] text-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
       <StickyNavigation />
       {/* Hero Section - Consistent with other pages */}
       <section className="relative h-[650px] w-full -mt-32">
@@ -102,7 +329,9 @@ export default function SpillPage() {
           <source src="/videos/office-background.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50" />
+        {/* Gradient blend at bottom of hero video */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
         <div className="absolute inset-0 flex items-center pt-64">
           <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
             <div className="grid grid-cols-5 gap-8">
@@ -176,7 +405,7 @@ export default function SpillPage() {
         {/* This aside block is now redundant with the new grid layout */}
       </section>
       {/* Main Content - Replace with provided copy */}
-      <main className="bg-gradient-to-b from-neutral-900 to-neutral-950 py-12">
+      <main className="bg-[#121216] py-12">
         <div className="mx-auto max-w-6xl px-8 lg:px-16">
           {/* Hero Section Description */}
           <section className="mt-2">
@@ -217,7 +446,7 @@ export default function SpillPage() {
             </p>
             <div className="mt-4 grid gap-4 grid-cols-5">
               {/* 01 */}
-              <article className="group backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-6 rounded-none transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-14px_rgba(211,204,214,.35)]">
+              <ScratchOffCard scratchText="SCRATCH TO REVEAL">
                 <div className="text-center">
                   <div className="text-white/60 text-4xl font-mono tracking-wider mb-2">01</div>
                   <div className="text-neutral-500 mb-3">/</div>
@@ -226,9 +455,9 @@ export default function SpillPage() {
                     A deal disaster, red flags to avoid, and the fix that keeps you from stepping on the same landmine.
                   </p>
                 </div>
-              </article>
+              </ScratchOffCard>
               {/* 02 */}
-              <article className="group backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-6 rounded-none transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-14px_rgba(17,75,77,.35)]">
+              <ScratchOffCard scratchText="SCRATCH TO REVEAL">
                 <div className="text-center">
                   <div className="text-white/60 text-4xl font-mono tracking-wider mb-2">02</div>
                   <div className="text-neutral-500 mb-3">/</div>
@@ -237,9 +466,9 @@ export default function SpillPage() {
                     Takeaways, tactics, or shortcuts you can steal and drop into your deals today.
                   </p>
                 </div>
-              </article>
+              </ScratchOffCard>
               {/* 03 */}
-              <article className="group backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-6 rounded-none transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-14px_rgba(211,204,214,.35)]">
+              <ScratchOffCard scratchText="SCRATCH TO REVEAL">
                 <div className="text-center">
                   <div className="text-white/60 text-4xl font-mono tracking-wider mb-2">03</div>
                   <div className="text-neutral-500 mb-3">/</div>
@@ -248,9 +477,9 @@ export default function SpillPage() {
                     The behind-the-scenes chaos they never cover in training — equal parts lesson, laugh, and "thank God that wasn't me."
                   </p>
                 </div>
-              </article>
+              </ScratchOffCard>
               {/* 04 */}
-              <article className="group backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-6 rounded-none transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-14px_rgba(17,75,77,.35)]">
+              <ScratchOffCard scratchText="SCRATCH TO REVEAL">
                 <div className="text-center">
                   <div className="text-white/60 text-4xl font-mono tracking-wider mb-2">04</div>
                   <div className="text-neutral-500 mb-3">/</div>
@@ -259,9 +488,9 @@ export default function SpillPage() {
                     Clauses, news, and industry curveballs — decoded without the boring PowerPoint energy.
                   </p>
                 </div>
-              </article>
+              </ScratchOffCard>
               {/* 05 */}
-              <article className="group backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-6 rounded-none transition hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-14px_rgba(211,204,214,.35)]">
+              <ScratchOffCard scratchText="SCRATCH TO REVEAL">
                 <div className="text-center">
                   <div className="text-white/60 text-4xl font-mono tracking-wider mb-2">05</div>
                   <div className="text-neutral-500 mb-3">/</div>
@@ -270,7 +499,7 @@ export default function SpillPage() {
                     A song on repeat, an IG account worth stalking, a design that slaps, or a random gem I can't stop thinking about.
                   </p>
                 </div>
-              </article>
+              </ScratchOffCard>
             </div>
           </section>
 

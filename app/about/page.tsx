@@ -302,6 +302,55 @@ export default function AboutPage() {
           <p className="mb-6">I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late. Two recessions and thousands of contracts later, I'm still here: the fixer who gets the 6:30 p.m. "everything's on fire" text, the compliance hawk who spots risks before attorneys do, and now the builder creating software to fix the gaps the industry still pretends aren't there.</p>
           
           <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
+          
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h3 className="text-center text-2xl font-bold mb-4">
+              The 20+ Year Bird's-Eye View
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-8 text-center">
+              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
+              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {[
+                {
+                  title: "Lending",
+                  description: "Experience"
+                },
+                {
+                  title: "Operations", 
+                  description: "Expertise"
+                },
+                {
+                  title: "Title",
+                  description: "Knowledge"
+                },
+                {
+                  title: "Sales",
+                  description: "Mastery"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="text-center">
+                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
+                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-gray-400 italic text-sm text-center mb-8">
+              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
+            </p>
+            
+            <div className="text-center">
+              <a href="mailto:hello@aylenmontenegro.com"
+                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
+                Contact Aylen →
+              </a>
+              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
+            </div>
+          </div>
         </>
       )
     },
@@ -340,6 +389,55 @@ export default function AboutPage() {
           </ul>
           
           <p>I've seen this business evolve from hand-signed contracts to e-signatures, from file cabinets to cloud storage, and now to AI drafting clauses. Through all of it, one truth hasn't changed: deals don't close on technology — they close on precision, discipline and know-how. That's what I deliver.</p>
+          
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h3 className="text-center text-2xl font-bold mb-4">
+              The 20+ Year Bird's-Eye View
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-8 text-center">
+              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
+              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {[
+                {
+                  title: "Lending",
+                  description: "Experience"
+                },
+                {
+                  title: "Operations", 
+                  description: "Expertise"
+                },
+                {
+                  title: "Title",
+                  description: "Knowledge"
+                },
+                {
+                  title: "Sales",
+                  description: "Mastery"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="text-center">
+                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
+                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-gray-400 italic text-sm text-center mb-8">
+              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
+            </p>
+            
+            <div className="text-center">
+              <a href="mailto:hello@aylenmontenegro.com"
+                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
+                Contact Aylen →
+              </a>
+              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
+            </div>
+          </div>
         </>
       )
     },
@@ -399,6 +497,55 @@ export default function AboutPage() {
           </ul>
           
           <p>If you want a checkbox-pusher, you've got options. If you want a partner who sees the whole board, anticipates the problems, and protects your business like it's their own — you're in the right place.</p>
+          
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h3 className="text-center text-2xl font-bold mb-4">
+              The 20+ Year Bird's-Eye View
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-8 text-center">
+              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
+              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {[
+                {
+                  title: "Lending",
+                  description: "Experience"
+                },
+                {
+                  title: "Operations", 
+                  description: "Expertise"
+                },
+                {
+                  title: "Title",
+                  description: "Knowledge"
+                },
+                {
+                  title: "Sales",
+                  description: "Mastery"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="text-center">
+                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
+                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-gray-400 italic text-sm text-center mb-8">
+              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
+            </p>
+            
+            <div className="text-center">
+              <a href="mailto:hello@aylenmontenegro.com"
+                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
+                Contact Aylen →
+              </a>
+              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
+            </div>
+          </div>
         </>
       )
     },
@@ -445,6 +592,55 @@ export default function AboutPage() {
           <p className="mb-6">Yes, I use the tools — from e-sign to AI. I even build my own. But the tech doesn't matter without someone who knows the terrain, the rules, and how to keep the deal alive.</p>
           
           <p>That's me.</p>
+          
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h3 className="text-center text-2xl font-bold mb-4">
+              The 20+ Year Bird's-Eye View
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-8 text-center">
+              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
+              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {[
+                {
+                  title: "Lending",
+                  description: "Experience"
+                },
+                {
+                  title: "Operations", 
+                  description: "Expertise"
+                },
+                {
+                  title: "Title",
+                  description: "Knowledge"
+                },
+                {
+                  title: "Sales",
+                  description: "Mastery"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="text-center">
+                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
+                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-gray-400 italic text-sm text-center mb-8">
+              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
+            </p>
+            
+            <div className="text-center">
+              <a href="mailto:hello@aylenmontenegro.com"
+                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
+                Contact Aylen →
+              </a>
+              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
+            </div>
+          </div>
         </>
       )
     },
@@ -508,11 +704,60 @@ export default function AboutPage() {
             </li>
             <li className="flex items-start">
               <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>You're Only as Good as Your Last Deal</strong> → Reputations reset every closing.</span>
+              <span><strong>You're Only as Good as Your Last Deal</strong> → Reputations reset at every closing.</span>
             </li>
           </ul>
           
           <p>Steal these until you make your own. Mine were built in the trenches to keep deals from catching fire — mantras that tame chaos, keep contracts clean, and remind you that boring closings are the goal.</p>
+          
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h3 className="text-center text-2xl font-bold mb-4">
+              The 20+ Year Bird's-Eye View
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-8 text-center">
+              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
+              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              {[
+                {
+                  title: "Lending",
+                  description: "Experience"
+                },
+                {
+                  title: "Operations", 
+                  description: "Expertise"
+                },
+                {
+                  title: "Title",
+                  description: "Knowledge"
+                },
+                {
+                  title: "Sales",
+                  description: "Mastery"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="text-center">
+                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
+                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-gray-400 italic text-sm text-center mb-8">
+              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
+            </p>
+            
+            <div className="text-center">
+              <a href="mailto:hello@aylenmontenegro.com"
+                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
+                Contact Aylen →
+              </a>
+              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
+            </div>
+          </div>
         </>
       )
     }
@@ -642,7 +887,8 @@ export default function AboutPage() {
                       
                       <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worked every corner of this business, and now I'm building software to keep closings boring — the good kind.</p>
                       
-                      <p>This space is different. It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
+                      <p>This space is different.</p>
+                      <p>It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
                       
                       
                       <p>Because business should be smart, profitable, and yes — even a little fun.</p>
@@ -760,64 +1006,7 @@ export default function AboutPage() {
         )}
 
 
-        {/* Solution Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
-          <div className="relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-center text-2xl font-bold mb-1">
-                  The 20+ Year Bird's-Eye View
-                </h2>
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
-                  giving me a 360° understanding of how deals move (or fall apart) in South Florida.
-                </p>
-              </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                {[
-                  {
-                    title: "Lending",
-                    description: "Experience"
-                  },
-                  {
-                    title: "Operations",
-                    description: "Expertise"
-                  },
-                  {
-                    title: "Title",
-                    description: "Knowledge"
-                  },
-                  {
-                    title: "Sales",
-                    description: "Mastery"
-                  }
-                ].map((feature, index) => (
-                  <div key={index} className="text-center">
-                    <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                    <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center mt-8">
-                <p className="text-gray-400 italic text-sm">
-                  I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Signup Section - moved after Bird's-Eye View */}
-        <div className="bg-[#282828] text-center py-8">
-          <a href="mailto:hello@aylenmontenegro.com"
-            className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-            Contact Aylen →
-          </a>
-          <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-        </div>
 
         {/* Footer */}
         <Footer />

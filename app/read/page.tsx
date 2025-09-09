@@ -25,6 +25,7 @@ export default function ReadPage() {
         </video>
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
         <div className="absolute inset-0 flex items-center pt-64">
           <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
             <div className="grid grid-cols-5 gap-8">
@@ -84,7 +85,7 @@ export default function ReadPage() {
       </section>
 
       {/* Featured Books Section - Editorial, glassy cards */}
-      <section id="books" className="py-20 max-w-6xl mx-auto px-8 lg:px-16">
+      <section id="books" className="py-20 max-w-6xl mx-auto px-8 lg:px-16 bg-[#121216]">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">Featured Books</h2>
         <div className="grid gap-8 md:grid-cols-2">
           {/* Book 1 */}

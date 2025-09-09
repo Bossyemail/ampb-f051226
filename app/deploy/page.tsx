@@ -91,6 +91,8 @@ export default function DeployPage() {
           </video>
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60" />
+          {/* Gradient blend at bottom of hero */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
             <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
               <div className="grid grid-cols-5 gap-8">
@@ -200,30 +202,30 @@ export default function DeployPage() {
         </section>
 
         {/* Problem Section */}
-        <section className="pt-16 pb-4 px-4 lg:px-8 relative z-10 bg-[#282828]">
+        <section className="pt-16 pb-4 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
-                The Cheat Code for Your Contracts
+                Your Contract Cheat Code
               </h2>
               <p className="text-base text-gray-300 leading-relaxed mb-4">
-                Deals don't die because you can't sell.<br />
-                They die when contracts fall apart — missing clauses, sloppy addenda, loopholes that cost commissions.
+                Your deal isn't dying because you can't sell.
               </p>
               <p className="text-base text-gray-300 leading-relaxed mb-4">
-                That's why I built ClauseVault.
+                It's dying because your contract looks like Swiss cheese — full of holes, missing clauses, and sloppy addenda that barely hold together. Loopholes big enough to drive a moving truck through.
               </p>
               <p className="text-base text-gray-300 leading-relaxed mb-16">
-                A searchable library of razor-sharp, battle-tested clauses designed to keep your paperwork airtight.<br />
-                And your closings alive.
+                Enter ClauseVault: A searchable library of razor-sharp clauses built from real-world disasters — the kind you don't forget after cleaning up your 200th blown deal. Every clause is scenario-specific: you search for the situation you're in, copy the language you need, and drop it right into your contract. Done.
               </p>
             </div>
           </div>
         </section>
 
         {/* Product Demo Section */}
-        <section className="bg-[#282828] w-full relative">
+        <section className="bg-[#121216] w-full relative">
           <div className="relative w-full pt-[40%] overflow-hidden">
+            {/* Gradient blend at top of video */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#121216] to-transparent z-10" />
             <video
               className="absolute top-0 left-0 w-full h-full object-cover"
               autoPlay
@@ -234,17 +236,11 @@ export default function DeployPage() {
             >
               <source src="/videos/office-background.mp4" type="video/mp4" />
             </video>
-          </div>
-        </section>
-
-        {/* Gradient Blend */}
-        <div className="h-32 bg-gradient-to-b from-transparent to-[#282828]"></div>
-
-        {/* Ticker System */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
-          <div className="max-w-4xl mx-auto">
-            {/* Ticker Navigation */}
-            <div className="flex justify-center mb-8">
+            {/* Gradient blend overlay */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
+            
+            {/* Ticker Navigation positioned at bottom of video */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
               <div className="grid grid-cols-3 gap-8">
                   <button 
                     onClick={() => setActiveTab(1)}
@@ -302,32 +298,61 @@ export default function DeployPage() {
                   </button>
                 </div>
               </div>
+            </div>
+        </section>
+
+        {/* Ticker Content Section */}
+        <section className="bg-[#121216] pt-8 pb-16 px-4 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto">
               
               {/* Tab Content */}
               <div className="text-center">
                 {activeTab === 1 && (
-                  <div className="text-white text-base leading-relaxed space-y-2">
-                    <p>Every deal hides landmines. I've spent 20+ years watching where agents trip — missed deadlines, vague addenda, sloppy clauses. ClauseVault is your safety net: real-world clauses written to close loopholes, protect commissions, and keep your deals airtight.</p>
-                    <p>How it works: Negotiate → Search the library → Copy → Paste → Done.</p>
+                  <div className="text-left">
+                    <div className="text-white text-base leading-relaxed">
+                      <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">01</span>
+                      <div className="ml-16">
+                        <p className="mb-6">Every deal is a minefield — vague addenda, missing clauses, and "copy-paste" contracts that leave gaping holes.</p>
+                        <p className="mb-6">One oversight and your commission check is suddenly at risk.</p>
+                        <p className="mb-6">That's why ClauseVault exists. It's not theory — it's a contract safety net designed to catch what others miss.</p>
+                        <p className="mb-6">Inside, you'll find battle-tested clauses written from real-world disasters: the loopholes that cost agents thousands, the addenda that fell apart in arbitration, the wording that brokers flagged too late.</p>
+                        <p className="mb-6">› You negotiate. ClauseVault makes sure the paperwork holds.</p>
+                      </div>
+                    </div>
                   </div>
                 )}
                 {activeTab === 2 && (
-                  <div className="text-white text-base leading-relaxed space-y-2">
-                    <p>In real estate sales, the devil isn't in the details — it is the details. One wrong word, one unchecked box, one missed date, and your deal (and paycheck) can vanish. ClauseVault gives you a searchable library of 250+ clauses, so you can move fast without cutting corners.</p>
-                    <p>How it works: Spot the issue → Search the fix → Drop it in → Keep closing.</p>
+                  <div className="text-left">
+                    <div className="text-white text-base leading-relaxed">
+                      <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">02</span>
+                      <div className="ml-16">
+                        <p className="mb-6">Here's the truth: deadlines don't forgive, brokers don't forget, and one missing disclosure can turn into a legal migraine.</p>
+                        <p className="mb-6">ClauseVault keeps you ahead of the chaos. Every clause is scenario-specific — you search for the situation you're in, grab the exact language you need, and drop it straight into your contract.</p>
+                        <p className="mb-6">No guessing, no Googling, no "I think this covers it."</p>
+                        <p className="mb-6">› How it works: Negotiate → Search → Copy → Paste → Done.</p>
+                        <p className="mb-6">You focus on closing. ClauseVault keeps every detail airtight.</p>
+                      </div>
+                    </div>
                   </div>
                 )}
                 {activeTab === 3 && (
-                  <div className="text-white text-base leading-relaxed space-y-2">
-                    <p>This isn't theory or recycled jargon. ClauseVault was built by someone who's drafted, reviewed, and rescued thousands of contracts in the real trenches of South Florida real estate. I know exactly where the industry breaks — and I built the tool I wish existed years ago.</p>
-                    <p>How it works: Real problems → Real clauses → Real solutions.</p>
+                  <div className="text-left">
+                    <div className="text-white text-base leading-relaxed">
+                      <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">03</span>
+                      <div className="ml-16">
+                        <p className="mb-6">ClauseVault wasn't built in a classroom. It was built in the trenches — after years of fixing contracts that agents thought were solid until the deal blew up.</p>
+                        <p className="mb-6">Every clause has one purpose: to back up your negotiations and protect your deal.</p>
+                        <p className="mb-6">It's written in plain language, grounded in real transactions, and designed to close loopholes before they even open.</p>
+                        <p className="mb-6">› Because the best tools don't come from theory. They come from surviving the mess and making sure you don't repeat it.</p>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
             </div>
         </section>
         {/* Final CTA */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">

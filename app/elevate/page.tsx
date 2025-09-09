@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import StickyNavigation from '@/components/StickyNavigation';
 import Footer from '@/components/Footer';
 import { 
@@ -17,6 +17,7 @@ import { structuredData, organizationData, breadcrumbData } from './structured-d
 export default function ElevatePage() {
   const startTime = useRef(Date.now());
   const scrollDepth = useRef(0);
+  const [activeTab, setActiveTab] = useState(1);
 
   useEffect(() => {
     // Track page view
@@ -96,6 +97,8 @@ export default function ElevatePage() {
           </video>
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60" />
+          {/* Gradient blend at bottom of hero video */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
             <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
               <div className="grid grid-cols-6 gap-8">
@@ -201,7 +204,7 @@ export default function ElevatePage() {
         </section>
 
         {/* Problem Section */}
-        <section className="py-20 px-4 lg:px-8 relative z-10 bg-[#282828]">
+        <section className="py-20 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center space-y-6">
               <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">{/* Section Heading */}
@@ -222,7 +225,7 @@ export default function ElevatePage() {
 
 
         {/* Product Demo Section */}
-        <section className="bg-[#282828] w-full">
+        <section className="bg-[#121216] w-full">
           <div className="relative w-full pt-[40%] overflow-hidden">
             <video
               className="absolute top-0 left-0 w-full h-full object-cover"
@@ -234,11 +237,208 @@ export default function ElevatePage() {
             >
               <source src="/videos/office-background.mp4" type="video/mp4" />
             </video>
+            {/* Gradient blend at top of video */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#121216] to-transparent z-10" />
+            {/* Gradient blend at bottom of video */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
+            
+            {/* Ticker Navigation positioned at bottom of video */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+              <div className="grid grid-cols-2 gap-16">
+                <button 
+                  onClick={() => setActiveTab(1)}
+                  className={`flex items-center gap-6 transition-all duration-300 hover:scale-105 ${
+                    activeTab === 1 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                  }`}
+                >
+                  <span className={`text-4xl font-mono tracking-wider transition-colors duration-300 ${
+                    activeTab === 1 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    01
+                  </span>
+                  <span className="text-neutral-500">\</span>
+                  <span className={`text-lg transition-colors duration-300 ${
+                    activeTab === 1 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    Who Thrives With Us
+                  </span>
+                </button>
+                <button 
+                  onClick={() => setActiveTab(2)}
+                  className={`flex items-center gap-6 transition-all duration-300 hover:scale-105 ${
+                    activeTab === 2 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                  }`}
+                >
+                  <span className={`text-4xl font-mono tracking-wider transition-colors duration-300 ${
+                    activeTab === 2 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    02
+                  </span>
+                  <span className="text-neutral-500">\</span>
+                  <span className={`text-lg transition-colors duration-300 ${
+                    activeTab === 2 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    Who We Can't Help
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Ticker Content Section */}
+        <section className="bg-[#121216] pt-8 pb-16 px-4 lg:px-8 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            {/* Tab Content */}
+            <div className="text-center">
+              {activeTab === 1 && (
+                <div className="text-left">
+                  <div className="text-white text-base leading-relaxed">
+                    <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">01</span>
+                    <div className="ml-16">
+                      <p className="mb-8">We're not for everyone — and that's the point. The agents who get the most value out of working with us share a few things in common. If this sounds like you, you're in the right place.</p>
+                      <div className="space-y-8">
+                        {/* 1 - Seasoned */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Seasoned Pro</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">You've closed enough deals to know the basics — and you're running this like a full-time business. The numbers prove it.</p>
+                            <p>Now you need support that matches your level.</p>
+                          </div>
+                        </div>
+                        
+                        {/* 2 - Partner-Ready */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Partner-Ready Agent</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">You're ready to install systems, delegate real work, and stop being your own bottleneck.</p>
+                            <p>You know delegation isn't a weakness — it's how you scale.</p>
+                          </div>
+                        </div>
+                        
+                        {/* 3 - Process-Driven */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Process-Driven Closer</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">You value compliance, fast communication, and decisive moves.</p>
+                            <p>You respect timelines — and you respect the team that protects them.</p>
+                          </div>
+                        </div>
+                        
+                        {/* 4 - Growth-Focused */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Growth-Focused Hustler</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">You're not just maintaining — you're building. You want more volume, more leverage, and more freedom.</p>
+                            <p>That takes a partner who can match your pace.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Call to Action Text */}
+                      <div className="text-center mt-12">
+                        <hr className="border-t border-white/10 w-32 mx-auto mb-8" />
+                        <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
+                          If you saw yourself in the list above, we should talk. The right fit isn't about convincing — it's about recognizing. And if you're nodding right now, you've found your team.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {activeTab === 2 && (
+                <div className="text-left">
+                  <div className="text-white text-base leading-relaxed">
+                    <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">02</span>
+                    <div className="ml-16">
+                      <p className="mb-8">We've learned through experience: not every agent is a good match. If you see yourself here, no hard feelings — we still want the best for you and your business.</p>
+                      <div className="space-y-8">
+                        {/* 01 - Part-Timers */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Part-Timer</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">If real estate is your side hustle, we're not a fit.</p>
+                            <p>We partner with professionals who treat this like a career, not a weekend gig.</p>
+                          </div>
+                        </div>
+                        
+                        {/* 02 - Fire-Drills Only */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Fire-Drill Caller</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">If you only call when your deal is already on fire, it's too late.</p>
+                            <p>We prevent chaos — we don't just mop it up.</p>
+                          </div>
+                        </div>
+                        
+                        {/* 03 - Control Freaks */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Control Freak</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">If you can't let go of the paperwork and insist on micromanaging every addendum at 11 PM, this won't work.</p>
+                            <p>We're here to take weight off your plate, not argue over it.</p>
+                          </div>
+                        </div>
+                        
+                        {/* 04 - Cut-Rate Chasers */}
+                        <div>
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
+                            <span className="text-white/20 text-2xl">\</span>
+                            <h3 className="text-lg font-semibold text-white">The Discount Shopper</h3>
+                          </div>
+                          <div className="text-base text-gray-300 ml-16">
+                            <p className="mb-1">If you're shopping for "the cheapest TC in town," keep scrolling.</p>
+                            <p>We're about precision, compliance, and protecting your reputation — not bargain-bin shortcuts.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Call to Action Text */}
+                      <div className="text-center mt-12">
+                        <hr className="border-t border-white/10 w-32 mx-auto mb-8" />
+                        <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
+                          As independent contractors, we believe in choosing each other. If this isn't the right fit, no worries — we'll be here if anything changes. And if you thought, "Finally, someone who actually gets it," then let's not waste another deal.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </section>
 
         {/* Signup Section */}
-        <div className="bg-[#282828] text-center py-8">
+        <div className="bg-[#121216] text-center py-8">
           <a href="https://form.jotform.com/252496909826069"
             target="_blank"
             rel="noopener noreferrer"
@@ -250,7 +450,7 @@ export default function ElevatePage() {
         </div>
 
         {/* Solution Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8 space-y-4">
@@ -294,134 +494,9 @@ export default function ElevatePage() {
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="bg-[#282828] text-white pt-8 pb-16">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
-              Our Ideal Client Is…
-            </h2>
-            <div className="space-y-6 mt-10">
-              {/* 1 - Seasoned */}
-              <div className="flex items-center space-x-2">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
-                <span className="text-white/20 text-2xl mx-2">\</span>
-                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Seasoned Pro</h3>
-                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                <div className="text-base text-gray-300 py-1">
-                  <p>You've closed enough deals to know the basics—and you're running this like a full-time business. The numbers prove it.</p>
-                </div>
-              </div>
-              
-              <hr className="border-t border-white/10" />
-              
-              {/* 2 - Partner-Ready */}
-              <div className="flex items-center space-x-2">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
-                <span className="text-white/20 text-2xl mx-2">\</span>
-                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Partner-Ready Agent</h3>
-                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                <div className="text-base text-gray-300 py-1">
-                  <p className="text-base">You're ready to install systems and protocols, delegate real work, and stop being your own bottleneck. You understand that delegation is how you scale.</p>
-                </div>
-              </div>
-              
-              <hr className="border-t border-white/10" />
-              
-              {/* 3 - Process-Driven */}
-              <div className="flex items-center space-x-2">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
-                <span className="text-white/20 text-2xl mx-2">\</span>
-                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Process-Driven Closer</h3>
-                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                <div className="text-base text-gray-300 py-1">
-                  <p>You value compliance, fast communication, and decisive moves. You respect timelines—and the team that protects them.</p>
-                </div>
-              </div>
-              
-              <hr className="border-t border-white/10" />
-              
-              {/* 4 - Growth-Focused */}
-              <div className="flex items-center space-x-2">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
-                <span className="text-white/20 text-2xl mx-2">\</span>
-                <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Growth-Focused Hustler</h3>
-                <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                <div className="text-base text-gray-300 py-1">
-                  <p className="text-base">You're not just maintaining — you're scaling.</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Who We're NOT For Section */}
-            <div className="mt-20">
-              <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
-                Who We're Not For (and That's OK)
-              </h2>
-              <div className="space-y-6 mt-10">
-                {/* 01 - Part-Timers */}
-                <div className="flex items-center space-x-2">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
-                  <span className="text-white/20 text-2xl mx-2">\</span>
-                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Part-Timer</h3>
-                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                  <div className="text-base text-gray-300 py-1">
-                    <p>If real estate is your side hustle, we're not your people. We partner with full-time professionals who treat this like a career, not a weekend gig.</p>
-                  </div>
-                </div>
-                
-                <hr className="border-t border-white/10" />
-                
-                {/* 02 - Fire-Drills Only */}
-                <div className="flex items-center space-x-2">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
-                  <span className="text-white/20 text-2xl mx-2">\</span>
-                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Fire-Drill Caller</h3>
-                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                  <div className="text-base text-gray-300 py-1">
-                    <p>If you only call for help when your deal is already on fire, it's too late. We prevent chaos — we don't just mop it up.</p>
-                  </div>
-                </div>
-                
-                <hr className="border-t border-white/10" />
-                
-                {/* 03 - Control Freaks */}
-                <div className="flex items-center space-x-2">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
-                  <span className="text-white/20 text-2xl mx-2">\</span>
-                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Control Freak</h3>
-                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                  <div className="text-base text-gray-300 py-1">
-                    <p className="text-base">If you can't let go of the paperwork and insist on micromanaging every addendum at 11 PM, we're not a fit.</p>
-                  </div>
-                </div>
-                
-                <hr className="border-t border-white/10" />
-                
-                {/* 04 - Cut-Rate Chasers */}
-                <div className="flex items-center space-x-2">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
-                  <span className="text-white/20 text-2xl mx-2">\</span>
-                  <h3 className="text-lg font-semibold text-white whitespace-nowrap">The Discount Shopper</h3>
-                  <span className="text-white/20 text-2xl ml-4 mr-2">\</span>
-                  <div className="text-base text-gray-300 py-1">
-                    <p>If you're shopping for "the cheapest TC," keep shopping. We're about precision, compliance, and protecting your reputation — not bargain-bin shortcuts.</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Call to Action Text */}
-              <div className="text-center mt-12">
-                <hr className="border-t border-white/10 w-32 mx-auto mb-8" />
-                <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
-                  If you saw yourself in the list above, book the call. If you didn't, no hard feelings — we're not here for everyone, and we like it that way. But if you just thought, 'finally, someone who actually gets it,' then what are you waiting for? You're our kind of client.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Final CTA Section */}
-        <section style={{backgroundColor: "#282828", padding: "60px 20px", textAlign: "center", color: "#fff"}}>
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216] text-center">
           <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
             Let's See If We're a <em>Good</em> Fit
           </h2>
@@ -437,7 +512,7 @@ export default function ElevatePage() {
           >
             Are We a Fit? <span>{'>'}</span>
           </a>
-          <p style={{marginTop: "15px", fontSize: "0.9rem", color: "#aaa"}}>
+          <p className="text-sm text-gray-400 mt-4">
             Limited space available.
           </p>
         </section>

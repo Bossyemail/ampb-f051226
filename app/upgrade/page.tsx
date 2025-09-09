@@ -36,6 +36,8 @@ function AnimatedCounter({ end, duration = 2, suffix = "" }) {
 }
 
 export default function UpgradePage() {
+  const [activeTab, setActiveTab] = useState(1);
+
   return (
     <>
       <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
@@ -53,6 +55,8 @@ export default function UpgradePage() {
             <source src="/videos/bossy-email.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/30" />
+          {/* Gradient blend at bottom of hero */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
             <div className="w-full max-w-6xl mx-auto px-8 lg:px-16 relative">
               <div className="grid grid-cols-6 gap-8">
@@ -62,10 +66,10 @@ export default function UpgradePage() {
                       Your Personal Ghostwriter
                     </motion.h2>
                     <motion.p className="text-sm italic text-gray-300 mb-2">
-                      Searchable, Copy Ready Clause Library • Scenario Specific
+                      Real Estate Emails • Template Library
                     </motion.p>
                     <motion.p className="text-base text-gray-300 leading-tight mb-6">
-                      BossyEmail is basically me—two decades of contract management, agent wrangling, and deal-saving—trapped inside a tool.
+                      Scenario-specific, copy-ready emails for every stage of a deal. Follow-ups, nudges, deadline chasers, and "we need that doc today" messages.
                     </motion.p>
                     <motion.div>
                       <a 
@@ -84,7 +88,7 @@ export default function UpgradePage() {
                 </div>
               </div>
               {/* Stats Overlay - vertically centered with hero text */}
-              <aside className="pointer-events-none absolute right-6 top-80 hidden w-56 select-none lg:block" aria-label="BossyEmail stats">
+              <aside className="pointer-events-none absolute right-6 top-1/2 transform -translate-y-1/2 hidden w-56 select-none lg:block z-30" aria-label="BossyEmail stats">
                 <div className="space-y-6">
                   <div>
                     <p className="text-white/60 text-4xl font-mono tracking-wider text-right">AI</p>
@@ -107,7 +111,7 @@ export default function UpgradePage() {
         </section>
         
         {/* Real Estate Emails Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10" style={{backgroundColor: "#212124"}}>
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center space-y-6 mx-auto">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
@@ -139,7 +143,7 @@ export default function UpgradePage() {
         </section>
         
         {/* Product Demo Section */}
-        <section className="bg-[#282828] w-full">
+        <section className="bg-[#121216] w-full">
           <div className="relative w-full pt-[40%] overflow-hidden">
             <video
               className="absolute top-0 left-0 w-full h-full object-cover"
@@ -151,10 +155,166 @@ export default function UpgradePage() {
             >
               <source src="/videos/office-background.mp4" type="video/mp4" />
             </video>
+            {/* Gradient blend at top of video */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#121216] to-transparent z-10" />
+            {/* Gradient blend at bottom of video */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
+            
+            {/* Ticker Navigation positioned at bottom of video */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+              <div className="grid grid-cols-4 gap-8">
+                <button 
+                  onClick={() => setActiveTab(1)}
+                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                    activeTab === 1 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                  }`}
+                >
+                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                    activeTab === 1 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    01
+                  </span>
+                  <span className="text-neutral-500">\</span>
+                  <span className={`transition-colors duration-300 ${
+                    activeTab === 1 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    The Bottleneck
+                  </span>
+                </button>
+                <button 
+                  onClick={() => setActiveTab(2)}
+                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                    activeTab === 2 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                  }`}
+                >
+                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                    activeTab === 2 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    02
+                  </span>
+                  <span className="text-neutral-500">\</span>
+                  <span className={`transition-colors duration-300 ${
+                    activeTab === 2 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    The Problem
+                  </span>
+                </button>
+                <button 
+                  onClick={() => setActiveTab(3)}
+                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                    activeTab === 3 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                  }`}
+                >
+                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                    activeTab === 3 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    03
+                  </span>
+                  <span className="text-neutral-500">\</span>
+                  <span className={`transition-colors duration-300 ${
+                    activeTab === 3 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    The Fix
+                  </span>
+                </button>
+                <button 
+                  onClick={() => setActiveTab(4)}
+                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                    activeTab === 4 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                  }`}
+                >
+                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                    activeTab === 4 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    04
+                  </span>
+                  <span className="text-neutral-500">\</span>
+                  <span className={`transition-colors duration-300 ${
+                    activeTab === 4 ? 'text-white' : 'text-white/60'
+                  }`}>
+                    The Payoff
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
+
+        {/* Ticker Content Section */}
+        <section className="bg-[#121216] pt-8 pb-16 px-4 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Tab Content */}
+            <div className="text-center">
+              {activeTab === 1 && (
+                <div className="text-left">
+                  <div className="text-white text-base leading-relaxed">
+                    <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">01</span>
+                    <div className="ml-16">
+                      <p className="mb-3">Your contracts might be airtight, but your inbox? That's where deals collapse.</p>
+                      <p className="mb-3">Follow-ups get delayed. Clients ghost. Lenders drag. And you're stuck typing the same email for the hundredth time.</p>
+                      <p className="mb-3">Every draft you rewrite is time stolen from what actually makes you money: selling, negotiating, closing. That's the bottleneck BossyEmail removes.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {activeTab === 2 && (
+                <div className="text-left">
+                  <div className="text-white text-base leading-relaxed">
+                    <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">02</span>
+                    <div className="ml-16">
+                      <p className="mb-3">Deals rarely fall apart because you can't sell. They fall apart because the communication falls apart.</p>
+                      <p className="mb-3">Missed reminders. Sloppy follow-ups. "Final notices" that never get sent. One vague email, one missed request, and your file stalls out.</p>
+                      <p className="mb-3">BossyEmail solves that. Every template tells you exactly what to say, when to say it, and how firm to make it. Your message lands, the file moves, and you stay in control.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {activeTab === 3 && (
+                <div className="text-left">
+                  <div className="text-white text-base leading-relaxed">
+                    <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">03</span>
+                    <div className="ml-16">
+                      <p className="mb-3">Think Scenario-Specific + Custom Emails.</p>
+                      <p className="mb-3">BossyEmail is a searchable library of copy-ready emails written for real estate — inspection extensions, financing delays, appraisal gaps, title hiccups, condo docs, walkthrough disasters, and more.</p>
+                      <p className="mb-3">Every message is scenario-specific, written from the trenches, and tested in real deals. Just Search → Copy → Paste → Send — and you're done.</p>
+                      <p className="mb-3">And when you need something unique? Our AI Smart Email Generator takes care of it in seconds.</p>
+                      <p className="mb-3">You can either use it or save it in BossyEmail, and build your own personal library. The next time that situation pops up, it's one click away.</p>
+                      <p className="mb-3">› Templates + your own saved drafts = a streamlined workflow that grows with you.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {activeTab === 4 && (
+                <div className="text-left">
+                  <div className="text-white text-base leading-relaxed">
+                    <span className="float-left text-4xl font-mono tracking-wider text-white/60 mr-4 leading-none">04</span>
+                    <div className="ml-16">
+                      <p className="mb-4">More Closings. Less Chaos. This isn't "generic business email fluff."</p>
+                      <p className="mb-3">Every BossyEmail template includes:</p>
+                      <div className="mb-4">
+                        <p className="mb-1">› What's being requested (docs, signatures, addenda, deadlines)</p>
+                        <p className="mb-1">› Why it matters (clear for clients, safe for brokers)</p>
+                        <p className="mb-1">› When it's due (so nothing slips)</p>
+                      </div>
+                      <p className="mb-3">That means:</p>
+                      <div className="mb-4">
+                        <p className="mb-1">› Faster files (no more bottlenecks)</p>
+                        <p className="mb-1">› Fewer mistakes (compliance-friendly language)</p>
+                        <p className="mb-1">› Cleaner paper trails (brokers love you)</p>
+                        <p className="mb-1">› Time saved (finally)</p>
+                      </div>
+                      <p className="mb-4">And because your workflow and library live in one place, you stop wasting hours drafting from scratch or digging through old sent folders.</p>
+                      <p className="mb-0">* Bottom line: You sell. BossyEmail handles the words — yours and mine.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
         {/* Signup Section */}
-        <div className="bg-[#282828] text-center py-8">
+        <div className="bg-[#121216] text-center py-8">
           <a href="https://bossyemail.com" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -164,7 +324,7 @@ export default function UpgradePage() {
           <p className="text-sm text-gray-400 mt-2">No fluff. Cancel anytime.</p>
         </div>
         {/* Solution Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -201,7 +361,7 @@ export default function UpgradePage() {
           </div>
         </section>
         {/* How It Works Section */}
-        <section className="bg-[#282828] text-white py-16">
+        <section className="bg-[#121216] text-white py-16">
           <div className="max-w-4xl mx-auto px-8 lg:px-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
@@ -253,7 +413,7 @@ export default function UpgradePage() {
         </section>
         
         {/* Authority Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#282828]">
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -344,7 +504,7 @@ export default function UpgradePage() {
         </section>
         
         {/* Final CTA Section */}
-        <section style={{backgroundColor: "#282828", padding: "60px 20px", textAlign: "center", color: "#fff"}}>
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216] text-center">
           <h2 className="text-center text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1">
             Stop Typing. Start Closing.
           </h2>
