@@ -27,7 +27,7 @@ export default function SupportPage() {
       title: "Email Support",
       description: "Get help via email - we respond within 24 hours",
       action: () => {
-        window.open('mailto:support@clausevault.co', '_blank');
+        window.open('mailto:hello@aylenmontenegro.com', '_blank');
       },
       primary: true
     },
@@ -36,7 +36,7 @@ export default function SupportPage() {
       title: "General Inquiry",
       description: "Questions about features, pricing, or partnerships",
       action: () => {
-        window.open('mailto:support@clausevault.co?subject=General Inquiry', '_blank');
+        window.open('mailto:hello@aylenmontenegro.com?subject=General Inquiry', '_blank');
       }
     },
     {
@@ -44,7 +44,7 @@ export default function SupportPage() {
       title: "Technical Support",
       description: "Issues with the app, billing, or account access",
       action: () => {
-        window.open('mailto:support@clausevault.co?subject=Technical Support', '_blank');
+        window.open('mailto:hello@aylenmontenegro.com?subject=Technical Support', '_blank');
       }
     }
   ];
@@ -250,7 +250,7 @@ export default function SupportPage() {
           {/* Disclaimer below the line */}
           <div className="text-center">
             <p className="text-white/40 text-xs">
-              Need help? Contact support@clausevault.co for assistance.
+              Need help? Contact hello@aylenmontenegro.com for assistance.
             </p>
           </div>
         </div>

@@ -438,7 +438,7 @@ export default function Testimonials() {
       <div ref={containerRef} className="relative max-h-[600px] overflow-y-auto pb-16 scrollbar-hide">
         {testimonials.map((testimonial, index) => (
           <motion.div
-            key={testimonial.author}
+            key={`${testimonial.author}-${index}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -509,7 +509,7 @@ export default function Testimonials() {
           Ready to join them?
         </p>
         <a 
-          href="#contact" 
+          href="/elevate" 
           className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white hover:bg-white/[0.03] transition rounded-lg"
         >
           Let's Talk Results

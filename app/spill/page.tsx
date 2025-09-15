@@ -279,11 +279,11 @@ function PremiumFAQ() {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="mt-16">
-      <h2 className="text-center text-2xl md:text-3xl font-semibold tracking-tight text-white mb-6">
+      <h1 className="text-center text-2xl md:text-3xl font-semibold tracking-tight text-white mb-6">
         What You're Thinking
         <br />
         (But Afraid to Say Out Loud)
-      </h2>
+      </h1>
       <div className="flex flex-col divide-y divide-white/10">
         {faqData.map(({ q, a }, i) => (
           <div
@@ -383,17 +383,17 @@ export default function SpillPage() {
               >
                 <div className="space-y-6">
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
-                    <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">NO</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">NO</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SPAM</p>
                   </motion.div>
                   <hr className="border-t border-white/10" />
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }}>
-                    <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">NO</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">NO</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">FLUFF</p>
                   </motion.div>
                   <hr className="border-t border-white/10" />
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.0 }}>
-                    <p className="text-white text-[32px] leading-none font-semibold tracking-tight text-right">NO</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">NO</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">BORING</p>
                   </motion.div>
                 </div>
@@ -405,7 +405,7 @@ export default function SpillPage() {
         {/* This aside block is now redundant with the new grid layout */}
       </section>
       {/* Main Content - Replace with provided copy */}
-      <main className="bg-[#121216] py-12">
+      <main className="bg-[#121216] py-12 pb-24">
         <div className="mx-auto max-w-6xl px-8 lg:px-16">
           {/* Hero Section Description */}
           <section className="mt-2">

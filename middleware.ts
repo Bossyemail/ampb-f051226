@@ -1,6 +1,25 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
-export default clerkMiddleware();
+const isAdminRoute = createRouteMatcher(['/admin(.*)']);
+
+export default clerkMiddleware((auth, req) => {
+  // Protect admin routes
+  if (isAdminRoute(req)) {
+    const { userId, sessionClaims } = auth();
+    
+    // Check if user is authenticated
+    if (!userId) {
+      return NextResponse.redirect(new URL('/sign-in', req.url));
+    }
+    
+    // Check if user is authorized (only hello@aylenmontenegro.com)
+    const email = sessionClaims?.email as string;
+    if (email !== 'hello@aylenmontenegro.com') {
+      return NextResponse.redirect(new URL('/', req.url));
+    }
+  }
+});
 
 export const config = {
   matcher: [

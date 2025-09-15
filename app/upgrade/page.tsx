@@ -91,17 +91,17 @@ export default function UpgradePage() {
               <aside className="pointer-events-none absolute right-6 top-1/2 transform -translate-y-1/2 hidden w-56 select-none lg:block z-30" aria-label="BossyEmail stats">
                 <div className="space-y-6">
                   <div>
-                    <p className="text-white/60 text-4xl font-mono tracking-wider text-right">AI</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">AI</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">EMAIL GENERATOR</p>
                   </div>
                   <hr className="border-t border-white/10" />
                   <div>
-                    <p className="text-white/60 text-4xl font-mono tracking-wider text-right">100+</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">100+</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">TEMPLATES</p>
                   </div>
                   <hr className="border-t border-white/10" />
                   <div>
-                    <p className="text-white/60 text-4xl font-mono tracking-wider text-right">500+</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">500+</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ACTIVE USERS</p>
                   </div>
                 </div>
@@ -114,10 +114,10 @@ export default function UpgradePage() {
         <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center space-y-6 mx-auto">
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
                 Real Estate Emails<br />
                 Done For You
-              </h2>
+              </h1>
               <div className="text-center">
                 <p className="text-gray-300 text-base leading-relaxed">
                   Your contracts might be airtight, but your inbox? That's where deals quietly die.
@@ -504,7 +504,7 @@ export default function UpgradePage() {
         </section>
         
         {/* Final CTA Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216] text-center">
+        <section className="py-16 pb-24 px-4 lg:px-8 relative z-10 bg-[#121216] text-center">
           <h2 className="text-center text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1">
             Stop Typing. Start Closing.
           </h2>

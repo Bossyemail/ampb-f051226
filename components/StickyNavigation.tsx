@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { KeyboardNavigation, ARIA_LABELS, ScreenReaderAnnouncer } from '@/lib/accessibility';
 
 interface StickyNavigationProps {
   className?: string;
@@ -12,7 +13,10 @@ interface StickyNavigationProps {
 export default function StickyNavigation({ className = '' }: StickyNavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
 
   const navigationItems = [
     { label: 'Shop', href: '/shop' },
@@ -38,7 +42,51 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
   const handleNavClick = (href: string, label: string) => {
     trackEvent('click', 'navigation', label);
     setIsMobileMenuOpen(false);
+    setFocusedIndex(-1);
+    ScreenReaderAnnouncer.announce(`Navigating to ${label}`);
   };
+
+  // Handle mobile menu toggle
+  const handleMobileMenuToggle = () => {
+    if (isMobileMenuOpen) {
+      previousActiveElement.current?.focus();
+    } else {
+      previousActiveElement.current = document.activeElement as HTMLElement;
+    }
+    
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setFocusedIndex(-1);
+    
+    const message = isMobileMenuOpen 
+      ? 'Mobile menu closed' 
+      : 'Mobile menu opened';
+    ScreenReaderAnnouncer.announce(message);
+  };
+
+  // Keyboard navigation for mobile menu
+  useEffect(() => {
+    if (!isMobileMenuOpen || !mobileMenuRef.current) return;
+
+    const cleanup = KeyboardNavigation.handleArrowKeys(mobileMenuRef.current, {
+      orientation: 'vertical',
+      wrap: true
+    });
+
+    return cleanup;
+  }, [isMobileMenuOpen]);
+
+  // Close mobile menu on escape
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const cleanup = KeyboardNavigation.handleEscapeKey(() => {
+      setIsMobileMenuOpen(false);
+      setFocusedIndex(-1);
+      previousActiveElement.current?.focus();
+    });
+
+    return cleanup;
+  }, [isMobileMenuOpen]);
 
   const socialLinks = [
     { 
@@ -111,6 +159,8 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
             ? 'bg-black/90 backdrop-blur-md border-b border-white/10' 
             : 'bg-transparent'
         } ${className}`}
+        role="navigation"
+        aria-label="Main navigation"
       >
         <div className="flex justify-between items-center px-4 lg:px-8 py-4">
           {/* Logo/Brand */}
@@ -160,9 +210,12 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white hover:text-gray-300 transition-colors"
-            aria-label="Toggle mobile menu"
+            onClick={handleMobileMenuToggle}
+            className="md:hidden p-3 text-white hover:text-gray-300 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded"
+            aria-label={isMobileMenuOpen ? ARIA_LABELS.CLOSE_MENU : ARIA_LABELS.OPEN_MENU}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-haspopup="true"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -173,11 +226,15 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            ref={mobileMenuRef}
+            id="mobile-menu"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed top-0 left-0 right-0 z-40 md:hidden bg-black/95 backdrop-blur-md border-b border-white/10"
             style={{ top: '72px' }}
+            role="menu"
+            aria-labelledby="mobile-menu-button"
           >
             <div className="px-4 py-6 space-y-4">
               {navigationItems.map((item) => (
@@ -185,16 +242,18 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
                   key={item.href}
                   href={item.href}
                   onClick={() => handleNavClick(item.href, item.label.toLowerCase())}
-                  className={`flex items-center justify-between w-full text-left py-3 px-4 rounded-lg transition-colors ${
+                  className={`flex items-center justify-between w-full text-left py-4 px-4 rounded-lg transition-colors min-h-[48px] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black ${
                     pathname === item.href
                       ? 'bg-white/10 text-white'
                       : 'text-gray-300 hover:bg-white/5 hover:text-white'
                   }`}
+                  role="menuitem"
+                  aria-current={pathname === item.href ? 'page' : undefined}
                 >
                   <span className="text-xs font-medium tracking-widest uppercase">
                     {item.label}
                   </span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               ))}
               

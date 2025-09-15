@@ -108,8 +108,7 @@ export default function Footer() {
               <li><a className="transition hover:text-black uppercase" href="/affiliate-disclosure">Affiliate Disclosure</a></li>
             </ul>
             <p className="mt-4 max-w-sm text-xs leading-relaxed text-black/70">
-              Disclaimer: this site contains caffeine‑powered opinions, sharp tools, and insider content.
-              Proceed at your own risk (and reward).
+              This site contains caffeine-powered opinions, sharp tools, and insider content for real estate pros. Nothing here is legal, tax, or financial advice. Use our resources responsibly, confirm with your broker or attorney when needed. Proceed at your own risk (and reward).
             </p>
           </div>
         </div>

@@ -51,7 +51,7 @@ function AboutTabs() {
         {tab === 'welcome' && (
           <div id="panel-welcome" className="panel backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-5 rounded-none">
             <div className="prose prose-invert max-w-none">
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">Welcome to My Corner of the Internet.</h2>
+              <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">Welcome to My Corner of the Internet.</h1>
               <p className="text-neutral-300 mb-2">Over 2 decades in the industry has taught me two things:</p>
               <div className="space-y-1 mb-3">
                 <div className="text-white font-medium">Real estate sales is a beautiful mess.</div>
@@ -885,7 +885,7 @@ export default function AboutPage() {
                     >
                       <p>I close contracts and contain chaos — calm, clean, on time.</p>
                       
-                      <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worked every corner of this business, and now I'm building software to keep closings boring — the good kind.</p>
+                      <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worn every hat in this business, and now I'm building software to keep closings boring — the good kind.</p>
                       
                       <p>This space is different.</p>
                       <p>It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
@@ -913,7 +913,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">20+</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">20+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
               </motion.div>
 
@@ -924,7 +924,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">South</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">South</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">FLORIDA</p>
               </motion.div>
 
@@ -935,7 +935,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">Real</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">Real</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ESTATE EXPERT</p>
               </motion.div>
             </div>
@@ -978,7 +978,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="bg-neutral-900 pt-0 pb-8"
+            className="bg-neutral-900 pt-0 pb-16"
           >
             <div className="mx-auto max-w-4xl px-4 lg:px-8">
               {tickerItems

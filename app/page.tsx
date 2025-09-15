@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import StickyNavigation from '@/components/StickyNavigation';
@@ -10,20 +10,45 @@ import ContactSection from '@/components/ContactSection';
 import FinalCTA from '@/components/FinalCTA';
 import ServicesTicker from '@/components/ServicesTicker';
 import Footer from '@/components/Footer';
+import { organizationData, personData, websiteData } from '@/lib/structured-data';
+import { usePageAnalytics } from '@/hooks/useAnalytics';
+import { FunnelStep } from '@/lib/analytics-enhanced';
+import { initializeAdvancedAnalytics } from '@/lib/analytics-advanced';
+// Analytics components - only import when needed for development
+// import PerformanceMonitor from '@/components/PerformanceMonitor';
+// import FunnelAnalyzer from '@/components/FunnelAnalyzer';
+// import AnalyticsDashboard from '@/components/AnalyticsDashboard';
 
 export default function Home() {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
+  // Initialize analytics for this page
+  usePageAnalytics('Home Page', FunnelStep.VISIT);
+  
+  // Initialize advanced analytics
+  useEffect(() => {
+    initializeAdvancedAnalytics();
+  }, []);
+
   const toggleItem = (index: number) => {
     setOpenItems(prev => 
       prev.includes(index) 
-        ? prev.filter(item => item !== index)
-        : [...prev, index]
+        ? [] // If clicking the currently open item, close it (empty array)
+        : [index] // If clicking a different item, close all others and open only this one
     );
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([organizationData, personData, websiteData]),
+        }}
+      />
+      
+      <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
       <StickyNavigation />
       
               {/* Hero Section */}
@@ -45,9 +70,9 @@ export default function Home() {
           {/* Bottom gradient overlay for smooth transition to next section */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#121216]"></div>
         <div className="absolute inset-0 flex items-center pt-64 z-10">
-          <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-            <div className="grid grid-cols-5 gap-8">
-              <div className="col-span-2">
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              <div className="md:col-span-2">
                 <div className="text-left">
                   <motion.p 
                     initial={{ opacity: 0, y: 8 }}
@@ -57,14 +82,14 @@ export default function Home() {
                   >
                     Hi,
                   </motion.p>
-                  <motion.h2 
+                  <motion.h1
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
                   >
                     I'm Aylen
-                  </motion.h2>
+                  </motion.h1>
                   <motion.p 
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -95,9 +120,7 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.8 }}
                   >
                     <a 
-                      href="https://bossyemail.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      href="/elevate"
                       className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                       aria-label="Get Started Today"
                     >
@@ -110,7 +133,7 @@ export default function Home() {
               <div className="col-span-3">
                 {/* STATS OVERLAY */}
                 <aside
-                  className="pointer-events-none absolute right-6 top-80 hidden w-56 select-none lg:block"
+                  className="pointer-events-none absolute right-4 md:right-6 top-80 hidden w-48 md:w-56 select-none lg:block"
                   aria-label="Personal stats"
                 >
                   <div className="space-y-6">
@@ -120,7 +143,7 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.8 }}
                     >
-                      <p className="text-white/60 text-4xl font-mono tracking-wider text-right">20+</p>
+                      <p className="text-white text-4xl font-mono tracking-wider text-right">20+</p>
                       <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
                     </motion.div>
 
@@ -132,7 +155,7 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.9 }}
                     >
-                      <p className="text-white/60 text-4xl font-mono tracking-wider text-right">3K+</p>
+                      <p className="text-white text-4xl font-mono tracking-wider text-right">3K+</p>
                       <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">CLOSED DEALS</p>
                     </motion.div>
 
@@ -144,7 +167,7 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 1.0 }}
                     >
-                      <p className="text-white/60 text-4xl font-mono tracking-wider text-right">4+</p>
+                      <p className="text-white text-4xl font-mono tracking-wider text-right">4+</p>
                       <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SAAS PRODUCTS BUILT</p>
                     </motion.div>
                   </div>
@@ -156,7 +179,7 @@ export default function Home() {
       </section>
 
       {/* Spacing between hero and next section */}
-      <div className="py-20"></div>
+      <div className="py-8"></div>
 
       {/* Products Accordion Section */}
       <section className="py-12 px-8 lg:px-16">
@@ -212,16 +235,16 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">Transaction Coordinating — White-Glove Contract Management</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">"Deals Don't Die From Big Things — They Die From Missed Details"</h4>
                       <div className="text-center mb-6">
                         <p className="text-gray-300 leading-relaxed">
-                          You can keep juggling your own contracts, chasing signatures, and triple-checking deadlines at 11:59 PM…
+                          Agents juggle showings, negotiations, and clients. Deadlines? Disclosures? Signatures? They slip through the cracks.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                          or you can hand it off to someone who's done it thousands of times.
+                          That's why our licensed, experienced Transaction Coordinator services exist — to keep every deal on track from contract to close.
                         </p>
                         <p className="text-gray-300 leading-relaxed mt-4">
-                          Our TC service is built to save your deals and your sanity.
+                          It's now smoother than ever to scale your business while we handle the chaos behind the scenes.
                         </p>
                       </div>
                       
@@ -229,8 +252,8 @@ export default function Home() {
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
                         <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
                           <p className="text-gray-400 text-center">
-                            📹 Video Placeholder<br />
-                            <span className="text-sm">Selective TC Services VSL</span>
+                            📹 Timeline or checklist graphic with TC managing each step<br />
+                            <span className="text-sm">TC Services VSL</span>
                           </p>
                         </div>
                       </div>
@@ -272,10 +295,7 @@ export default function Home() {
                         
                         <div className="space-y-1">
                           <p className="text-gray-300 leading-relaxed">
-                            Because we work closely with each agent, space is limited.
-                          </p>
-                          <p className="text-gray-300 leading-relaxed">
-                            Schedule a call today to see how we can help you close more deals, with less stress.
+                            Less stress. More closings. A partner in the background making sure nothing gets missed.
                           </p>
                         </div>
                       </div>
@@ -328,25 +348,16 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">ClauseVault — The Cheat Code for Your Contracts</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">"Contracts Fall Apart in the Details"</h4>
                       <div className="text-center mb-6">
                         <p className="text-gray-300 leading-relaxed">
-                          You don't lose deals because you can't sell.
+                          One missing clause. One sloppy addendum. That's all it takes to blow up a deal.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                          You lose them when contracts fall apart — missing clauses, loopholes, sloppy addenda.
+                          That's why we built ClauseVault — a searchable library of compliant, copy-paste-ready clauses for Florida agents.
                         </p>
-                        <p className="text-gray-300 leading-relaxed mt-4 mb-4">
-                          That's where ClauseVault comes in.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          It's a razor-sharp library of battle-tested clauses built to protect your deals before they explode.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          Search...find, copy what you need and you are done.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          I even baked a little Miami into the background, because if you're going to fix contract chaos, you might as well enjoy the view.
+                        <p className="text-gray-300 leading-relaxed mt-4">
+                          It's now easier than ever to protect your deals without reinventing the wheel.
                         </p>
                       </div>
                       
@@ -354,7 +365,7 @@ export default function Home() {
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
                         <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
                           <p className="text-gray-400 text-center">
-                            📹 Video Placeholder<br />
+                            📹 Screenshot of ClauseVault library with search bar + clauses<br />
                             <span className="text-sm">ClauseVault VSL</span>
                           </p>
                         </div>
@@ -383,10 +394,7 @@ export default function Home() {
                       
                       <div className="text-center mb-8">
                         <p className="text-gray-300 leading-relaxed">
-                          I've worked thousands of contracts in South Florida's wildest markets — and I built ClauseVault out of necessity.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          Too many agents were winging it, recycling the same weak language, and paying for it later. Now, instead of gambling with your deals, you get a clause library designed by someone who's lived the fallout firsthand.
+                          No guesswork. No duct-taped contracts. Just precise, professional language — ready when you are.
                         </p>
                       </div>
                     </div>
@@ -429,31 +437,16 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">BossyEmail — Real Estate Emails, Done For You</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">"Stop Wasting Time Writing Emails"</h4>
                       <div className="text-center mb-6">
                         <p className="text-gray-300 leading-relaxed">
-                          Your contracts might be airtight, but your inbox? That's where deals quietly die.
+                          Over half your day disappears into email chaos. Copy/paste old drafts, Google "templates," or wing it at midnight.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                          Writing follow-ups, chasing docs, updating clients, keeping everyone looped in.
+                          That's why we built BossyEmail — a smarter way to generate, store, and send professional emails tailored for real estate.
                         </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          It's the part of the job nobody trains you for and everybody hates.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed mt-4 mb-4">
-                          That's why I built BossyEmail.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          It's the only email generator designed for real estate pros.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          Packed with custom-built templates that actually move your deals forward.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          No fluff, no "marketing spam" — just the exact words you need.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          To manage your pipeline and keep clients (and co-op agents) on track.
+                        <p className="text-gray-300 leading-relaxed mt-4">
+                          It's now faster than ever to communicate with confidence.
                         </p>
                       </div>
                       
@@ -461,7 +454,7 @@ export default function Home() {
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
                         <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
                           <p className="text-gray-400 text-center">
-                            📹 Video Placeholder<br />
+                            📹 Screenshot of BossyEmail dashboard (generator + saved templates)<br />
                             <span className="text-sm">BossyEmail VSL</span>
                           </p>
                         </div>
@@ -494,10 +487,7 @@ export default function Home() {
                       
                       <div className="text-center mb-8">
                         <p className="text-gray-300 leading-relaxed">
-                          I've managed thousands of contracts, and I know how much rides on one email being clear, firm, and timely.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          BossyEmail isn't about pretty words — it's about the messages that actually keep your deals alive.
+                          No more writer's block. No more second-guessing. Just hit generate, tweak, and send.
                         </p>
                       </div>
                     </div>
@@ -562,14 +552,72 @@ export default function Home() {
                         </p>
                       </div>
                       
-                      {/* Video Placeholder */}
-                      <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
-                        <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
-                          <p className="text-gray-400 text-center">
-                            📹 Video Placeholder<br />
-                            <span className="text-sm">Books VSL</span>
-                          </p>
-                        </div>
+                      {/* Book Cards */}
+                      <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 mb-6">
+                        {/* Book 1 */}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6, delay: 0.2 }}
+                          whileHover={{ y: -8, scale: 1.02 }}
+                          className="bg-white/5 ring-1 ring-white/10 p-6 sm:p-8 rounded-xl flex flex-col items-center text-center relative hover:ring-white/20 transition-all duration-300"
+                        >
+                          {/* Coming Soon Tab */}
+                          <motion.div 
+                            initial={{ scale: 0, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                            whileHover={{ scale: 1.1 }}
+                            className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full"
+                          >
+                            <span className="text-xs text-white font-medium">Coming Soon</span>
+                          </motion.div>
+                          <motion.img 
+                            src="/images/books/smart-agents-guide.jpg" 
+                            alt="The Smart Agent's Guide to Contracts That Close — book cover" 
+                            className="w-32 h-48 sm:w-40 sm:h-60 object-cover mb-4 rounded shadow-lg"
+                            whileHover={{ scale: 1.05, rotateY: 5 }}
+                            transition={{ duration: 0.3 }}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <h3 className="text-xl font-semibold text-white mb-1">The Smart Agent's Guide to Contracts That Close</h3>
+                          <p className="text-sm text-gray-400 mb-4">Field-tested frameworks for airtight contracts</p>
+                        </motion.div>
+                        {/* Book 2 */}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                          whileHover={{ y: -8, scale: 1.02 }}
+                          className="bg-white/5 ring-1 ring-white/10 p-6 sm:p-8 rounded-xl flex flex-col items-center text-center relative hover:ring-white/20 transition-all duration-300"
+                        >
+                          {/* Coming Soon Tab */}
+                          <motion.div 
+                            initial={{ scale: 0, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: 0.8 }}
+                            whileHover={{ scale: 1.1 }}
+                            className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full"
+                          >
+                            <span className="text-xs text-white font-medium">Coming Soon</span>
+                          </motion.div>
+                          <motion.img 
+                            src="/images/books/chief-email-officer.jpg" 
+                            alt="Chief Email Officer - Confessions of a Contract Manager — book cover" 
+                            className="w-32 h-48 sm:w-40 sm:h-60 object-cover mb-4 rounded shadow-lg"
+                            whileHover={{ scale: 1.05, rotateY: 5 }}
+                            transition={{ duration: 0.3 }}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <h3 className="text-xl font-semibold text-white mb-1">Chief Email Officer – Confessions of a Contract Manager</h3>
+                          <p className="text-sm text-gray-400 mb-4">Memoir, survival guide, and industry roast</p>
+                        </motion.div>
                       </div>
                       
                       <ul className="space-y-3 mb-6 text-center">
@@ -734,6 +782,14 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-    </div>
+      
+      {/* Analytics Components - Hidden in Production */}
+      {/* Uncomment for development debugging:
+      <PerformanceMonitor enabled={true} />
+      <FunnelAnalyzer enabled={true} />
+      <AnalyticsDashboard />
+      */}
+      </div>
+    </>
   );
 }

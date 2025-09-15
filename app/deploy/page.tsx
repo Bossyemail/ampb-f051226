@@ -172,7 +172,7 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">250+</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">250+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">CLAUSES</p>
               </motion.div>
 
@@ -183,7 +183,7 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">Instant</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">Instant</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SEARCH</p>
               </motion.div>
 
@@ -194,7 +194,7 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <p className="text-white/60 text-4xl font-mono tracking-wider text-right">1000+</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">1000+</p>
                 <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ACTIVE USERS</p>
               </motion.div>
             </div>
@@ -205,9 +205,9 @@ export default function DeployPage() {
         <section className="pt-16 pb-4 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10 flex justify-center">
             <div className="max-w-4xl text-center">
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
+              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
                 Your Contract Cheat Code
-              </h2>
+              </h1>
               <p className="text-base text-gray-300 leading-relaxed mb-4">
                 Your deal isn't dying because you can't sell.
               </p>
@@ -352,7 +352,7 @@ export default function DeployPage() {
             </div>
         </section>
         {/* Final CTA */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
+        <section className="py-16 pb-24 px-4 lg:px-8 relative z-10 bg-[#121216]">
           <div className="relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6">
