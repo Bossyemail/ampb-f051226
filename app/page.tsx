@@ -348,16 +348,16 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">"Contracts Fall Apart in the Details"</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">"ClauseVault — The Cheat Code for Your Contracts"</h4>
                       <div className="text-center mb-6">
                         <p className="text-gray-300 leading-relaxed">
-                          One missing clause. One sloppy addendum. That's all it takes to blow up a deal.
+                          Most of deal chaos is simply about wording.
                         </p>
                         <p className="text-gray-300 leading-relaxed">
-                          That's why we built ClauseVault — a searchable library of compliant, copy-paste-ready clauses for Florida agents.
+                          That's why we built ClauseVault — a fast, searchable, razor-sharp library of battle-tested clauses built to protect your deals before they explode. You can copy in seconds. No hunting through old emails. No Franken-contracts.
                         </p>
                         <p className="text-gray-300 leading-relaxed mt-4">
-                          It's now easier than ever to protect your deals without reinventing the wheel.
+                          It's now even faster to fix your contract.
                         </p>
                       </div>
                       
@@ -365,24 +365,26 @@ export default function Home() {
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
                         <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
                           <p className="text-gray-400 text-center">
-                            📹 Screenshot of ClauseVault library with search bar + clauses<br />
+                            Search → Preview → Copy<br />
                             <span className="text-sm">ClauseVault VSL</span>
                           </p>
                         </div>
                       </div>
                       
+                      <div className="text-center mb-6">
+                        <p className="text-gray-300 leading-relaxed">
+                          You'll see categories like, Deposits, Extensions, Closing & Appraisals. I even baked a little Miami into the background, because if you're going to fix contract chaos, you might as well enjoy the view.
+                        </p>
+                      </div>
+                      
                       <ul className="space-y-3 mb-6 text-center">
                         <li className="flex items-center justify-center">
                           <ChevronRight className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                          <span className="text-gray-300">Instantly plug in airtight clauses that reduce risk.</span>
+                          <span className="text-gray-300">No more blank screens at 10:47pm. Type what you need, see 2–3 clean options, copy, paste—done.</span>
                         </li>
                         <li className="flex items-center justify-center">
                           <ChevronRight className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                          <span className="text-gray-300">Protect your clients (and yourself) from deal-killing mistakes.</span>
-                        </li>
-                        <li className="flex items-center justify-center">
-                          <ChevronRight className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                          <span className="text-gray-300">Built by a TC who's cleaned up more chaos than SEAL Team 6.</span>
+                          <span className="text-gray-300">Save favorites, pin brokerage-approved sets or create your own, so your team stays consistent across every deal.</span>
                         </li>
                       </ul>
                       
