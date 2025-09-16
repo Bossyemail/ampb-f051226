@@ -389,9 +389,12 @@ export default function Home() {
                       </ul>
                       
                       <div className="text-center mb-6">
-                        <button className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5">
-                          See the Magic in Action
-                        </button>
+                        <a 
+                          href="/clausevault"
+                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                        >
+                          Get ClauseVault Now →
+                        </a>
                       </div>
                       
                       <div className="text-center mb-8">
