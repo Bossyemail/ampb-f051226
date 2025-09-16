@@ -301,9 +301,12 @@ export default function Home() {
                       </div>
                       
                       <div className="text-center mb-8">
-                        <button className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 mb-2">
+                        <a 
+                          href="mailto:hello@aylenmontenegro.com?subject=Book Your Fit Call&body=Hi Aylen, I'd like to book a fit call to discuss how your services can help my real estate business."
+                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 mb-2"
+                        >
                           Book Your Fit Call
-                        </button>
+                        </a>
                         <p className="text-gray-400 text-sm">
                           Limited space available.
                         </p>
@@ -646,9 +649,12 @@ export default function Home() {
                       </ul>
                       
                       <div className="text-center mb-6">
-                        <button className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5">
+                        <a 
+                          href="/read"
+                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                        >
                           Read the Stories & Skip the Chaos
-                        </button>
+                        </a>
                       </div>
                       
                       <div className="text-center mb-8">
