@@ -391,7 +391,12 @@ export default function Home() {
                       <div className="text-center mb-6">
                         <a 
                           href="/clausevault"
-                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                          className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/10 font-semibold text-lg relative z-50"
+                          onClick={(e) => {
+                            console.log('ClauseVault button clicked');
+                            // Let the default link behavior handle navigation
+                          }}
+                          style={{ pointerEvents: 'auto' }}
                         >
                           Get ClauseVault Now →
                         </a>
