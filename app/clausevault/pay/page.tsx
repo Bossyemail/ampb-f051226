@@ -11,6 +11,7 @@ export default function ClauseVaultPayPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [isCheckingAccess, setIsCheckingAccess] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const { user, isLoaded: userLoaded } = useUser();
   const { isSignedIn } = useAuth();
@@ -52,11 +53,14 @@ export default function ClauseVaultPayPage() {
 
   const handlePayment = async () => {
     setIsLoading(true);
+    setError(null);
     
     try {
       const priceId = selectedPlan === 'monthly' 
         ? 'price_1S21m2GvrQbQlRXY46U7SF0k'  // Monthly
         : 'price_1RyKQfGvrQbQlRXYg7Z8JsLy'; // Yearly
+
+      console.log('Starting payment process for plan:', selectedPlan, 'priceId:', priceId);
 
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
@@ -70,26 +74,74 @@ export default function ClauseVaultPayPage() {
         }),
       });
 
-      const { sessionId } = await response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
       
-      // Redirect to Stripe Checkout
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      const { sessionId } = data;
+      console.log('Checkout session created:', sessionId);
+      
+      // Load Stripe with better error handling
       const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-      if (stripe) {
-        await stripe.redirectToCheckout({ sessionId });
+      
+      if (!stripe) {
+        throw new Error('Failed to load Stripe. Please refresh the page and try again.');
+      }
+
+      console.log('Stripe loaded successfully, redirecting to checkout...');
+
+      // Redirect to Stripe Checkout with error handling
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+      
+      if (error) {
+        console.error('Stripe redirect error:', error);
+        setError(`Payment error: ${error.message}`);
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Payment error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      setError(`Payment failed: ${errorMessage}`);
       setIsLoading(false);
     }
   };
 
-  // Load Stripe
+  // Load Stripe with better mobile support
   const loadStripe = async (publishableKey: string) => {
-    if (typeof window !== 'undefined') {
-      const { loadStripe } = await import('@stripe/stripe-js');
-      return loadStripe(publishableKey);
+    if (typeof window === 'undefined') {
+      return null;
     }
-    return null;
+
+    try {
+      // Check if Stripe is already loaded
+      if (window.Stripe) {
+        return window.Stripe(publishableKey);
+      }
+
+      // Dynamically import Stripe
+      const { loadStripe } = await import('@stripe/stripe-js');
+      
+      if (!loadStripe) {
+        throw new Error('Stripe library failed to load');
+      }
+
+      const stripe = await loadStripe(publishableKey);
+      
+      if (!stripe) {
+        throw new Error('Failed to initialize Stripe');
+      }
+
+      return stripe;
+    } catch (error) {
+      console.error('Error loading Stripe:', error);
+      return null;
+    }
   };
 
   // Show loading while checking access
@@ -215,6 +267,20 @@ export default function ClauseVaultPayPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
+            {/* Error Display */}
+            {error && (
+              <div className="mb-4 p-4 bg-red-500/20 border border-red-500/40 rounded-lg text-red-100 text-sm">
+                <div className="font-medium mb-1">Payment Error</div>
+                <div>{error}</div>
+                <button 
+                  onClick={() => setError(null)}
+                  className="mt-2 text-xs underline hover:no-underline"
+                >
+                  Dismiss
+                </button>
+              </div>
+            )}
+
             <button
               onClick={handlePayment}
               disabled={isLoading}
@@ -232,6 +298,17 @@ export default function ClauseVaultPayPage() {
                 </>
               )}
             </button>
+
+            {/* Retry button for errors */}
+            {error && !isLoading && (
+              <button
+                onClick={handlePayment}
+                className="mt-3 inline-flex items-center gap-2 px-6 py-2 bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/10 hover:border-white/20 transition-all"
+              >
+                Try Again
+                <ArrowRight className="w-3 h-3" />
+              </button>
+            )}
           </motion.div>
 
           {/* Trust Message */}
