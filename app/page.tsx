@@ -722,9 +722,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/85"></div>
         
         <div className="absolute inset-0 flex items-center pt-32 z-10">
-          <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-            <div className="grid grid-cols-5 gap-8">
-              <div className="col-span-2">
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              <div className="md:col-span-2">
                 <div className="text-left">
                   <motion.p 
                     initial={{ opacity: 0, y: 8 }}
@@ -760,7 +760,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.6 }}
                       viewport={{ once: true }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                      className="text-base text-gray-300 leading-tight mb-2"
                     >
                       I fix chaos and turn it into closings. But it wasn't always like that.
                     </motion.p>
@@ -769,7 +769,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.7 }}
                       viewport={{ once: true }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                      className="text-base text-gray-300 leading-tight mb-6"
                     >
                       Now, I build the systems and shortcuts I wish I had back then.
                     </motion.p>
@@ -830,7 +830,7 @@ export default function Home() {
                   </motion.div>
                 </div>
               </div>
-              <div className="col-span-3">
+              <div className="md:col-span-3">
                 {/* Empty space for image to show through */}
               </div>
             </div>
