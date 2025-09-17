@@ -95,9 +95,9 @@ export default function DeployPage() {
           {/* Gradient blend at bottom of hero */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
-            <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-              <div className="grid grid-cols-5 gap-8">
-                <div className="col-span-2">
+            <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+                <div className="md:col-span-2">
                   <div className="text-left">
                     <motion.p 
                       initial={{ opacity: 0, y: 8 }}
@@ -111,7 +111,7 @@ export default function DeployPage() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
+                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight"
                     >
                       Meet ClauseVault
                     </motion.h2>
@@ -127,7 +127,7 @@ export default function DeployPage() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.6 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                      className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed mb-2"
                     >
                       Deal-ready contract language you can copy, paste, and send in minutes.
                     </motion.p>
@@ -135,7 +135,7 @@ export default function DeployPage() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.7 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                      className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed mb-6"
                     >
                       No jargon. No hesitation. Just the exact words you need, in plain English.
                     </motion.p>
@@ -146,7 +146,7 @@ export default function DeployPage() {
                     >
                       <Link 
                         href="/clausevault"
-                        className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                        className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
                         aria-label="Get ClauseVault Now"
                         onClick={() => handleButtonClick('Get ClauseVault Now', 'hero')}
                       >
@@ -155,7 +155,7 @@ export default function DeployPage() {
                     </motion.div>
                   </div>
                 </div>
-                <div className="col-span-3">
+                <div className="md:col-span-3">
                   {/* Right side space for stats overlay */}
                 </div>
               </div>

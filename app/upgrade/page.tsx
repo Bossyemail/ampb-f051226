@@ -58,17 +58,17 @@ export default function UpgradePage() {
           {/* Gradient blend at bottom of hero */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
-            <div className="w-full max-w-6xl mx-auto px-8 lg:px-16 relative">
+            <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16 relative">
               <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
                 <div className="md:col-span-2">
                   <div className="text-left">
-                    <motion.h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2">
+                    <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight">
                       Your Personal Ghostwriter
                     </motion.h2>
                     <motion.p className="text-sm italic text-gray-300 mb-2">
                       Real Estate Emails • Template Library
                     </motion.p>
-                    <motion.p className="text-base text-gray-300 leading-tight mb-6">
+                    <motion.p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-6">
                       Scenario-specific, copy-ready emails for every stage of a deal. Follow-ups, nudges, deadline chasers, and "we need that doc today" messages.
                     </motion.p>
                     <motion.div>
@@ -76,14 +76,14 @@ export default function UpgradePage() {
                         href="https://bossyemail.com" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                        className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
                       >
                         Get BossyEmail Now →
                       </a>
                     </motion.div>
                   </div>
                 </div>
-                <div className="col-span-4">
+                <div className="md:col-span-4">
                   {/* Right side space for stats overlay (empty, just for spacing) */}
                 </div>
               </div>
