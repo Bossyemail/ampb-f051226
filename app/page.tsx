@@ -101,22 +101,37 @@ export default function Home() {
                   >
                     Deal Flow Architect • SaaS Builder • Author
                   </motion.p>
-                                    <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                  >
-                    I turn real estate chaos into systems and profit.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
-                  >
-                    From contract to closing, I manage the details and build the tools so agents can sell more and stress less.
-                  </motion.p>
+                  {/* Mobile version - shorter content */}
+                  <div className="block md:hidden">
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                    >
+                      I turn real estate chaos into systems and profit.
+                    </motion.p>
+                  </div>
+                  
+                  {/* Desktop version - full content */}
+                  <div className="hidden md:block">
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                    >
+                      I turn real estate chaos into systems and profit.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.7 }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                    >
+                      From contract to closing, I manage the details and build the tools so agents can sell more and stress less.
+                    </motion.p>
+                  </div>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
