@@ -972,22 +972,22 @@ export default function AboutPage() {
               </motion.div>
             </div>
           </aside>
-          {/* Interactive About Sections Ticker - Full width within hero, no constraints */}
+          {/* Interactive About Sections Ticker - Mobile responsive */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="absolute bottom-4 left-0 right-0 grid grid-cols-5 gap-8 w-full text-sm whitespace-nowrap px-8 lg:px-16 py-8"
+            className="absolute bottom-4 left-0 right-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 w-full text-sm px-4 sm:px-8 lg:px-16 py-8"
           >
             {tickerItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTickerItem(activeTickerItem === item.id ? null : item.id)}
-                className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                className={`flex items-center gap-2 sm:gap-4 transition-all duration-300 hover:scale-105 ${
                   activeTickerItem === item.id ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                 }`}
               >
-                <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
                   activeTickerItem === item.id ? 'text-white' : 'text-white/60'
                 }`}>
                   {item.number}

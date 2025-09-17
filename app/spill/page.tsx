@@ -334,7 +334,7 @@ export default function SpillPage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
         <div className="absolute inset-0 flex items-center pt-64">
           <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-            <div className="grid grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
               <div className="col-span-2">
                 <div className="text-left">
                   <motion.h2
@@ -444,7 +444,7 @@ export default function SpillPage() {
               <br />
               Here's what hits your inbox.
             </p>
-            <div className="mt-4 grid gap-4 grid-cols-5">
+            <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {/* 01 */}
               <ScratchOffCard scratchText="SCRATCH TO REVEAL">
                 <div className="text-center">

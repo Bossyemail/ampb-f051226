@@ -243,7 +243,7 @@ export default function DeployPage() {
             
             {/* Ticker Navigation positioned at bottom of video */}
             <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                   <button 
                     onClick={() => setActiveTab(1)}
                     className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${

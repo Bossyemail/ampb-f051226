@@ -397,7 +397,7 @@ export default function ElevatePage() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="absolute bottom-0 left-0 right-0 flex justify-center gap-32 w-full text-sm whitespace-nowrap px-8 lg:px-16 py-4"
+              className="absolute bottom-0 left-0 right-0 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 lg:gap-32 w-full text-sm px-4 sm:px-8 lg:px-16 py-4"
             >
               {tickerItems.map((item) => (
                 <button
