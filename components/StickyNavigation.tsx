@@ -236,13 +236,13 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
             role="menu"
             aria-labelledby="mobile-menu-button"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-4 space-y-2">
               {navigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => handleNavClick(item.href, item.label.toLowerCase())}
-                  className={`flex items-center justify-between w-full text-left py-4 px-4 rounded-lg transition-colors min-h-[48px] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black ${
+                  className={`flex items-center justify-between w-full text-left py-3 px-4 rounded-lg transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black ${
                     pathname === item.href
                       ? 'bg-white/10 text-white'
                       : 'text-gray-300 hover:bg-white/5 hover:text-white'
@@ -258,7 +258,7 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
               ))}
               
               {/* Mobile Social Links */}
-              <div className="flex items-center justify-center space-x-1 pt-4 border-t border-white/10">
+              <div className="flex items-center justify-center space-x-1 pt-3 border-t border-white/10">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.name}
