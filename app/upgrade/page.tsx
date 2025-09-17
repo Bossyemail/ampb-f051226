@@ -162,14 +162,14 @@ export default function UpgradePage() {
             
             {/* Ticker Navigation positioned at bottom of video */}
             <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8">
                 <button 
                   onClick={() => setActiveTab(1)}
-                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                  className={`flex items-center gap-1 sm:gap-2 md:gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
                     activeTab === 1 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  <span className={`text-2xl sm:text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
                     activeTab === 1 ? 'text-white' : 'text-white/60'
                   }`}>
                     01
@@ -183,11 +183,11 @@ export default function UpgradePage() {
                 </button>
                 <button 
                   onClick={() => setActiveTab(2)}
-                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                  className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
                     activeTab === 2 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
                     activeTab === 2 ? 'text-white' : 'text-white/60'
                   }`}>
                     02
@@ -201,11 +201,11 @@ export default function UpgradePage() {
                 </button>
                 <button 
                   onClick={() => setActiveTab(3)}
-                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                  className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
                     activeTab === 3 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
                     activeTab === 3 ? 'text-white' : 'text-white/60'
                   }`}>
                     03
@@ -219,11 +219,11 @@ export default function UpgradePage() {
                 </button>
                 <button 
                   onClick={() => setActiveTab(4)}
-                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                  className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
                     activeTab === 4 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
                     activeTab === 4 ? 'text-white' : 'text-white/60'
                   }`}>
                     04

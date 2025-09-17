@@ -863,6 +863,8 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/60" />
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900 to-transparent" />
+          {/* Mobile-specific gradient to hide feet */}
+          <div className="absolute bottom-0 left-0 right-0 h-48 md:hidden bg-gradient-to-t from-[#121216] via-black/60 to-transparent" />
           <div className="absolute inset-0 flex items-center pt-20">
             <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
               <div className="flex items-start justify-between">
@@ -977,13 +979,13 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="absolute bottom-4 left-0 right-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 w-full text-sm px-4 sm:px-8 lg:px-16 py-8"
+            className="absolute bottom-4 left-0 right-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-4 md:gap-6 lg:gap-8 w-full text-sm px-4 sm:px-8 lg:px-16 py-4 sm:py-6 md:py-8"
           >
             {tickerItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTickerItem(activeTickerItem === item.id ? null : item.id)}
-                className={`flex items-center gap-2 sm:gap-4 transition-all duration-300 hover:scale-105 ${
+                className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
                   activeTickerItem === item.id ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                 }`}
               >
