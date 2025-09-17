@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import AdvancedAnalyticsDashboard from "@/components/AdvancedAnalyticsDashboard";
+// import AdvancedAnalyticsDashboard from "@/components/AdvancedAnalyticsDashboard";
 
 interface User {
   id: string;
@@ -1222,7 +1222,7 @@ export default function AdminDashboard() {
                   </div>
 
                   {/* Advanced Analytics Dashboard */}
-                  <AdvancedAnalyticsDashboard appName={currentApp.name} />
+                  {/* <AdvancedAnalyticsDashboard appName={currentApp.name} /> */}
                 </>
               );
             })()}

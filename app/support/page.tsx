@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Mail, MessageSquare, HelpCircle } from "lucide-react";
+import { ArrowLeft, Mail, MessageSquare, CircleHelp } from "lucide-react";
 
 export default function SupportPage() {
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
@@ -40,7 +40,7 @@ export default function SupportPage() {
       }
     },
     {
-      icon: HelpCircle,
+      icon: CircleHelp,
       title: "Technical Support",
       description: "Issues with the app, billing, or account access",
       action: () => {
