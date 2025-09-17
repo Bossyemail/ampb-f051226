@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowRight, CheckCircle, Play, Mail, Clock, Star, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 import StickyNavigation from '@/components/StickyNavigation';
 import Footer from '@/components/Footer';
 import { trackPageView, trackButtonClick, trackVideoEvent, trackScrollDepth, trackTimeOnPage } from '@/utils/analytics';
@@ -143,13 +144,14 @@ export default function DeployPage() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.8 }}
                     >
-                      <button 
+                      <Link 
+                        href="/clausevault"
                         className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         aria-label="Get ClauseVault Now"
                         onClick={() => handleButtonClick('Get ClauseVault Now', 'hero')}
                       >
                         Get ClauseVault Now →
-                      </button>
+                      </Link>
                     </motion.div>
                   </div>
                 </div>
@@ -364,12 +366,13 @@ export default function DeployPage() {
               <p className="text-base text-gray-300 leading-relaxed mb-6">
                 ClauseVault makes sure your next clause is airtight, fast, and impossible to ignore.
               </p>
-              <button 
+              <Link 
+                href="/clausevault"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                 onClick={() => handleButtonClick('Get ClauseVault Now', 'final-cta')}
               >
                 Get ClauseVault Now →
-              </button>
+              </Link>
               <p className="text-sm text-gray-400 mt-2">
                 No fluff. Cancel anytime.
               </p>
