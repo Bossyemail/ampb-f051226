@@ -68,8 +68,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/70"></div>
           {/* Right side gradient for stats visibility */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-r from-transparent to-black/70"></div>
-          {/* Bottom gradient overlay for smooth transition to next section */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#121216]"></div>
+          {/* Bottom gradient overlay for smooth transition to next section - enhanced for mobile */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 md:h-32 bg-gradient-to-b from-transparent to-[#121216]"></div>
+          {/* Additional mobile-specific gradient for better lower body coverage */}
+          <div className="absolute bottom-0 left-0 right-0 h-48 md:hidden bg-gradient-to-b from-transparent via-black/40 to-[#121216]"></div>
         <div className="absolute inset-0 flex items-center pt-64 z-10">
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
