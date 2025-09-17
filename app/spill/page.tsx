@@ -333,15 +333,15 @@ export default function SpillPage() {
         {/* Gradient blend at bottom of hero video */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
         <div className="absolute inset-0 flex items-center pt-64">
-          <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
-              <div className="col-span-2">
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              <div className="md:col-span-2">
                 <div className="text-left">
                   <motion.h2
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight"
                   >
                     Don't sign up.<br />Seriously.
                   </motion.h2>
@@ -357,7 +357,7 @@ export default function SpillPage() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                    className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed mb-6"
                   >
                     Unless you want real talk, field-tested tactics, and inbox gold that actually helps you win your next deal.
                   </motion.p>
@@ -367,7 +367,7 @@ export default function SpillPage() {
                     transition={{ duration: 0.5, delay: 0.7 }}
                   >
                     <button
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                      className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
                       aria-label="Send Me the Snarkletter"
                     >
                       Send Me the Snarkletter

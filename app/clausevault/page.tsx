@@ -102,7 +102,7 @@ function ClauseVaultContent() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-3xl font-bold font-mono lowercase"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono lowercase leading-tight"
         >
           clausevault
         </motion.h1>
