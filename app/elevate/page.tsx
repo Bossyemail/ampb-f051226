@@ -250,9 +250,9 @@ export default function ElevatePage() {
           {/* Gradient blend at bottom of hero video */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
-            <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
-              <div className="grid grid-cols-6 gap-8">
-                <div className="col-span-3">
+            <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+              <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+                <div className="md:col-span-3">
                   <div className="text-left">
                     <motion.p 
                       initial={{ opacity: 0, y: 8 }}
@@ -266,7 +266,7 @@ export default function ElevatePage() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
+                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight"
                     >
                       A Tailored TC Service for Agents Who Refuse to Compromise.
                     </motion.h2>
@@ -282,7 +282,7 @@ export default function ElevatePage() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.6 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                      className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed mb-6"
                     >
                       Your deals deserve more than checklists. Our licensed South Florida team delivers precision, speed, and discretion — so your reputation stays flawless and your clients stay protected.
                     </motion.p>
@@ -295,7 +295,7 @@ export default function ElevatePage() {
                         href="https://form.jotform.com/252496909826069"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                        className="group inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
                         aria-label="Schedule a discovery call"
                         onClick={() => handleButtonClick('Are We a Fit?', 'hero')}
                       >
@@ -305,7 +305,7 @@ export default function ElevatePage() {
                     </motion.div>
                   </div>
                 </div>
-                <div className="col-span-3">
+                <div className="md:col-span-3">
                   {/* Right side space for stats overlay */}
                 </div>
               </div>

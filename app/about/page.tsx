@@ -866,9 +866,9 @@ export default function AboutPage() {
           {/* Mobile-specific gradient to hide feet */}
           <div className="absolute bottom-0 left-0 right-0 h-48 md:hidden bg-gradient-to-t from-[#121216] via-black/60 to-transparent" />
           <div className="absolute inset-0 flex items-center pt-20">
-            <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
+            <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
               <div className="flex items-start justify-between">
-                <div className="text-left max-w-sm pr-8">
+                <div className="text-left max-w-sm md:pr-8">
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -882,7 +882,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1"
+                        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-1 leading-tight"
                         style={{ textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
                       >
                         I&apos;m <span className="italic font-bold">Aylen<br />Montenegro</span>
@@ -906,7 +906,7 @@ export default function AboutPage() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="font-body text-base text-gray-300 max-w-lg leading-relaxed mt-4 space-y-2"
+                      className="font-body text-sm sm:text-base text-gray-300 max-w-lg leading-relaxed mt-4 space-y-2"
                     >
                       {/* Mobile version - shorter content */}
                       <div className="block md:hidden">
