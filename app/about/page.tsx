@@ -295,15 +295,28 @@ export default function AboutPage() {
             <p>The phone was ringing. A loan officer was waving a file. On line two, a client wanted "someone older and more experienced." I was 18, working the front desk of a lending firm. Two lessons came fast: This industry wasn't built for me. I'd have to be so good they couldn't ignore me.</p>
           </div>
           
-          <p className="mb-6">Back then, there was no tech to lean on. Contracts were faxed, files lived in manila folders, and "transaction management" meant a stack of sticky notes and a highlighter. Fast-forward two decades and now the panic is that AI will unlock a Supra box and take the agent's job.</p>
+          {/* Mobile version - shorter content */}
+          <div className="block md:hidden space-y-4">
+            <p>Back then, there was no tech to lean on. Contracts were faxed, files lived in manila folders, and "transaction management" meant a stack of sticky notes and a highlighter.</p>
+            
+            <p>I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late.</p>
+            
+            <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
+          </div>
           
-          <p className="mb-6">I've had a front row seat to every shift in between — from the paper-heavy days to Zillow connecting all MLS feeds nationwide, to DocuSign changing signatures forever, to today's wave of AI tools that promise to replace what experience still does better.</p>
+          {/* Desktop version - full content */}
+          <div className="hidden md:block space-y-6">
+            <p>Back then, there was no tech to lean on. Contracts were faxed, files lived in manila folders, and "transaction management" meant a stack of sticky notes and a highlighter. Fast-forward two decades and now the panic is that AI will unlock a Supra box and take the agent's job.</p>
+            
+            <p>I've had a front row seat to every shift in between — from the paper-heavy days to Zillow connecting all MLS feeds nationwide, to DocuSign changing signatures forever, to today's wave of AI tools that promise to replace what experience still does better.</p>
+            
+            <p>I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late. Two recessions and thousands of contracts later, I'm still here: the fixer who gets the 6:30 p.m. "everything's on fire" text, the compliance hawk who spots risks before attorneys do, and now the builder creating software to fix the gaps the industry still pretends aren't there.</p>
+            
+            <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
+          </div>
           
-          <p className="mb-6">I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late. Two recessions and thousands of contracts later, I'm still here: the fixer who gets the 6:30 p.m. "everything's on fire" text, the compliance hawk who spots risks before attorneys do, and now the builder creating software to fix the gaps the industry still pretends aren't there.</p>
-          
-          <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
-          
-          <div className="mt-12 pt-8 border-t border-white/10">
+          {/* Desktop only - hide on mobile to save space */}
+          <div className="hidden md:block mt-12 pt-8 border-t border-white/10">
             <h3 className="text-center text-2xl font-bold mb-4">
               The 20+ Year Bird's-Eye View
             </h3>
@@ -350,6 +363,16 @@ export default function AboutPage() {
               </a>
               <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
             </div>
+          </div>
+          
+          {/* Mobile only - simplified contact section */}
+          <div className="block md:hidden mt-8 pt-6 border-t border-white/10 text-center">
+            <a href="mailto:hello@aylenmontenegro.com"
+              className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+              onClick={() => handleButtonClick('Contact Aylen', 'email')}>
+              Contact Aylen →
+            </a>
+            <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
           </div>
         </>
       )
@@ -883,15 +906,24 @@ export default function AboutPage() {
                       transition={{ duration: 0.5, delay: 0.4 }}
                       className="font-body text-base text-gray-300 max-w-lg leading-relaxed mt-4 space-y-2"
                     >
-                      <p>I close contracts and contain chaos — calm, clean, on time.</p>
+                      {/* Mobile version - shorter content */}
+                      <div className="block md:hidden">
+                        <p>I close contracts and contain chaos — calm, clean, on time.</p>
+                        <p>Twenty years in the arena gave me pattern recognition your deals can bank on.</p>
+                        <p>This space is where I share the good stuff — tools, stories, and unfiltered truths that help you close more deals.</p>
+                      </div>
                       
-                      <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worn every hat in this business, and now I'm building software to keep closings boring — the good kind.</p>
-                      
-                      <p>This space is different.</p>
-                      <p>It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
-                      
-                      
-                      <p>Because business should be smart, profitable, and yes — even a little fun.</p>
+                      {/* Desktop version - full content */}
+                      <div className="hidden md:block space-y-2">
+                        <p>I close contracts and contain chaos — calm, clean, on time.</p>
+                        
+                        <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worn every hat in this business, and now I'm building software to keep closings boring — the good kind.</p>
+                        
+                        <p>This space is different.</p>
+                        <p>It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
+                        
+                        <p>Because business should be smart, profitable, and yes — even a little fun.</p>
+                      </div>
                     </motion.div>
                   </div>
                 </div>
