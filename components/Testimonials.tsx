@@ -413,12 +413,12 @@ export default function Testimonials() {
         <motion.div className="absolute top-64 left-95/96 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 350], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.7 }} />
       </div>
       {/* Section Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-8 md:mb-12">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4"
+          className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 md:mb-4"
         >
           What Other People Said<br />(No NDA Required)
         </motion.h2>
@@ -426,7 +426,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed space-y-1 md:space-y-2"
         >
           <p>They swear I deliver. Either that, or I&apos;m way better at bribery than I thought.</p>
           <p>Turns out contract triage is a marketable skill.</p>
