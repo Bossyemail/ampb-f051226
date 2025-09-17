@@ -270,11 +270,8 @@ export default function AdminDashboard() {
               totalUsers: 0,
               mrr: 0,
               arr: 0,
-              totalCopies: 0,
-              avgCopiesPerUser: 0,
-              bookSales: 89,
-              emailCaptures: 234,
-              leadsGenerated: 156
+               totalCopies: 0,
+               avgCopiesPerUser: 0
             }
           },
           'clausevault': {
@@ -450,7 +447,7 @@ export default function AdminDashboard() {
 
   // Export functionality
   const exportData = (type: 'overview' | 'users' | 'analytics' | 'all') => {
-    let dataToExport: any = {};
+    const dataToExport: any = {};
     
     if (type === 'overview' || type === 'all') {
       dataToExport.overview = {

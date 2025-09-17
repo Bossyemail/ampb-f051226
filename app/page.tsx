@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 import StickyNavigation from '@/components/StickyNavigation';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
@@ -649,12 +650,12 @@ export default function Home() {
                       </ul>
                       
                       <div className="text-center mb-6">
-                        <a 
+                        <Link 
                           href="/read"
                           className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         >
                           Read the Stories & Skip the Chaos
-                        </a>
+                        </Link>
                       </div>
                       
                       <div className="text-center mb-8">

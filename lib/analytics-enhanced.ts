@@ -381,4 +381,4 @@ export const trackFunnelStep = (step: FunnelStep, metadata?: Record<string, any>
   analyticsInstance?.trackFunnelStep(step, metadata);
 };
 
-export { FunnelStep, type UserJourney, type UserAction, type ConversionEvent };
+export { type UserJourney, type UserAction, type ConversionEvent };
