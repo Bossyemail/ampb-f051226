@@ -96,8 +96,8 @@ function ClauseVaultContent() {
         </button>
       </div>
       
-      {/* Left Side */}
-      <div className="w-1/2 bg-black/90 backdrop-blur-sm text-white flex flex-col justify-start pt-12 px-12 space-y-4 font-body text-sm relative z-20">
+      {/* Left Side - Mobile responsive */}
+      <div className="w-full md:w-1/2 bg-black/90 backdrop-blur-sm text-white flex flex-col justify-start pt-12 px-6 md:px-12 space-y-4 font-body text-sm relative z-20">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -260,8 +260,8 @@ function ClauseVaultContent() {
         )}
       </div>
 
-      {/* Right Side - Full Height Animation */}
-      <div className="w-1/2 relative z-20 px-6">
+      {/* Right Side - Full Height Animation - Hidden on mobile */}
+      <div className="hidden md:block w-1/2 relative z-20 px-6">
         <div className="min-h-screen overflow-hidden relative m-0" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div className="scrolling-content text-white" style={{ 
             animation: isAnimationPaused ? 'scrollUp 45s linear infinite paused' : 'scrollUp 45s linear infinite running',

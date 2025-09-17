@@ -59,8 +59,8 @@ export default function UpgradePage() {
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
             <div className="w-full max-w-6xl mx-auto px-8 lg:px-16 relative">
-              <div className="grid grid-cols-6 gap-8">
-                <div className="col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+                <div className="md:col-span-2">
                   <div className="text-left">
                     <motion.h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2">
                       Your Personal Ghostwriter
@@ -87,7 +87,7 @@ export default function UpgradePage() {
                   {/* Right side space for stats overlay (empty, just for spacing) */}
                 </div>
               </div>
-              {/* Stats Overlay - vertically centered with hero text */}
+              {/* Stats Overlay - vertically centered with hero text - Hidden on mobile */}
               <aside className="pointer-events-none absolute right-6 top-1/2 transform -translate-y-1/2 hidden w-56 select-none lg:block z-30" aria-label="BossyEmail stats">
                 <div className="space-y-6">
                   <div>

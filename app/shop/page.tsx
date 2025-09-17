@@ -71,8 +71,8 @@ export default function ShopPage() {
             </div>
           </div>
 
-          {/* Product Grid */}
-          <div id="grid" className="mt-8 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {/* Product Grid - Mobile optimized */}
+          <div id="grid" className="mt-8 grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => {
               const backgroundPatterns = [
                 { gradient: 'from-[#8B5E3C]/5 to-[#114B4D]/5', radial: 'circle_at_30%_20%', opacity: 30 },
@@ -88,7 +88,7 @@ export default function ShopPage() {
                 <article 
                   key={product.id}
                   className={`card border border-white/10 bg-white/5 backdrop-blur-xl p-4 sm:p-6 hover:-translate-y-1 hover:shadow-xl transition relative overflow-hidden ${
-                    product.type === 'Service' ? 'lg:col-span-2' : ''
+                    product.type === 'Service' ? 'md:col-span-2' : ''
                   }`}
                 >
                   {/* Subtle background pattern */}

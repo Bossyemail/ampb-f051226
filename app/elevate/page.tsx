@@ -38,7 +38,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Seasoned Pro</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">You've closed enough deals to know the basics — and you're running this like a full-time business. The numbers prove it. Now you need support that matches your level.</p>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Partner-Ready Agent</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">You're ready to install systems, delegate real work, and stop being your own bottleneck.</p>
                 <p>You know delegation isn't a weakness — it's how you scale.</p>
               </div>
@@ -63,7 +63,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Process-Driven Closer</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">You value compliance, fast communication, and decisive moves.</p>
                 <p>You respect timelines — and you respect the team that protects them.</p>
               </div>
@@ -76,7 +76,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Growth-Focused Hustler</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">You're not just maintaining — you're building. You want more volume, more leverage, and more freedom.</p>
                 <p>That takes a partner who can match your pace.</p>
               </div>
@@ -111,7 +111,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Part-Timer</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">If real estate is your side hustle, we're not a fit.</p>
                 <p>We partner with professionals who treat this like a career, not a weekend gig.</p>
               </div>
@@ -124,7 +124,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Fire-Drill Caller</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">If you only call when your deal is already on fire, it's too late.</p>
                 <p>We prevent chaos — we don't just mop it up.</p>
               </div>
@@ -137,7 +137,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Control Freak</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">If you can't let go of the paperwork and insist on micromanaging every addendum at 11 PM, this won't work.</p>
                 <p>We're here to take weight off your plate, not argue over it.</p>
               </div>
@@ -150,7 +150,7 @@ export default function ElevatePage() {
                 <span className="text-white/20 text-2xl">\</span>
                 <h3 className="text-lg font-semibold text-white">The Discount Shopper</h3>
               </div>
-              <div className="text-base text-gray-300 ml-16">
+              <div className="text-base text-gray-300 ml-0 md:ml-16">
                 <p className="mb-1">If you're shopping for "the cheapest TC in town," keep scrolling.</p>
                 <p>We're about precision, compliance, and protecting your reputation — not bargain-bin shortcuts.</p>
               </div>
