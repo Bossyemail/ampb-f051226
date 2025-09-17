@@ -862,7 +862,7 @@ export default function AboutPage() {
         >
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/60" />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-900 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
           {/* Mobile-specific gradient to hide feet */}
           <div className="absolute bottom-0 left-0 right-0 h-48 md:hidden bg-gradient-to-t from-[#121216] via-black/60 to-transparent" />
           <div className="absolute inset-0 flex items-center pt-20">
@@ -1012,7 +1012,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="bg-neutral-900 pt-0 pb-16"
+            className="bg-[#121216] pt-0 pb-16"
           >
             <div className="mx-auto max-w-4xl px-4 lg:px-8">
               {tickerItems

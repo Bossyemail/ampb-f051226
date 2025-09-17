@@ -392,28 +392,33 @@ export default function ElevatePage() {
             {/* Gradient blend at bottom of video */}
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
             
-            {/* Interactive About Sections Ticker - Centered in video columns */}
+          </div>
+        </section>
+
+        {/* Interactive Ticker Navigation - Below video */}
+        <section className="bg-[#121216] py-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-16">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="absolute bottom-0 left-0 right-0 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 lg:gap-32 w-full text-sm px-4 sm:px-8 lg:px-16 py-4"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8 w-full text-sm"
             >
               {tickerItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setActiveTickerItem(activeTickerItem === item.id ? null : item.id)}
-                  className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
+                  className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
                     activeTickerItem === item.id ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                   }`}
                 >
-                  <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
                     activeTickerItem === item.id ? 'text-white' : 'text-white/60'
                   }`}>
                     {item.number}
                   </span>
                   <span className="text-neutral-500">\</span>
-                  <span className={`text-lg transition-colors duration-300 ${
+                  <span className={`transition-colors duration-300 ${
                     activeTickerItem === item.id ? 'text-white' : 'text-white'
                   }`}>
                     {item.title}

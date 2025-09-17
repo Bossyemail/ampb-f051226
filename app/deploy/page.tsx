@@ -240,67 +240,69 @@ export default function DeployPage() {
             </video>
             {/* Gradient blend overlay */}
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
-            
-            {/* Ticker Navigation positioned at bottom of video */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                  <button 
-                    onClick={() => setActiveTab(1)}
-                    className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
-                      activeTab === 1 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-                    }`}
-                  >
-                    <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
-                      activeTab === 1 ? 'text-white' : 'text-white/60'
-                    }`}>
-                      01
-                    </span>
-                    <span className="text-neutral-500">\</span>
-                    <span className={`transition-colors duration-300 ${
-                      activeTab === 1 ? 'text-white' : 'text-white/60'
-                    }`}>
-                      Your Contract Safety Net
-                    </span>
-                  </button>
-                  <button 
-                    onClick={() => setActiveTab(2)}
-                    className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
-                      activeTab === 2 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-                    }`}
-                  >
-                    <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
-                      activeTab === 2 ? 'text-white' : 'text-white/60'
-                    }`}>
-                      02
-                    </span>
-                    <span className="text-neutral-500">\</span>
-                    <span className={`transition-colors duration-300 ${
-                      activeTab === 2 ? 'text-white' : 'text-white/60'
-                    }`}>
-                      Never Miss a Detail
-                    </span>
-                  </button>
-                  <button 
-                    onClick={() => setActiveTab(3)}
-                    className={`flex items-center gap-4 transition-all duration-300 hover:scale-105 ${
-                      activeTab === 3 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-                    }`}
-                  >
-                    <span className={`text-3xl font-mono tracking-wider transition-colors duration-300 ${
-                      activeTab === 3 ? 'text-white' : 'text-white/60'
-                    }`}>
-                      03
-                    </span>
-                    <span className="text-neutral-500">\</span>
-                    <span className={`transition-colors duration-300 ${
-                      activeTab === 3 ? 'text-white' : 'text-white/60'
-                    }`}>
-                      Built by a Pro
-                    </span>
-                  </button>
-                </div>
-              </div>
+          </div>
+        </section>
+
+        {/* Ticker Navigation - Below video */}
+        <section className="bg-[#121216] py-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8">
+              <button 
+                onClick={() => setActiveTab(1)}
+                className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
+                  activeTab === 1 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                }`}
+              >
+                <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  activeTab === 1 ? 'text-white' : 'text-white/60'
+                }`}>
+                  01
+                </span>
+                <span className="text-neutral-500">\</span>
+                <span className={`transition-colors duration-300 ${
+                  activeTab === 1 ? 'text-white' : 'text-white/60'
+                }`}>
+                  Your Contract Safety Net
+                </span>
+              </button>
+              <button 
+                onClick={() => setActiveTab(2)}
+                className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
+                  activeTab === 2 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                }`}
+              >
+                <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  activeTab === 2 ? 'text-white' : 'text-white/60'
+                }`}>
+                  02
+                </span>
+                <span className="text-neutral-500">\</span>
+                <span className={`transition-colors duration-300 ${
+                  activeTab === 2 ? 'text-white' : 'text-white/60'
+                }`}>
+                  Never Miss a Detail
+                </span>
+              </button>
+              <button 
+                onClick={() => setActiveTab(3)}
+                className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
+                  activeTab === 3 ? 'opacity-100' : 'opacity-80 hover:opacity-100'
+                }`}
+              >
+                <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
+                  activeTab === 3 ? 'text-white' : 'text-white/60'
+                }`}>
+                  03
+                </span>
+                <span className="text-neutral-500">\</span>
+                <span className={`transition-colors duration-300 ${
+                  activeTab === 3 ? 'text-white' : 'text-white/60'
+                }`}>
+                  Built by a Pro
+                </span>
+              </button>
             </div>
+          </div>
         </section>
 
         {/* Ticker Content Section */}
