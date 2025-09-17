@@ -159,7 +159,7 @@ export default function Home() {
               <div className="col-span-3">
                 {/* STATS OVERLAY */}
                 <aside
-                  className="pointer-events-none absolute right-4 md:right-6 top-60 w-40 md:w-48 lg:w-56 select-none block"
+                  className="pointer-events-none absolute right-4 md:right-6 top-40 w-40 md:w-48 lg:w-56 select-none block"
                   aria-label="Personal stats"
                 >
                   <div className="space-y-6">
