@@ -159,7 +159,7 @@ export default function Home() {
               <div className="col-span-3">
                 {/* STATS OVERLAY */}
                 <aside
-                  className="pointer-events-none absolute right-4 md:right-6 top-80 hidden w-48 md:w-56 select-none lg:block"
+                  className="pointer-events-none absolute right-4 md:right-6 top-80 w-40 md:w-48 lg:w-56 select-none block"
                   aria-label="Personal stats"
                 >
                   <div className="space-y-6">
@@ -169,8 +169,8 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.8 }}
                     >
-                      <p className="text-white text-4xl font-mono tracking-wider text-right">20+</p>
-                      <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
+                      <p className="text-white text-3xl md:text-4xl font-mono tracking-wider text-right">20+</p>
+                      <p className="mt-2 text-right text-[10px] md:text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
                     </motion.div>
 
                     <hr className="border-t border-white/10" />
@@ -181,8 +181,8 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.9 }}
                     >
-                      <p className="text-white text-4xl font-mono tracking-wider text-right">3K+</p>
-                      <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">CLOSED DEALS</p>
+                      <p className="text-white text-3xl md:text-4xl font-mono tracking-wider text-right">3K+</p>
+                      <p className="mt-2 text-right text-[10px] md:text-[11px] uppercase tracking-[0.08em] text-white/60">CLOSED DEALS</p>
                     </motion.div>
 
                     <hr className="border-t border-white/10" />
@@ -193,8 +193,8 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 1.0 }}
                     >
-                      <p className="text-white text-4xl font-mono tracking-wider text-right">4+</p>
-                      <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SAAS PRODUCTS BUILT</p>
+                      <p className="text-white text-3xl md:text-4xl font-mono tracking-wider text-right">4+</p>
+                      <p className="mt-2 text-right text-[10px] md:text-[11px] uppercase tracking-[0.08em] text-white/60">SAAS PRODUCTS BUILT</p>
                     </motion.div>
                   </div>
                 </aside>
