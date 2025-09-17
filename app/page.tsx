@@ -71,7 +71,7 @@ export default function Home() {
           {/* Bottom gradient overlay for smooth transition to next section - enhanced for mobile */}
           <div className="absolute bottom-0 left-0 right-0 h-32 md:h-32 bg-gradient-to-b from-transparent to-[#121216]"></div>
           {/* Additional mobile-specific gradient for better lower body coverage */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 md:hidden bg-gradient-to-b from-transparent via-black/40 to-[#121216]"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-64 md:hidden bg-gradient-to-b from-transparent via-black/50 to-[#121216]"></div>
         <div className="absolute inset-0 flex items-center pt-64 z-10">
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
@@ -101,15 +101,23 @@ export default function Home() {
                   >
                     Deal Flow Architect • SaaS Builder • Author
                   </motion.p>
-                  {/* Mobile version - shorter content */}
+                  {/* Mobile version - full content */}
                   <div className="block md:hidden">
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.6 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
                     >
                       I turn real estate chaos into systems and profit.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.7 }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                    >
+                      From contract to closing, I manage the details and build the tools so agents can sell more and stress less.
                     </motion.p>
                   </div>
                   
@@ -814,10 +822,10 @@ export default function Home() {
                   >
                     <a
                       href="/about"
-                      className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                      className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-lg font-medium"
                     >
                       Learn More
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-5 h-5" />
                     </a>
                   </motion.div>
                 </div>
