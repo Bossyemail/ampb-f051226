@@ -745,42 +745,67 @@ export default function Home() {
                   >
                     Real Estate Professional • Systems Builder • Deal Closer
                   </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                  >
-                    I fix chaos and turn it into closings. But it wasn't always like that.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                    viewport={{ once: true }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                  >
-                    My first job in real estate was answering phones, stuck at the front desk while making sure the fax machine was not jammed.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                  >
-                    From there I clawed my way into bigger roles — contracts, transaction management, the midnight cleanups — until I became the one other people relied on to save their deals.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.9 }}
-                    viewport={{ once: true }}
-                    className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
-                  >
-                    Now, I build the systems and shortcuts I wish I had back then.
-                  </motion.p>
+                  {/* Mobile version - shorter content */}
+                  <div className="block md:hidden">
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      viewport={{ once: true }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                    >
+                      I fix chaos and turn it into closings. But it wasn't always like that.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.7 }}
+                      viewport={{ once: true }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                    >
+                      Now, I build the systems and shortcuts I wish I had back then.
+                    </motion.p>
+                  </div>
+                  
+                  {/* Desktop version - full content */}
+                  <div className="hidden md:block">
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      viewport={{ once: true }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                    >
+                      I fix chaos and turn it into closings. But it wasn't always like that.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.7 }}
+                      viewport={{ once: true }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                    >
+                      My first job in real estate was answering phones, stuck at the front desk while making sure the fax machine was not jammed.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                      viewport={{ once: true }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
+                    >
+                      From there I clawed my way into bigger roles — contracts, transaction management, the midnight cleanups — until I became the one other people relied on to save their deals.
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.9 }}
+                      viewport={{ once: true }}
+                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
+                    >
+                      Now, I build the systems and shortcuts I wish I had back then.
+                    </motion.p>
+                  </div>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
