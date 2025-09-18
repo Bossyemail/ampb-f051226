@@ -163,30 +163,22 @@ export default function ClauseVaultPayPage() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl w-full">
           {/* Header */}
-          <div className="text-center mb-12">
-            {/* Company Branding - Matching Product Page */}
-            <div className="mb-6">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2">
-                AYLEN MONTENEGRO
-              </h1>
-              <p className="text-sm italic text-gray-300">
-                Turn Real Estate Chaos Into Systems & Profit
-              </p>
-            </div>
-            
-            {/* Product Branding */}
-            <div className="mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
+          <div className="text-center mb-6">
+            {/* Product Branding - Matching ClauseVault Product Page */}
+            <div className="mb-3 -mt-8">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono lowercase leading-tight text-white mb-2">
                 clausevault
-              </h2>
-              <p className="text-lg text-gray-300 mb-4">
-                Searchable, copy-ready clauses
+              </h1>
+              <p className="text-xs -mt-4 text-white/60">
+                Searchable, copy-ready clauses.
               </p>
             </div>
             
-            <p className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Stop the endless search at midnight. clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos. Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.
-            </p>
+            <div className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed space-y-1">
+              <p>Stop the endless search at midnight.</p>
+              <p>clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos.</p>
+              <p>Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.</p>
+            </div>
           </div>
 
           {/* Mobile Plan Toggle */}
@@ -229,34 +221,35 @@ export default function ClauseVaultPayPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className={`relative bg-white/10 backdrop-blur-sm border rounded-3xl p-8 transition-all duration-300 ${
+              className={`relative bg-white/10 backdrop-blur-sm border rounded-2xl p-6 transition-all duration-300 cursor-pointer ${
                 selectedPlan === 'monthly' 
                   ? 'border-white/40 bg-white/20 shadow-2xl shadow-white/10' 
                   : 'border-white/20 hover:border-white/30'
               } ${selectedPlan === 'yearly' ? 'md:opacity-60' : ''}`}
+              onClick={() => setSelectedPlan('monthly')}
             >
               <div className="text-center">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
                   Monthly
                 </h3>
-                <div className="mb-6">
-                  <span className="text-3xl md:text-4xl font-semibold text-white">$99</span>
-                  <span className="text-sm text-gray-300 ml-2">per month</span>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold font-mono text-white">$99</span>
+                  <span className="text-xs text-white/60 ml-2">per month</span>
                 </div>
-                <p className="text-gray-400 mb-8 font-light">Cancel anytime</p>
+                <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
                 
-                <div className="space-y-3 mb-8">
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Full access to all clauses</span>
+                <div className="space-y-1">
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Full access to all clauses</span>
                   </div>
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Regular updates</span>
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Regular updates</span>
                   </div>
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Priority support</span>
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Priority support</span>
                   </div>
                 </div>
               </div>
@@ -267,46 +260,47 @@ export default function ClauseVaultPayPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className={`relative bg-white/10 backdrop-blur-sm border rounded-3xl p-8 transition-all duration-300 ${
+              className={`relative bg-white/10 backdrop-blur-sm border rounded-2xl p-6 transition-all duration-300 cursor-pointer ${
                 selectedPlan === 'yearly' 
                   ? 'border-green-400/50 bg-gradient-to-br from-white/20 to-green-500/10 shadow-2xl shadow-green-500/20' 
                   : 'border-white/20 hover:border-white/30'
               } ${selectedPlan === 'monthly' ? 'md:opacity-60' : ''}`}
+              onClick={() => setSelectedPlan('yearly')}
             >
               {/* Popular Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide shadow-lg">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide shadow-lg">
                   3 MONTHS FREE
                 </span>
               </div>
               
               <div className="text-center">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
                   Yearly
                 </h3>
-                <div className="mb-6">
-                  <span className="text-3xl md:text-4xl font-semibold text-white">$891</span>
-                  <span className="text-sm text-gray-300 ml-2">per year</span>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold font-mono text-white">$891</span>
+                  <span className="text-xs text-white/60 ml-2">per year</span>
                 </div>
-                <p className="text-green-400 text-sm mb-2">≈ $74/mo • 3 months free</p>
-                <p className="text-gray-400 mb-8 font-light">Cancel anytime</p>
+                <p className="text-green-400 text-xs mb-2">≈ $74/mo • 3 months free</p>
+                <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
                 
-                <div className="space-y-3 mb-8">
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Full access to all clauses</span>
+                <div className="space-y-1">
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Full access to all clauses</span>
                   </div>
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Regular updates</span>
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Regular updates</span>
                   </div>
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Priority support</span>
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Priority support</span>
                   </div>
-                  <div className="flex items-center text-green-400">
-                    <span className="text-sm mr-2">✓</span>
-                    <span className="text-white text-sm">Early access to new features</span>
+                  <div className="flex items-center justify-center text-green-400">
+                    <span className="text-xs mr-2">✓</span>
+                    <span className="text-white text-xs">Early access to new features</span>
                   </div>
                 </div>
               </div>
@@ -336,23 +330,23 @@ export default function ClauseVaultPayPage() {
             <motion.button
               onClick={handlePayment}
               disabled={isLoading}
-              className={`inline-flex items-center gap-3 px-16 py-5 bg-gradient-to-r from-green-600 to-green-700 text-white text-xl font-bold rounded-2xl transition-all duration-300 shadow-lg ${
+              className={`inline-flex items-center gap-3 px-12 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white text-lg font-medium rounded-lg transition-all duration-300 ${
                 isLoading 
                   ? 'opacity-50 cursor-not-allowed' 
-                  : 'hover:from-green-700 hover:to-green-800 hover:shadow-2xl hover:shadow-green-500/30 hover:scale-105'
+                  : 'hover:bg-white/20 hover:border-white/50 hover:scale-105'
               }`}
               whileHover={!isLoading ? { scale: 1.05 } : {}}
               whileTap={!isLoading ? { scale: 0.95 } : {}}
             >
               {isLoading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   Processing Payment...
                 </>
               ) : (
                 <>
                   Get {selectedPlan === 'monthly' ? 'Monthly' : 'Yearly'} Access
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5" />
                 </>
               )}
             </motion.button>
