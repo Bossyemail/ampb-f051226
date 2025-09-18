@@ -118,26 +118,18 @@ export default function ClauseVaultPayPage() {
     if (typeof window === 'undefined') {
       return null;
     }
-
     try {
-      // Check if Stripe is already loaded
-      if (window.Stripe) {
+      if (window.Stripe) { // Check if Stripe is already loaded
         return window.Stripe(publishableKey);
       }
-
-      // Dynamically import Stripe
       const { loadStripe } = await import('@stripe/stripe-js');
-      
       if (!loadStripe) {
         throw new Error('Stripe library failed to load');
       }
-
       const stripe = await loadStripe(publishableKey);
-      
       if (!stripe) {
         throw new Error('Failed to initialize Stripe');
       }
-
       return stripe;
     } catch (error) {
       console.error('Error loading Stripe:', error);
@@ -155,190 +147,245 @@ export default function ClauseVaultPayPage() {
   }
 
   return (
-    <div className="min-h-screen text-white relative">
-      {/* Rotating Background */}
-      <div className="fixed inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-          style={{
-            backgroundImage: `url(/images/clausevault/clausevault-bg-${currentBgIndex + 1}${currentBgIndex < 35 ? '.jpg' : '.jpeg'})`,
-          }}
-        />
-        {/* Subtle overlay for readability */}
-        <div className="absolute inset-0 bg-black/60" />
-        {/* Additional gradient overlay for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-      </div>
-
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Dynamic Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
+        style={{
+          backgroundImage: `url('/images/clausevault/clausevault-bg-${String(currentBgIndex + 1).padStart(2, '0')}.jpg')`
+        }}
+      />
+      
+      {/* Dark overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90" />
+      
       {/* Content */}
-      <div className="relative z-10">
-        <main className="mx-auto max-w-4xl px-6 py-16">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl w-full">
           {/* Header */}
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-mono font-bold text-white mb-2 tracking-wider lowercase">
-              clausevault
-            </h1>
-            <p className="text-sm text-white/60 -mt-1 mb-8">
-              Searchable, copy-ready clauses
-            </p>
-          </motion.div>
-
-          {/* Description */}
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            {/* Company Branding */}
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-tight">
+                AYLEN MONTENEGRO
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 font-light tracking-widest uppercase">
+                Turn Real Estate Chaos Into Systems & Profit
+              </p>
+            </div>
+            
+            {/* Product Branding */}
+            <div className="mb-8">
+              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
+                clausevault
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-300 mb-6 font-light">
+                Searchable, copy-ready clauses
+              </p>
+            </div>
+            
+            <p className="text-base md:text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed">
               Stop the endless search at midnight. clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos. Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.
             </p>
-          </motion.div>
+          </div>
 
-          {/* Pricing Options */}
-          <motion.div 
-            className="grid md:grid-cols-2 gap-6 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {/* Monthly Plan */}
-            <div 
-              className={`relative p-6 border rounded-lg cursor-pointer transition-all ${
-                selectedPlan === 'monthly' 
-                  ? 'border-white/40 bg-white/10' 
-                  : 'border-white/20 bg-white/5 hover:border-white/30'
-              }`}
-              onClick={() => setSelectedPlan('monthly')}
-            >
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-white mb-2">Monthly</h3>
-                <div className="text-3xl font-mono font-bold text-white mb-1">
-                  $99
-                </div>
-                <div className="text-sm text-gray-300 mb-4">per month</div>
-                <div className="text-xs text-gray-400 mb-4">Cancel anytime</div>
-                <div className="text-xs text-green-400">✓ Full access to all clauses</div>
-                <div className="text-xs text-green-400">✓ Regular updates</div>
-                <div className="text-xs text-green-400">✓ Priority support</div>
-              </div>
-            </div>
-
-            {/* Yearly Plan - Recommended */}
-            <div 
-              className={`relative p-6 border rounded-lg cursor-pointer transition-all ${
-                selectedPlan === 'yearly' 
-                  ? 'border-white/40 bg-white/10' 
-                  : 'border-white/20 bg-white/5 hover:border-white/30'
-              }`}
-              onClick={() => setSelectedPlan('yearly')}
-            >
-              {/* Recommended Badge */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <div className="bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-medium px-3 py-1 rounded-full">
-                  3 MONTHS FREE
-                </div>
-              </div>
-
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-white mb-2">Yearly</h3>
-                <div className="text-3xl font-mono font-bold text-white mb-1">
-                  $891
-                </div>
-                <div className="text-sm text-gray-300 mb-1">per year</div>
-                <div className="text-xs text-green-400 mb-4">≈ $74/mo • 3 months free</div>
-                <div className="text-xs text-gray-400 mb-4">Cancel anytime</div>
-                <div className="text-xs text-green-400">✓ Full access to all clauses</div>
-                <div className="text-xs text-green-400">✓ Regular updates</div>
-                <div className="text-xs text-green-400">✓ Priority support</div>
-                <div className="text-xs text-green-400">✓ Early access to new features</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* CTA Button */}
-          <motion.div 
-            className="text-center mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {/* Error Display */}
-            {error && (
-              <div className="mb-4 p-4 bg-red-500/20 border border-red-500/40 rounded-lg text-red-100 text-sm">
-                <div className="font-medium mb-1">Payment Error</div>
-                <div>{error}</div>
-                <button 
-                  onClick={() => setError(null)}
-                  className="mt-2 text-xs underline hover:no-underline"
+          {/* Mobile Plan Toggle */}
+          <div className="block md:hidden mb-8">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-2">
+              <div className="grid grid-cols-2 gap-2">
+                <motion.button
+                  onClick={() => setSelectedPlan('monthly')}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    selectedPlan === 'monthly'
+                      ? 'bg-white text-black shadow-lg'
+                      : 'text-white hover:bg-white/10'
+                  }`}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Dismiss
-                </button>
+                  Monthly
+                </motion.button>
+                <motion.button
+                  onClick={() => setSelectedPlan('yearly')}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 relative ${
+                    selectedPlan === 'yearly'
+                      ? 'bg-white text-black shadow-lg'
+                      : 'text-white hover:bg-white/10'
+                  }`}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Yearly
+                  <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-full">
+                    FREE
+                  </span>
+                </motion.button>
               </div>
-            )}
+            </div>
+          </div>
 
-            <button
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Monthly Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className={`relative bg-white/10 backdrop-blur-sm border rounded-3xl p-8 transition-all duration-300 ${
+                selectedPlan === 'monthly' 
+                  ? 'border-white/40 bg-white/20 shadow-2xl shadow-white/10' 
+                  : 'border-white/20 hover:border-white/30'
+              } ${selectedPlan === 'yearly' ? 'md:opacity-60' : ''}`}
+            >
+              <div className="text-center">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                  Monthly
+                </h3>
+                <div className="mb-6">
+                  <span className="text-5xl md:text-6xl font-bold text-white">$99</span>
+                  <span className="text-xl text-gray-300 ml-3">per month</span>
+                </div>
+                <p className="text-gray-400 mb-8 font-light">Cancel anytime</p>
+                
+                <div className="space-y-4 mb-10">
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Full access to all clauses</span>
+                  </div>
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Regular updates</span>
+                  </div>
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Priority support</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Yearly Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className={`relative bg-white/10 backdrop-blur-sm border rounded-3xl p-8 transition-all duration-300 ${
+                selectedPlan === 'yearly' 
+                  ? 'border-green-400/50 bg-gradient-to-br from-white/20 to-green-500/10 shadow-2xl shadow-green-500/20' 
+                  : 'border-white/20 hover:border-white/30'
+              } ${selectedPlan === 'monthly' ? 'md:opacity-60' : ''}`}
+            >
+              {/* Popular Badge */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide shadow-lg">
+                  3 MONTHS FREE
+                </span>
+              </div>
+              
+              <div className="text-center">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                  Yearly
+                </h3>
+                <div className="mb-6">
+                  <span className="text-5xl md:text-6xl font-bold text-white">$891</span>
+                  <span className="text-xl text-gray-300 ml-3">per year</span>
+                </div>
+                <p className="text-green-400 text-lg mb-2 font-semibold">≈ $74/mo • 3 months free</p>
+                <p className="text-gray-400 mb-8 font-light">Cancel anytime</p>
+                
+                <div className="space-y-4 mb-10">
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Full access to all clauses</span>
+                  </div>
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Regular updates</span>
+                  </div>
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Priority support</span>
+                  </div>
+                  <div className="flex items-center text-green-400">
+                    <span className="text-xl mr-3">✓</span>
+                    <span className="text-white text-lg">Early access to new features</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Error Display */}
+          {error && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 p-6 bg-red-500/20 border border-red-500/40 rounded-2xl text-red-100 text-center backdrop-blur-sm"
+            >
+              <div className="font-semibold mb-2 text-lg">Payment Error</div>
+              <div className="text-sm">{error}</div>
+              <button 
+                onClick={() => setError(null)} 
+                className="mt-3 text-sm underline hover:no-underline transition-colors"
+              >
+                Dismiss
+              </button>
+            </motion.div>
+          )}
+
+          {/* Payment Button */}
+          <div className="text-center mb-12">
+            <motion.button
               onClick={handlePayment}
               disabled={isLoading}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 hover:border-white/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className={`inline-flex items-center gap-3 px-16 py-5 bg-gradient-to-r from-green-600 to-green-700 text-white text-xl font-bold rounded-2xl transition-all duration-300 shadow-lg ${
+                isLoading 
+                  ? 'opacity-50 cursor-not-allowed' 
+                  : 'hover:from-green-700 hover:to-green-800 hover:shadow-2xl hover:shadow-green-500/30 hover:scale-105'
+              }`}
+              whileHover={!isLoading ? { scale: 1.05 } : {}}
+              whileTap={!isLoading ? { scale: 0.95 } : {}}
             >
               {isLoading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Processing...
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Processing Payment...
                 </>
               ) : (
                 <>
-                  Get {selectedPlan === 'yearly' ? 'Yearly' : 'Monthly'} Access
-                  <ArrowRight className="w-4 h-4" />
+                  Get {selectedPlan === 'monthly' ? 'Monthly' : 'Yearly'} Access
+                  <ArrowRight className="w-6 h-6" />
                 </>
               )}
-            </button>
+            </motion.button>
+          </div>
 
-            {/* Retry button for errors */}
-            {error && !isLoading && (
-              <button
+          {/* Retry Button */}
+          {error && !isLoading && (
+            <div className="text-center mb-8">
+              <motion.button
                 onClick={handlePayment}
-                className="mt-3 inline-flex items-center gap-2 px-6 py-2 bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/10 hover:border-white/20 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 hover:border-white/30 transition-all rounded-xl"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Try Again
-                <ArrowRight className="w-3 h-3" />
-              </button>
-            )}
-          </motion.div>
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+            </div>
+          )}
 
-          {/* Trust Message */}
-          <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <p className="text-xs text-white/50">
+          {/* Footer */}
+          <div className="text-center space-y-3">
+            <p className="text-sm text-gray-400 font-medium">
               Secure payment powered by Stripe
             </p>
-          </motion.div>
-
-          {/* Footer with Trust Badges */}
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            <p className="text-sm text-gray-400 mb-2">
-              Single-user license · Broker-friendly
+            <p className="text-xs text-gray-500">
+              Single-user license • Broker-friendly
             </p>
-            <p className="text-xs text-white/50">
+            <p className="text-xs text-gray-500">
               Includes free updates and priority support
             </p>
-          </motion.div>
-        </main>
+          </div>
+        </div>
       </div>
     </div>
   );
