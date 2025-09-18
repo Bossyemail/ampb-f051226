@@ -13,9 +13,10 @@ export default clerkMiddleware((auth, req) => {
       return NextResponse.redirect(new URL('/sign-in', req.url));
     }
     
-    // Check if user is authorized (only hello@aylenmontenegro.com)
+    // Check if user is authorized (admin emails)
     const email = sessionClaims?.email as string;
-    if (email !== 'hello@aylenmontenegro.com') {
+    const adminEmails = ['hello@aylenmontenegro.com', 'aylenfrommiami@gmail.com'];
+    if (!adminEmails.includes(email)) {
       return NextResponse.redirect(new URL('/', req.url));
     }
   }

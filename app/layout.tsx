@@ -82,7 +82,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          formButtonPrimary: 'bg-blue-600 hover:bg-blue-700 text-white',
+        }
+      }}
+    >
       <html lang="en">
         <head>
           {/* Google Analytics */}
