@@ -42,7 +42,7 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com *.clerk.dev *.clerk.accounts.dev *.stripe.com js.stripe.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com *.clerk.dev *.clerk.accounts.dev *.stripe.com js.stripe.com tracker.metricool.com",
               "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
               "img-src 'self' data: blob: *.google-analytics.com *.googletagmanager.com",
               "font-src 'self' fonts.gstatic.com",
