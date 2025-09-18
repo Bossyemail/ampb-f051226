@@ -612,7 +612,7 @@ export default function AdminDashboard() {
   };
 
   // Show loading state
-  if (isLoading) {
+  if (isLoading || !user) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-white text-xl">Loading Admin Dashboard...</div>
