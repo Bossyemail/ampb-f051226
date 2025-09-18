@@ -75,17 +75,17 @@ export default function NewsletterSubscription({
 
       {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-white rounded-2xl p-8 max-w-md w-full relative"
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-md w-full relative shadow-2xl"
           >
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors text-2xl"
               aria-label="Close"
             >
               ×
@@ -97,14 +97,14 @@ export default function NewsletterSubscription({
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
-                  <Check className="w-8 h-8 text-green-600" />
+                  <Check className="w-8 h-8 text-green-400" />
                 </motion.div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   Welcome to the Snarkletter! 🎉
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-white/80">
                   You're all set! Check your email for a welcome message.
                 </p>
               </div>
@@ -112,34 +112,35 @@ export default function NewsletterSubscription({
               // Subscription Form
               <div>
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Mail className="w-8 h-8 text-gray-600" />
+                  <div className="w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Mail className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     Join the Snarkletter
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-white/80 text-sm">
                     Real estate insights with a side of sass. No fluff, just real talk.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubscribe} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Name (optional)
+                    <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-1">
+                      Name *
                     </label>
                     <input
                       type="text"
                       id="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                      required
+                      className="w-full px-3 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-black placeholder-gray-500 focus:ring-2 focus:ring-white/30 focus:border-transparent"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-white/90 mb-1">
                       Email *
                     </label>
                     <input
@@ -148,27 +149,27 @@ export default function NewsletterSubscription({
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                      className="w-full px-3 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-black placeholder-gray-500 focus:ring-2 focus:ring-white/30 focus:border-transparent"
                       placeholder="your@email.com"
                     />
                   </div>
 
                   {error && (
-                    <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+                    <div className="text-red-300 text-sm bg-red-500/20 backdrop-blur-sm border border-red-400/30 p-3 rounded-lg">
                       {error}
                     </div>
                   )}
 
                   <button
                     type="submit"
-                    disabled={isLoading || !email}
-                    className="w-full bg-gray-900 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isLoading || !email || !name}
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3 px-4 rounded-lg font-medium hover:bg-white/20 hover:border-white/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? 'Subscribing...' : 'Subscribe to Snarkletter'}
                   </button>
                 </form>
 
-                <p className="text-xs text-gray-500 text-center mt-4">
+                <p className="text-xs text-white/60 text-center mt-4">
                   Your deals will thank you. Pinky swear.
                 </p>
               </div>

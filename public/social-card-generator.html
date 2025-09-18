@@ -15,11 +15,37 @@
         .card-container {
             width: 1200px;
             height: 630px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('/images/IMG_6635.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
             position: relative;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Gradient overlays to match hero section */
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+            z-index: 1;
+        }
+        
+        .card-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 50%, transparent 100%);
+            z-index: 1;
         }
         
         .content {
@@ -28,77 +54,73 @@
             align-items: center;
             padding: 60px;
             color: white;
+            z-index: 2;
         }
         
         .text-section {
             flex: 1;
-            z-index: 2;
+            z-index: 3;
+            max-width: 600px;
         }
         
         .image-section {
             flex: 1;
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
-            z-index: 2;
+            z-index: 3;
         }
         
         .intro-text {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            font-size: 14px;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 8px;
+            color: #d1d5db;
         }
         
         .main-headline {
-            font-size: 48px;
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 600;
             line-height: 1.1;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 16px;
+            color: white;
         }
         
         .description {
-            font-size: 24px;
+            font-size: 18px;
             line-height: 1.4;
-            margin-bottom: 40px;
-            opacity: 0.95;
+            margin-bottom: 32px;
+            color: #d1d5db;
         }
         
         .cta-button {
             display: inline-block;
-            background: #ff6b6b;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 16px 32px;
-            border-radius: 8px;
+            padding: 12px 24px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-            transition: transform 0.2s;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
         
         .cta-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
         
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid white;
+            border: 4px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.1;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white"/><circle cx="75" cy="75" r="1" fill="white"/><circle cx="50" cy="10" r="1" fill="white"/><circle cx="10" cy="90" r="1" fill="white"/><circle cx="90" cy="40" r="1" fill="white"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
         }
         
         .footer {
@@ -109,6 +131,7 @@
             background: rgba(0,0,0,0.8);
             padding: 20px 60px;
             color: white;
+            z-index: 3;
         }
         
         .footer-title {
@@ -182,17 +205,17 @@
         
         <div class="form-group">
             <label for="introText">Intro Text:</label>
-            <input type="text" id="introText" value="HEY THERE, I'M AYLEN MONTENEGRO!" />
+            <input type="text" id="introText" value="Hi, I am" />
         </div>
         
         <div class="form-group">
             <label for="headline">Main Headline:</label>
-            <input type="text" id="headline" value="Turn Real Estate Chaos Into Systems & Profit" />
+            <input type="text" id="headline" value="Contract Manager • SaaS Builder • Author" />
         </div>
         
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea id="description">Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.</textarea>
+            <textarea id="description">I turn real estate chaos into systems and profit. From contract to closing, I manage the details and build the tools so agents can sell more and stress less.</textarea>
         </div>
         
         <div class="form-group">
@@ -215,16 +238,12 @@
     </div>
 
     <div class="card-container" id="card">
-        <div class="background-pattern"></div>
         <div class="content">
             <div class="text-section">
-                <div class="intro-text" id="introTextDisplay">HEY THERE, I'M AYLEN MONTENEGRO!</div>
-                <div class="main-headline" id="headlineDisplay">Turn Real Estate Chaos Into Systems & Profit</div>
-                <div class="description" id="descriptionDisplay">Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.</div>
+                <div class="intro-text" id="introTextDisplay">Hi, I am</div>
+                <div class="main-headline" id="headlineDisplay">Contract Manager • SaaS Builder • Author</div>
+                <div class="description" id="descriptionDisplay">I turn real estate chaos into systems and profit. From contract to closing, I manage the details and build the tools so agents can sell more and stress less.</div>
                 <div class="cta-button" id="ctaDisplay">LET'S GET STARTED</div>
-            </div>
-            <div class="image-section">
-                <img src="/images/my-image.jpg" alt="Aylen Montenegro" class="profile-image" onerror="this.style.display='none'">
             </div>
         </div>
         <div class="footer">
