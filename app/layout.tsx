@@ -39,15 +39,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Aylen Montenegro — Turn Real Estate Chaos Into Systems & Profit",
-    description: "20+ years of real estate expertise. I turn chaos into closings with proven systems, smart tools, and battle-tested frameworks. From contract to closing, I manage the details so you can sell more.",
+    description: "Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.",
     url: 'https://aylenmontenegro.com',
     siteName: 'Aylen Montenegro',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/my-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Aylen Montenegro — Turn Real Estate Chaos Into Systems & Profit',
+        alt: 'Aylen Montenegro — Contract Manager • SaaS Builder • Author',
       },
     ],
     locale: 'en_US',
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Aylen Montenegro — Turn Real Estate Chaos Into Systems & Profit",
-    description: "20+ years of real estate expertise. I turn chaos into closings with proven systems, smart tools, and battle-tested frameworks. From contract to closing, I manage the details so you can sell more.",
-    images: ['/images/og-image.jpg'],
+    description: "Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.",
+    images: ['/images/my-image.jpg'],
     creator: '@aylenbuilds',
   },
   robots: {

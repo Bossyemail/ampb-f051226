@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Card Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .card-container {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .content {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            padding: 60px;
+            color: white;
+        }
+        
+        .text-section {
+            flex: 1;
+            z-index: 2;
+        }
+        
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .main-headline {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .description {
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white"/><circle cx="75" cy="75" r="1" fill="white"/><circle cx="50" cy="10" r="1" fill="white"/><circle cx="10" cy="90" r="1" fill="white"/><circle cx="90" cy="40" r="1" fill="white"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 20px 60px;
+            color: white;
+        }
+        
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .footer-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .controls h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-group textarea {
+            height: 60px;
+            resize: vertical;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        button:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h3>Social Card Generator - Aylen Montenegro</h3>
+        <p>Customize your social sharing card and then right-click to save as image.</p>
+        
+        <div class="form-group">
+            <label for="introText">Intro Text:</label>
+            <input type="text" id="introText" value="HEY THERE, I'M AYLEN MONTENEGRO!" />
+        </div>
+        
+        <div class="form-group">
+            <label for="headline">Main Headline:</label>
+            <input type="text" id="headline" value="Turn Real Estate Chaos Into Systems & Profit" />
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description">Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="ctaText">CTA Button Text:</label>
+            <input type="text" id="ctaText" value="LET'S GET STARTED" />
+        </div>
+        
+        <div class="form-group">
+            <label for="footerTitle">Footer Title:</label>
+            <input type="text" id="footerTitle" value="Contract Manager • SaaS Builder • Author" />
+        </div>
+        
+        <div class="form-group">
+            <label for="footerSubtitle">Footer Subtitle:</label>
+            <input type="text" id="footerSubtitle" value="aylenmontenegro.com" />
+        </div>
+        
+        <button onclick="updateCard()">Update Card</button>
+        <button onclick="downloadCard()">Download as Image</button>
+    </div>
+
+    <div class="card-container" id="card">
+        <div class="background-pattern"></div>
+        <div class="content">
+            <div class="text-section">
+                <div class="intro-text" id="introTextDisplay">HEY THERE, I'M AYLEN MONTENEGRO!</div>
+                <div class="main-headline" id="headlineDisplay">Turn Real Estate Chaos Into Systems & Profit</div>
+                <div class="description" id="descriptionDisplay">Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.</div>
+                <div class="cta-button" id="ctaDisplay">LET'S GET STARTED</div>
+            </div>
+            <div class="image-section">
+                <img src="/images/my-image.jpg" alt="Aylen Montenegro" class="profile-image" onerror="this.style.display='none'">
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-title" id="footerTitleDisplay">Contract Manager • SaaS Builder • Author</div>
+            <div class="footer-subtitle" id="footerSubtitleDisplay">aylenmontenegro.com</div>
+        </div>
+    </div>
+
+    <script>
+        function updateCard() {
+            document.getElementById('introTextDisplay').textContent = document.getElementById('introText').value;
+            document.getElementById('headlineDisplay').textContent = document.getElementById('headline').value;
+            document.getElementById('descriptionDisplay').textContent = document.getElementById('description').value;
+            document.getElementById('ctaDisplay').textContent = document.getElementById('ctaText').value;
+            document.getElementById('footerTitleDisplay').textContent = document.getElementById('footerTitle').value;
+            document.getElementById('footerSubtitleDisplay').textContent = document.getElementById('footerSubtitle').value;
+        }
+
+        function downloadCard() {
+            const card = document.getElementById('card');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = 1200;
+            canvas.height = 630;
+            
+            // Create a temporary container to render the card
+            const tempDiv = document.createElement('div');
+            tempDiv.style.position = 'absolute';
+            tempDiv.style.left = '-9999px';
+            tempDiv.style.width = '1200px';
+            tempDiv.style.height = '630px';
+            tempDiv.appendChild(card.cloneNode(true));
+            document.body.appendChild(tempDiv);
+            
+            // Use html2canvas library if available, otherwise provide instructions
+            if (typeof html2canvas !== 'undefined') {
+                html2canvas(card).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'aylen-montenegro-social-card.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            } else {
+                alert('To download the image, right-click on the card and select "Save image as..." or take a screenshot.');
+            }
+            
+            document.body.removeChild(tempDiv);
+        }
+
+        // Auto-update on input change
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', updateCard);
+        });
+    </script>
+</body>
+</html>
