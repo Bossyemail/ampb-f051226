@@ -34,8 +34,9 @@ export default function AdminDashboard() {
 
     if (isLoaded && user) {
       // Check if user is admin (you can customize this logic)
+      const adminEmails = ['hello@aylenmontenegro.com', 'aylenfrommiami@gmail.com'];
       const isAdmin = user.emailAddresses.some(email => 
-        email.emailAddress === 'aylen@bossyemail.com'
+        adminEmails.includes(email.emailAddress)
       );
       
       if (!isAdmin) {
