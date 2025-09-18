@@ -163,28 +163,28 @@ export default function ClauseVaultPayPage() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl w-full">
           {/* Header */}
-          <div className="text-center mb-16">
-            {/* Company Branding */}
-            <div className="mb-8">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-tight">
+          <div className="text-center mb-12">
+            {/* Company Branding - Matching Product Page */}
+            <div className="mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2">
                 AYLEN MONTENEGRO
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 font-light tracking-widest uppercase">
+              <p className="text-sm italic text-gray-300">
                 Turn Real Estate Chaos Into Systems & Profit
               </p>
             </div>
             
             {/* Product Branding */}
-            <div className="mb-8">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
+            <div className="mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
                 clausevault
               </h2>
-              <p className="text-xl md:text-2xl text-gray-300 mb-6 font-light">
+              <p className="text-lg text-gray-300 mb-4">
                 Searchable, copy-ready clauses
               </p>
             </div>
             
-            <p className="text-base md:text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Stop the endless search at midnight. clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos. Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.
             </p>
           </div>
@@ -240,23 +240,23 @@ export default function ClauseVaultPayPage() {
                   Monthly
                 </h3>
                 <div className="mb-6">
-                  <span className="text-5xl md:text-6xl font-bold text-white">$99</span>
-                  <span className="text-xl text-gray-300 ml-3">per month</span>
+                  <span className="text-3xl md:text-4xl font-semibold text-white">$99</span>
+                  <span className="text-sm text-gray-300 ml-2">per month</span>
                 </div>
                 <p className="text-gray-400 mb-8 font-light">Cancel anytime</p>
                 
-                <div className="space-y-4 mb-10">
+                <div className="space-y-3 mb-8">
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Full access to all clauses</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Full access to all clauses</span>
                   </div>
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Regular updates</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Regular updates</span>
                   </div>
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Priority support</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Priority support</span>
                   </div>
                 </div>
               </div>
@@ -285,28 +285,28 @@ export default function ClauseVaultPayPage() {
                   Yearly
                 </h3>
                 <div className="mb-6">
-                  <span className="text-5xl md:text-6xl font-bold text-white">$891</span>
-                  <span className="text-xl text-gray-300 ml-3">per year</span>
+                  <span className="text-3xl md:text-4xl font-semibold text-white">$891</span>
+                  <span className="text-sm text-gray-300 ml-2">per year</span>
                 </div>
-                <p className="text-green-400 text-lg mb-2 font-semibold">≈ $74/mo • 3 months free</p>
+                <p className="text-green-400 text-sm mb-2">≈ $74/mo • 3 months free</p>
                 <p className="text-gray-400 mb-8 font-light">Cancel anytime</p>
                 
-                <div className="space-y-4 mb-10">
+                <div className="space-y-3 mb-8">
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Full access to all clauses</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Full access to all clauses</span>
                   </div>
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Regular updates</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Regular updates</span>
                   </div>
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Priority support</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Priority support</span>
                   </div>
                   <div className="flex items-center text-green-400">
-                    <span className="text-xl mr-3">✓</span>
-                    <span className="text-white text-lg">Early access to new features</span>
+                    <span className="text-sm mr-2">✓</span>
+                    <span className="text-white text-sm">Early access to new features</span>
                   </div>
                 </div>
               </div>
