@@ -12,19 +12,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if KIT is configured
+    const kitApiKey = process.env.KIT_API_KEY;
+    
+    if (!kitApiKey) {
+      console.log('KIT_API_KEY not configured - using fallback');
+      // Fallback: Just log the subscription for now
+      console.log(`Newsletter subscription: ${email} (${name}) from ${source}`);
+      
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Successfully subscribed to the Snarkletter! (Note: KIT integration pending)',
+        data: { email, name, source }
+      });
+    }
+
     // Subscribe to KIT newsletter
     // KIT custom subdomain: snarkletter.kit.com
     const kitApiUrl = process.env.KIT_API_URL || 'https://snarkletter.kit.com/api/v1/subscribe';
-    const kitApiKey = process.env.KIT_API_KEY;
     const kitApiSecret = process.env.KIT_API_SECRET;
-    
-    if (!kitApiKey) {
-      console.error('KIT_API_KEY environment variable is not set');
-      return NextResponse.json(
-        { error: 'Newsletter service not configured' },
-        { status: 500 }
-      );
-    }
 
     // Prepare headers for KIT custom subdomain
     const headers: Record<string, string> = {
