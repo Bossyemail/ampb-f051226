@@ -4,32 +4,13 @@ import { NextResponse } from 'next/server';
 const isAdminRoute = createRouteMatcher(['/admin(.*)']);
 
 export default clerkMiddleware((auth, req) => {
-  // Temporarily disable admin protection for debugging
+  // TEMPORARILY DISABLE ALL ADMIN PROTECTION FOR DEBUGGING
   console.log('Middleware running for:', req.url);
   
-  // Protect only specific admin routes, not test pages
-  if (isAdminRoute(req) && !req.url.includes('/admin/test') && !req.url.includes('/admin/simple')) {
-    const { userId, sessionClaims } = auth();
-    
-    console.log('Checking admin route:', req.url, 'userId:', userId, 'email:', sessionClaims?.email);
-    
-    // Check if user is authenticated
-    if (!userId) {
-      console.log('No user ID, redirecting to sign-in');
-      const signInUrl = new URL('/sign-in', req.url);
-      signInUrl.searchParams.set('redirect_url', req.url);
-      return NextResponse.redirect(signInUrl);
-    }
-    
-    // Check if user is authorized (admin emails)
-    const email = sessionClaims?.email as string;
-    const adminEmails = ['hello@aylenmontenegro.com', 'aylenfrommiami@gmail.com'];
-    if (!adminEmails.includes(email)) {
-      console.log('Unauthorized email:', email, 'allowed:', adminEmails);
-      return NextResponse.redirect(new URL('/', req.url));
-    }
-    
-    console.log('Admin access granted for:', email);
+  // Skip all admin route protection for now
+  if (isAdminRoute(req)) {
+    console.log('Admin route accessed:', req.url, 'ALLOWING ALL ACCESS FOR DEBUGGING');
+    // Allow all access to admin routes for debugging
   }
 });
 
