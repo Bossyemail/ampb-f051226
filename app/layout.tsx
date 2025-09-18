@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: 'Aylen Montenegro',
     images: [
       {
-        url: '/images/my-image.jpg',
+        url: '/images/IMG_6635.jpg',
         width: 1200,
         height: 630,
         alt: 'Aylen Montenegro — Contract Manager • SaaS Builder • Author',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Aylen Montenegro — Turn Real Estate Chaos Into Systems & Profit",
     description: "Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.",
-    images: ['/images/my-image.jpg'],
+    images: ['/images/IMG_6635.jpg'],
     creator: '@aylenbuilds',
   },
   robots: {
