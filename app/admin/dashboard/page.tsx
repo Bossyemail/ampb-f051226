@@ -116,8 +116,9 @@ export default function AdminDashboard() {
   useEffect(() => {
     // Check if user is authenticated and authorized
     if (isSignedIn && user) {
-      // Only allow access to hello@aylenmontenegro.com
-      if (user.emailAddresses?.[0]?.emailAddress === 'hello@aylenmontenegro.com') {
+      // Allow access to admin emails
+      const adminEmails = ['hello@aylenmontenegro.com', 'aylenfrommiami@gmail.com'];
+      if (adminEmails.includes(user.emailAddresses?.[0]?.emailAddress || '')) {
         console.log('Authorized admin access granted');
         loadDashboardData();
       } else {
@@ -620,7 +621,8 @@ export default function AdminDashboard() {
   }
 
   // Show unauthorized access message
-  if (isSignedIn && user && user.emailAddresses?.[0]?.emailAddress !== 'hello@aylenmontenegro.com') {
+  const adminEmails = ['hello@aylenmontenegro.com', 'aylenfrommiami@gmail.com'];
+  if (isSignedIn && user && !adminEmails.includes(user.emailAddresses?.[0]?.emailAddress || '')) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center">
