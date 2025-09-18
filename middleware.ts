@@ -10,7 +10,9 @@ export default clerkMiddleware((auth, req) => {
     
     // Check if user is authenticated
     if (!userId) {
-      return NextResponse.redirect(new URL('/sign-in', req.url));
+      const signInUrl = new URL('/sign-in', req.url);
+      signInUrl.searchParams.set('redirect_url', req.url);
+      return NextResponse.redirect(signInUrl);
     }
     
     // Check if user is authorized (admin emails)

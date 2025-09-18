@@ -1,10 +1,17 @@
+"use client";
+
 import { SignIn } from "@clerk/nextjs";
+import { useSearchParams } from "next/navigation";
 
 export default function SignInPage() {
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get('redirect_url') || '/admin/dashboard';
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <SignIn 
+          redirectUrl={redirectUrl}
           appearance={{
             elements: {
               rootBox: "mx-auto",
