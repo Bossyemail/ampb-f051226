@@ -88,6 +88,7 @@ export default function ClauseVaultPayPage() {
       console.log('Checkout session created:', sessionId);
       
       // Load Stripe with better error handling
+      console.log('Publishable key:', process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ? 'Found' : 'Missing');
       const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
       
       if (!stripe) {
