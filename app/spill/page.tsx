@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import StickyNavigation from "@/components/StickyNavigation";
 import Footer from "@/components/Footer";
+import NewsletterSubscription from "@/components/NewsletterSubscription";
 import { useState, useRef, useEffect } from 'react';
 
 // Confetti component
@@ -366,13 +367,10 @@ export default function SpillPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                   >
-                    <button
-                      className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
-                      aria-label="Send Me the Snarkletter"
-                    >
-                      Send Me the Snarkletter
-                      <ChevronDown className="w-4 h-4" />
-                    </button>
+                    <NewsletterSubscription 
+                      buttonText="Send Me the Snarkletter"
+                      source="spill-hero"
+                    />
                   </motion.div>
                 </div>
               </div>
@@ -510,13 +508,10 @@ export default function SpillPage() {
 
           {/* CTA - Editorial Button at the bottom */}
           <div className="mt-16 text-center">
-            <button
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-              aria-label="Send Me the Snarkletter"
-            >
-              Send Me the Snarkletter
-              <ChevronDown className="w-4 h-4" />
-            </button>
+            <NewsletterSubscription 
+              buttonText="Send Me the Snarkletter"
+              source="spill-bottom"
+            />
             <p className="mt-3 text-sm text-gray-400 italic">
               Your deals will thank you.
             </p>

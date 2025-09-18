@@ -426,7 +426,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed space-y-1 md:space-y-2"
+          className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed space-y-0.5"
         >
           <p>They swear I deliver. Either that, or I&apos;m way better at bribery than I thought.</p>
           <p>Turns out contract triage is a marketable skill.</p>

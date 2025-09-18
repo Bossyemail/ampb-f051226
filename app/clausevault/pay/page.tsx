@@ -174,7 +174,7 @@ export default function ClauseVaultPayPage() {
               </p>
             </div>
             
-            <div className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed space-y-1">
+            <div className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed space-y-3">
               <p>Stop the endless search at midnight.</p>
               <p>clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos.</p>
               <p>Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.</p>
@@ -222,7 +222,7 @@ export default function ClauseVaultPayPage() {
                 className="relative bg-white/10 backdrop-blur-sm border border-white/40 rounded-2xl p-6 w-full max-w-md shadow-2xl shadow-white/10"
               >
                 <div className="text-center">
-                  <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
+                  <h3 className="text-xl font-bold font-mono leading-tight text-white mb-3">
                     Monthly
                   </h3>
                   <div className="mb-4">
@@ -262,7 +262,7 @@ export default function ClauseVaultPayPage() {
                 </div>
                 
                 <div className="text-center">
-                  <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
+                  <h3 className="text-xl font-bold font-mono leading-tight text-white mb-3">
                     Yearly
                   </h3>
                   <div className="mb-4">
