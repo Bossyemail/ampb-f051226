@@ -83,6 +83,8 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider
+      afterSignInUrl="/admin/dashboard"
+      afterSignUpUrl="/admin/dashboard"
       appearance={{
         elements: {
           formButtonPrimary: 'bg-blue-600 hover:bg-blue-700 text-white',

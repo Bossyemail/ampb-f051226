@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.googletagmanager.com *.google-analytics.com *.clerk.dev *.clerk.accounts.dev *.stripe.com js.stripe.com tracker.metricool.com",
               "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
-              "img-src 'self' data: blob: *.google-analytics.com *.googletagmanager.com",
+              "img-src 'self' data: blob: *.google-analytics.com *.googletagmanager.com tracker.metricool.com",
               "font-src 'self' fonts.gstatic.com",
               "connect-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com *.clerk.dev *.clerk.accounts.dev clerk-telemetry.com *.stripe.com api.stripe.com",
               "frame-src 'self' *.clerk.dev *.clerk.accounts.dev *.stripe.com js.stripe.com",
