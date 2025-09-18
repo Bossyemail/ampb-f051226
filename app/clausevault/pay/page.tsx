@@ -163,9 +163,9 @@ export default function ClauseVaultPayPage() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl w-full">
           {/* Header */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-6 pt-16 md:pt-0">
             {/* Product Branding - Matching ClauseVault Product Page */}
-            <div className="mb-3 -mt-8">
+            <div className="mb-3">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono lowercase leading-tight text-white mb-2">
                 clausevault
               </h1>
@@ -206,105 +206,93 @@ export default function ClauseVaultPayPage() {
                   whileTap={{ scale: 0.95 }}
                 >
                   Yearly
-                  <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-full">
-                    FREE
-                  </span>
                 </motion.button>
               </div>
             </div>
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Monthly Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className={`relative bg-white/10 backdrop-blur-sm border rounded-2xl p-6 transition-all duration-300 cursor-pointer ${
-                selectedPlan === 'monthly' 
-                  ? 'border-white/40 bg-white/20 shadow-2xl shadow-white/10' 
-                  : 'border-white/20 hover:border-white/30'
-              } ${selectedPlan === 'yearly' ? 'md:opacity-60' : ''}`}
-              onClick={() => setSelectedPlan('monthly')}
-            >
-              <div className="text-center">
-                <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
-                  Monthly
-                </h3>
-                <div className="mb-4">
-                  <span className="text-3xl font-bold font-mono text-white">$99</span>
-                  <span className="text-xs text-white/60 ml-2">per month</span>
+          <div className="flex justify-center mb-12">
+            {/* Show only the selected plan card */}
+            {selectedPlan === 'monthly' ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="relative bg-white/10 backdrop-blur-sm border border-white/40 rounded-2xl p-6 w-full max-w-md shadow-2xl shadow-white/10"
+              >
+                <div className="text-center">
+                  <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
+                    Monthly
+                  </h3>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold font-mono text-white">$99</span>
+                    <span className="text-xs text-white/60 ml-2">per month</span>
+                  </div>
+                  <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
+                  
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Full access to all clauses</span>
+                    </div>
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Regular updates</span>
+                    </div>
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Priority support</span>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="relative bg-white/10 backdrop-blur-sm border border-green-400/50 rounded-2xl p-6 w-full max-w-md bg-gradient-to-br from-white/20 to-green-500/10 shadow-2xl shadow-green-500/20"
+              >
+                {/* Popular Badge */}
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide shadow-lg">
+                    3 MONTHS FREE
+                  </span>
+                </div>
                 
-                <div className="space-y-1">
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Full access to all clauses</span>
+                <div className="text-center">
+                  <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
+                    Yearly
+                  </h3>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold font-mono text-white">$891</span>
+                    <span className="text-xs text-white/60 ml-2">per year</span>
                   </div>
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Regular updates</span>
-                  </div>
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Priority support</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Yearly Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className={`relative bg-white/10 backdrop-blur-sm border rounded-2xl p-6 transition-all duration-300 cursor-pointer ${
-                selectedPlan === 'yearly' 
-                  ? 'border-green-400/50 bg-gradient-to-br from-white/20 to-green-500/10 shadow-2xl shadow-green-500/20' 
-                  : 'border-white/20 hover:border-white/30'
-              } ${selectedPlan === 'monthly' ? 'md:opacity-60' : ''}`}
-              onClick={() => setSelectedPlan('yearly')}
-            >
-              {/* Popular Badge */}
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide shadow-lg">
-                  3 MONTHS FREE
-                </span>
-              </div>
-              
-              <div className="text-center">
-                <h3 className="text-xl font-bold font-mono lowercase leading-tight text-white mb-3">
-                  Yearly
-                </h3>
-                <div className="mb-4">
-                  <span className="text-3xl font-bold font-mono text-white">$891</span>
-                  <span className="text-xs text-white/60 ml-2">per year</span>
-                </div>
-                <p className="text-green-400 text-xs mb-2">≈ $74/mo • 3 months free</p>
-                <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
-                
-                <div className="space-y-1">
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Full access to all clauses</span>
-                  </div>
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Regular updates</span>
-                  </div>
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Priority support</span>
-                  </div>
-                  <div className="flex items-center justify-center text-green-400">
-                    <span className="text-xs mr-2">✓</span>
-                    <span className="text-white text-xs">Early access to new features</span>
+                  <p className="text-green-400 text-xs mb-2">≈ $74/mo • 3 months free</p>
+                  <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
+                  
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Full access to all clauses</span>
+                    </div>
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Regular updates</span>
+                    </div>
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Priority support</span>
+                    </div>
+                    <div className="flex items-center justify-center text-green-400">
+                      <span className="text-xs mr-2">✓</span>
+                      <span className="text-white text-xs">Early access to new features</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
           </div>
 
           {/* Error Display */}

@@ -159,7 +159,7 @@ export default function Home() {
               <div className="col-span-3">
                 {/* STATS OVERLAY */}
                 <aside
-                  className="pointer-events-none absolute right-4 md:right-6 top-20 w-40 md:w-48 lg:w-56 select-none block"
+                  className="pointer-events-none absolute right-4 md:right-6 top-20 md:top-32 w-40 md:w-48 lg:w-56 select-none block"
                   aria-label="Personal stats"
                 >
                   <div className="space-y-3 md:space-y-6">
@@ -721,7 +721,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/85"></div>
         
-        <div className="absolute inset-0 flex items-center pt-48 z-10">
+        <div className="absolute inset-0 flex items-center pt-32 md:pt-24 z-10">
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
               <div className="md:col-span-2">
