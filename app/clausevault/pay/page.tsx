@@ -177,7 +177,7 @@ export default function ClauseVaultPayPage() {
           {/* Header */}
           <div className="text-center mb-6 pt-16 md:pt-0">
             {/* Product Branding - Matching ClauseVault Product Page */}
-            <div className="mb-3 -mt-8">
+            <div className="mb-3 -mt-16">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono lowercase leading-tight text-white mb-2">
                 clausevault
               </h1>
