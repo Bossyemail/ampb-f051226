@@ -12,6 +12,7 @@ export default function ClauseVaultPayPage() {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
   const [isCheckingAccess, setIsCheckingAccess] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
   const router = useRouter();
   const { user, isLoaded: userLoaded } = useUser();
   const { isSignedIn } = useAuth();
@@ -39,6 +40,17 @@ export default function ClauseVaultPayPage() {
 
     checkAccess();
   }, [userLoaded, user, router]);
+
+  // Desktop detection
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   // Background rotation logic - changes every 6 hours
   useEffect(() => {
@@ -165,7 +177,7 @@ export default function ClauseVaultPayPage() {
           {/* Header */}
           <div className="text-center mb-6 pt-16 md:pt-0">
             {/* Product Branding - Matching ClauseVault Product Page */}
-            <div className="mb-3">
+            <div className="mb-3 -mt-8">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono lowercase leading-tight text-white mb-2">
                 clausevault
               </h1>
@@ -174,7 +186,7 @@ export default function ClauseVaultPayPage() {
               </p>
             </div>
             
-            <div className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed space-y-3">
+            <div className="text-sm text-gray-400 max-w-3xl mx-auto leading-relaxed space-y-1">
               <p>Stop the endless search at midnight.</p>
               <p>clausevault is your plug-and-play clause library built for Florida contracts and real estate chaos.</p>
               <p>Every clause is editable, agent-tested, and designed to keep you compliant without last minute headaches.</p>
@@ -212,14 +224,19 @@ export default function ClauseVaultPayPage() {
           </div>
 
           {/* Pricing Cards */}
-          <div className="flex justify-center mb-12">
-            {/* Show only the selected plan card */}
-            {selectedPlan === 'monthly' ? (
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Monthly Plan */}
+            { (selectedPlan === 'monthly' || isDesktop) && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="relative bg-white/10 backdrop-blur-sm border border-white/40 rounded-2xl p-6 w-full max-w-md shadow-2xl shadow-white/10"
+                className={`relative bg-white/10 backdrop-blur-sm border rounded-2xl p-6 transition-all duration-300 cursor-pointer ${
+                  selectedPlan === 'monthly'
+                    ? 'border-white/40 bg-white/20 shadow-2xl shadow-white/10'
+                    : 'border-white/20 hover:border-white/30'
+                } ${selectedPlan === 'yearly' && isDesktop ? 'md:opacity-60' : ''}`}
+                onClick={() => setSelectedPlan('monthly')}
               >
                 <div className="text-center">
                   <h3 className="text-xl font-bold font-mono leading-tight text-white mb-3">
@@ -230,7 +247,7 @@ export default function ClauseVaultPayPage() {
                     <span className="text-xs text-white/60 ml-2">per month</span>
                   </div>
                   <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
-                  
+
                   <div className="space-y-1">
                     <div className="flex items-center justify-center text-green-400">
                       <span className="text-xs mr-2">✓</span>
@@ -247,12 +264,20 @@ export default function ClauseVaultPayPage() {
                   </div>
                 </div>
               </motion.div>
-            ) : (
+            )}
+
+            {/* Yearly Plan */}
+            { (selectedPlan === 'yearly' || isDesktop) && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="relative bg-white/10 backdrop-blur-sm border border-green-400/50 rounded-2xl p-6 w-full max-w-md bg-gradient-to-br from-white/20 to-green-500/10 shadow-2xl shadow-green-500/20"
+                className={`relative bg-white/10 backdrop-blur-sm border rounded-2xl p-6 transition-all duration-300 cursor-pointer ${
+                  selectedPlan === 'yearly'
+                    ? 'border-green-400/50 bg-gradient-to-br from-white/20 to-green-500/10 shadow-2xl shadow-green-500/20'
+                    : 'border-white/20 hover:border-white/30'
+                } ${selectedPlan === 'monthly' && isDesktop ? 'md:opacity-60' : ''}`}
+                onClick={() => setSelectedPlan('yearly')}
               >
                 {/* Popular Badge */}
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -260,7 +285,7 @@ export default function ClauseVaultPayPage() {
                     3 MONTHS FREE
                   </span>
                 </div>
-                
+
                 <div className="text-center">
                   <h3 className="text-xl font-bold font-mono leading-tight text-white mb-3">
                     Yearly
@@ -271,7 +296,7 @@ export default function ClauseVaultPayPage() {
                   </div>
                   <p className="text-green-400 text-xs mb-2">≈ $74/mo • 3 months free</p>
                   <p className="text-xs text-white/60 mb-4">Cancel anytime</p>
-                  
+
                   <div className="space-y-1">
                     <div className="flex items-center justify-center text-green-400">
                       <span className="text-xs mr-2">✓</span>
