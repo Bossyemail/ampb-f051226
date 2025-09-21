@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: 'https://aylenmontenegro.com',
     images: [
       {
-        url: '/images/social-share-card.jpg?v=2024-12-19',
+        url: '/social-share-card.jpg?v=2024-12-19',
         width: 1200,
         height: 630,
         alt: 'Aylen Montenegro, Contract Manager • SaaS Builder • Author',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Aylen Montenegro, Contract Manager • SaaS Builder • Author',
     description: '20+ years of real estate expertise. I turn chaos into closings with proven systems, smart tools, and battle-tested frameworks. From contract to closing, I manage the details so you can sell more.',
-    images: ['/images/social-share-card.jpg?v=2024-12-19'],
+    images: ['/social-share-card.jpg?v=2024-12-19'],
   },
   alternates: {
     canonical: '/',
