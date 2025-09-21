@@ -90,6 +90,32 @@ export default function ClauseVaultAppPage() {
     }
   }, []);
 
+  // Load favorites from localStorage on component mount
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem('clausevault-favorites');
+    if (savedFavorites) {
+      setFavorites(JSON.parse(savedFavorites));
+    }
+  }, []);
+
+  // Save favorites to localStorage whenever favorites change
+  useEffect(() => {
+    localStorage.setItem('clausevault-favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  // Load recents from localStorage on component mount
+  useEffect(() => {
+    const savedRecents = localStorage.getItem('clausevault-recents');
+    if (savedRecents) {
+      setRecents(JSON.parse(savedRecents));
+    }
+  }, []);
+
+  // Save recents to localStorage whenever recents change
+  useEffect(() => {
+    localStorage.setItem('clausevault-recents', JSON.stringify(recents));
+  }, [recents]);
+
   // Check for tour parameter in URL
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
