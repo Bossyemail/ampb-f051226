@@ -206,6 +206,9 @@ export default function ClauseVaultAppPage() {
       setCopyCount(newCount);
       localStorage.setItem('clausevault-copy-count', newCount.toString());
       
+      // Add to recents
+      addToRecents(clause.title);
+      
       // Track recent copies for abuse detection
       const now = Date.now();
       const newRecentCopy = { clauseId: clause.title, timestamp: now };
