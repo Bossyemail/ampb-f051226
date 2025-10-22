@@ -390,13 +390,19 @@ export default function Home() {
                         </p>
                       </div>
                       
-                      {/* Video Placeholder */}
+                      {/* ClauseVault VSL Video */}
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
-                        <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
-                          <p className="text-gray-400 text-center">
-                            Search → Preview → Copy<br />
-                            <span className="text-sm">ClauseVault VSL</span>
-                          </p>
+                        <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+                          <video
+                            className="w-full h-full object-cover"
+                            controls
+                            preload="metadata"
+                            poster="/images/clausevault/clausevault-bg-1.jpg"
+                          >
+                            <source src="/videos/clausevault-vsl.mov" type="video/quicktime" />
+                            <source src="/videos/clausevault-vsl.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
                         </div>
                       </div>
                       
