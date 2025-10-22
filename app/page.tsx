@@ -399,8 +399,7 @@ export default function Home() {
                             preload="metadata"
                             poster="/images/clausevault/clausevault-bg-1.jpg"
                           >
-                            <source src="/videos/clausevault-vsl-compressed.mp4?v=2024-12-19" type="video/mp4" />
-                            <source src="/videos/clausevault-vsl-compressed.mov?v=2024-12-19" type="video/quicktime" />
+                            <source src="/videos/clausevault-vsl 2.mp4?v=2024-12-19" type="video/mp4" />
                             Your browser does not support the video tag.
                           </video>
                         </div>
