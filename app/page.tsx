@@ -501,7 +501,7 @@ export default function Home() {
                             className="w-full h-full object-cover"
                             controls
                             preload="metadata"
-                            poster="/images/IMG_6635.jpg"
+                            poster="/images/clausevault/clausevault-bg-1.jpg"
                           >
                             <source src="/videos/bossyemail-vsl.mp4?v=2024-12-19" type="video/mp4" />
                             Your browser does not support the video tag.
