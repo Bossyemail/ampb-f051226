@@ -274,18 +274,13 @@ export default function Home() {
                         </p>
                       </div>
                       
-                      {/* BossyEmail VSL Video */}
+                      {/* Video Placeholder */}
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
-                        <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
-                          <video
-                            className="w-full h-full object-cover"
-                            controls
-                            preload="metadata"
-                            poster="/images/IMG_6635.jpg"
-                          >
-                            <source src="/videos/bossyemail-vsl.mp4?v=2024-12-19" type="video/mp4" />
-                            Your browser does not support the video tag.
-                          </video>
+                        <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
+                          <p className="text-gray-400 text-center">
+                            📹 Timeline or checklist graphic with TC managing each step<br />
+                            <span className="text-sm">TC Services VSL</span>
+                          </p>
                         </div>
                       </div>
                       
@@ -499,13 +494,18 @@ export default function Home() {
                         </p>
                       </div>
                       
-                      {/* Video Placeholder */}
+                      {/* BossyEmail VSL Video */}
                       <div className="bg-black/30 rounded-lg p-8 border border-white/10 mb-6">
-                        <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
-                          <p className="text-gray-400 text-center">
-                            📹 Screenshot of BossyEmail dashboard (generator + saved templates)<br />
-                            <span className="text-sm">BossyEmail VSL</span>
-                          </p>
+                        <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+                          <video
+                            className="w-full h-full object-cover"
+                            controls
+                            preload="metadata"
+                            poster="/images/IMG_6635.jpg"
+                          >
+                            <source src="/videos/bossyemail-vsl.mp4?v=2024-12-19" type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
                         </div>
                       </div>
                       
