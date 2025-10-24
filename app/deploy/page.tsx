@@ -196,8 +196,8 @@ export default function DeployPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
               >
-                <p className="text-white text-4xl font-mono tracking-wider text-right">1000+</p>
-                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ACTIVE USERS</p>
+                <p className="text-white text-4xl font-mono tracking-wider text-right">DEAL</p>
+                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">READY</p>
               </motion.div>
             </div>
           </aside>
