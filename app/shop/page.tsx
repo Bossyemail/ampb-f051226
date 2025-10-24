@@ -35,7 +35,7 @@ export default function ShopPage() {
   const products = [
     { id: 1, type: 'Tool', title: 'ClauseVault', description: 'The searchable clause library you wish you had sooner.', action: 'Secure My Clauses', href: '/clausevault' },
     { id: 2, type: 'Service', title: 'Transaction Coordination', description: 'Outsource the chaos.\nKeep the commission.', action: 'Apply to Work With Us', href: '/elevate' },
-    { id: 3, type: 'Tool', title: 'BossyEmail', description: '100+ templates + AI email generator. Inbox domination.', price: '$20 / $29 per month', action: 'Fix My Inbox Chaos', href: '/upgrade' },
+    { id: 3, type: 'Tool', title: 'BossyEmail', description: '100+ templates + AI email generator. Inbox domination.', price: '$20 / $39 per month', action: 'Fix My Inbox Chaos', href: '/upgrade' },
     { id: 4, type: 'Book', title: 'The Smart Agent\'s Guide to Contracts That Close', description: 'Because contracts don\'t need drama — they need decisions.', action: 'Coming Soon', href: '#' },
     { id: 5, type: 'Book', title: 'Chief Email Officer - Confessions of a Contract Manager', description: 'Drop-in clauses that save your ass (and your license).', action: 'Coming Soon', href: '#' }
   ];
