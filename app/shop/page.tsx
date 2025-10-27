@@ -33,11 +33,10 @@ export default function ShopPage() {
 
   // Product data with categories
   const products = [
-    { id: 1, type: 'Tool', title: 'ClauseVault', description: 'The searchable clause library you wish you had sooner.', action: 'Secure My Clauses', href: '/clausevault' },
-    { id: 2, type: 'Service', title: 'Transaction Coordination', description: 'Outsource the chaos.\nKeep the commission.', action: 'Apply to Work With Us', href: '/elevate' },
-    { id: 3, type: 'Tool', title: 'BossyEmail', description: '100+ templates + AI email generator. Inbox domination.', price: '$20 / $39 per month', action: 'Fix My Inbox Chaos', href: '/upgrade' },
-    { id: 4, type: 'Book', title: 'The Smart Agent\'s Guide to Contracts That Close', description: 'Because contracts don\'t need drama — they need decisions.', action: 'Coming Soon', href: '#' },
-    { id: 5, type: 'Book', title: 'Chief Email Officer - Confessions of a Contract Manager', description: 'Drop-in clauses that save your ass (and your license).', action: 'Coming Soon', href: '#' }
+    { id: 1, type: 'Tool', title: 'ClauseVault', description: 'The searchable clause library you wish you had sooner.', price: '$99 / $891 per year', action: 'Secure My Clauses', href: '/clausevault' },
+    { id: 2, type: 'Tool', title: 'The Real Estate Email Vault', description: '200 plug-and-play email templates built from 1,000+ real closings.', price: '$59', action: 'Get The Email Vault', href: 'https://aylen3.gumroad.com/l/jojlkc', spanTwo: true },
+    { id: 3, type: 'Service', title: 'Transaction Coordination', description: 'Outsource the chaos.\nKeep the commission.', action: 'Apply to Work With Us', href: '/elevate' },
+    { id: 4, type: 'Tool', title: 'BossyEmail', description: '100+ templates + AI email generator. Inbox domination.', price: '$19 / $39 per month', action: 'Fix My Inbox Chaos', href: '/upgrade' }
   ];
 
   return (
@@ -88,7 +87,7 @@ export default function ShopPage() {
                 <article 
                   key={product.id}
                   className={`card border border-white/10 bg-white/5 backdrop-blur-xl p-4 sm:p-6 hover:-translate-y-1 hover:shadow-xl transition relative overflow-hidden ${
-                    product.type === 'Service' ? 'md:col-span-2' : ''
+                    product.type === 'Service' || product.spanTwo ? 'md:col-span-2' : ''
                   }`}
                 >
                   {/* Subtle background pattern */}
