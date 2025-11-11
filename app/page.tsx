@@ -45,8 +45,23 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([organizationData, personData, websiteData]),
+          __html: JSON.stringify(organizationData),
         }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personData),
+        }}
+        suppressHydrationWarning
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteData),
+        }}
+        suppressHydrationWarning
       />
       
       <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
@@ -54,24 +69,26 @@ export default function Home() {
       
               {/* Hero Section */}
         <section 
-          className="relative h-[650px] w-full"
-          style={{
-            backgroundImage: 'url(/images/IMG_6635.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 30%',
-            backgroundRepeat: 'no-repeat'
-          }}
+          className="relative h-[650px] w-full bg-[#0c0d11]"
         >
-          {/* Gradient overlays for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/70"></div>
-          {/* Right side gradient for stats visibility */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-r from-transparent to-black/70"></div>
-          {/* Bottom gradient overlay for smooth transition to next section - enhanced for mobile */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 md:h-32 bg-gradient-to-b from-transparent to-[#121216]"></div>
-          {/* Additional mobile-specific gradient for better lower body coverage */}
-          <div className="absolute bottom-0 left-0 right-0 h-64 md:hidden bg-gradient-to-b from-transparent via-black/50 to-[#121216]"></div>
+          {/* Image layer with CSS mask - using bottom pattern for all edges */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url(/images/14.png)',
+              backgroundSize: '78%',
+              backgroundPosition: 'center 35%',
+              backgroundRepeat: 'no-repeat',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.5) 82%, transparent 100%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.5) 82%, transparent 100%)',
+              WebkitMaskComposite: 'source-in',
+              maskComposite: 'intersect'
+            }}
+          ></div>
+          {/* Dark overlay gradients to blend sides into background */}
+          <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-[#0c0d11] via-[#0c0d11]/98 via-[#0c0d11]/90 via-black/75 to-transparent"></div>
+          <div className="absolute inset-y-0 right-0 w-[45%] bg-gradient-to-l from-[#0c0d11] via-[#0c0d11]/90 via-black/60 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#0c0d11] via-[#0c0d11]/80 to-transparent"></div>
         <div className="absolute inset-0 flex items-center pt-64 z-10">
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
@@ -203,9 +220,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Spacing between hero and next section */}
-      <div className="py-8"></div>
 
       {/* Products Accordion Section */}
       <section className="py-12 px-8 lg:px-16">
@@ -718,18 +732,27 @@ export default function Home() {
 
       {/* About Me Teaser Section */}
       <section 
-        className="relative h-[650px] w-full"
-        style={{
-          backgroundImage: 'url(/images/my-image.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
-          backgroundRepeat: 'no-repeat'
-        }}
+        className="relative h-[650px] w-full bg-[#0c0d11]"
       >
-        {/* Gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/85"></div>
+        {/* Image layer with CSS mask for edge fading */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/images/22.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: '80% 30%',
+            backgroundRepeat: 'no-repeat',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+            WebkitMaskComposite: 'source-in',
+            maskComposite: 'intersect'
+          }}
+        ></div>
+        {/* Dark overlay gradients for text readability and seamless blending */}
+        <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-[#0c0d11] via-[#0c0d11]/90 via-black/70 to-transparent"></div>
+        <div className="absolute inset-y-0 right-0 w-[35%] bg-gradient-to-l from-[#0c0d11] via-[#0c0d11]/80 to-transparent"></div>
+        <div className="absolute inset-x-0 top-0 h-[20%] bg-gradient-to-b from-[#0c0d11] via-[#0c0d11]/70 to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-[25%] bg-gradient-to-t from-[#0c0d11] via-[#0c0d11]/80 to-transparent"></div>
         
         <div className="absolute inset-0 flex items-center pt-32 md:pt-24 z-10">
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">

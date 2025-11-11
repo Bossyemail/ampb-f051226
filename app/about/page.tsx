@@ -854,9 +854,9 @@ export default function AboutPage() {
         <section 
           className="relative h-[1100px] w-full -mt-32"
           style={{
-            backgroundImage: 'url(/images/IMG_6635.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 10%',
+            backgroundImage: 'url(/images/22.png)',
+            backgroundSize: '85%',
+            backgroundPosition: 'right 20%',
             backgroundRepeat: 'no-repeat'
           }}
         >
