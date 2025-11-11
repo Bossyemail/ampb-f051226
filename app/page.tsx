@@ -740,7 +740,7 @@ export default function Home() {
           style={{
             backgroundImage: 'url(/images/22.png)',
             backgroundSize: 'cover',
-            backgroundPosition: '80% 30%',
+            backgroundPosition: '65% 30%',
             backgroundRepeat: 'no-repeat',
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
             maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
@@ -755,9 +755,9 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 h-[25%] bg-gradient-to-t from-[#0c0d11] via-[#0c0d11]/80 to-transparent"></div>
         
         <div className="absolute inset-0 flex items-center pt-32 md:pt-24 z-10">
-          <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-              <div className="md:col-span-2">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="md:col-span-1">
                 <div className="text-left">
                   <motion.p 
                     initial={{ opacity: 0, y: 8 }}
@@ -863,8 +863,8 @@ export default function Home() {
                   </motion.div>
                 </div>
               </div>
-              <div className="md:col-span-3">
-                {/* Empty space for image to show through */}
+              <div className="md:col-span-2">
+                {/* Empty space for image to show through - spans center and right columns */}
               </div>
             </div>
           </div>

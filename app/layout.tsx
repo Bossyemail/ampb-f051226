@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import SkipToContent from "@/components/SkipToContent";
 import BackToTop from "@/components/BackToTop";
@@ -124,6 +125,7 @@ export default function RootLayout({
           <BackToTop />
           <OfflineIndicator />
           <CookieConsentBanner />
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>
