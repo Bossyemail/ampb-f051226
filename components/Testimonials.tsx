@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const BRAND_COLORS = ["#EFEBE2", "#7B8E90", "#d3ccd6", "#bcafaf"];
@@ -16,6 +16,30 @@ type Testimonial = {
 };
 
 const testimonials: Testimonial[] = [
+  {
+    quote: "I cannot speak highly enough of my transaction manager, Aylen Montenegro. She has become an integral part of my business and a true partner in my growth. Aylen is exceptionally efficient, knowledgeable, and professional, consistently managing each transaction with precision and care. Her support has allowed me to focus more on serving my clients at the highest level, and the improvement in my workflow and productivity has been remarkable. Since Aylen joined my team, I have experienced significant growth and a level of organization that has elevated my business operations. I rely on Aylen's expertise every day, and I recommend her without reservation to any real estate professional seeking a dedicated and reliable transaction manager.",
+    author: "Daniele G.",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "True business partner driving significant growth"
+  },
+  {
+    quote: "I've worked with Aylen for several years now, and her consistency is unmatched. She's always ahead of every deadline, incredibly knowledgeable, and communicates clearly throughout the entire process. Her reliability, accountability, and attention to detail make every transaction smooth and efficient. Aylen truly exceeds expectations and elevates every deal she touches.",
+    author: "Drusso C.",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Unmatched consistency that elevates every deal"
+  },
+  {
+    quote: "Working with Aylen is truly a pleasure. She is incredibly knowledgeable, easy to work with, and always brings a great attitude to every task. She understands instructions quickly, communicates clearly, and stays consistently ahead throughout the transaction process. Her problem-solving skills are excellent, and she adapts easily to the changes that often come up in real estate transactions. Having her oversee the details gives me complete peace of mind. Aylen brings professionalism, reliability, and a collaborative spirit to every file.",
+    author: "Claudia W.",
+    role: "",
+    company: "",
+    rating: 5,
+    result: "Complete peace of mind with collaborative excellence"
+  },
   {
     quote: "Aylen is an absolute powerhouse always on top of everything and constantly delivering the best results. She's the glue that holds our team together, making every transaction smooth and effortless. Self-made and unstoppable, she can get anything done and never takes no for an answer. What most teams need multiple people for, Aylen does all on her own, and she does it with grace, professionalism, and heart.",
     author: "Mia C",
