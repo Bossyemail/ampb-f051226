@@ -306,6 +306,14 @@ const testimonials: Testimonial[] = [
     role: "VP of Lending",
     company: "",
     rating: 5
+  },
+  {
+    quote: "Aylen Montenegro has demonstrated exceptional performance and is a crucial asset to our real estate team. Her consistently go above and beyond to ensure our transactions are seamless, compliant, and our clients' best interests are protected. Her expertise and attention to detail have significantly contributed to our team's efficiency and success. Five stars all the way—we are so grateful for her contributions!",
+    author: "Edner F.",
+    role: "Real Estate Professional",
+    company: "Coldwell Banker Realty",
+    rating: 5,
+    result: "Crucial asset with five-star performance"
   }
 ];
 
