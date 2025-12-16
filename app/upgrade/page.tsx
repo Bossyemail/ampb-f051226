@@ -101,8 +101,8 @@ export default function UpgradePage() {
                   </div>
                   <hr className="border-t border-white/10" />
                   <div>
-                    <p className="text-white text-4xl font-mono tracking-wider text-right">500+</p>
-                    <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ACTIVE USERS</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">EARLY</p>
+                    <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ACCESS</p>
                   </div>
                 </div>
               </aside>
