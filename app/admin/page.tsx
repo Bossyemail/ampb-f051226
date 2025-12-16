@@ -158,7 +158,7 @@ export default function AdminDashboard() {
               <Copy className="w-5 h-5 text-purple-400" />
               <span className="text-sm text-gray-400">Clauses Copied</span>
             </div>
-            <div className="text-2xl font-bold">{analytics.eventsByType.clause_copied || 0}</div>
+            <div className="text-2xl font-bold">{analytics.eventsByType.clause_copy || analytics.eventsByType.clause_copied || 0}</div>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-lg p-6">

@@ -5,15 +5,21 @@ import StickyNavigation from '@/components/StickyNavigation';
 import Footer from '@/components/Footer';
 
 // Animated Counter Component
-function AnimatedCounter({ end, duration = 2, suffix = "" }) {
+interface AnimatedCounterProps {
+  end: number;
+  duration?: number;
+  suffix?: string;
+}
+
+function AnimatedCounter({ end, duration = 2, suffix = "" }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (isInView) {
-      let startTime;
-      const animate = (currentTime) => {
+      let startTime: number | undefined;
+      const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
         const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
         
@@ -87,8 +93,8 @@ export default function UpgradePage() {
                   {/* Right side space for stats overlay (empty, just for spacing) */}
                 </div>
               </div>
-              {/* Stats Overlay - vertically centered with hero text */}
-              <aside className="pointer-events-none absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 block w-56 select-none z-30" aria-label="BossyEmail stats">
+              {/* Stats Overlay - vertically centered with hero text - Hidden on mobile */}
+              <aside className="pointer-events-none absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 hidden lg:block w-56 select-none z-30" aria-label="BossyEmail stats">
                 <div className="space-y-6">
                   <div>
                     <p className="text-white text-4xl font-mono tracking-wider text-right">AI</p>

@@ -359,7 +359,9 @@ export async function GET(request: NextRequest) {
     // Calculate metrics
     const metrics = {
       totalEvents: filteredEvents.length,
-      uniqueUsers: new Set(filteredEvents.map(e => e.email).filter(Boolean)).size,
+      uniqueUsers: new Set(
+        filteredEvents.map(e => e.email || e.userId || e.sessionId).filter(Boolean)
+      ).size,
       eventsByType: filteredEvents.reduce((acc, e) => {
         acc[e.event] = (acc[e.event] || 0) + 1;
         return acc;

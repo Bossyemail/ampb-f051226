@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useUser, useAuth, useClerk } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { trackClauseCopy } from "@/lib/analytics-advanced";
 
 interface Clause {
   id?: string;
@@ -62,6 +63,7 @@ export default function ClauseVaultAppPage() {
   const router = useRouter();
   const { isSignedIn } = useAuth();
   const { signOut } = useClerk();
+  const { user } = useUser();
 
   // Load clauses from JSON file
   useEffect(() => {
@@ -221,6 +223,29 @@ export default function ClauseVaultAppPage() {
       if (abuseType) {
         setSuspiciousActivity(true);
         sendAbuseAlert(clause.title, newCount, abuseType, updatedRecentCopies.length);
+      }
+      
+      // Track analytics event
+      try {
+        await fetch('/api/analytics', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: 'clause_copy',
+            email: user?.emailAddresses[0]?.emailAddress,
+            userId: user?.id,
+            product: 'clausevault',
+            parameters: {
+              clause_title: clause.title,
+              clause_category: clause.category,
+              clause_topic: clause.topic
+            }
+          })
+        });
+        // Also use advanced analytics
+        trackClauseCopy(clause.title, 0);
+      } catch (error) {
+        console.error('Failed to track clause copy:', error);
       }
       
       // Show success message
