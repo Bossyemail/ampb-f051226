@@ -63,13 +63,13 @@ export default function UpgradePage() {
                 <div className="md:col-span-2">
                   <div className="text-left">
                     <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight">
-                      Your Personal Ghostwriter
+                      Write Client-Ready Real Estate Emails in 30 Seconds
                     </motion.h2>
-                    <motion.p className="text-sm italic text-gray-300 mb-2">
-                      Real Estate Emails • Template Library
+                    <motion.p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3">
+                      Without rewriting the same follow-ups every deal.
                     </motion.p>
                     <motion.p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-6">
-                      Scenario-specific, copy-ready emails for every stage of a deal. Follow-ups, nudges, deadline chasers, and "we need that doc today" messages.
+                      BossyEmail generates scenario-specific emails for inspections, missing docs, unresponsive agents, and deadline chasers — instantly.
                     </motion.p>
                     <motion.div>
                       <a 
@@ -78,7 +78,7 @@ export default function UpgradePage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
                       >
-                        Get BossyEmail Now →
+                        Start 14-Day Free Trial →
                       </a>
                     </motion.div>
                   </div>
@@ -87,8 +87,8 @@ export default function UpgradePage() {
                   {/* Right side space for stats overlay (empty, just for spacing) */}
                 </div>
               </div>
-              {/* Stats Overlay - vertically centered with hero text - Hidden on mobile */}
-              <aside className="pointer-events-none absolute right-6 top-1/2 transform -translate-y-1/2 hidden w-56 select-none lg:block z-30" aria-label="BossyEmail stats">
+              {/* Stats Overlay - vertically centered with hero text */}
+              <aside className="pointer-events-none absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 block w-56 select-none z-30" aria-label="BossyEmail stats">
                 <div className="space-y-6">
                   <div>
                     <p className="text-white text-4xl font-mono tracking-wider text-right">AI</p>
@@ -96,7 +96,7 @@ export default function UpgradePage() {
                   </div>
                   <hr className="border-t border-white/10" />
                   <div>
-                    <p className="text-white text-4xl font-mono tracking-wider text-right">100+</p>
+                    <p className="text-white text-4xl font-mono tracking-wider text-right">200+</p>
                     <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">TEMPLATES</p>
                   </div>
                   <hr className="border-t border-white/10" />
@@ -110,34 +110,87 @@ export default function UpgradePage() {
           </div>
         </section>
         
-        {/* Real Estate Emails Section */}
+        {/* What BossyEmail Does Section */}
         <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
-          <div className="relative z-10 flex justify-center">
-            <div className="max-w-4xl text-center space-y-6 mx-auto">
-              <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
-                Real Estate Emails<br />
-                Done For You
-              </h1>
-              <div className="text-center">
-                <p className="text-gray-300 text-base leading-relaxed">
-                  Your contracts might be airtight, but your inbox? That's where deals quietly die.
-                </p>
-                <p className="text-gray-300 text-base leading-relaxed">
-                  Writing follow-ups, chasing docs, keeping clients in the loop
-                </p>
-                <p className="text-gray-300 text-base leading-relaxed">
-                  — it's the unglamorous part of the job nobody trains you for.
-                </p>
-                <p className="text-gray-300 text-base leading-relaxed">
-                  That's why I built BossyEmail.
-                </p>
-                <p className="text-gray-300 text-base leading-relaxed">
-                  The exact words to move deals forward,
-                </p>
-                <p className="text-gray-300 text-base leading-relaxed">
-                  without rewriting the same message for the thousandth time.
-                </p>
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2 text-center">
+                What BossyEmail Does
+              </h2>
+              <p className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6 text-center">
+                (In Plain English)
+              </p>
+              <div className="space-y-3 mb-6 text-center">
+                <p className="text-gray-300 text-base leading-relaxed">› Generates ready-to-send real estate emails in seconds</p>
+                <p className="text-gray-300 text-base leading-relaxed">› Covers inspections, delays, follow-ups, and "we need this today" messages</p>
+                <p className="text-gray-300 text-base leading-relaxed">› Keeps tone professional and client-safe</p>
+                <p className="text-gray-300 text-base leading-relaxed">› Eliminates rewriting emails deal after deal</p>
               </div>
+              <p className="text-gray-400 text-sm italic text-center">No fluff. No "AI magic." Just function.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Before → After Block */}
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
+                <div className="bg-white/5 backdrop-blur-md border border-white/20 rounded-lg p-6 shadow-lg">
+                  <h3 className="text-xl font-semibold text-white mb-4">Before</h3>
+                  <p className="text-gray-300 text-base leading-relaxed mb-2">
+                    Hi, just following up on the inspection…
+                  </p>
+                  <p className="text-gray-400 text-sm italic">
+                    (10 minutes rewriting, second-guessing tone)
+                  </p>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/20 rounded-lg p-6 shadow-lg">
+                  <h3 className="text-xl font-semibold text-white mb-4">After (BossyEmail)</h3>
+                  <p className="text-gray-300 text-base leading-relaxed">
+                    Hi [Name],<br />
+                    Following up on the inspection period ending [date].<br />
+                    Please confirm receipt of the attached reports so we can proceed.<br />
+                    Thank you.
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-400 text-sm text-center italic">Generated in 12 seconds.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* What's Included Section */}
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6 text-center">
+                What's Included
+              </h2>
+              <div className="space-y-3 mb-6 text-center">
+                <p className="text-gray-300 text-base leading-relaxed">› 200+ real estate email templates</p>
+                <p className="text-gray-300 text-base leading-relaxed">› Scenario-specific prompts (inspection, title, docs, delays)</p>
+                <p className="text-gray-300 text-base leading-relaxed">› AI generation with professional tone</p>
+                <p className="text-gray-300 text-base leading-relaxed">› Continuous updates as scenarios evolve</p>
+              </div>
+              <p className="text-gray-400 text-sm italic text-center">No features without outcomes.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 14-Day Free Trial Section */}
+        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
+                14-Day Free Trial
+              </h2>
+              <p className="text-gray-300 text-base leading-relaxed mb-2">
+                No credit card surprises.
+              </p>
+              <p className="text-gray-300 text-base leading-relaxed">
+                Cancel if it doesn't save you time.
+              </p>
             </div>
           </div>
         </section>
