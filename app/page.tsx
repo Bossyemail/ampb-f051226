@@ -466,89 +466,103 @@ export default function Home() {
       {/* About Me Teaser Section */}
       <section
         id="about"
-        className="w-full bg-[#0c0d11] py-16"
+        className="relative h-[650px] w-full bg-[#0c0d11] overflow-hidden"
       >
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-            <div className="md:col-span-2">
-              <div className="text-left space-y-3">
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="text-sm italic text-gray-300"
-                >
-                  About Me
-                </motion.p>
-                <motion.h2
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.25 }}
-                  viewport={{ once: true }}
-                  className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white"
-                >
-                  My Story
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="text-sm italic text-gray-300"
-                >
-                  Real Estate Professional • Systems Builder • Deal Closer
-                </motion.p>
+        {/* Background image with left fade for text readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, #0c0d11 0%, #0c0d11 32%, rgba(12,13,17,0.7) 50%, rgba(12,13,17,0.35) 68%, transparent 85%), url(/images/22.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: '60% 38%',
+            backgroundRepeat: 'no-repeat',
+          }}
+        ></div>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="text-base text-gray-300 leading-relaxed"
-                >
-                  I didn’t start in strategy or software. I started answering phones, managing files, cleaning up messes, and becoming the person agents relied on to save deals.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="text-base text-gray-300 leading-relaxed"
-                >
-                  Now, I build the systems and shortcuts I wish existed back then.
-                </motion.p>
+        <div className="absolute inset-0 flex items-center z-10">
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div className="max-w-xl text-left space-y-3">
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-sm italic text-gray-300"
+              >
+                About Me
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                viewport={{ once: true }}
+                className="text-3xl sm:text-4xl font-semibold tracking-tight text-white"
+              >
+                My Story
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-sm italic text-gray-300"
+              >
+                Real Estate Professional • Systems Builder • Deal Closer
+              </motion.p>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
-                  viewport={{ once: true }}
-                  className="pt-2"
-                >
-                  <a
-                    href="/about"
-                    className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-lg font-medium"
-                  >
-                    About Aylen →
-                    <ChevronRight className="w-5 h-5" />
-                  </a>
-                </motion.div>
-              </div>
-            </div>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-base text-gray-200 leading-relaxed"
+              >
+                I fix chaos and turn it into closings. But it wasn’t always like that.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="text-base text-gray-200 leading-relaxed"
+              >
+                My first job in real estate was answering phones, stuck at the front desk while making sure the fax machine was not jammed.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="text-base text-gray-200 leading-relaxed"
+              >
+                From there I clawed my way into bigger roles — contracts, transaction management, the midnight cleanups — until I became the one other people relied on to save their deals.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                viewport={{ once: true }}
+                className="text-base text-gray-200 leading-relaxed"
+              >
+                Now, I build the systems and shortcuts I wish I had back then.
+              </motion.p>
 
-            <div className="md:col-span-1">
-              <div className="h-full flex justify-center md:justify-end">
-                <div className="w-full max-w-xs md:max-w-sm lg:max-w-md aspect-[4/5] rounded-lg overflow-hidden border border-white/10 shadow-xl shadow-black/30">
-                  <img
-                    src="/images/22.png"
-                    alt="Aylen Montenegro"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.85 }}
+                viewport={{ once: true }}
+                className="pt-3"
+              >
+                <a
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-lg font-medium"
+                >
+                  Learn More
+                  <ChevronRight className="w-5 h-5" />
+                </a>
+              </motion.div>
             </div>
           </div>
         </div>
