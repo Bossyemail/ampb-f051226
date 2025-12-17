@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import SkipToContent from "@/components/SkipToContent";
 import BackToTop from "@/components/BackToTop";
@@ -126,6 +127,7 @@ export default function RootLayout({
           <OfflineIndicator />
           <CookieConsentBanner />
           <SpeedInsights />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
