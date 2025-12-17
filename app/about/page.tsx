@@ -287,501 +287,87 @@ export default function AboutPage() {
       number: '01',
       title: 'Story',
       content: (
-        <>
-          <div className="relative mb-6">
-            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
-              01
-            </span>
-            <p>The phone was ringing. A loan officer was waving a file. On line two, a client wanted "someone older and more experienced." I was 18, working the front desk of a lending firm. Two lessons came fast: This industry wasn't built for me. I'd have to be so good they couldn't ignore me.</p>
-          </div>
-          
-          {/* Mobile version - shorter content */}
-          <div className="block md:hidden space-y-4">
-            <p>Back then, there was no tech to lean on. Contracts were faxed, files lived in manila folders, and "transaction management" meant a stack of sticky notes and a highlighter.</p>
-            
-            <p>I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late.</p>
-            
-            <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
-          </div>
-          
-          {/* Desktop version - full content */}
-          <div className="hidden md:block space-y-6">
-            <p>Back then, there was no tech to lean on. Contracts were faxed, files lived in manila folders, and "transaction management" meant a stack of sticky notes and a highlighter. Fast-forward two decades and now the panic is that AI will unlock a Supra box and take the agent's job.</p>
-            
-            <p>I've had a front row seat to every shift in between — from the paper-heavy days to Zillow connecting all MLS feeds nationwide, to DocuSign changing signatures forever, to today's wave of AI tools that promise to replace what experience still does better.</p>
-            
-            <p>I've worked in lending, title, operations, and sales, which means I've seen every angle of the deal — where it breaks, why it closes, and what agents overlook until it's too late. Two recessions and thousands of contracts later, I'm still here: the fixer who gets the 6:30 p.m. "everything's on fire" text, the compliance hawk who spots risks before attorneys do, and now the builder creating software to fix the gaps the industry still pretends aren't there.</p>
-            
-            <p>The truth? Chaos never goes away. But systems, experience, and the right tools make sure you survive it. Because in this business, boring closings are the ultimate compliment.</p>
-          </div>
-          
-          {/* Desktop only - hide on mobile to save space */}
-          <div className="hidden md:block mt-12 pt-8 border-t border-white/10">
-            <h3 className="text-center text-2xl font-bold mb-4">
-              The 20+ Year Bird's-Eye View
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 text-center">
-              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
-              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-              {[
-                {
-                  title: "Lending",
-                  description: "Experience"
-                },
-                {
-                  title: "Operations", 
-                  description: "Expertise"
-                },
-                {
-                  title: "Title",
-                  description: "Knowledge"
-                },
-                {
-                  title: "Sales",
-                  description: "Mastery"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <p className="text-gray-400 italic text-sm text-center mb-8">
-              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
-            </p>
-            
-            <div className="text-center">
-              <a href="mailto:hello@aylenmontenegro.com"
-                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-                Contact Aylen →
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-            </div>
-          </div>
-          
-          {/* Mobile only - simplified contact section */}
-          <div className="block md:hidden mt-8 pt-6 border-t border-white/10 text-center">
-            <a href="mailto:hello@aylenmontenegro.com"
-              className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-              onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-              Contact Aylen →
-            </a>
-            <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-          </div>
-        </>
+        <div className="space-y-4">
+          <p className="font-semibold text-white">This isn’t a résumé. It’s pattern recognition.</p>
+          <p>I started where most people don’t talk about starting: answering phones, managing files, cleaning up messes, and becoming the person agents relied on when things were already on fire.</p>
+          <p>Back then, contracts were faxed. Files lived in folders. “Transaction management” meant a highlighter and a stack of sticky notes.</p>
+          <p>Fast-forward through multiple market cycles, two recessions, and thousands of transactions later, and one thing hasn’t changed: Deals don’t close on technology. They close on precision, discipline, and judgment. Tools evolve. Principles don’t.</p>
+          <p className="font-semibold text-white">The 20+ year bird’s-eye view</p>
+          <ul className="space-y-2">
+            <li>• Lending — how financing pressure really shows up</li>
+            <li>• Operations — where deals actually break</li>
+            <li>• Title — what compliance catches before attorneys do</li>
+            <li>• Sales — what agents overlook until it’s too late</li>
+          </ul>
+          <p>That vantage point gives me something most people don’t have: a 360° understanding of how deals move — or stall — in South Florida. It’s also why I don’t panic when things get loud. I’ve seen this movie before.</p>
+        </div>
       )
     },
     {
-      id: 'what-i-do',
+      id: 'closings',
       number: '02',
-      title: 'What I Do',
+      title: 'Closings',
       content: (
-        <>
-          <div className="relative mb-6">
-            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
-              02
-            </span>
-            <p>I keep deals alive, clean, and compliant — and I've been doing it since before "transaction coordinator" was even a job title.</p>
-          </div>
-          
-          <p className="mb-6">Here's what that looks like today:</p>
-          
-          <ul className="mb-6">
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Support from Contract to Closing.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Critical deadlines tracked before they become fire drills.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Compliance handled without you having to chase it.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Agents free to actually sell instead of babysitting paperwork.</span>
-            </li>
+        <div className="space-y-4">
+          <p className="font-semibold text-white">Today, I focus on building systems that make closings boring — the good kind.</p>
+          <p>That includes:</p>
+          <ul className="space-y-2">
+            <li>• backend transaction coordination for a select group of producing agents</li>
+            <li>• operational frameworks that prevent fire drills</li>
+            <li>• software and tools that turn hard-earned experience into leverage</li>
           </ul>
-          
-          <p>I've seen this business evolve from hand-signed contracts to e-signatures, from file cabinets to cloud storage, and now to AI drafting clauses. Through all of it, one truth hasn't changed: deals don't close on technology — they close on precision, discipline and know-how. That's what I deliver.</p>
-          
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <h3 className="text-center text-2xl font-bold mb-4">
-              The 20+ Year Bird's-Eye View
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 text-center">
-              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
-              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-              {[
-                {
-                  title: "Lending",
-                  description: "Experience"
-                },
-                {
-                  title: "Operations", 
-                  description: "Expertise"
-                },
-                {
-                  title: "Title",
-                  description: "Knowledge"
-                },
-                {
-                  title: "Sales",
-                  description: "Mastery"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <p className="text-gray-400 italic text-sm text-center mb-8">
-              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
-            </p>
-            
-            <div className="text-center">
-              <a href="mailto:hello@aylenmontenegro.com"
-                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-                Contact Aylen →
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-            </div>
-          </div>
-        </>
+          <p>Everything I build comes from real client work. If it hasn’t survived a live transaction, it doesn’t ship.</p>
+        </div>
       )
     },
     {
-      id: 'who-im-for',
+      id: 'who',
       number: '03',
-      title: 'Who I\'m For',
+      title: 'Who',
       content: (
-        <>
-          <div className="relative mb-6">
-            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
-              03
-            </span>
-            <p>I love what I do, but here's the thing — in real estate sales we're all independent contractors. That means we get to choose each other. I don't believe in forced fits. If we work together, it's because we both know it's the right move: you value precision and systems, and I bring the experience and chaos control to back you up.</p>
-          </div>
-          
-          <p className="mb-6">I work best with:</p>
-          
-          <ul className="mb-6">
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Full-time agents who treat this like a career, not a side hustle.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Producers with volume who understand leverage and don't want their growth capped by paperwork.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Teams that run like businesses and know that systems and compliance are non-negotiable.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Operators who value reputation — because in this industry, your name is your currency.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Pros who understand tools are helpers, not saviors. AI might draft an addendum, but it can't stop you from blowing a deadline.</span>
-            </li>
+        <div className="space-y-4">
+          <p className="font-semibold text-white">I work with professionals who treat real estate like a business, not a side hustle.</p>
+          <p>People who:</p>
+          <ul className="space-y-2">
+            <li>• value precision and systems</li>
+            <li>• understand that compliance is non-negotiable</li>
+            <li>• care about reputation more than shortcuts</li>
+            <li>• want fewer fires, not more apps</li>
           </ul>
-          
-          <p className="mb-6">Who I don't work with:</p>
-          
-          <ul className="mb-6">
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Side-hustlers looking for a discount.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Fire-drill agents who only call when the house is already burning down.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span>Anyone who thinks "compliance" is optional until their broker or the state comes knocking.</span>
-            </li>
-          </ul>
-          
-          <p>If you want a checkbox-pusher, you've got options. If you want a partner who sees the whole board, anticipates the problems, and protects your business like it's their own — you're in the right place.</p>
-          
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <h3 className="text-center text-2xl font-bold mb-4">
-              The 20+ Year Bird's-Eye View
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 text-center">
-              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
-              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-              {[
-                {
-                  title: "Lending",
-                  description: "Experience"
-                },
-                {
-                  title: "Operations", 
-                  description: "Expertise"
-                },
-                {
-                  title: "Title",
-                  description: "Knowledge"
-                },
-                {
-                  title: "Sales",
-                  description: "Mastery"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <p className="text-gray-400 italic text-sm text-center mb-8">
-              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
-            </p>
-            
-            <div className="text-center">
-              <a href="mailto:hello@aylenmontenegro.com"
-                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-                Contact Aylen →
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-            </div>
-          </div>
-        </>
+          <p>If you’re looking for the cheapest option, I’m not it. If you’re looking for a partner who sees the whole board and protects your downside, you’re in the right place.</p>
+        </div>
       )
     },
     {
-      id: 'how-i-work',
+      id: 'process',
       number: '04',
-      title: 'How I Work',
+      title: 'Process',
       content: (
-        <>
-          <div className="relative mb-6">
-            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
-              04
-            </span>
-            <p>Technology has changed. Principles haven't. From the moment a contract hits my desk to the day the keys change hands, I follow a protocol for every step and every contingency. Reviewing documents, tracking deadlines, coordinating with all parties, keeping communication clean — nothing is left to chance.</p>
-          </div>
-          
-          <p className="mb-6">Every deal runs on systems, not fire drills. If there's risk, you'll hear it from me first. If there's a shortcut that looks tempting, I'll guide you back to the path that's legally, ethically, and morally right — because protecting your reputation matters more than saving two minutes.</p>
-          
-          <p className="mb-6">Here's what you can expect working with me:</p>
-          
-          <ul className="mb-6">
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Calm over Chaos.</strong> Every deal gets a process — so you're not waking up to fire drills.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Transparency, Always.</strong> You'll know where things stand without having to ask. If there's a risk, you'll hear it from me first.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Proactive {'>'} Reactive.</strong> I don't wait for problems to land in your lap. I flag them before they cost you a commission.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Selective Roster.</strong> I only work with agents who respect the process — because that's how I keep the quality high.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Partnership Mindset.</strong> I don't just move paper. I safeguard your contracts, your compliance, and your credibility.</span>
-            </li>
-          </ul>
-          
-          <p className="mb-6">Yes, I use the tools — from e-sign to AI. I even build my own. But the tech doesn't matter without someone who knows the terrain, the rules, and how to keep the deal alive.</p>
-          
-          <p>That's me.</p>
-          
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <h3 className="text-center text-2xl font-bold mb-4">
-              The 20+ Year Bird's-Eye View
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 text-center">
-              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
-              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-              {[
-                {
-                  title: "Lending",
-                  description: "Experience"
-                },
-                {
-                  title: "Operations", 
-                  description: "Expertise"
-                },
-                {
-                  title: "Title",
-                  description: "Knowledge"
-                },
-                {
-                  title: "Sales",
-                  description: "Mastery"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <p className="text-gray-400 italic text-sm text-center mb-8">
-              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
-            </p>
-            
-            <div className="text-center">
-              <a href="mailto:hello@aylenmontenegro.com"
-                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-                Contact Aylen →
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-            </div>
-          </div>
-        </>
+        <div className="space-y-4">
+          <p className="font-semibold text-white">Every deal runs on process, not adrenaline.</p>
+          <p>I follow a protocol for every step and every contingency — reviewing documents, tracking deadlines, coordinating communication, and flagging risk before it becomes expensive.</p>
+          <p>If there’s a problem, you’ll hear it from me first. If there’s a shortcut that compromises your position, I’ll steer you away from it.</p>
+          <p>Speed matters. But safeguards matter more.</p>
+        </div>
       )
     },
     {
-      id: 'rules-i-live-by',
+      id: 'rules',
       number: '05',
-      title: 'Rules I Live By',
+      title: 'Rules',
       content: (
-        <>
-          <div className="relative mb-6">
-            <span className="float-left text-white/60 text-4xl font-mono tracking-wider leading-none mr-4 mt-1">
-              05
-            </span>
-            <p>These aren't motivational quotes. They're survival tactics from two decades in the trenches. The industry changes — fax machines, e-signatures, AI — but these rules hold no matter what.</p>
-          </div>
-          
-          <ul className="mb-6">
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Audit-Proof or Bust</strong> → If it feels risky, it is.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Say No Faster</strong> → Boundaries are the real luxury.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Match Their Pace</strong> → A client's speed is their trust.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Corazón — Breathe</strong> → Panic is optional; prep isn't.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Add Value First</strong> → Invoice second. Goodwill compounds.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Assume the Plot Twist</strong> → Every deal has one. Plan for it.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Structure {'>'} Chaos</strong> → If it's not in writing, it didn't happen.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Stay in the Arena</strong> → Real advice comes from those still doing it.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Move Fast & Break Nothing</strong> → Speed with safeguards beats chaos.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Be So Good</strong> → They can't ignore you (especially the ones who tried).</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>Loyalty Is a Two-Way Street</strong> → I protect those who protect the work.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-white/60 mr-3 mt-1">›</span>
-              <span><strong>You're Only as Good as Your Last Deal</strong> → Reputations reset at every closing.</span>
-            </li>
+        <div className="space-y-4">
+          <p className="font-semibold text-white">The rules I live by</p>
+          <p>These aren’t motivational quotes. They’re survival tactics.</p>
+          <ul className="space-y-2">
+            <li>• If it feels risky, it probably is.</li>
+            <li>• Structure beats chaos — every time.</li>
+            <li>• Speed with safeguards beats speed without them.</li>
+            <li>• Reputation resets at every closing.</li>
+            <li>• Boring closings are the ultimate compliment.</li>
           </ul>
-          
-          <p>Steal these until you make your own. Mine were built in the trenches to keep deals from catching fire — mantras that tame chaos, keep contracts clean, and remind you that boring closings are the goal.</p>
-          
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <h3 className="text-center text-2xl font-bold mb-4">
-              The 20+ Year Bird's-Eye View
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 text-center">
-              I'm not just licensed and experienced — I'm local. My career has spanned lending, operations, title, and sales,<br />
-              giving me a 360° understanding of how deals move (or fall apart) in South Florida.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-              {[
-                {
-                  title: "Lending",
-                  description: "Experience"
-                },
-                {
-                  title: "Operations", 
-                  description: "Expertise"
-                },
-                {
-                  title: "Title",
-                  description: "Knowledge"
-                },
-                {
-                  title: "Sales",
-                  description: "Mastery"
-                }
-              ].map((feature, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">{feature.title}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <p className="text-gray-400 italic text-sm text-center mb-8">
-              I know the regulations, the personalities, and the nuances that can make or break a closing. Every challenge I've navigated has been filed away in my mental library for the next time I need it — and believe me, there's always a next time.
-            </p>
-            
-            <div className="text-center">
-              <a href="mailto:hello@aylenmontenegro.com"
-                className="inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                onClick={() => handleButtonClick('Contact Aylen', 'email')}>
-                Contact Aylen →
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Let's work together.</p>
-            </div>
-          </div>
-        </>
+          <p>These rules were built in the trenches, not on social media.</p>
+        </div>
       )
     }
   ];
@@ -868,66 +454,35 @@ export default function AboutPage() {
           <div className="absolute inset-0 flex items-center pt-20">
             <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
               <div className="flex items-start justify-between">
-                <div className="text-left max-w-sm md:pr-8">
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.15 }}
-                      className="font-body text-sm text-gray-300 leading-relaxed mb-2"
-                    >
-                      Hey there,
-                    </motion.p>
-                    <div className="space-y-1">
-                      <motion.h1
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-1 leading-tight"
-                        style={{ textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
-                      >
-                        I&apos;m <span className="italic font-bold">Aylen<br />Montenegro</span>
-                      </motion.h1>
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.25 }}
-                        className="w-16 h-px bg-white/10 mb-1"
-                      />
-                      <motion.p
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-sm italic text-gray-300 mb-3"
-                      >
-                        Deal Flow Architect • SaaS Builder • Author
-                      </motion.p>
-                    </div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      className="font-body text-sm sm:text-base text-gray-300 max-w-lg leading-relaxed mt-4 space-y-2"
-                    >
-                      {/* Mobile version - shorter content */}
-                      <div className="block md:hidden">
-                        <p>I close contracts and contain chaos — calm, clean, on time.</p>
-                        <p>Twenty years in the arena gave me pattern recognition your deals can bank on.</p>
-                        <p>This space is where I share the good stuff — tools, stories, and unfiltered truths that help you close more deals.</p>
-                      </div>
-                      
-                      {/* Desktop version - full content */}
-                      <div className="hidden md:block space-y-2">
-                        <p>I close contracts and contain chaos — calm, clean, on time.</p>
-                        
-                        <p>Twenty years in the arena gave me pattern recognition your deals can bank on. I've worn every hat in this business, and now I'm building software to keep closings boring — the good kind.</p>
-                        
-                        <p>This space is different.</p>
-                        <p>It's where I share the good stuff — the tools, stories, and unfiltered truths that actually help you close more deals, stay compliant, and look good doing it.</p>
-                        
-                        <p>Because business should be smart, profitable, and yes — even a little fun.</p>
-                      </div>
-                    </motion.div>
-                  </div>
+                <div className="text-left max-w-xl md:pr-8 space-y-3">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight"
+                    style={{ textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
+                  >
+                    I&apos;m Aylen Montenegro.
+                  </motion.h1>
+                  <motion.p
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.25 }}
+                    className="text-sm sm:text-base text-gray-200/80 italic"
+                  >
+                    Deal Flow Architect · Systems Builder · Real Estate Operator
+                  </motion.p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.35 }}
+                    className="space-y-3 text-sm sm:text-base text-gray-200/80 leading-relaxed"
+                  >
+                    <p>I don’t chase chaos. I contain it — calmly, cleanly, and on time.</p>
+                    <p>For more than two decades, I’ve operated inside real estate deals where wording, timing, and precision actually matter. Not in theory. In live files — inspections, extensions, escalations, compliance reviews, and the moments when one bad email can derail a closing.</p>
+                    <p>That’s the arena I come from. And that’s the perspective everything I build is grounded in.</p>
+                  </motion.div>
+                </div>
                 </div>
                 <div className="flex-1">
                   {/* Right side space for stats overlay */}
@@ -1039,8 +594,30 @@ export default function AboutPage() {
           </motion.section>
         )}
 
-
-
+        {/* Closing message */}
+        <section className="bg-[#121216] border-t border-white/5 py-16 px-4 sm:px-8 lg:px-16">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">If this resonates</h3>
+            <p className="text-base text-gray-300 leading-relaxed opacity-80">
+              We don’t need to convince each other.
+            </p>
+            <p className="text-base text-gray-300 leading-relaxed opacity-80">
+              If you read this and thought, “Finally — someone who actually gets it,” then it’s worth a conversation.
+            </p>
+            <p className="text-base text-gray-300 leading-relaxed opacity-80">
+              If not, that’s fine too. Fit matters. Let’s see if it is.
+            </p>
+            <div className="pt-4">
+              <a
+                href="mailto:hello@aylenmontenegro.com"
+                onClick={() => handleButtonClick('Contact Aylen', 'closing-message')}
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
+              >
+                Contact Aylen →
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Footer */}
         <Footer />
