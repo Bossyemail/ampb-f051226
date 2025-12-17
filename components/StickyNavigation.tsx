@@ -19,13 +19,11 @@ export default function StickyNavigation({ className = '' }: StickyNavigationPro
   const previousActiveElement = useRef<HTMLElement | null>(null);
 
   const navigationItems = [
-    { label: 'Shop', href: '/shop' },
-    { label: 'Elevate', href: '/elevate' },
-    { label: 'Deploy', href: '/deploy' },
-    { label: 'Spill', href: '/spill' },
+    { label: 'Tools', href: '/upgrade' },
+    { label: 'BossyEmail', href: '/upgrade' },
+    { label: 'ClauseVault', href: '/clausevault' },
+    { label: 'TC Services', href: '/elevate' },
     { label: 'About', href: '/about' },
-    { label: 'Upgrade', href: '/upgrade' },
-    { label: 'Read', href: '/read' },
   ];
 
   // Handle scroll effects
