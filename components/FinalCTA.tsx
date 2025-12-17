@@ -5,38 +5,38 @@ import { ChevronRight } from "lucide-react";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-10 lg:py-14 pb-20 lg:pb-24 bg-[#0a0a0a]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative py-14 lg:py-16 bg-[#0a0a0a]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 sm:space-y-8"
+          className="space-y-4 sm:space-y-5"
         >
-          {/* Headline */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight">
             Still Scrolling?
           </h2>
-          {/* Subheadline */}
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
-              At some point, you've got to stop browsing and start closing.
-            </p>
-            <p className="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
-              It's decision-making time. Chaos won't fix itself.
-            </p>
-          </div>
-          {/* Simple CTA Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="pt-6 sm:pt-8"
+          <p className="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
+            At some point, you stop browsing and start closing.<br />
+            Chaos won’t fix itself.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="pt-2"
+        >
+          <a
+            href="https://bossyemail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
           >
-            <p className="text-white/60 text-2xl sm:text-3xl md:text-4xl font-mono tracking-wider uppercase leading-tight px-2">
-              GRAB WHAT YOU NEED AND LET'S GO.
-            </p>
-          </motion.div>
+            Try BossyEmail →
+          </a>
+          <p className="text-xs text-gray-400 mt-2">Get started in under 60 seconds.</p>
         </motion.div>
       </div>
     </section>

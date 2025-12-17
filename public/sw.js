@@ -2,9 +2,9 @@
  * Service Worker for offline functionality and caching
  */
 
-const CACHE_NAME = 'aylen-montenegro-v3';
-const STATIC_CACHE = 'static-v3';
-const DYNAMIC_CACHE = 'dynamic-v3';
+const CACHE_NAME = 'aylen-montenegro-v4';
+const STATIC_CACHE = 'static-v4';
+const DYNAMIC_CACHE = 'dynamic-v4';
 
 // Assets to cache immediately
 const STATIC_ASSETS = [

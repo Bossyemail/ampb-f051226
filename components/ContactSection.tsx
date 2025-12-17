@@ -53,20 +53,19 @@ export default function ContactSection() {
     <>
       <section className="relative py-16 border-t border-white/10">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-center space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-4"
+              className="space-y-3"
             >
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                Questions? Let's Talk
+                Questions? Let’s talk.
               </h2>
               <p className="text-base text-gray-300 max-w-2xl mx-auto">
-                Not sure if we're a fit? Have questions about services? 
-                <br />
-                Drop me a line and let's figure it out.
+                Have questions about services or collaboration?<br />
+                Drop me a line and we’ll see if it’s a fit.
               </p>
               <motion.button
                 onClick={() => setIsModalOpen(true)}
@@ -75,9 +74,12 @@ export default function ContactSection() {
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 rounded"
               >
                 <MessageCircle className="w-4 h-4" />
-                Start a Conversation
+                Start a Conversation →
               </motion.button>
             </motion.div>
+            <p className="text-sm text-gray-400">
+              For service and collaboration inquiries only.
+            </p>
           </div>
         </div>
       </section>

@@ -68,24 +68,22 @@ export default function UpgradePage() {
               <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
                 <div className="md:col-span-2">
                   <div className="text-left">
-                    <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight">
-                      Write Client-Ready Real Estate Emails in 30 Seconds
+                    <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-3 leading-tight">
+                      Never write a real estate email from scratch again.
                     </motion.h2>
-                    <motion.p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-3">
-                      Without rewriting the same follow-ups every deal.
-                    </motion.p>
-                    <motion.p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-6">
-                      BossyEmail generates scenario-specific emails for inspections, missing docs, unresponsive agents, and deadline chasers — instantly.
+                    <motion.p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-6">
+                      BossyEmail gives agents clear, professional, deal-safe emails for the moments that actually matter — inspections, follow-ups, escalations.
                     </motion.p>
                     <motion.div>
                       <a 
                         href="https://bossyemail.com" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
+                        className="inline-flex items-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base font-semibold"
                       >
-                        Start 14-Day Free Trial →
+                        Try BossyEmail
                       </a>
+                      <p className="text-gray-400 text-xs mt-2">Get started in under 60 seconds.</p>
                     </motion.div>
                   </div>
                 </div>

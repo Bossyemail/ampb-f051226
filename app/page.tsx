@@ -93,69 +93,22 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
               <div className="md:col-span-2">
                 <div className="text-left">
-                  <motion.p 
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="text-sm italic text-gray-300 mb-2"
-                  >
-                    Hi,
-                  </motion.p>
                   <motion.h1
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-2"
+                    transition={{ duration: 0.5, delay: 0.45 }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3"
                   >
-                    I'm Aylen
+                    Never write a real estate email from scratch again.
                   </motion.h1>
                   <motion.p 
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    className="text-sm italic text-gray-300 mb-6"
+                    transition={{ duration: 0.5, delay: 0.55 }}
+                    className="text-base sm:text-lg text-gray-200 max-w-2xl leading-snug mb-6"
                   >
-                    Deal Flow Architect • SaaS Builder • Author
+                    Deal-safe emails for inspections, follow-ups, and escalations — instantly.
                   </motion.p>
-                  {/* Mobile version - full content */}
-                  <div className="block md:hidden">
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                    >
-                      I build the backend systems that keep real estate deals from falling apart.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
-                    >
-                      From deal-saving emails to transaction coordination and contract language — I operate where real estate actually breaks.
-                    </motion.p>
-                  </div>
-                  
-                  {/* Desktop version - full content */}
-                  <div className="hidden md:block">
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                    >
-                      I build the backend systems that keep real estate deals from falling apart.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
-                    >
-                      From deal-saving emails to transaction coordination and contract language — I operate where real estate actually breaks.
-                    </motion.p>
-                  </div>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -169,8 +122,7 @@ export default function Home() {
                         className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         aria-label="Explore BossyEmail"
                       >
-                        Explore BossyEmail
-                        <ChevronRight className="w-4 h-4" />
+                        Explore BossyEmail →
                       </a>
                       <a
                         href="#about"
@@ -179,6 +131,9 @@ export default function Home() {
                       >
                         See how I work ↓
                       </a>
+                      <p className="text-xs text-gray-400 pt-1">
+                        Built by a licensed real estate professional operating inside real transactions.
+                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -234,23 +189,30 @@ export default function Home() {
       {/* Chaos to Operations Section */}
       <section className="bg-[#0c0d11] py-14 px-6 sm:px-10 lg:px-16">
         <div className="max-w-4xl mx-auto text-center space-y-4">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white leading-tight mb-2">
             Most real estate chaos isn’t strategic.<br />
             It’s operational.
           </h2>
-          <div className="text-base sm:text-lg text-gray-300 leading-relaxed space-y-3">
+          <div className="text-base sm:text-lg text-gray-300 leading-relaxed space-y-3 max-w-3xl mx-auto">
             <p>Deals don’t derail because agents don’t work hard.</p>
             <p>They derail because of:</p>
+            <p className="leading-relaxed">Bad communication → Unclear language → Missed details → Emotional escalation</p>
+            <p>I work in the unglamorous middle — where precision, timing, and wording matter.</p>
           </div>
-          <div className="text-left sm:text-center space-y-2 text-gray-300">
-            <p>› Bad communication</p>
-            <p>› Unclear language</p>
-            <p>› Missed details</p>
-            <p>› Emotional escalation</p>
+        </div>
+      </section>
+
+      {/* Solution / Positioning */}
+      <section className="bg-[#0c0d11] py-12 px-6 sm:px-10 lg:px-16">
+        <div className="max-w-4xl mx-auto space-y-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-2">
+            This is where most agents get stuck.
+          </h2>
+          <div className="space-y-3 text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p>Agents are expected to de-escalate clients, protect themselves legally, and keep deals moving — all through email.</p>
+            <p>That’s where things go wrong.</p>
+            <p>BossyEmail solves the most common operational failure in real estate: not knowing what to say — or how to say it — when it matters.</p>
           </div>
-          <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-            I work in the unglamorous middle — where precision, timing, and wording matter.
-          </p>
         </div>
       </section>
 
@@ -270,7 +232,7 @@ export default function Home() {
             <span className="text-gray-300">(Without the Chaos)</span>
           </h2>
             <p className="text-base text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              I've spent my entire career being the key force behind the scenes. The one making sure contracts close, fires get put out, and agents still look good in the process. These products? They're just my behind-the-scenes magic, bottled up for you. Pick a tab, watch the magic and steal the playbook.
+              I’ve spent my career behind the scenes making sure contracts close, fires get put out, and agents still look good in the process. These tools are that behind-the-scenes work — bottled up and built for scale.
             </p>
           </motion.div>
 
@@ -308,23 +270,21 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">Deal-safe emails, generated instantly.</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">Deal-safe emails for real estate agents — instantly.</h4>
                       <div className="text-center mb-6 space-y-3">
                         <p className="text-gray-300 leading-relaxed">
-                          For agents who don’t want to guess what to say under pressure.
+                          BossyEmail tells you exactly what to say in inspections, follow-ups, and escalations — without second-guessing tone, wording, or risk.
                         </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          Generate precise, deal-ready emails in seconds and keep files moving.
-                        </p>
+                        <p className="text-sm text-gray-400">Most agents start here.</p>
                       </div>
                       <div className="text-center mb-8">
                         <a 
                           href="https://bossyemail.com"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                          className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
                         >
-                          View BossyEmail →
+                          Go to BossyEmail →
                         </a>
                       </div>
                     </div>
@@ -367,21 +327,18 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">Backend stability for producing agents.</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">Backend support for producing agents.</h4>
                       <div className="text-center mb-6 space-y-3">
                         <p className="text-gray-300 leading-relaxed">
-                          Capacity-limited. Referral-based.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          We keep your files tight, on-time, and calm when deals get noisy.
+                          I work with a limited number of agents and teams providing transaction coordination — by availability.
                         </p>
                       </div>
                       <div className="text-center mb-8">
                         <a 
                           href="mailto:hello@aylenmontenegro.com?subject=TC%20availability"
-                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-white text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm bg-white/5"
                         >
-                          TC availability →
+                          TC Services →
                         </a>
                       </div>
                     </div>
@@ -424,21 +381,18 @@ export default function Home() {
                     className="overflow-hidden"
                   >
                     <div className="mt-6">
-                      <h4 className="text-xl font-semibold text-white mb-4">Real-world contract clauses and language, organized.</h4>
+                      <h4 className="text-xl font-semibold text-white mb-4">Contract language for real-world scenarios.</h4>
                       <div className="text-center mb-6 space-y-3">
                         <p className="text-gray-300 leading-relaxed">
-                          Built from Florida As-Is contracts and real transaction gaps.
-                        </p>
-                        <p className="text-gray-300 leading-relaxed">
-                          Searchable, copy-ready language to fix issues before they explode.
+                          A curated library of deal-support clauses built around Florida’s As-Is contract framework — designed to reduce ambiguity and support clearer communication, not replace legal advice.
                         </p>
                       </div>
                       <div className="text-center mb-8">
                         <a 
                           href="/clausevault" 
-                          className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-white text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm bg-white/5"
                         >
-                          Explore ClauseVault →
+                          View ClauseVault →
                         </a>
                       </div>
                     </div>
@@ -455,14 +409,14 @@ export default function Home() {
       {/* Authority Section */}
       <section className="bg-[#0c0d11] py-14 px-6 sm:px-10 lg:px-16">
         <div className="max-w-4xl mx-auto space-y-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-2">
             This isn’t theory.<br />
             It’s lived experience.
           </h2>
-          <div className="space-y-3 text-base sm:text-lg text-gray-300 leading-relaxed">
-            <p>I’m a licensed real estate professional and transaction coordinator based in Miami.</p>
-            <p>I’ve operated inside real files — inspections, extensions, escalations, and broker compliance.</p>
-            <p>Everything I build comes from the same place: What actually works in real transactions.</p>
+          <div className="space-y-3 text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p>I’m Aylen Montenegro — a licensed real estate professional, transaction coordinator, and systems builder based in Miami.</p>
+            <p>I’ve spent years operating inside real files — inspections, extensions, escalations, and broker compliance — where wording and timing actually matter.</p>
+            <p>BossyEmail and everything on this site comes from that reality. That’s why it works.</p>
           </div>
         </div>
       </section>
@@ -470,11 +424,11 @@ export default function Home() {
       {/* Who This Is For */}
       <section className="bg-[#0c0d11] py-12 px-6 sm:px-10 lg:px-16">
         <div className="max-w-4xl mx-auto space-y-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-2">
             If you’re a producing agent,<br />
             this will feel familiar.
           </h2>
-          <div className="text-left sm:text-center space-y-2 text-gray-300 text-base sm:text-lg">
+          <div className="text-center space-y-2 text-gray-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
             <p>› You’re tired of rewriting the same emails</p>
             <p>› You want fewer fires, not more apps</p>
             <p>› You care about sounding professional and protected</p>
@@ -502,144 +456,98 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
+      <section className="bg-[#0c0d11] px-6 sm:px-10 lg:px-16 pt-6">
+        <p className="text-center text-sm text-gray-400 mb-4">
+          These systems were built inside real client work.
+        </p>
+      </section>
       <Testimonials />
 
       {/* About Me Teaser Section */}
-      <section 
+      <section
         id="about"
-        className="relative h-[650px] w-full bg-[#0c0d11]"
+        className="w-full bg-[#0c0d11] py-16"
       >
-        {/* Image layer with CSS mask for edge fading */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url(/images/22.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: '65% 30%',
-            backgroundRepeat: 'no-repeat',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-            maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-            WebkitMaskComposite: 'source-in',
-            maskComposite: 'intersect'
-          }}
-        ></div>
-        {/* Dark overlay gradients for text readability and seamless blending */}
-        <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-[#0c0d11] via-[#0c0d11]/90 via-black/70 to-transparent"></div>
-        <div className="absolute inset-y-0 right-0 w-[35%] bg-gradient-to-l from-[#0c0d11] via-[#0c0d11]/80 to-transparent"></div>
-        <div className="absolute inset-x-0 top-0 h-[20%] bg-gradient-to-b from-[#0c0d11] via-[#0c0d11]/70 to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-[25%] bg-gradient-to-t from-[#0c0d11] via-[#0c0d11]/80 to-transparent"></div>
-        
-        <div className="absolute inset-0 flex items-center pt-32 md:pt-24 z-10">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-1">
-                <div className="text-left">
-                  <motion.p 
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    viewport={{ once: true }}
-                    className="text-sm italic text-gray-300 mb-2"
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+            <div className="md:col-span-2">
+              <div className="text-left space-y-3">
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-sm italic text-gray-300"
+                >
+                  About Me
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 }}
+                  viewport={{ once: true }}
+                  className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white"
+                >
+                  My Story
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="text-sm italic text-gray-300"
+                >
+                  Real Estate Professional • Systems Builder • Deal Closer
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="text-base text-gray-300 leading-relaxed"
+                >
+                  I didn’t start in strategy or software. I started answering phones, managing files, cleaning up messes, and becoming the person agents relied on to save deals.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="text-base text-gray-300 leading-relaxed"
+                >
+                  Now, I build the systems and shortcuts I wish existed back then.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  viewport={{ once: true }}
+                  className="pt-2"
+                >
+                  <a
+                    href="/about"
+                    className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-lg font-medium"
                   >
-                    About Me
-                  </motion.p>
-                  <motion.h2 
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-2"
-                  >
-                    My Story
-                  </motion.h2>
-                  <motion.p 
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    viewport={{ once: true }}
-                    className="text-sm italic text-gray-300 mb-6"
-                  >
-                    Real Estate Professional • Systems Builder • Deal Closer
-                  </motion.p>
-                  {/* Mobile version - shorter content */}
-                  <div className="block md:hidden">
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      viewport={{ once: true }}
-                      className="text-base text-gray-300 leading-tight mb-2"
-                    >
-                      I fix chaos and turn it into closings. But it wasn't always like that.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
-                      viewport={{ once: true }}
-                      className="text-base text-gray-300 leading-tight mb-6"
-                    >
-                      Now, I build the systems and shortcuts I wish I had back then.
-                    </motion.p>
-                  </div>
-                  
-                  {/* Desktop version - full content */}
-                  <div className="hidden md:block">
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      viewport={{ once: true }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                    >
-                      I fix chaos and turn it into closings. But it wasn't always like that.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 }}
-                      viewport={{ once: true }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                    >
-                      My first job in real estate was answering phones, stuck at the front desk while making sure the fax machine was not jammed.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                      viewport={{ once: true }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-2"
-                    >
-                      From there I clawed my way into bigger roles — contracts, transaction management, the midnight cleanups — until I became the one other people relied on to save their deals.
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.9 }}
-                      viewport={{ once: true }}
-                      className="text-base text-gray-300 max-w-2xl leading-tight mb-6"
-                    >
-                      Now, I build the systems and shortcuts I wish I had back then.
-                    </motion.p>
-                  </div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1.0 }}
-                    viewport={{ once: true }}
-                  >
-                    <a
-                      href="/about"
-                      className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-lg font-medium"
-                    >
-                      Learn More
-                      <ChevronRight className="w-5 h-5" />
-                    </a>
-                  </motion.div>
-                </div>
+                    About Aylen →
+                    <ChevronRight className="w-5 h-5" />
+                  </a>
+                </motion.div>
               </div>
-              <div className="md:col-span-2">
-                {/* Empty space for image to show through - spans center and right columns */}
+            </div>
+
+            <div className="md:col-span-1">
+              <div className="h-full flex justify-center md:justify-end">
+                <div className="w-full max-w-xs md:max-w-sm lg:max-w-md aspect-[4/5] rounded-lg overflow-hidden border border-white/10 shadow-xl shadow-black/30">
+                  <img
+                    src="/images/22.png"
+                    alt="Aylen Montenegro"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
           </div>
