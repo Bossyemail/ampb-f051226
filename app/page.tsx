@@ -99,15 +99,23 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.45 }}
                     className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3"
                   >
-                    Never write a real estate email from scratch again.
+                    I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.
                   </motion.h1>
                   <motion.p 
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.55 }}
+                    className="text-base sm:text-lg text-gray-200 max-w-2xl leading-snug mb-4"
+                  >
+                    Contracts, deadlines, and communication don't need to be chaotic.
+                  </motion.p>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
                     className="text-base sm:text-lg text-gray-200 max-w-2xl leading-snug mb-6"
                   >
-                    Deal-safe emails for inspections, follow-ups, and escalations — instantly.
+                    I build tools, systems, and support that keep transactions moving — quietly and correctly.
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
@@ -116,24 +124,19 @@ export default function Home() {
                   >
                     <div className="flex flex-col gap-2 sm:gap-3">
                       <a 
-                        href="https://bossyemail.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="#tools"
                         className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                        aria-label="Explore BossyEmail"
+                        aria-label="Explore the Tools"
                       >
-                        Explore BossyEmail →
+                        Explore the Tools
                       </a>
                       <a
-                        href="#about"
-                        className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors duration-200"
-                        aria-label="See how I work"
+                        href="mailto:hello@aylenmontenegro.com"
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+                        aria-label="Work With Me"
                       >
-                        See how I work ↓
+                        Work With Me
                       </a>
-                      <p className="text-xs text-gray-400 pt-1">
-                        Built by a licensed real estate professional operating inside real transactions.
-                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -186,7 +189,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chaos to Operations Section */}
+      {/* Clarifier Section */}
       <section className="bg-[#0c0d11] py-14 px-6 sm:px-10 lg:px-16">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white leading-tight mb-2">
@@ -202,11 +205,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Solution / Positioning */}
+      {/* What I Actually Do Section */}
       <section className="bg-[#0c0d11] py-12 px-6 sm:px-10 lg:px-16">
-        <div className="max-w-4xl mx-auto space-y-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-2">
-            This is where most agents get stuck.
+        <div className="max-w-4xl mx-auto space-y-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4 text-center">
+            What I Actually Do
           </h2>
           <div className="space-y-3 text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
             <p>Agents are expected to de-escalate clients, protect themselves legally, and keep deals moving — all through email.</p>
@@ -217,7 +220,7 @@ export default function Home() {
       </section>
 
       {/* Products Accordion Section */}
-      <section className="py-12 px-8 lg:px-16">
+      <section id="tools" className="py-12 px-8 lg:px-16">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -406,7 +409,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Authority Section */}
+      {/* Why This Exists Section */}
       <section className="bg-[#0c0d11] py-14 px-6 sm:px-10 lg:px-16">
         <div className="max-w-4xl mx-auto space-y-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-2">
