@@ -6,27 +6,21 @@ import Link from "next/link";
 const services = [
   {
     number: "01",
-    title: "TC Services",
-    href: "/elevate",
-    description: "VIP transaction coordination + systems"
+    title: "BossyEmail",
+    href: "https://bossyemail.com",
+    description: "AI-powered email tools for real estate communication"
   },
   {
-    number: "02", 
+    number: "02",
     title: "ClauseVault",
     href: "/clausevault",
-    description: "Searchable, copy ready clauses"
+    description: "Contract support tools that close communication gaps"
   },
   {
     number: "03",
-    title: "BossyEmail", 
-    href: "https://bossyemail.com",
-    description: "Email templates that close deals faster"
-  },
-  {
-    number: "04",
-    title: "Books",
-    href: "/read", 
-    description: "Real estate wisdom without the BS"
+    title: "Transaction Coordination",
+    href: "mailto:hello@aylenmontenegro.com?subject=TC%20availability",
+    description: "White-glove transaction coordination and advisory support"
   }
 ];
 

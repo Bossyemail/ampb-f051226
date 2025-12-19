@@ -58,18 +58,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-r from-[#114B4D] to-[#8B5E3C] text-black">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="relative bg-[#114B4D] border-t border-white/10">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10 py-16 sm:py-20">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-semibold tracking-tight text-black uppercase">Aylen Montenegro</h3>
-            <p className="mt-2 max-w-md text-sm text-black/70">
+            <h3 className="font-sans text-lg sm:text-xl font-medium tracking-tight text-white/95">Aylen Montenegro</h3>
+            <p className="font-sans mt-3 max-w-md text-sm sm:text-[15px] font-normal text-white/75 leading-[1.6]">
               Helping real estate pros close deals—without the late‑night panic.
             </p>
 
             {/* Socials */}
-            <div className="mt-4 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-2">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
@@ -78,9 +78,9 @@ export default function Footer() {
                     href={social.href}
                     target={social.name !== "Email" ? "_blank" : undefined}
                     rel={social.name !== "Email" ? "noopener noreferrer" : undefined}
-                    whileHover={{ scale: 1.15, y: -3 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-9 h-9 rounded-full border border-black/20 bg-black flex items-center justify-center text-white transition-all duration-300 ${social.hoverColor} ${social.hoverShadow}`}
+                    className="w-9 h-9 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white/75 hover:text-white hover:border-white/40 transition-all duration-300"
                     aria-label={social.name}
                   >
                     {typeof IconComponent === 'function' && IconComponent.name === '' ? (
@@ -96,34 +96,34 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="md:pl-8">
-            <p className="text-sm font-semibold uppercase tracking-wider text-black/70">Explore</p>
-            <ul className="mt-3 space-y-2 text-sm text-black/70">
-              <li><a className="transition hover:text-black uppercase" href="/">Home</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/read">Read</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/upgrade">Upgrade</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/deploy">Deploy</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/spill">Spill</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/about">About</a></li>
+            <p className="font-sans text-xs font-medium uppercase tracking-wider text-white/60 mb-4">Explore</p>
+            <ul className="space-y-2.5">
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/">Home</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/read">Read</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/upgrade">Upgrade</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/deploy">Deploy</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/spill">Spill</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/about">About</a></li>
             </ul>
           </div>
 
           {/* Legal / Disclaimers */}
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-black/70">Legal</p>
-            <ul className="mt-3 space-y-2 text-sm text-black/70">
-              <li><a className="transition hover:text-black uppercase" href="/privacy">Privacy Policy</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/terms">Terms & Conditions</a></li>
-              <li><a className="transition hover:text-black uppercase" href="/affiliate-disclosure">Affiliate Disclosure</a></li>
+            <p className="font-sans text-xs font-medium uppercase tracking-wider text-white/60 mb-4">Legal</p>
+            <ul className="space-y-2.5">
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/privacy">Privacy Policy</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/terms">Terms & Conditions</a></li>
+              <li><a className="font-sans text-sm font-normal text-white/75 hover:text-white/95 transition-colors" href="/affiliate-disclosure">Affiliate Disclosure</a></li>
             </ul>
-            <p className="mt-4 max-w-sm text-xs leading-relaxed text-black/70">
+            <p className="font-sans mt-5 max-w-sm text-xs font-normal leading-[1.6] text-white/60">
               This site contains caffeine-powered opinions, sharp tools, and insider content for real estate pros. Nothing here is legal, tax, or financial advice. Use our resources responsibly, confirm with your broker or attorney when needed. Proceed at your own risk (and reward).
             </p>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="mt-8 border-t border-black/10 pt-4">
-          <div className="flex flex-col items-start justify-between gap-4 text-xs text-black/70 md:flex-row md:items-center">
+        <div className="mt-12 border-t border-white/10 pt-6">
+          <div className="flex flex-col items-start justify-between gap-4 font-sans text-xs font-normal text-white/60 md:flex-row md:items-center">
             <p>© 2025 Aylen Montenegro. All rights reserved.</p>
             <p className="inline-flex items-center gap-2">
               Made in Miami — powered by too much coffee and not enough beach days.
