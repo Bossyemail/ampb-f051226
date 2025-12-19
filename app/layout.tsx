@@ -9,6 +9,7 @@ import SkipToContent from "@/components/SkipToContent";
 import BackToTop from "@/components/BackToTop";
 import OfflineIndicator from "@/components/OfflineIndicator";
 import "./globals.css";
+import "./type-system.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,6 +96,11 @@ export default function RootLayout({
     >
       <html lang="en">
         <head>
+          {/* Google Fonts */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+          
           {/* Google Analytics */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-TVDC1JQ6MK"

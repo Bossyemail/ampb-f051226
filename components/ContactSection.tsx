@@ -60,10 +60,10 @@ export default function ContactSection() {
               transition={{ duration: 0.6 }}
               className="space-y-3"
             >
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
+              <h2 className="t-h2">
                 Questions? Let’s talk.
               </h2>
-              <p className="text-base text-gray-300 max-w-2xl mx-auto">
+              <p className="t-body" style={{ maxWidth: '640px', margin: '0 auto' }}>
                 Have questions about services or collaboration?<br />
                 Drop me a line and we’ll see if it’s a fit.
               </p>
@@ -77,7 +77,7 @@ export default function ContactSection() {
                 Start a Conversation →
               </motion.button>
             </motion.div>
-            <p className="text-sm text-gray-400">
+            <p className="t-label">
               For service and collaboration inquiries only.
             </p>
           </div>

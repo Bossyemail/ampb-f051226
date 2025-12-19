@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import StickyNavigation from '@/components/StickyNavigation';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
@@ -63,21 +63,19 @@ export default function Home() {
         }}
         suppressHydrationWarning
       />
-      
-      <div className="min-h-screen bg-black text-white antialiased">
       <StickyNavigation />
       
-              {/* Hero Section */}
-        <section
-          className="relative h-[650px] w-full bg-black"
-        >
+      {/* Hero Section */}
+      <section
+        className="relative h-[650px] w-full bg-black"
+      >
           {/* Image layer with CSS mask - using bottom pattern for all edges */}
           <div
             className="absolute inset-0"
             style={{
               backgroundImage: 'url(/images/14.png)',
               backgroundSize: '78%',
-              backgroundPosition: 'center 35%',
+              backgroundPosition: 'center 25%',
               backgroundRepeat: 'no-repeat',
               WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.5) 82%, transparent 100%)',
               maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.5) 82%, transparent 100%)',
@@ -88,63 +86,71 @@ export default function Home() {
           {/* Dark overlay gradients to blend sides into background */}
           <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-black via-black/98 via-black/90 via-black/75 to-transparent"></div>
           <div className="absolute inset-y-0 right-0 w-[45%] bg-gradient-to-l from-black via-black/90 via-black/60 to-transparent"></div>
-          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/15 via-black/10 to-transparent"></div>
         <div className="absolute inset-0 flex items-center pt-64 z-10">
-          <div className="w-full max-w-6xl mx-auto px-6 sm:px-10">
+          <div className="container px-8 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
               <div className="md:col-span-2">
-                <div className="max-w-3xl">
+                <div className="w-hero">
+                  <motion.p
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="t-label"
+                  >
+                    Hi there
+                  </motion.p>
                   <motion.h1
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.45 }}
-                    className="font-sans text-4xl sm:text-5xl lg:text-[56px] font-medium tracking-tight leading-[1.08] text-white/95 mb-5 sm:mb-6"
+                    className="t-h1 mt-2"
                   >
-                    I'm Aylen.
+                    I'm Aylen
                   </motion.h1>
-                  <div className="max-w-2xl space-y-4 sm:space-y-5">
+                  <div className="w-xl stack mt-2">
                   <motion.p
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
+                    className="t-body"
                   >
-                    I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.
+                    I help real estate professionals close deals<br />with fewer mistakes, fewer emails, and less stress.
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.55 }}
-                    className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
+                    className="t-body"
                   >
-                    Contracts, deadlines, and communication don't need to be chaotic.
+                    Contracts, deadlines, and communication<br />don't need to be chaotic.
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
+                    className="t-body"
                   >
-                    I build tools, systems, and support that keep transactions moving — quietly and correctly.
+                    I build tools, systems, and support<br />that keep transactions moving — quietly and correctly.
                   </motion.p>
                   </div>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
-                    className="mt-6 sm:mt-7"
+                    className="mt-3"
                   >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <div className="flex flex-col gap-2 sm:gap-3">
                       <a
                         href="#tools"
-                        className="font-sans inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium bg-white text-black hover:opacity-90 transition-opacity"
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         aria-label="Explore the Tools"
                       >
-                        Explore the Tools
+                        Explore the Tools →
                       </a>
                       <a
                         href="mailto:hello@aylenmontenegro.com"
-                        className="font-sans inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium border border-white/20 text-white hover:opacity-80 transition-opacity"
+                        className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         aria-label="Work With Me"
                       >
                         Work With Me
@@ -167,10 +173,8 @@ export default function Home() {
                       transition={{ duration: 0.6, delay: 0.8 }}
                     >
                       <p className="text-white text-xl md:text-3xl font-mono tracking-wider text-right">20+</p>
-                      <p className="mt-1 md:mt-2 text-right text-[9px] md:text-[10px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
+                      <p className="t-label mt-1 md:mt-2 text-right">YEARS EXPERIENCE</p>
                     </motion.div>
-
-                    <hr className="border-t border-white/10" />
 
                     {/* 3K+ Closed Deals */}
                     <motion.div
@@ -179,10 +183,8 @@ export default function Home() {
                       transition={{ duration: 0.6, delay: 0.9 }}
                     >
                       <p className="text-white text-xl md:text-3xl font-mono tracking-wider text-right">3K+</p>
-                      <p className="mt-1 md:mt-2 text-right text-[9px] md:text-[10px] uppercase tracking-[0.08em] text-white/60">CLOSED DEALS</p>
+                      <p className="t-label mt-1 md:mt-2 text-right">CLOSED DEALS</p>
                     </motion.div>
-
-                    <hr className="border-t border-white/10" />
 
                     {/* 4+ SaaS Products Built */}
                     <motion.div
@@ -191,7 +193,7 @@ export default function Home() {
                       transition={{ duration: 0.6, delay: 1.0 }}
                     >
                       <p className="text-white text-xl md:text-3xl font-mono tracking-wider text-right">4+</p>
-                      <p className="mt-1 md:mt-2 text-right text-[9px] md:text-[10px] uppercase tracking-[0.08em] text-white/60">SAAS PRODUCTS BUILT</p>
+                      <p className="t-label mt-1 md:mt-2 text-right">SAAS PRODUCTS BUILT</p>
                     </motion.div>
                   </div>
                 </aside>
@@ -202,48 +204,43 @@ export default function Home() {
       </section>
 
       {/* Products Accordion Section */}
-      <section id="tools" className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-100px" }}
-            className="text-center mb-12 sm:mb-14"
-          >
-          <h2 className="font-sans text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-tight leading-[1.2] text-white/95 mb-5">
-            What I Build
-            <br />
-            <span className="text-white/60">(Without the Chaos)</span>
-          </h2>
-            <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 max-w-2xl mx-auto leading-[1.6]">
-              I've spent my career behind the scenes making sure contracts close, fires get put out, and agents still look good in the process. These tools are that behind-the-scenes work — bottled up and built for scale.
-            </p>
-          </motion.div>
+      <section id="tools" className="bg-black" style={{ paddingTop: '160px', paddingBottom: '96px' }}>
+        <div className="container px-8 md:px-12 lg:px-16">
+          <div style={{ margin: '0 auto', maxWidth: '640px' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-100px" }}
+              style={{ textAlign: 'center' }}
+            >
+              <h2 className="t-h2">What I Build</h2>
+              <p className="t-label mt-1">(Without the Chaos)</p>
+              <p className="t-body mt-2">
+                I've spent my career behind the scenes making sure contracts close, fires get put out, and agents still look good in the process. These tools are that behind-the-scenes work — bottled up and built for scale.
+              </p>
+            </motion.div>
 
-          <div className="space-y-0">
+          <div className="space-y-0" style={{ marginTop: '64px' }}>
             {/* Product 1 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: false, margin: "-50px" }}
-              className="py-2"
             >
+              <div className="border-t border-white/10"></div>
               <button
                 onClick={() => toggleItem(0)}
-                className="w-full text-left flex items-center justify-between hover:opacity-80 transition-opacity py-2"
+                className="w-full flex items-center justify-between gap-4 hover:opacity-80 transition-opacity py-3"
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-4">
                   <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
-                  <h3 className="font-sans text-xl md:text-2xl font-medium text-white/95">BossyEmail</h3>
+                  <h3 className="t-h2">BossyEmail</h3>
                 </div>
-                {openItems.includes(0) ? (
-                  <ChevronDown className="w-10 h-10 text-white/40" />
-                ) : (
-                  <ChevronRight className="w-10 h-10 text-white/40" />
-                )}
+                <ChevronDown 
+                  className={`w-5 h-5 text-white/60 transition-transform duration-300 ${openItems.includes(0) ? 'rotate-180' : ''}`}
+                />
               </button>
 
               <AnimatePresence>
@@ -255,33 +252,32 @@ export default function Home() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="mt-6 max-w-2xl mx-auto">
-                      <div className="text-center mb-6 space-y-4">
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                    <div className="mt-6 w-xl">
+                      <div className="mb-6 stack">
+                        <p className="t-body">
                           AI-powered email tools designed specifically for real estate communication — so you're not rewriting the same emails, explanations, and follow-ups from scratch.
                         </p>
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                        <p className="t-body">
                           Clear. Direct. Professional.
                         </p>
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                        <p className="t-body">
                           Built for real transactions, not generic prompts.
                         </p>
                       </div>
-                      <div className="text-center mb-8">
+                      <div className="mb-8">
                         <a
                           href="https://bossyemail.com"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-sans inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium bg-white text-black hover:opacity-90 transition-opacity"
+                          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         >
-                          Explore BossyEmail
+                          Explore BossyEmail →
                         </a>
                       </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-              <hr className="border-white/10 mt-4" />
             </motion.div>
 
             {/* Product 2 */}
@@ -290,21 +286,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
               viewport={{ once: false, margin: "-50px" }}
-              className="py-2"
             >
+              <div className="border-t border-white/10"></div>
               <button
                 onClick={() => toggleItem(1)}
-                className="w-full text-left flex items-center justify-between hover:opacity-80 transition-opacity py-2"
+                className="w-full flex items-center justify-between gap-4 hover:opacity-80 transition-opacity py-3"
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-4">
                   <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
-                  <h3 className="font-sans text-xl md:text-2xl font-medium text-white/95">ClauseVault</h3>
+                  <h3 className="t-h2">ClauseVault</h3>
                 </div>
-                {openItems.includes(1) ? (
-                  <ChevronDown className="w-10 h-10 text-white/40" />
-                ) : (
-                  <ChevronRight className="w-10 h-10 text-white/40" />
-                )}
+                <ChevronDown 
+                  className={`w-5 h-5 text-white/60 transition-transform duration-300 ${openItems.includes(1) ? 'rotate-180' : ''}`}
+                />
               </button>
 
               <AnimatePresence>
@@ -316,28 +310,27 @@ export default function Home() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="mt-6 max-w-2xl mx-auto">
-                      <div className="text-center mb-6 space-y-4">
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                    <div className="mt-6 w-xl">
+                      <div className="mb-6 stack">
+                        <p className="t-body">
                           Contract support tools that help you close communication gaps without practicing law or reinventing the wheel.
                         </p>
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                        <p className="t-body">
                           Built to support the contract — not replace it.
                         </p>
                       </div>
-                      <div className="text-center mb-8">
+                      <div className="mb-8">
                         <a
                           href="/clausevault"
-                          className="font-sans inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium bg-white text-black hover:opacity-90 transition-opacity"
+                          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         >
-                          Explore ClauseVault
+                          Explore ClauseVault →
                         </a>
                       </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-              <hr className="border-white/10 mt-4" />
             </motion.div>
 
             {/* Product 3 */}
@@ -346,21 +339,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
               viewport={{ once: false, margin: "-50px" }}
-              className="py-2"
             >
+              <div className="border-t border-white/10"></div>
               <button
                 onClick={() => toggleItem(2)}
-                className="w-full text-left flex items-center justify-between hover:opacity-80 transition-opacity py-2"
+                className="w-full flex items-center justify-between gap-4 hover:opacity-80 transition-opacity py-3"
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-4">
                   <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
-                  <h3 className="font-sans text-xl md:text-2xl font-medium text-white/95">Transaction Coordination</h3>
+                  <h3 className="t-h2">Transaction Coordination</h3>
                 </div>
-                {openItems.includes(2) ? (
-                  <ChevronDown className="w-10 h-10 text-white/40" />
-                ) : (
-                  <ChevronRight className="w-10 h-10 text-white/40" />
-                )}
+                <ChevronDown 
+                  className={`w-5 h-5 text-white/60 transition-transform duration-300 ${openItems.includes(2) ? 'rotate-180' : ''}`}
+                />
               </button>
 
               <AnimatePresence>
@@ -372,55 +363,57 @@ export default function Home() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="mt-6 max-w-2xl mx-auto">
-                      <div className="text-center mb-6 space-y-4">
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                    <div className="mt-6 w-xl">
+                      <div className="mb-6 stack">
+                        <p className="t-body">
                           For select clients, I offer white-glove transaction coordination and advisory support.
                         </p>
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                        <p className="t-body">
                           This is not volume work.
                         </p>
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                        <p className="t-body">
                           This is for professionals who value experience, discretion, and clean execution.
                         </p>
-                        <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">
+                        <p className="t-body">
                           Availability is limited by design.
                         </p>
                       </div>
-                      <div className="text-center mb-8">
+                      <div className="mb-8">
                         <a
                           href="mailto:hello@aylenmontenegro.com?subject=TC%20availability"
-                          className="font-sans inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium bg-white text-black hover:opacity-90 transition-opacity"
+                          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
                         >
-                          Inquire about services
+                          Inquire about services →
                         </a>
                       </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-              <hr className="border-white/10 mt-4" />
             </motion.div>
-
+            <div className="border-t border-white/10"></div>
           </div>
-        </div>
+          </div>
         </div>
       </section>
 
       {/* Clarifier Section */}
-      <section className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 text-center">
-          <div className="max-w-2xl mx-auto space-y-4 sm:space-y-5">
-            <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Most deals don't fall apart because of bad intentions.</p>
-            <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">They fall apart because of missed details, unclear emails, and preventable friction.</p>
-            <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">My work exists to remove that friction before it costs you time, money, or reputation.</p>
+      <section className="section divider bg-black" style={{ paddingBottom: '120px' }}>
+        <div className="container px-8 md:px-12 lg:px-16">
+          <div className="w-xl" style={{ margin: '0 auto' }}>
+            <div className="stack">
+              <p className="t-body">Most deals don't fall apart because of bad intentions.</p>
+              <p className="t-body">They fall apart because of missed details, unclear emails, and preventable friction.</p>
+              <p className="t-body">My work exists to remove that friction before it costs you time, money, or reputation.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Editorial Numbered Section */}
-      <section className="relative py-16 sm:py-20 lg:py-24 border-t border-white/10">
-        <div className="max-w-4xl mx-auto">
+      <section className="section divider bg-black">
+        <div className="container px-8 md:px-12 lg:px-16">
+          <div className="w-xl">
           {/* Numbered Ticker Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
@@ -486,6 +479,7 @@ export default function Home() {
               </span>
             </button>
           </motion.div>
+          </div>
         </div>
       </section>
 
@@ -496,88 +490,89 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="pt-0 pb-16 sm:pb-20"
+          className="section bg-black"
         >
-          <div className="mx-auto max-w-6xl px-6 sm:px-10">
-          <div className="mx-auto max-w-2xl">
-            {/* WHY */}
-            {activeEditorialItem === 'why' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="space-y-4 sm:space-y-5"
-              >
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Because most deals don't fall apart for dramatic reasons.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">They fall apart because small details get missed, emails get unclear, and friction builds until something breaks.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">I've spent over two decades working inside that friction — catching issues early and keeping deals moving before problems become visible.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">That perspective informs everything I build.</p>
-              </motion.div>
-            )}
+          <div className="container px-8 md:px-12 lg:px-16">
+            <div className="w-xl">
+              {/* WHY */}
+              {activeEditorialItem === 'why' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="stack"
+                >
+                  <p className="t-body">Because most deals don't fall apart for dramatic reasons.</p>
+                  <p className="t-body">They fall apart because small details get missed, emails get unclear, and friction builds until something breaks.</p>
+                  <p className="t-body">I've spent over two decades working inside that friction — catching issues early and keeping deals moving before problems become visible.</p>
+                  <p className="t-body">That perspective informs everything I build.</p>
+                </motion.div>
+              )}
 
-            {/* WHAT */}
-            {activeEditorialItem === 'what' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="space-y-4 sm:space-y-5"
-              >
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">That happens by fixing the communication and process breakdowns that quietly derail transactions.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Software when it makes sense.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Systems when they're needed.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Human judgment when it matters.</p>
-              </motion.div>
-            )}
+              {/* WHAT */}
+              {activeEditorialItem === 'what' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="stack"
+                >
+                  <p className="t-body">I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.</p>
+                  <p className="t-body">That happens by fixing the communication and process breakdowns that quietly derail transactions.</p>
+                  <p className="t-body">Software when it makes sense.</p>
+                  <p className="t-body">Systems when they're needed.</p>
+                  <p className="t-body">Human judgment when it matters.</p>
+                </motion.div>
+              )}
 
-            {/* WHO */}
-            {activeEditorialItem === 'who' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="space-y-4 sm:space-y-5"
-              >
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">This is for real estate professionals who value clarity over chaos.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">People who take their reputation seriously.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Who prefer systems over scrambling.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">Who want fewer fires, not more excitement.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">If that sounds like you, you're in the right place.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">I don't build for everyone.</p>
-                <p className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]">I build for people who want their business to feel calmer, cleaner, and more controlled.</p>
-              </motion.div>
-            )}
-          </div>
+              {/* WHO */}
+              {activeEditorialItem === 'who' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="stack"
+                >
+                  <p className="t-body">This is for real estate professionals who value clarity over chaos.</p>
+                  <p className="t-body">People who take their reputation seriously.</p>
+                  <p className="t-body">Who prefer systems over scrambling.</p>
+                  <p className="t-body">Who want fewer fires, not more excitement.</p>
+                  <p className="t-body">If that sounds like you, you're in the right place.</p>
+                  <p className="t-body">I don't build for everyone.</p>
+                  <p className="t-body">I build for people who want their business to feel calmer, cleaner, and more controlled.</p>
+                </motion.div>
+              )}
+            </div>
           </div>
         </motion.section>
       )}
 
       {/* Final CTA */}
-      <section className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10">
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="font-sans text-2xl sm:text-3xl lg:text-[36px] font-medium tracking-tight leading-[1.2] text-white/95">
-            Start with the system that saves the most time.
-          </h2>
-          <div className="flex justify-center">
-            <a
-              href="/upgrade"
-              className="font-sans inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium border border-white/20 text-white hover:opacity-80 transition-opacity"
-            >
-              Go to BossyEmail
-              <ChevronRight className="w-4 h-4" />
-            </a>
+      <section className="section divider bg-black">
+        <div className="container px-8 md:px-12 lg:px-16">
+          <div className="w-xl" style={{ margin: '0 auto' }}>
+            <h2 className="t-h2 mt-2">
+              Start with the system that saves the most time.
+            </h2>
+            <div className="flex justify-center mt-3">
+              <a
+                href="/upgrade"
+                className="btn inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
+              >
+                Go to BossyEmail →
+              </a>
+            </div>
           </div>
-        </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-black px-6 sm:px-10 pt-6">
-        <p className="font-sans text-center text-sm font-normal text-white/60 mb-4">
-          These systems were built inside real client work.
-        </p>
+      <section className="section">
+        <div className="container px-8 md:px-12 lg:px-16">
+          <p className="t-label" style={{ textAlign: 'center', marginBottom: '16px' }}>
+            These systems were built inside real client work.
+          </p>
+        </div>
       </section>
       <Testimonials />
 
@@ -593,95 +588,76 @@ export default function Home() {
             backgroundImage:
               'linear-gradient(to right, #000000 0%, #000000 32%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.35) 68%, transparent 85%), url(/images/22.png)',
             backgroundSize: 'cover',
-            backgroundPosition: '60% 38%',
+            backgroundPosition: '60% 25%',
             backgroundRepeat: 'no-repeat',
           }}
         ></div>
 
-        <div className="absolute inset-0 flex items-center z-10">
-          <div className="w-full max-w-6xl mx-auto px-6 sm:px-10">
-            <div className="max-w-xl text-left space-y-4 sm:space-y-5">
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="font-mono text-[10px] uppercase tracking-[0.1em] text-white/60"
-              >
-                About Me
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                viewport={{ once: true }}
-                className="font-sans text-3xl sm:text-4xl lg:text-[42px] font-medium tracking-tight leading-[1.15] text-white/95"
-              >
-                My Story
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="font-mono text-[10px] uppercase tracking-[0.1em] text-white/60"
-              >
-                Real Estate Professional • Systems Builder • Deal Closer
-              </motion.p>
+        <div className="absolute inset-0 flex items-center justify-start z-10 px-8 md:px-12 lg:px-16">
+          <div className="w-xl" style={{ marginLeft: 0, marginRight: 'auto' }}>
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="t-label"
+            >
+              About Me
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              viewport={{ once: true }}
+              className="t-h2 mt-2"
+            >
+              My Story
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="t-label mt-2"
+            >
+              Real Estate Professional<br />Systems Builder • Deal Closer
+            </motion.p>
 
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
-              >
-                I've spent over two decades inside real estate transactions — working behind the scenes where mistakes actually show up.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                viewport={{ once: true }}
-                className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
-              >
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="stack mt-2"
+            >
+              <p className="t-body">
+                I've spent over two decades inside real estate transactions —<br />working behind the scenes where mistakes actually show up.
+              </p>
+              <p className="t-body">
                 I'm not here to teach aesthetics or hype.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                viewport={{ once: true }}
-                className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
-              >
-                I'm here to fix the operational side of deals that most people ignore until something breaks.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                viewport={{ once: true }}
-                className="font-sans text-base sm:text-[17px] font-normal text-white/75 leading-[1.6]"
-              >
+              </p>
+              <p className="t-body">
+                I'm here to fix the operational side of deals<br />that most people ignore until something breaks.
+              </p>
+              <p className="t-body">
                 That perspective informs everything I build.
-              </motion.p>
+              </p>
+            </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.85 }}
-                viewport={{ once: true }}
-                className="pt-2"
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.85 }}
+              viewport={{ once: true }}
+              className="mt-3"
+            >
+              <a
+                href="/about"
+                className="btn inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
               >
-                <a
-                  href="/about"
-                  className="font-sans inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium border border-white/20 text-white hover:opacity-80 transition-opacity"
-                >
-                  Learn More
-                  <ChevronRight className="w-4 h-4" />
-                </a>
-              </motion.div>
-            </div>
+                Learn More →
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -704,7 +680,6 @@ export default function Home() {
       <FunnelAnalyzer enabled={true} />
       <AnalyticsDashboard />
       */}
-      </div>
     </>
   );
 }

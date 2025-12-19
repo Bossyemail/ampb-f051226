@@ -13,10 +13,10 @@ export default function FinalCTA() {
           transition={{ duration: 0.6 }}
           className="space-y-4 sm:space-y-5"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight">
+          <h2 className="t-h2">
             Still Scrolling?
           </h2>
-          <p className="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
+          <p className="t-body" style={{ maxWidth: '640px', margin: '0 auto' }}>
             At some point, you stop browsing and start closing.<br />
             Chaos won’t fix itself.
           </p>
@@ -36,7 +36,7 @@ export default function FinalCTA() {
           >
             Try BossyEmail →
           </a>
-          <p className="text-xs text-gray-400 mt-2">Get started in under 60 seconds.</p>
+          <p className="t-label mt-2">Get started in under 60 seconds.</p>
         </motion.div>
       </div>
     </section>

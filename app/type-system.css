@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ============ TYPE SYSTEM ONLY (NO LAYOUT) ============ */
+/* Global typography rules applied to base elements */
+
+:root{
+  --t1: rgba(255,255,255,.95);
+  --t2: rgba(255,255,255,.75);
+  --t3: rgba(255,255,255,.55);
+
+  --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --gap1: 16px;
+  --gap2: 24px;
+  --gap3: 40px;
+  
+  --px: 24px;
+  --pxLg: 40px;
+}
+
+/* Global base element styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sans) !important;
+  text-align: left !important;
+  text-justify: auto !important;
+  hyphens: manual !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  margin: 0 !important;
+}
+
+h1 {
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.08 !important;
+  color: var(--t1) !important;
+  font-size: 40px !important;
+}
+@media(min-width:768px){ h1{ font-size: 52px !important; } }
+@media(min-width:1024px){ h1{ font-size: 56px !important; } }
+
+h2 {
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+  color: var(--t1) !important;
+  font-size: 28px !important;
+}
+@media(min-width:768px){ h2{ font-size: 34px !important; } }
+
+p, li {
+  font-family: var(--sans) !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+  color: var(--t2) !important;
+  margin: 0 !important;
+  text-align: left !important;
+  text-justify: auto !important;
+  hyphens: manual !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+@media(min-width:768px){ p, li { font-size: 17px !important; } }
+
+/* Apply max-width only to paragraphs in content areas */
+p:not([class*="text-"]):not([style*="max-width"]) {
+  max-width: 640px;
+}
+
+/* Label/Meta elements - use mono font */
+label, .label, [class*="label"], [class*="meta"] {
+  font-family: var(--mono) !important;
+  font-size: 12px !important;
+  letter-spacing: .22em !important;
+  text-transform: uppercase !important;
+  color: var(--t3) !important;
+  margin: 0 !important;
+  text-align: left !important;
+  text-justify: auto !important;
+  hyphens: manual !important;
+}
+@media(min-width:768px){ label, .label, [class*="label"], [class*="meta"] { font-size: 13px !important; } }
+
+/* Utility classes */
+.t-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin: 0;
+}
+@media(min-width:768px){ .t-label{ font-size: 13px; } }
+
+.t-h1{
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--t1);
+  margin: 0;
+  font-size: 40px;
+}
+@media(min-width:768px){ .t-h1{ font-size: 52px; } }
+@media(min-width:1024px){ .t-h1{ font-size: 56px; } }
+
+.t-h2{
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--t1);
+  margin: 0;
+  font-size: 28px;
+}
+@media(min-width:768px){ .t-h2{ font-size: 34px; } }
+
+.t-body{
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--t2);
+  margin: 0;
+}
+@media(min-width:768px){ .t-body{ font-size: 17px; } }
+
+/* spacing helpers for text blocks */
+.mt-1{ margin-top: var(--gap1); }
+.mt-2{ margin-top: var(--gap2); }
+.mt-3{ margin-top: var(--gap3); }
+.stack > * + *{ margin-top: var(--gap1); }
