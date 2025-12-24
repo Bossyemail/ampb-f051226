@@ -1,8 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import StickyNavigation from '@/components/StickyNavigation';
 import Footer from '@/components/Footer';
 import { 
@@ -17,157 +15,7 @@ import { structuredData, organizationData, breadcrumbData } from './structured-d
 export default function ElevatePage() {
   const startTime = useRef(Date.now());
   const scrollDepth = useRef(0);
-  const [activeTickerItem, setActiveTickerItem] = useState<string | null>('who-thrives');
 
-  const tickerItems = [
-    {
-      id: 'who-thrives',
-      number: '01',
-      title: 'Who Thrives With Us',
-      content: (
-        <>
-          <div className="mb-6">
-            <p>We're not for everyone — and that's the point. The agents who get the most value out of working with us share a few things in common. If this sounds like you, you're in the right place.</p>
-          </div>
-          
-          <div className="space-y-8">
-            {/* 1 - Seasoned */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Seasoned Pro</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">You've closed enough deals to know the basics — and you're running this like a full-time business. The numbers prove it. Now you need support that matches your level.</p>
-              </div>
-            </div>
-            
-            {/* 2 - Partner-Ready */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Partner-Ready Agent</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">You're ready to install systems, delegate real work, and stop being your own bottleneck.</p>
-                <p>You know delegation isn't a weakness — it's how you scale.</p>
-              </div>
-            </div>
-            
-            {/* 3 - Process-Driven */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Process-Driven Closer</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">You value compliance, fast communication, and decisive moves.</p>
-                <p>You respect timelines — and you respect the team that protects them.</p>
-              </div>
-            </div>
-            
-            {/* 4 - Growth-Focused */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Growth-Focused Hustler</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">You're not just maintaining — you're building. You want more volume, more leverage, and more freedom.</p>
-                <p>That takes a partner who can match your pace.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Call to Action Text */}
-          <div className="text-center mt-12">
-            <hr className="border-t border-white/10 w-32 mx-auto mb-8" />
-            <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
-              If you saw yourself in the list above, we should talk. The right fit isn't about convincing — it's about recognizing. And if you're nodding right now, you've found your team.
-            </p>
-          </div>
-        </>
-      )
-    },
-    {
-      id: 'who-we-cant-help',
-      number: '02',
-      title: 'Who We Can\'t Help',
-      content: (
-        <>
-          <div className="mb-6">
-            <p>We've learned through experience: not every agent is a good match. If you see yourself here, no hard feelings — we still want the best for you and your business.</p>
-          </div>
-          
-          <div className="space-y-8">
-            {/* 01 - Part-Timers */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Part-Timer</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">If real estate is your side hustle, we're not a fit.</p>
-                <p>We partner with professionals who treat this like a career, not a weekend gig.</p>
-              </div>
-            </div>
-            
-            {/* 02 - Fire-Drills Only */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Fire-Drill Caller</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">If you only call when your deal is already on fire, it's too late.</p>
-                <p>We prevent chaos — we don't just mop it up.</p>
-              </div>
-            </div>
-            
-            {/* 03 - Control Freaks */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Control Freak</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">If you can't let go of the paperwork and insist on micromanaging every addendum at 11 PM, this won't work.</p>
-                <p>We're here to take weight off your plate, not argue over it.</p>
-              </div>
-            </div>
-            
-            {/* 04 - Cut-Rate Chasers */}
-            <div>
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="text-white/60 text-4xl font-mono tracking-wider">04</span>
-                <span className="text-white/20 text-2xl">\</span>
-                <h3 className="text-lg font-semibold text-white">The Discount Shopper</h3>
-              </div>
-              <div className="text-base text-gray-300 ml-0 md:ml-16">
-                <p className="mb-1">If you're shopping for "the cheapest TC in town," keep scrolling.</p>
-                <p>We're about precision, compliance, and protecting your reputation — not bargain-bin shortcuts.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Call to Action Text */}
-          <div className="text-center mt-12">
-            <hr className="border-t border-white/10 w-32 mx-auto mb-8" />
-            <p className="text-gray-300 leading-relaxed text-base max-w-3xl mx-auto">
-              As independent contractors, we believe in choosing each other. If this isn't the right fit, no worries — we'll be here if anything changes. And if you thought, "Finally, someone who actually gets it," then let's not waste another deal.
-            </p>
-          </div>
-        </>
-      )
-    }
-  ];
 
   useEffect(() => {
     // Track page view
@@ -229,8 +77,7 @@ export default function ElevatePage() {
         }}
       />
       
-      <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
-        {/* Enhanced Sticky Navigation */}
+      <div className="min-h-screen text-white antialiased" style={{ backgroundColor: '#0E0F11' }}>
         <StickyNavigation />
 
         {/* Hero Section */}
@@ -245,303 +92,966 @@ export default function ElevatePage() {
           >
             <source src="/videos/office-background.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/60" />
-          {/* Gradient blend at bottom of hero video */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
+          <div className="absolute inset-0 bg-black/30 sm:bg-black/30 md:bg-black/45" />
+          {/* Gradient on right side for better stats visibility */}
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0E0F11] via-[#0E0F11]/60 via-transparent to-transparent" style={{ background: 'linear-gradient(to left, rgba(14, 15, 17, 1) 0%, rgba(14, 15, 17, 0.8) 20%, rgba(14, 15, 17, 0.4) 40%, transparent 60%)' }} />
+          {/* Gradient on left side for better text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0F11] via-[#0E0F11]/60 via-transparent to-transparent" style={{ background: 'linear-gradient(to right, rgba(14, 15, 17, 1) 0%, rgba(14, 15, 17, 0.8) 20%, rgba(14, 15, 17, 0.4) 40%, transparent 60%)' }} />
+          {/* Gradient blend at bottom of hero */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0E0F11] to-transparent" />
           <div className="absolute inset-0 flex items-center pt-64">
-            <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
-                <div className="md:col-span-3">
-                  <div className="text-left">
-                    <motion.p 
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="text-sm italic text-gray-300 mb-2"
+            <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
+              <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+                <div className="lg:col-span-7">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    TC SERVICES
+                  </p>
+
+                  <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+                    Transaction coordination for agents who refuse to compromise.
+                  </h1>
+
+                  <div className="mt-6 max-w-[22rem] sm:max-w-2xl">
+                    <p className="text-base leading-relaxed text-white/75 sm:text-white/70 sm:text-lg">
+                      This is not checklist support.
+                      It's licensed, high-precision transaction coordination designed to protect your
+                      reputation, timelines, and peace of mind — under real volume.
+                    </p>
+
+                    <p className="mt-6 text-base leading-relaxed text-white/75 sm:text-white/70">
+                      If your business depends on clean execution from contract to close,
+                      this is the layer that keeps everything quiet.
+                    </p>
+                  </div>
+
+                  <div className="mt-10 flex flex-wrap items-center gap-4">
+                    <a 
+                      href="#fit"
+                      className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90"
+                      style={{ color: '#000000' }}
                     >
-                      Here is
-                    </motion.p>
-                    <motion.h2 
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
-                      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-2 leading-tight"
-                    >
-                      A Tailored TC Service for Agents Who Refuse to Compromise.
-                    </motion.h2>
-                    <motion.p 
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                      className="text-sm italic text-gray-300 mb-6"
-                    >
-                      Local • Licensed • Experienced
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      className="text-sm sm:text-base text-gray-300 max-w-2xl leading-relaxed mb-6"
-                    >
-                      Your deals deserve more than checklists. Our licensed South Florida team delivers precision, speed, and discretion — so your reputation stays flawless and your clients stay protected.
-                    </motion.p>
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 }}
-                    >
-                      <a
-                        href="https://form.jotform.com/252496909826069"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5 text-sm sm:text-base"
-                        aria-label="Schedule a discovery call"
-                        onClick={() => handleButtonClick('Are We a Fit?', 'hero')}
-                      >
-                        Are We a Fit? <span>{'>'}</span>
-                      </a>
-                      <div className="mt-6"></div>
-                    </motion.div>
+                      Are We a Fit? →
+                    </a>
+                    <p className="text-sm text-white/55">
+                      Limited capacity · Select clients only
+                    </p>
                   </div>
                 </div>
-                <div className="md:col-span-3">
-                  {/* Right side space for stats overlay */}
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* STATS OVERLAY */}
-          <aside
-            className="pointer-events-none absolute right-6 top-80 hidden w-56 select-none lg:block"
-            aria-label="TC Services stats"
-          >
-            <div className="space-y-6">
-              {/* item */}
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <p className="text-white text-4xl font-mono tracking-wider text-right">20+</p>
-                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
-              </motion.div>
-
-              <hr className="border-t border-white/10" />
-
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-              >
-                <p className="text-white text-4xl font-mono tracking-wider text-right">Local</p>
-                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">SOUTH FLORIDA</p>
-              </motion.div>
-
-              <hr className="border-t border-white/10" />
-
-                                        <motion.div
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.0 }}
-                          >
-                            <p className="text-white text-4xl font-mono tracking-wider text-right">Zero</p>
-                            <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">RISK TOLERANCE</p>
-                          </motion.div>
-            </div>
-          </aside>
-        </section>
-
-        {/* Problem Section */}
-        <section className="py-20 px-4 lg:px-8 relative z-10 bg-[#121216]">
-          <div className="relative z-10 flex justify-center">
-            <div className="max-w-4xl text-center space-y-6">
-              <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">{/* Section Heading */}
-                Transaction Coordination.<br /><em>Redefined.</em>
-              </h1>
-              <p className="text-gray-300 leading-relaxed text-base text-center max-w-3xl mx-auto">
-                We don't just push paperwork — we protect your reputation, your time, and your sanity. With 30+ years of combined expertise in lending, title, and sales, we bring unmatched local knowledge and airtight execution to every closing. From contract to keys, nothing slips through the cracks.
-              </p>
-              <div className="font-medium text-white text-center">
-                We're not for everyone — and that's intentional.
-              </div>
-              <p className="text-gray-300 leading-relaxed text-base text-center max-w-3xl mx-auto">
-                We partner exclusively with full-time professionals who value precision and speed. If you're serious about scaling your business and done with chasing signatures at 11 PM, you're in the right place.
-              </p>
-            </div>
-          </div>
-        </section>
-
-
-        {/* Product Demo Section */}
-        <section className="bg-[#121216] w-full">
-          <div className="relative w-full pt-[40%] overflow-hidden">
-            <video
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-            >
-              <source src="/videos/office-background.mp4" type="video/mp4" />
-            </video>
-            {/* Gradient blend at top of video */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#121216] to-transparent z-10" />
-            {/* Gradient blend at bottom of video */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
-            
-          </div>
-        </section>
-
-        {/* Interactive Ticker Navigation - Below video */}
-        <section className="bg-[#121216] py-8">
-          <div className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-16">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8 w-full text-sm"
-            >
-              {tickerItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveTickerItem(activeTickerItem === item.id ? null : item.id)}
-                  className={`flex items-center gap-1 sm:gap-2 md:gap-4 transition-all duration-300 hover:scale-105 ${
-                    activeTickerItem === item.id ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-                  }`}
-                >
-                  <span className={`text-2xl sm:text-3xl font-mono tracking-wider transition-colors duration-300 ${
-                    activeTickerItem === item.id ? 'text-white' : 'text-white/60'
-                  }`}>
-                    {item.number}
-                  </span>
-                  <span className="text-neutral-500">\</span>
-                  <span className={`transition-colors duration-300 ${
-                    activeTickerItem === item.id ? 'text-white' : 'text-white'
-                  }`}>
-                    {item.title}
-                  </span>
-                </button>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Ticker Content Section */}
-        {activeTickerItem && (
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="bg-[#121216] pt-8 pb-8"
-          >
-            <div className="mx-auto max-w-4xl px-4 lg:px-8">
-              {tickerItems
-                .filter(item => item.id === activeTickerItem)
-                .map((item) => (
-                  <div key={item.id} className="text-left">
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                      className="text-base text-neutral-300 leading-relaxed max-w-4xl space-y-4"
+                {/* Right: Credibility / Constraints Card */}
+                <div className="lg:col-span-5">
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
                     >
-                      <div>
-                        {typeof item.content === 'string' ? (
-                          <p>{item.content}</p>
-                        ) : (
-                          item.content
-                        )}
+                      WHAT THIS IS
+                    </p>
+
+                    <div className="mt-6 space-y-6 text-sm text-white/70">
+                      <div className="flex items-start gap-4">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          01
+                        </span>
+                        <p>
+                          Licensed transaction coordination with deep contract fluency
+                        </p>
                       </div>
-                    </motion.div>
+
+                      <div className="h-px bg-white/10"></div>
+
+                      <div className="flex items-start gap-4">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          02
+                        </span>
+                        <p>
+                          Active deadline management, document control, and risk flagging
+                        </p>
+                      </div>
+
+                      <div className="h-px bg-white/10"></div>
+
+                      <div className="flex items-start gap-4">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          03
+                        </span>
+                        <p>
+                          Backend protection for agents closing real volume
+                        </p>
+                      </div>
+
+                      <div className="h-px bg-white/10"></div>
+
+                      <div className="flex items-start gap-4">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          04
+                        </span>
+                        <p>
+                          Not a marketplace service · Not a low-cost add-on
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="mt-8 text-xs text-white/55">
+                      This works best when expectations are clear — on both sides.
+                    </p>
                   </div>
-                ))}
-            </div>
-          </motion.section>
-        )}
-
-        {/* Signup Section */}
-        <div className="bg-[#121216] text-center py-8">
-          <a href="https://form.jotform.com/252496909826069"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-block px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Are We a Fit?', 'signup')}>
-            Are We a Fit? <span>{'>'}</span>
-          </a>
-          <p className="text-sm text-gray-400 mt-2">Limited space available.</p>
-        </div>
-
-        {/* Solution Section */}
-        <section className="py-16 px-4 lg:px-8 relative z-10 bg-[#121216]">
-          <div className="relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8 space-y-4">
-                <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
-                  Your Partner in Business — <span className="italic font-normal">On Demand</span>
-                </h2>
-                <p className="text-gray-300 leading-relaxed">
-                  We don't just manage paperwork
-                </p>
-                <p className="text-gray-300 leading-relaxed -mt-4">
-                  — we protect your reputation, your time, and your sanity with unmatched expertise.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-                <div className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">Tailored</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">Agent-Specific</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">Zero</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">Risk Tolerance</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">Aligned</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">Mutual Success</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1">Licensed</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">Local Insight</p>
-                </div>
-              </div>
-              <div className="text-center mt-8 mb-8">
-                <p className="text-gray-400 italic text-sm">
-                  This isn't about replacing you
-                </p>
-                <p className="text-gray-400 italic text-sm">
-                  — it's about adding value, competence, and structure your clients will notice immediately.
-                </p>
               </div>
             </div>
           </div>
         </section>
 
+        <div className="mx-auto max-w-6xl px-6 sm:px-10">
+          {/* FIT FILTER Section */}
+          <section id="fit" className="py-24 sm:py-32">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-12 sm:p-16">
+              <div className="max-w-4xl">
+                <p 
+                  className="font-mono text-xs tracking-[0.28em] text-white/55"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  FIT MATTERS
+                </p>
 
-        {/* Final CTA Section */}
-        <section className="py-16 pb-24 px-4 lg:px-8 relative z-10 bg-[#121216] text-center">
-          <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">
-            Let's See If We're a <em>Good</em> Fit
-          </h2>
-          <p className="text-gray-300 leading-relaxed mb-6 max-w-2xl mx-auto">
-            Because we work closely with each agent, space is limited. Schedule a call today to see how we can help you close more deals, with less stress.
-          </p>
-          <a
-            href="https://form.jotform.com/252496909826069"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-            onClick={() => handleButtonClick('Are We a Fit?', 'final-cta')}
-          >
-            Are We a Fit? <span>{'>'}</span>
-          </a>
-          <p className="text-sm text-gray-400 mt-4">
-            Limited space available.
-          </p>
-        </section>
+                <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  This service is intentionally not for everyone.
+                </h2>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                  Transaction coordination works best when expectations, communication,
+                  and responsibility are clearly defined.
+                  This page exists to make sure we're aligned before we ever talk.
+                </p>
+              </div>
+
+              <div className="mt-14 grid gap-10 lg:grid-cols-2">
+                {/* WHO IT'S FOR */}
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 shadow-[0_20px_80px_rgba(0,0,0,.5)]">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    THIS IS FOR YOU IF
+                  </p>
+
+                  <ul className="mt-8 space-y-6 text-sm text-white/75">
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>
+                        You close consistent volume and need a reliable backend partner —
+                        not just help "when things get busy."
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>
+                        You care deeply about deadlines, documentation, and protecting your reputation.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>
+                        You want fewer fires, fewer surprises, and fewer late-night emergencies.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>
+                        You respect process and understand that clean systems beat heroics.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* WHO IT'S NOT FOR */}
+                <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    THIS IS NOT FOR YOU IF
+                  </p>
+
+                  <ul className="mt-8 space-y-6 text-sm text-white/65">
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>
+                        You're looking for the cheapest TC option available.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>
+                        You expect last-minute saves without following a process.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>
+                        You treat deadlines as flexible suggestions.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>
+                        You want someone to absorb chaos instead of eliminating it.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/10 pt-10">
+                <p className="text-sm text-white/60 max-w-3xl">
+                  If the first list felt like a relief — and the second made you uncomfortable —
+                  we're probably a fit.
+                </p>
+
+                <a 
+                  href="#process"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
+                >
+                  See how it works →
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* SCOPE / OUTCOMES Section */}
+          <section id="process" className="py-24 sm:py-32">
+            <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+              {/* Left: Outcomes framing */}
+              <div className="lg:col-span-5">
+                <p 
+                  className="font-mono text-xs tracking-[0.28em] text-white/55"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  01 \ SCOPE
+                </p>
+
+                <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  The outcome is a quiet closing.
+                </h2>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                  You don't hire a TC for "help." You hire one to remove risk, protect deadlines,
+                  and keep the transaction moving without constant supervision.
+                </p>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70">
+                  My job is to run the file like an operator — so you can stay in sales mode.
+                </p>
+
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                    Deadline control
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                    Document discipline
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                    Clear communication
+                  </span>
+                </div>
+              </div>
+
+              {/* Right: Outcome cards */}
+              <div className="lg:col-span-7">
+                <div className="space-y-6">
+                  {/* Primary outcome card */}
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      WHAT YOU GET
+                    </p>
+
+                    <h3 className="mt-4 text-xl font-semibold tracking-tight text-white/90">
+                      A file that stays tight from contract to close.
+                    </h3>
+
+                    <p className="mt-4 text-sm leading-relaxed text-white/70">
+                      Clean timelines, clear ownership, and documentation handled like it matters —
+                      because it does.
+                    </p>
+
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2 text-sm text-white/70">
+                      <div className="flex gap-3">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          01
+                        </span>
+                        <span>Deadline tracking + proactive reminders</span>
+                      </div>
+                      <div className="flex gap-3">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          02
+                        </span>
+                        <span>Document collection + compliance packaging</span>
+                      </div>
+                      <div className="flex gap-3">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          03
+                        </span>
+                        <span>Coordination with title, lenders, agents, vendors</span>
+                      </div>
+                      <div className="flex gap-3">
+                        <span 
+                          className="font-mono text-white/45"
+                          style={{
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontVariantNumeric: 'slashed-zero',
+                            fontFeatureSettings: '"zero"',
+                          }}
+                        >
+                          04
+                        </span>
+                        <span>Risk flagging before it becomes expensive</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Supporting cards */}
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8">
+                      <p 
+                        className="font-mono text-xs tracking-[0.28em] text-white/55"
+                        style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                      >
+                        COMMUNICATION
+                      </p>
+                      <h4 className="mt-4 text-lg font-semibold tracking-tight text-white/90">
+                        Clear, documented, decisive
+                      </h4>
+                      <p className="mt-4 text-sm leading-relaxed text-white/70">
+                        Every request, follow-up, and "we still need this" message is handled with professional tone
+                        and written clarity — so nothing gets lost and no one gets to rewrite history later.
+                      </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8">
+                      <p 
+                        className="font-mono text-xs tracking-[0.28em] text-white/55"
+                        style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                      >
+                        PROCESS
+                      </p>
+                      <h4 className="mt-4 text-lg font-semibold tracking-tight text-white/90">
+                        Systems over heroics
+                      </h4>
+                      <p className="mt-4 text-sm leading-relaxed text-white/70">
+                        I run repeatable workflows, not "best effort."
+                        That's how deals stay calm under pressure — and why this only works with clients who respect process.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Boundaries note */}
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      IMPORTANT
+                    </p>
+                    <p className="mt-4 text-sm leading-relaxed text-white/70">
+                      This service is designed to reduce fires — not absorb them.
+                      If a file is already off the rails, we can stabilize it, but the goal is prevention:
+                      clear deadlines, clean documentation, and proactive control.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA row */}
+            <div className="mt-14 flex flex-wrap items-center gap-4">
+              <a 
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90"
+              >
+                Request availability →
+              </a>
+              <p className="text-sm text-white/55">
+                If you're protecting a brand, not just chasing closings, this is the right layer.
+              </p>
+            </div>
+          </section>
+
+          {/* RULES / EXPECTATIONS Section */}
+          <section className="py-24 sm:py-32">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-12 sm:p-16">
+              <div className="max-w-4xl">
+                <p 
+                  className="font-mono text-xs tracking-[0.28em] text-white/55"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  02 \ RULES
+                </p>
+
+                <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  Clear expectations keep deals clean.
+                </h2>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                  This service works because boundaries are defined up front.
+                  These aren't preferences — they're non-negotiables designed to protect the transaction,
+                  your reputation, and my capacity to do the work properly.
+                </p>
+              </div>
+
+              <div className="mt-14 grid gap-10 lg:grid-cols-2">
+                {/* HOW I WORK */}
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 shadow-[0_20px_80px_rgba(0,0,0,.5)]">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    HOW I WORK
+                  </p>
+
+                  <ul className="mt-8 space-y-6 text-sm text-white/75">
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>
+                        I run the file proactively — tracking deadlines, documents, and risk before they become problems.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>
+                        Communication is direct, documented, and professional at all times.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>
+                        If something jeopardizes the deal, you'll hear it early — even if it's uncomfortable.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>
+                        I don't guess, assume, or rely on memory. Everything is verified and logged.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* WHAT I DON'T DO */}
+                <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    WHAT I DON'T DO
+                  </p>
+
+                  <ul className="mt-8 space-y-6 text-sm text-white/65">
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>
+                        I don't chase missing documents without agent support and accountability.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>
+                        I don't cut corners to "move things along."
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>
+                        I don't absorb chaos caused by ignored deadlines or last-minute decisions.
+                      </span>
+                    </li>
+
+                    <li className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/40"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>
+                        I don't operate in gray areas that expose you — or me — to unnecessary risk.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Bottom framing */}
+              <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-white/10 pt-10">
+                <p className="text-sm text-white/60 max-w-3xl">
+                  These rules exist so deals don't rely on adrenaline, favors, or last-minute saves.
+                  If this structure feels like relief, we'll work well together.
+                </p>
+
+                <a 
+                  href="#availability"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
+                >
+                  Check availability →
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* CAPACITY Section */}
+          <section id="availability" className="py-24 sm:py-32">
+            <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+              {/* Left: Scarcity Framing */}
+              <div className="lg:col-span-5">
+                <p 
+                  className="font-mono text-xs tracking-[0.28em] text-white/55"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  03 \ CAPACITY
+                </p>
+
+                <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  This only works at limited scale.
+                </h2>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                  High-precision transaction coordination doesn't scale endlessly —
+                  and that's intentional.
+                </p>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70">
+                  Every file I take on requires active oversight, judgment calls,
+                  and real accountability. Expanding beyond a certain point would
+                  compromise the very thing clients hire me for: control.
+                </p>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70">
+                  That's why availability is limited — and why I work with a small,
+                  vetted group of agents at any given time.
+                </p>
+              </div>
+
+              {/* Right: Capacity Card */}
+              <div className="lg:col-span-7">
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 sm:p-12 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    HOW AVAILABILITY WORKS
+                  </p>
+
+                  <div className="mt-8 space-y-6 text-sm text-white/75">
+                    <div className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>
+                        I cap the number of active files to maintain quality, speed, and accuracy.
+                      </span>
+                    </div>
+
+                    <div className="h-px bg-white/10"></div>
+
+                    <div className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>
+                        New clients are accepted based on timing, volume, and overall fit —
+                        not first come, first served.
+                      </span>
+                    </div>
+
+                    <div className="h-px bg-white/10"></div>
+
+                    <div className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>
+                        When capacity is full, inquiries are waitlisted rather than rushed.
+                      </span>
+                    </div>
+
+                    <div className="h-px bg-white/10"></div>
+
+                    <div className="flex gap-4">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>
+                        The goal is consistency — not growth at the expense of execution.
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-10 rounded-2xl border border-white/10 bg-black/20 p-6">
+                    <p className="text-sm leading-relaxed text-white/70">
+                      This model exists so you're never wondering who's watching your file —
+                      or whether something slipped through the cracks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA bridge */}
+            <div className="mt-14 flex flex-wrap items-center gap-4">
+              <a 
+                href="#final"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
+              >
+                Next: How to engage →
+              </a>
+              <p className="text-sm text-white/55">
+                If you value consistency over convenience, this is intentional.
+              </p>
+            </div>
+          </section>
+
+          {/* FINAL CTA Section */}
+          <section id="final" className="py-28 sm:py-40">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-12 sm:p-16">
+              <div className="max-w-3xl">
+                <p 
+                  className="font-mono text-xs tracking-[0.28em] text-white/55"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  NEXT STEP
+                </p>
+
+                <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  If this felt like relief, we should talk.
+                </h2>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                  I work with a limited number of agents because the standard is the product:
+                  clean files, controlled timelines, and zero "what happened?" surprises.
+                </p>
+
+                <p className="mt-6 text-base leading-relaxed text-white/70">
+                  If you're the type of agent who values process, protects your reputation,
+                  and wants a backend partner — not a "helper" — this is a strong fit.
+                </p>
+
+                <div className="mt-12 flex flex-wrap items-center gap-4">
+                  <a 
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90"
+                    style={{ color: '#000000' }}
+                  >
+                    Request availability →
+                  </a>
+
+                  <p className="text-sm text-white/55">
+                    Fit-based · Limited capacity · No chaos
+                  </p>
+                </div>
+
+                <div className="mt-12 rounded-2xl border border-white/10 bg-black/20 p-7">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    WHAT TO INCLUDE
+                  </p>
+
+                  <div className="mt-5 grid gap-3 text-sm text-white/70 sm:grid-cols-2">
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>Average monthly volume</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>Primary market / areas</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>Transaction types / systems</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>Ideal start timeframe</span>
+                    </div>
+                  </div>
+
+                  <p className="mt-5 text-xs text-white/55">
+                    The goal is to confirm fit quickly and respect everyone's time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
 
         {/* Footer */}
         <Footer />

@@ -3,10 +3,13 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   darkMode: "class",
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,html}",
+    "./app/**/*.{js,ts,jsx,tsx,html}",
+    "./pages/**/*.{js,ts,jsx,tsx,html}",
+    "./components/**/*.{js,ts,jsx,tsx,html}",
+    "./hooks/**/*.{js,ts,jsx,tsx,html}",
+    "./utils/**/*.{js,ts,jsx,tsx,html}",
+    "./lib/**/*.{js,ts,jsx,tsx,html}",
   ],
   prefix: "",
   theme: {
@@ -85,6 +88,17 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: [
+    // Layout utilities that might be dynamically generated
+    "max-w-6xl",
+    "px-6",
+    "sm:px-10",
+    "lg:grid-cols-12",
+    "lg:col-span-5",
+    "lg:col-span-7",
+    "gap-10",
+    "mx-auto",
+  ],
 } satisfies Config;
 
 export default config;

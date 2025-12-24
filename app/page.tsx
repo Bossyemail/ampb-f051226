@@ -1,685 +1,1296 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
 import StickyNavigation from '@/components/StickyNavigation';
-import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
-import ContactSection from '@/components/ContactSection';
-import FinalCTA from '@/components/FinalCTA';
-import ServicesTicker from '@/components/ServicesTicker';
 import Footer from '@/components/Footer';
-import { organizationData, personData, websiteData } from '@/lib/structured-data';
-import { usePageAnalytics } from '@/hooks/useAnalytics';
-import { FunnelStep } from '@/lib/analytics-enhanced';
-import { initializeAdvancedAnalytics } from '@/lib/analytics-advanced';
-// Analytics components - only import when needed for development
-// import PerformanceMonitor from '@/components/PerformanceMonitor';
-// import FunnelAnalyzer from '@/components/FunnelAnalyzer';
-// import AnalyticsDashboard from '@/components/AnalyticsDashboard';
 
-export default function Home() {
-  const [openItems, setOpenItems] = useState<number[]>([]);
-  const [activeEditorialItem, setActiveEditorialItem] = useState<string | null>('why');
+export default function Page() {
+  return (
+    <div className="text-white antialiased" style={{ backgroundColor: '#0E0F11' }}>
+      <StickyNavigation />
 
-  // Initialize analytics for this page
-  usePageAnalytics('Home Page', FunnelStep.VISIT);
-  
-  // Initialize advanced analytics
-  useEffect(() => {
-    initializeAdvancedAnalytics();
+      {/* HERO */}
+      <HeroNew />
+
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        {/* WHAT I BUILD */}
+        <WhatIBuildNew />
+
+        {/* ROLLER SECTION - breaks out of container for full bleed */}
+      </div>
+      <RollerSection />
+      <div className="mx-auto max-w-6xl px-6 sm:px-10 pt-16 pb-24 sm:pt-20 sm:pb-32" style={{ backgroundColor: '#0E0F11' }}>
+
+        {/* CTA: BOSSYEMAIL */}
+        <BossyEmailCTANew />
+
+        {/* REVIEWS: heading only */}
+        <ReviewsHeadingNew />
+
+        {/* REVIEWS - Keep existing Testimonials component */}
+        <Testimonials />
+      </div>
+
+        {/* ABOUT PREVIEW - breaks out of container for full bleed */}
+        <AboutPreviewNew />
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        {/* FINAL CTA */}
+        <FinalCTANew />
+
+        {/* CONTACT SECTION */}
+        <ContactSectionNew />
+
+        {/* EDGE-TO-EDGE INFINITE INDEXED TICKER */}
+        <EdgeToEdgeTickerNew />
+      </div>
+
+      {/* FOOTER */}
+      <Footer />
+    </div>
+  );
+}
+
+/* ----------------------------- HERO ----------------------------- */
+function HeroNew() {
+  return (
+    <section className="relative min-h-[92vh] overflow-hidden" style={{ backgroundColor: '#0E0F11' }}>
+      {/* Background image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(/images/14.png)",
+          backgroundSize: "60%",
+          backgroundPosition: "center 35%",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+
+      {/* Side gradients to blend image edges into soft charcoal background - stronger right side and bottom */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(14, 15, 17, 1) 0%, rgba(14, 15, 17, 0.95) 10%, rgba(14, 15, 17, 0.8) 20%, rgba(14, 15, 17, 0.4) 30%, transparent 35%, transparent 55%, rgba(14, 15, 17, 0.5) 65%, rgba(14, 15, 17, 0.85) 75%, rgba(14, 15, 17, 0.95) 85%, rgba(14, 15, 17, 1) 100%)' }}></div>
+      {/* Bottom fade gradient - blends to soft charcoal */}
+      <div className="absolute inset-x-0 bottom-0 h-64" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(14, 15, 17, 0.4) 50%, rgba(14, 15, 17, 1) 100%)' }}></div>
+
+      {/* Content container */}
+      <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
+        {/* HERO GRID */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* LEFT COPY (pushed DOWN) */}
+          <div className="lg:col-span-6">
+            {/* This spacer is what moves everything lower */}
+            <div className="pt-32 sm:pt-36 lg:pt-40">
+              <p
+                className="text-[10px] tracking-[0.28em] text-white/55"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                }}
+              >
+                HI THERE
+              </p>
+
+              <h1 className="mt-3 mb-8 text-4xl font-semibold tracking-tight sm:text-5xl" style={{ lineHeight: '1.08' }}>
+                I&apos;m Aylen<span className="text-white/90">,</span>
+              </h1>
+
+              <p className="mb-6 max-w-[65ch] text-base sm:text-[17px] text-white/75" style={{ lineHeight: '1.7' }}>
+                I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.
+              </p>
+
+              <p className="mb-6 max-w-[65ch] text-base sm:text-[17px] text-white/75" style={{ lineHeight: '1.7' }}>
+                Contracts, deadlines, and communication don&apos;t need to be chaotic. I build tools, systems, and support that keep transactions moving — quietly and correctly.
+              </p>
+
+              {/* Buttons: rectangular, with "selected" style available */}
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                {/* Selected example (white) */}
+                <Link
+                  href="/tools"
+                  className="inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90"
+                  style={{ color: '#000000' }}
+                >
+                  Explore the Tools
+                </Link>
+
+                {/* Default button */}
+                <Link
+                  href="/work-with-me"
+                  className="inline-flex items-center justify-center rounded-md border border-white/18 bg-white/0 px-5 py-2.5 text-sm font-medium text-white/85 hover:border-white/30 hover:bg-white/5 hover:text-white"
+                >
+                  Work With Me
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT STATS (no box, floating) */}
+          <div className="lg:col-span-6">
+            <div className="pt-24 sm:pt-28 lg:pt-32">
+              <div className="max-w-[360px] lg:ml-auto">
+                <div className="space-y-7 text-right">
+                  <div className="pb-6">
+                    <div className="text-xl font-semibold tracking-tight text-white/90">20+</div>
+                    <div
+                      className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                      }}
+                    >
+                      YEARS EXPERIENCE
+                    </div>
+                    {/* half-length divider */}
+                    <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+                  </div>
+
+                  <div className="pb-6">
+                    <div className="text-xl font-semibold tracking-tight text-white/90">3K+</div>
+                    <div
+                      className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                      }}
+                    >
+                      CLOSED DEALS
+                    </div>
+                    {/* half-length divider */}
+                    <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+                  </div>
+
+                  <div className="pb-6">
+                    <div className="text-xl font-semibold tracking-tight text-white/90">4+</div>
+                    <div
+                      className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                      }}
+                    >
+                      SAAS PRODUCTS BUILT
+                    </div>
+                    {/* half-length divider */}
+                    <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider line at bottom of hero */}
+          <div className="lg:col-span-12">
+            <div className="mt-16 h-px w-full bg-white/10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+/* -------------------------- WHAT I BUILD -------------------------- */
+function WhatIBuildNew() {
+  return (
+    <section className="py-24 sm:py-32">
+      <div className="grid gap-10 lg:grid-cols-12">
+        {/* Left intro */}
+        <div className="lg:col-span-4">
+          <p
+            className="text-[10px] tracking-wide text-white/50"
+            style={{ 
+              fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+            }}
+          >
+            WHAT I BUILD
+          </p>
+
+          <h2 className="mt-3 mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
+            Tools that remove the chaos.
+          </h2>
+
+          <p className="mb-6 max-w-[65ch] text-base text-white/70" style={{ lineHeight: '1.7' }}>
+            These are the systems behind the scenes — bottled up and built for scale.
+          </p>
+        </div>
+
+        {/* Right: expandable rows */}
+        <div className="lg:col-span-8">
+          <div className="overflow-hidden rounded-2xl border border-white/10" style={{ backgroundColor: '#0E0F11' }}>
+            {/* Row 01 */}
+            <details className="border-b border-white/10">
+              <summary className="flex w-full cursor-pointer list-none items-start gap-5 p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
+                <div
+                  className="pt-0.5 text-lg tracking-[0.28em] text-white/45 sm:text-xl"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  01
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl" style={{ lineHeight: '1.2' }}>
+                        BossyEmail
+                      </h3>
+                      <p className="mt-3 mb-6 max-w-[65ch] text-sm text-white/65" style={{ lineHeight: '1.7' }}>
+                        Email templates + AI generator built for real estate chaos. Stop rewriting the same message 47 times.
+                      </p>
+                    </div>
+
+                    {/* chevron */}
+                    <svg
+                      className="details-chevron mt-1 h-5 w-5 flex-none text-white/55 transition-transform duration-200"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M6 9l6 6 6-6"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </summary>
+
+              {/* Expanded content (clean, not boxy) */}
+              <div className="details-content px-6 pb-6 sm:px-7">
+                <div className="ml-[calc(1.25rem+1.25rem)] max-w-[65ch] text-sm text-white/70 sm:ml-[calc(1.75rem+1.25rem)]" style={{ lineHeight: '1.7' }}>
+                  <div className="mt-4 aspect-video w-full rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                    <video
+                      className="w-full h-full object-cover"
+                      controls
+                      preload="metadata"
+                    >
+                      <source src="/videos/bossyemail-vsl.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            {/* Row 02 */}
+            <details className="border-b border-white/10">
+              <summary className="flex w-full cursor-pointer list-none items-start gap-5 p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
+                <div
+                  className="pt-0.5 text-lg tracking-[0.28em] text-white/45 sm:text-xl"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  02
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                        ClauseVault
+                      </h3>
+                      <p className="mt-3 mb-6 max-w-[65ch] text-sm text-white/65" style={{ lineHeight: '1.7' }}>
+                        Contract language support that keeps deals moving — without playing attorney.
+                      </p>
+                    </div>
+
+                    <svg
+                      className="details-chevron mt-1 h-5 w-5 flex-none text-white/55 transition-transform duration-200"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M6 9l6 6 6-6"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </summary>
+
+              <div className="details-content px-6 pb-6 sm:px-7">
+                <div className="ml-[calc(1.25rem+1.25rem)] max-w-[65ch] text-sm text-white/70 sm:ml-[calc(1.75rem+1.25rem)]" style={{ lineHeight: '1.7' }}>
+                  <div className="mt-4 aspect-video w-full rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                    <video
+                      className="w-full h-full object-cover"
+                      controls
+                      preload="metadata"
+                    >
+                      <source src="/videos/clausevault-vsl 2.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            {/* Row 03 */}
+            <details>
+              <summary className="flex w-full cursor-pointer list-none items-start gap-5 p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
+                <div
+                  className="pt-0.5 text-lg tracking-[0.28em] text-white/45 sm:text-xl"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  03
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                        Transaction Coordination
+                      </h3>
+                      <p className="mt-3 mb-6 max-w-[65ch] text-sm text-white/65" style={{ lineHeight: '1.7' }}>
+                        White-glove file management for agents who want fewer fires and fewer surprises.
+                      </p>
+                    </div>
+
+                    <svg
+                      className="details-chevron mt-1 h-5 w-5 flex-none text-white/55 transition-transform duration-200"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M6 9l6 6 6-6"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </summary>
+
+              <div className="details-content px-6 pb-6 sm:px-7">
+                <div className="ml-[calc(1.25rem+1.25rem)] max-w-[65ch] text-sm text-white/70 sm:ml-[calc(1.75rem+1.25rem)]" style={{ lineHeight: '1.7' }}>
+                  <div className="mt-4 aspect-video w-full rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                    <video
+                      className="w-full h-full object-cover"
+                      controls
+                      preload="metadata"
+                    >
+                      <source src="/videos/tc-services.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- ROLLER SECTION -------------------------- */
+function RollerSection() {
+  const sectionElementRef = React.useRef<HTMLDivElement>(null);
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const [step, setStep] = React.useState(1);
+  const wheelLockedRef = React.useRef(false);
+
+  const H = 220; // must match window height
+  // Track items: [03,04,01,02,03,04,01,02]
+  // Middle indexes (4..7) = 03,04,01,02
+  const stepToMiddleIndex: { [key: number]: number } = { 1: 6, 2: 7, 3: 4, 4: 5 }; // 01,02,03,04
+
+  const stageText: { [key: number]: string } = { 1: "PROBLEM", 2: "WHY", 3: "WHAT", 4: "WHO" };
+
+  const copy = React.useMemo(() => ({
+    1: {
+      title: "Deals don't fall apart from drama.",
+      body: "They fall apart from friction.\n\nMissed details. Unclear ownership.\n\n\"I thought you had it\" moments that quietly stack up under pressure.\n\nUnder volume, small gaps become expensive fast.",
+      foot: "Deadlines slip. Communication fragments. Reputations take hits — without anyone noticing until it's too late."
+    },
+    2: {
+      title: "Because most agents are scaling activity, not systems.",
+      body: "As deal volume increases, coordination becomes invisible work —\n\nand invisible work is where things break.\n\nMore emails. More people. More handoffs.\n\nSame tools. Same habits. Same fire-drills.",
+      foot: "Chaos doesn't come from incompetence. It comes from growth without structure."
+    },
+    3: {
+      title: "Control.",
+      body: "Not micromanagement.\n\nNot working harder.\n\nNot being \"on\" 24/7.\n\nReal control comes from clear ownership, clean communication, and repeatable systems that run whether you're watching or not.",
+      foot: "When the process is tight, deals move quietly. When deals move quietly, your reputation compounds."
+    },
+    4: {
+      title: "This is built for agents and teams who:",
+      body: "Close enough volume to feel the friction\n\nCare deeply about reputation, speed, and consistency\n\nAre done being the safety net for broken processes\n\nWant fewer fires — not more adrenaline",
+      foot: "If you're protecting a brand, not just chasing closings, you don't need more hustle. You need control."
+    }
+  }), []);
+
+  const [cardContent, setCardContent] = React.useState(copy[1]);
+
+  const styleButtons = React.useCallback((activeStep: number) => {
+    if (typeof document === 'undefined') return;
+    const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('button[data-step]'));
+    btns.forEach((b) => {
+      const isActive = Number(b.dataset.step) === activeStep;
+      b.style.opacity = isActive ? "1" : ".65";
+      b.style.background = isActive ? "rgba(255,255,255,.10)" : "transparent";
+      b.style.borderColor = isActive ? "rgba(255,255,255,.28)" : "rgba(255,255,255,.15)";
+      b.style.color = isActive ? "white" : "rgba(255,255,255,.8)";
+    });
   }, []);
 
-  const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
-        ? [] // If clicking the currently open item, close it (empty array)
-        : [index] // If clicking a different item, close all others and open only this one
-    );
+  const rollInfinite = React.useCallback((stepNum: number, direction: number) => {
+    if (!trackRef.current) return;
+    const baseIndex = stepToMiddleIndex[stepNum];
+    const loopIndex = baseIndex + (direction > 0 ? 4 : -4);
+    trackRef.current.style.transition = 'transform 520ms cubic-bezier(.2,.8,.2,1)';
+    trackRef.current.style.transform = `translateY(${-loopIndex * H}px)`;
+
+    setTimeout(() => {
+      if (!trackRef.current) return;
+      trackRef.current.style.transition = 'none';
+      trackRef.current.style.transform = `translateY(${-baseIndex * H}px)`;
+      requestAnimationFrame(() => {
+        if (trackRef.current) {
+          trackRef.current.style.transition = 'transform 520ms cubic-bezier(.2,.8,.2,1)';
+        }
+      });
+    }, 540);
+  }, [stepToMiddleIndex, H]);
+
+  const render = React.useCallback((stepNum: number) => {
+    setCardContent(copy[stepNum]);
+    styleButtons(stepNum);
+
+    const targetIndex = stepToMiddleIndex[stepNum];
+    if (trackRef.current) {
+      trackRef.current.style.transition = 'transform 520ms cubic-bezier(.2,.8,.2,1)';
+      trackRef.current.style.transform = `translateY(${-targetIndex * H}px)`;
+    }
+  }, [copy, styleButtons, stepToMiddleIndex, H]);
+
+  React.useEffect(() => {
+    if (trackRef.current) {
+      const targetIndex = stepToMiddleIndex[step];
+      trackRef.current.style.transition = 'transform 520ms cubic-bezier(.2,.8,.2,1)';
+      trackRef.current.style.transform = `translateY(${-targetIndex * H}px)`;
+    }
+    setCardContent(copy[step]);
+    styleButtons(step);
+  }, [step, styleButtons]);
+
+  // Initialize on mount
+  React.useEffect(() => {
+    if (trackRef.current) {
+      const initialIndex = stepToMiddleIndex[1];
+      trackRef.current.style.transition = 'none';
+      trackRef.current.style.transform = `translateY(${-initialIndex * H}px)`;
+      // Re-enable transition after initial positioning
+      requestAnimationFrame(() => {
+        if (trackRef.current) {
+          trackRef.current.style.transition = 'transform 520ms cubic-bezier(.2,.8,.2,1)';
+        }
+      });
+    }
+    styleButtons(1);
+  }, [styleButtons]);
+
+  React.useEffect(() => {
+    const section = sectionElementRef.current;
+    if (!section) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+
+      if (wheelLockedRef.current) return;
+      wheelLockedRef.current = true;
+
+      const dir = e.deltaY > 0 ? +1 : -1;
+      const clampStep = (n: number) => {
+        if (n < 1) return 4;
+        if (n > 4) return 1;
+        return n;
+      };
+      const nextStep = clampStep(step + dir);
+
+      setStep(nextStep);
+      rollInfinite(nextStep, dir);
+
+      setTimeout(() => {
+        wheelLockedRef.current = false;
+      }, 520);
+    };
+
+    section.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      section.removeEventListener("wheel", handleWheel);
+    };
+  }, [step, rollInfinite]);
+
+  const handleButtonClick = (nextStep: number) => {
+    if (nextStep === step) {
+      render(step);
+      rollInfinite(step, +1);
+      return;
+    }
+    setStep(nextStep);
   };
 
   return (
-    <>
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationData),
+    <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden mb-32">
+      {/* Background image - full bleed */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(/clausevault-bg-6.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
-        suppressHydrationWarning
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personData),
-        }}
-        suppressHydrationWarning
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteData),
-        }}
-        suppressHydrationWarning
-      />
-      <StickyNavigation />
-      
-      {/* Hero Section */}
-      <section
-        className="relative h-[650px] w-full bg-black"
-      >
-          {/* Image layer with CSS mask - using bottom pattern for all edges */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: 'url(/images/14.png)',
-              backgroundSize: '78%',
-              backgroundPosition: 'center 25%',
-              backgroundRepeat: 'no-repeat',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.5) 82%, transparent 100%)',
-              maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, black 0%, black 65%, rgba(0,0,0,0.5) 82%, transparent 100%)',
-              WebkitMaskComposite: 'source-in',
-              maskComposite: 'intersect'
-            }}
-          ></div>
-          {/* Dark overlay gradients to blend sides into background */}
-          <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-black via-black/98 via-black/90 via-black/75 to-transparent"></div>
-          <div className="absolute inset-y-0 right-0 w-[45%] bg-gradient-to-l from-black via-black/90 via-black/60 to-transparent"></div>
-          <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/15 via-black/10 to-transparent"></div>
-        <div className="absolute inset-0 flex items-center pt-64 z-10">
-          <div className="container px-8 md:px-12 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-              <div className="md:col-span-2">
-                <div className="w-hero">
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="t-label"
-                  >
-                    Hi there
-                  </motion.p>
-                  <motion.h1
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.45 }}
-                    className="t-h1 mt-2"
-                  >
-                    I'm Aylen
-                  </motion.h1>
-                  <div className="w-xl stack mt-2">
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    className="t-body"
-                  >
-                    I help real estate professionals close deals<br />with fewer mistakes, fewer emails, and less stress.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.55 }}
-                    className="t-body"
-                  >
-                    Contracts, deadlines, and communication<br />don't need to be chaotic.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className="t-body"
-                  >
-                    I build tools, systems, and support<br />that keep transactions moving — quietly and correctly.
-                  </motion.p>
-                  </div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                    className="mt-3"
-                  >
-                    <div className="flex flex-col gap-2 sm:gap-3">
-                      <a
-                        href="#tools"
-                        className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                        aria-label="Explore the Tools"
-                      >
-                        Explore the Tools →
-                      </a>
-                      <a
-                        href="mailto:hello@aylenmontenegro.com"
-                        className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                        aria-label="Work With Me"
-                      >
-                        Work With Me
-                      </a>
+      ></div>
+
+      {/* Dark overlay to darken the image */}
+      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Bottom fade gradient - blends to soft charcoal for smooth transition */}
+      <div className="absolute inset-x-0 bottom-0 h-64" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(14, 15, 17, 0.4) 50%, rgba(14, 15, 17, 1) 100%)', zIndex: 1 }}></div>
+
+      {/* Content container */}
+      <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
+        <div ref={sectionElementRef} id="rollerSection" className="roller mt-0">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+          {/* LEFT */}
+          <div className="lg:col-span-5">
+            {/* Stage indicator (side-by-side) */}
+            <div
+              className="flex gap-6 text-base tracking-[0.28em] text-white/60"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+            >
+              <span className={step === 1 ? "font-medium text-white" : "text-white/30"}>PROBLEM</span>
+              <span className={step === 2 ? "font-medium text-white" : "text-white/30"}>WHY</span>
+              <span className={step === 3 ? "font-medium text-white" : "text-white/30"}>WHAT</span>
+              <span className={step === 4 ? "font-medium text-white" : "text-white/30"}>WHO</span>
+            </div>
+
+            {/* INFINITE TIMER NUMBER */}
+            <div className="mt-3 leading-none">
+              {/* window */}
+              <div className="relative overflow-hidden" style={{ height: '220px' }}>
+                {/* track */}
+                <div
+                  ref={trackRef}
+                  className="track"
+                  style={{
+                    willChange: 'transform',
+                    transform: 'translate3d(0, 0, 0)',
+                  }}
+                >
+                  {/* clones: [03,04,01,02,03,04,01,02] */}
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      03
                     </div>
-                  </motion.div>
+                  </div>
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      04
+                    </div>
+                  </div>
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      01
+                    </div>
+                  </div>
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      02
+                    </div>
+                  </div>
+
+                  {/* middle */}
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      03
+                    </div>
+                  </div>
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      04
+                    </div>
+                  </div>
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      01
+                    </div>
+                  </div>
+                  <div className="h-[220px] flex items-start">
+                    <div 
+                      className="text-[96px] font-semibold leading-none tracking-tight text-white/30 sm:text-[120px] lg:text-[150px] font-mono"
+                      style={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontVariantNumeric: 'slashed-zero',
+                        fontFeatureSettings: '"zero"',
+                      }}
+                      suppressHydrationWarning
+                    >
+                      02
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="col-span-3">
-                {/* STATS OVERLAY */}
-                <aside
-                  className="pointer-events-none absolute right-4 md:right-6 top-20 md:top-32 w-36 md:w-44 lg:w-52 select-none block"
-                  aria-label="Personal stats"
-                >
-                  <div className="space-y-3 md:space-y-6">
-                    {/* 20+ Years of Experience */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                    >
-                      <p className="text-white text-xl md:text-3xl font-mono tracking-wider text-right">20+</p>
-                      <p className="t-label mt-1 md:mt-2 text-right">YEARS EXPERIENCE</p>
-                    </motion.div>
+            </div>
 
-                    {/* 3K+ Closed Deals */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.9 }}
-                    >
-                      <p className="text-white text-xl md:text-3xl font-mono tracking-wider text-right">3K+</p>
-                      <p className="t-label mt-1 md:mt-2 text-right">CLOSED DEALS</p>
-                    </motion.div>
+            <div className="mt-4 mb-6 max-w-[65ch] text-base text-white/75 sm:text-[17px] space-y-2" style={{ lineHeight: '1.7' }}>
+              <p>Deals don&apos;t fall apart from drama.</p>
+              <p>They fall apart from friction.</p>
+            </div>
+          </div>
 
-                    {/* 4+ SaaS Products Built */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1.0 }}
-                    >
-                      <p className="text-white text-xl md:text-3xl font-mono tracking-wider text-right">4+</p>
-                      <p className="t-label mt-1 md:mt-2 text-right">SAAS PRODUCTS BUILT</p>
-                    </motion.div>
-                  </div>
-                </aside>
+          {/* RIGHT */}
+          <div className="lg:col-span-7">
+            <div className="rounded-2xl border border-white/20 bg-white/[0.08] backdrop-blur-md p-7 sm:p-12" style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
+              <h3 className="mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
+                {cardContent.title}
+              </h3>
+              <div className="mt-4 mb-6 max-w-[65ch] text-sm text-white/70 sm:text-[15px] space-y-4" style={{ lineHeight: '1.7' }}>
+                {cardContent.body.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
+              <div className="mt-8 h-px w-full bg-white/10"></div>
+              <p className="mt-4 mb-6 text-sm text-white/60" style={{ lineHeight: '1.7' }}>
+                {cardContent.foot}
+              </p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Products Accordion Section */}
-      <section id="tools" className="bg-black" style={{ paddingTop: '160px', paddingBottom: '96px' }}>
-        <div className="container px-8 md:px-12 lg:px-16">
-          <div style={{ margin: '0 auto', maxWidth: '640px' }}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: false, margin: "-100px" }}
-              style={{ textAlign: 'center' }}
-            >
-              <h2 className="t-h2">What I Build</h2>
-              <p className="t-label mt-1">(Without the Chaos)</p>
-              <p className="t-body mt-2">
-                I've spent my career behind the scenes making sure contracts close, fires get put out, and agents still look good in the process. These tools are that behind-the-scenes work — bottled up and built for scale.
-              </p>
-            </motion.div>
-
-          <div className="space-y-0" style={{ marginTop: '64px' }}>
-            {/* Product 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: false, margin: "-50px" }}
-            >
-              <div className="border-t border-white/10"></div>
-              <button
-                onClick={() => toggleItem(0)}
-                className="w-full flex items-center justify-between gap-4 hover:opacity-80 transition-opacity py-3"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">01</span>
-                  <h3 className="t-h2">BossyEmail</h3>
-                </div>
-                <ChevronDown 
-                  className={`w-5 h-5 text-white/60 transition-transform duration-300 ${openItems.includes(0) ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {openItems.includes(0) && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-6 w-xl">
-                      <div className="mb-6 stack">
-                        <p className="t-body">
-                          AI-powered email tools designed specifically for real estate communication — so you're not rewriting the same emails, explanations, and follow-ups from scratch.
-                        </p>
-                        <p className="t-body">
-                          Clear. Direct. Professional.
-                        </p>
-                        <p className="t-body">
-                          Built for real transactions, not generic prompts.
-                        </p>
-                      </div>
-                      <div className="mb-8">
-                        <a
-                          href="https://bossyemail.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                        >
-                          Explore BossyEmail →
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Product 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-              viewport={{ once: false, margin: "-50px" }}
-            >
-              <div className="border-t border-white/10"></div>
-              <button
-                onClick={() => toggleItem(1)}
-                className="w-full flex items-center justify-between gap-4 hover:opacity-80 transition-opacity py-3"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">02</span>
-                  <h3 className="t-h2">ClauseVault</h3>
-                </div>
-                <ChevronDown 
-                  className={`w-5 h-5 text-white/60 transition-transform duration-300 ${openItems.includes(1) ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {openItems.includes(1) && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-6 w-xl">
-                      <div className="mb-6 stack">
-                        <p className="t-body">
-                          Contract support tools that help you close communication gaps without practicing law or reinventing the wheel.
-                        </p>
-                        <p className="t-body">
-                          Built to support the contract — not replace it.
-                        </p>
-                      </div>
-                      <div className="mb-8">
-                        <a
-                          href="/clausevault"
-                          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                        >
-                          Explore ClauseVault →
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Product 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-              viewport={{ once: false, margin: "-50px" }}
-            >
-              <div className="border-t border-white/10"></div>
-              <button
-                onClick={() => toggleItem(2)}
-                className="w-full flex items-center justify-between gap-4 hover:opacity-80 transition-opacity py-3"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="text-white/60 text-4xl font-mono tracking-wider">03</span>
-                  <h3 className="t-h2">Transaction Coordination</h3>
-                </div>
-                <ChevronDown 
-                  className={`w-5 h-5 text-white/60 transition-transform duration-300 ${openItems.includes(2) ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              <AnimatePresence>
-                {openItems.includes(2) && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-6 w-xl">
-                      <div className="mb-6 stack">
-                        <p className="t-body">
-                          For select clients, I offer white-glove transaction coordination and advisory support.
-                        </p>
-                        <p className="t-body">
-                          This is not volume work.
-                        </p>
-                        <p className="t-body">
-                          This is for professionals who value experience, discretion, and clean execution.
-                        </p>
-                        <p className="t-body">
-                          Availability is limited by design.
-                        </p>
-                      </div>
-                      <div className="mb-8">
-                        <a
-                          href="mailto:hello@aylenmontenegro.com?subject=TC%20availability"
-                          className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-                        >
-                          Inquire about services →
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-            <div className="border-t border-white/10"></div>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Clarifier Section */}
-      <section className="section divider bg-black" style={{ paddingBottom: '120px' }}>
-        <div className="container px-8 md:px-12 lg:px-16">
-          <div className="w-xl" style={{ margin: '0 auto' }}>
-            <div className="stack">
-              <p className="t-body">Most deals don't fall apart because of bad intentions.</p>
-              <p className="t-body">They fall apart because of missed details, unclear emails, and preventable friction.</p>
-              <p className="t-body">My work exists to remove that friction before it costs you time, money, or reputation.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Editorial Numbered Section */}
-      <section className="section divider bg-black">
-        <div className="container px-8 md:px-12 lg:px-16">
-          <div className="w-xl">
-          {/* Numbered Ticker Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-6 sm:gap-8 lg:gap-12 justify-center"
-          >
-            <button
-              onClick={() => setActiveEditorialItem(activeEditorialItem === 'why' ? null : 'why')}
-              className={`flex items-center gap-2 transition-all duration-300 hover:scale-105 ${
-                activeEditorialItem === 'why' ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-              }`}
-            >
-              <span className={`text-3xl sm:text-4xl font-mono tracking-wider transition-colors duration-300 ${
-                activeEditorialItem === 'why' ? 'text-white' : 'text-white/60'
-              }`}>
-                01
-              </span>
-              <span className="text-neutral-500">\</span>
-              <span className={`text-xl md:text-2xl transition-colors duration-300 ${
-                activeEditorialItem === 'why' ? 'text-white' : 'text-white'
-              }`}>
-                Why
-              </span>
-            </button>
-
-            <button
-              onClick={() => setActiveEditorialItem(activeEditorialItem === 'what' ? null : 'what')}
-              className={`flex items-center gap-2 transition-all duration-300 hover:scale-105 ${
-                activeEditorialItem === 'what' ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-              }`}
-            >
-              <span className={`text-3xl sm:text-4xl font-mono tracking-wider transition-colors duration-300 ${
-                activeEditorialItem === 'what' ? 'text-white' : 'text-white/60'
-              }`}>
-                02
-              </span>
-              <span className="text-neutral-500">\</span>
-              <span className={`text-xl md:text-2xl transition-colors duration-300 ${
-                activeEditorialItem === 'what' ? 'text-white' : 'text-white'
-              }`}>
-                What
-              </span>
-            </button>
-
-            <button
-              onClick={() => setActiveEditorialItem(activeEditorialItem === 'who' ? null : 'who')}
-              className={`flex items-center gap-2 transition-all duration-300 hover:scale-105 ${
-                activeEditorialItem === 'who' ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-              }`}
-            >
-              <span className={`text-3xl sm:text-4xl font-mono tracking-wider transition-colors duration-300 ${
-                activeEditorialItem === 'who' ? 'text-white' : 'text-white/60'
-              }`}>
-                03
-              </span>
-              <span className="text-neutral-500">\</span>
-              <span className={`text-xl md:text-2xl transition-colors duration-300 ${
-                activeEditorialItem === 'who' ? 'text-white' : 'text-white'
-              }`}>
-                Who
-              </span>
-            </button>
-          </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Editorial Content Section */}
-      {activeEditorialItem && (
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="section bg-black"
-        >
-          <div className="container px-8 md:px-12 lg:px-16">
-            <div className="w-xl">
-              {/* WHY */}
-              {activeEditorialItem === 'why' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="stack"
-                >
-                  <p className="t-body">Because most deals don't fall apart for dramatic reasons.</p>
-                  <p className="t-body">They fall apart because small details get missed, emails get unclear, and friction builds until something breaks.</p>
-                  <p className="t-body">I've spent over two decades working inside that friction — catching issues early and keeping deals moving before problems become visible.</p>
-                  <p className="t-body">That perspective informs everything I build.</p>
-                </motion.div>
-              )}
-
-              {/* WHAT */}
-              {activeEditorialItem === 'what' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="stack"
-                >
-                  <p className="t-body">I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.</p>
-                  <p className="t-body">That happens by fixing the communication and process breakdowns that quietly derail transactions.</p>
-                  <p className="t-body">Software when it makes sense.</p>
-                  <p className="t-body">Systems when they're needed.</p>
-                  <p className="t-body">Human judgment when it matters.</p>
-                </motion.div>
-              )}
-
-              {/* WHO */}
-              {activeEditorialItem === 'who' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="stack"
-                >
-                  <p className="t-body">This is for real estate professionals who value clarity over chaos.</p>
-                  <p className="t-body">People who take their reputation seriously.</p>
-                  <p className="t-body">Who prefer systems over scrambling.</p>
-                  <p className="t-body">Who want fewer fires, not more excitement.</p>
-                  <p className="t-body">If that sounds like you, you're in the right place.</p>
-                  <p className="t-body">I don't build for everyone.</p>
-                  <p className="t-body">I build for people who want their business to feel calmer, cleaner, and more controlled.</p>
-                </motion.div>
-              )}
-            </div>
-          </div>
-        </motion.section>
-      )}
-
-      {/* Final CTA */}
-      <section className="section divider bg-black">
-        <div className="container px-8 md:px-12 lg:px-16">
-          <div className="w-xl" style={{ margin: '0 auto' }}>
-            <h2 className="t-h2 mt-2">
-              Start with the system that saves the most time.
-            </h2>
-            <div className="flex justify-center mt-3">
-              <a
-                href="/upgrade"
-                className="btn inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-              >
-                Go to BossyEmail →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section">
-        <div className="container px-8 md:px-12 lg:px-16">
-          <p className="t-label" style={{ textAlign: 'center', marginBottom: '16px' }}>
-            These systems were built inside real client work.
-          </p>
-        </div>
-      </section>
-      <Testimonials />
-
-      {/* About Me Teaser Section */}
-      <section
-        id="about"
-        className="relative h-[650px] w-full bg-black overflow-hidden"
-      >
-        {/* Background image with left fade for text readability */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #000000 0%, #000000 32%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.35) 68%, transparent 85%), url(/images/22.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: '60% 25%',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></div>
-
-        <div className="absolute inset-0 flex items-center justify-start z-10 px-8 md:px-12 lg:px-16">
-          <div className="w-xl" style={{ marginLeft: 0, marginRight: 'auto' }}>
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="t-label"
-            >
-              About Me
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              viewport={{ once: true }}
-              className="t-h2 mt-2"
-            >
-              My Story
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="t-label mt-2"
-            >
-              Real Estate Professional<br />Systems Builder • Deal Closer
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="stack mt-2"
-            >
-              <p className="t-body">
-                I've spent over two decades inside real estate transactions —<br />working behind the scenes where mistakes actually show up.
-              </p>
-              <p className="t-body">
-                I'm not here to teach aesthetics or hype.
-              </p>
-              <p className="t-body">
-                I'm here to fix the operational side of deals<br />that most people ignore until something breaks.
-              </p>
-              <p className="t-body">
-                That perspective informs everything I build.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.85 }}
-              viewport={{ once: true }}
-              className="mt-3"
-            >
-              <a
-                href="/about"
-                className="btn inline-flex items-center gap-1.5 px-4 py-2.5 text-sm sm:text-base border border-white text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm bg-white/5"
-              >
-                Learn More →
-              </a>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <ContactSection />
-
-      {/* Final CTA */}
-      <FinalCTA />
-
-      {/* Services Ticker */}
-      <ServicesTicker />
-
-      {/* Footer */}
-      <Footer />
-      
-      {/* Analytics Components - Hidden in Production */}
-      {/* Uncomment for development debugging:
-      <PerformanceMonitor enabled={true} />
-      <FunnelAnalyzer enabled={true} />
-      <AnalyticsDashboard />
-      */}
-    </>
+      </div>
+      </div>
+    </section>
   );
 }
+
+
+/* -------------------------- CTA: BOSSYEMAIL (STATIC) -------------------------- */
+function BossyEmailCTANew() {
+  return (
+    <section className="mb-32 mt-8 sm:mt-10">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 sm:p-12">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-8">
+            <p
+              className="text-[10px] tracking-wide text-white/50"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+            >
+              FASTEST WIN
+            </p>
+
+            <h3 className="mt-4 mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
+              Stop writing real estate emails from scratch.
+            </h3>
+
+            <p className="mb-6 max-w-[65ch] text-sm text-white/70 sm:text-[15px]" style={{ lineHeight: '1.7' }}>
+              BossyEmail gives you ready-to-send templates + an AI generator trained for the kinds of messages that
+              actually happen in transactions. Less typing. Fewer mistakes. More control.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span
+                className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-[11px] tracking-[0.22em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                TEMPLATES
+              </span>
+              <span
+                className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-[11px] tracking-[0.22em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                AI GENERATOR
+              </span>
+              <span
+                className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-[11px] tracking-[0.22em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                REAL ESTATE SPECIFIC
+              </span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 lg:flex lg:justify-end">
+            <div className="flex w-full flex-col gap-3 sm:w-auto">
+              {/* Primary (rectangular, turns white) */}
+              <Link
+                href="https://bossyemail.com"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/15 px-6 text-sm font-medium bg-white hover:bg-white/90"
+                style={{ color: '#000000' }}
+              >
+                Try BossyEmail
+              </Link>
+
+              {/* Secondary (outline, turns white on hover) */}
+              <Link
+                href="/tools"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/15 px-6 text-sm font-medium text-white/85 hover:bg-white hover:text-black"
+              >
+                See all tools
+              </Link>
+
+              <p className="text-center text-[10px] leading-relaxed text-white/50 sm:text-left">
+                Two minutes to try.<br />
+                Saves hours a week.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 h-px w-full bg-white/10"></div>
+
+        {/* micro-proof (keep it Apple-minimal) */}
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm font-medium">320+ templates</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/60">
+              Built for listing, escrow, and closing chaos.
+            </p>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm font-medium">Less back-and-forth</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/60">
+              Cleaner communication = fewer mistakes.
+            </p>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm font-medium">Made by a TC</p>
+            <p className="mt-1 text-xs leading-relaxed text-white/60">
+              Real files. Real deadlines. Real consequences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- REVIEWS: HEADING ONLY -------------------------- */
+function ReviewsHeadingNew() {
+  return (
+    <section className="mt-16 sm:mt-20">
+      <div className="max-w-3xl">
+        <p
+          className="text-[10px] tracking-[0.28em] text-white/55"
+          style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+        >
+          HYPE FOLDER
+        </p>
+
+        <h2 className="mt-4 text-xl font-semibold tracking-tight sm:text-2xl">
+          What other people said.
+        </h2>
+
+        <p className="mt-2 text-sm leading-relaxed text-white/65">
+          Real feedback from real clients.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- ABOUT PREVIEW -------------------------- */
+function AboutPreviewNew() {
+  return (
+    <section className="mb-32 mt-16 sm:mt-20">
+      <div className="border-y border-white/10 bg-white/[0.03]">
+        <div className="mx-auto max-w-6xl px-6 sm:px-10 py-28 sm:py-40">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        {/* COPY */}
+        <div className="lg:col-span-7">
+          <p 
+            className="text-[10px] tracking-wide text-white/50"
+            style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+          >
+            ABOUT
+          </p>
+
+          <h2 className="mt-3 mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
+            I make closings boring — so you can scale.
+          </h2>
+
+          <p className="mb-6 max-w-[65ch] text-base text-white/70" style={{ lineHeight: '1.7' }}>
+            I've managed thousands of real transactions, not hypotheticals.
+            When the same problems show up over and over, you either keep firefighting —
+            or you build systems that stop the fires.
+          </p>
+
+          <p className="mb-6 max-w-[65ch] text-base text-white/70" style={{ lineHeight: '1.7' }}>
+            That's what I do. I turn repeatable chaos into workflows, tools,
+            and support that let agents focus on clients instead of cleanup.
+          </p>
+
+          <div className="mt-6">
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center rounded-md border border-white bg-white px-6 py-3 text-sm font-medium hover:bg-white/90"
+              style={{ color: '#000000' }}
+            >
+              Read the full story →
+            </Link>
+          </div>
+        </div>
+
+        {/* IMAGE */}
+        <div className="lg:col-span-5">
+          <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+            <img
+              src="/27.png"
+              alt="Aylen Montenegro"
+              className="h-full w-full object-cover"
+              style={{
+                objectPosition: 'center 20%',
+                transform: 'scale(1.5)',
+              }}
+            />
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- FINAL CTA -------------------------- */
+function FinalCTANew() {
+  return (
+    <section className="mb-32 mt-16 sm:mt-20">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 sm:p-12">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          {/* COPY */}
+          <div className="max-w-xl">
+            <p 
+              className="text-[10px] tracking-wide text-white/50"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+            >
+              NEXT STEP
+            </p>
+
+            <h3 className="mt-3 mb-8 text-xl font-semibold tracking-tight sm:text-2xl" style={{ lineHeight: '1.2' }}>
+              If you're closing volume, you need systems.
+            </h3>
+
+            <p className="mb-6 text-sm text-white/65" style={{ lineHeight: '1.7' }}>
+              Pick the tool — or hand the file over and let me run it.
+            </p>
+          </div>
+
+          {/* ACTIONS */}
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/elevate"
+              className="inline-flex items-center justify-center rounded-md border border-white bg-white px-6 py-3 text-sm font-medium hover:bg-white/90"
+              style={{ color: '#000000' }}
+            >
+              TC Services →
+            </Link>
+
+            <Link
+              href="/tools"
+              className="inline-flex items-center justify-center rounded-md border border-white/15 bg-transparent px-6 py-3 text-sm font-medium text-white/85 hover:border-white/30 hover:bg-white/5 hover:text-white"
+            >
+              Browse Tools
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- CONTACT SECTION -------------------------- */
+function ContactSectionNew() {
+  return (
+    <section className="py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        {/* Label */}
+        <p
+          className="font-mono text-xs tracking-[0.28em] text-white/55"
+          style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+        >
+          CONTACT
+        </p>
+
+        {/* Heading */}
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+          Contact
+        </h1>
+
+        {/* Intro */}
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+          For product support, partnerships, or general inquiries, the best way to reach us is by email.
+        </p>
+
+        {/* Card */}
+        <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.02] p-10 shadow-[0_24px_90px_rgba(0,0,0,.55)] sm:p-12">
+          <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+            {/* Left: Email + note */}
+            <div className="max-w-2xl">
+              <p className="text-sm text-white/60">Email</p>
+
+              <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+                {/* Email address */}
+                <a
+                  href="mailto:hello@aylenmontenegro.com"
+                  className="text-lg font-medium tracking-tight text-white/90 hover:text-white"
+                >
+                  hello@aylenmontenegro.com
+                </a>
+
+                {/* Divider (desktop) */}
+                <span className="hidden h-4 w-px bg-white/10 sm:block"></span>
+
+                {/* Response time */}
+                <p className="text-sm text-white/60">
+                  We typically respond within 1–2 business days.
+                </p>
+              </div>
+
+              {/* Boundary / routing line */}
+              <p className="mt-8 max-w-2xl text-sm leading-relaxed text-white/60">
+                If you're interested in working together, please use the relevant page (BossyEmail, TC Services, or ClauseVault) to get started.
+              </p>
+            </div>
+
+            {/* Right: CTA button */}
+            <div className="w-full sm:w-auto">
+              <a
+                href="mailto:hello@aylenmontenegro.com"
+                className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90 sm:w-auto"
+                style={{ color: '#000000' }}
+              >
+                Email Us
+              </a>
+
+              <p className="mt-4 text-xs text-white/55">
+                No forms. No spam. Just email.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Optional: Secondary line (quiet, not salesy) */}
+        <div className="mt-14 border-t border-white/10 pt-12">
+          <p className="max-w-2xl text-sm leading-relaxed text-white/60">
+            For billing questions, include the email associated with your account so we can help faster.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- EDGE-TO-EDGE INFINITE INDEXED TICKER -------------------------- */
+function EdgeToEdgeTickerNew() {
+  return (
+    <section className="mt-16 sm:mt-20 pb-16">
+      {/* top hairline */}
+      <div className="h-px w-full bg-white/10"></div>
+
+      <div className="relative overflow-hidden">
+        <div className="ticker-edge-to-edge flex items-center gap-12 whitespace-nowrap px-6 py-4 text-xs tracking-[0.22em] text-white/70 sm:px-10">
+          {/* sequence */}
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              01
+            </span>
+            &nbsp;BOSSYEMAIL
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              02
+            </span>
+            &nbsp;CLAUSEVAULT
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              03
+            </span>
+            &nbsp;TRANSACTION&nbsp;COORDINATION
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              04
+            </span>
+            &nbsp;CONTRACTLOOP
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              05
+            </span>
+            &nbsp;TEMPLATES
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              06
+            </span>
+            &nbsp;TRAINING
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              07
+            </span>
+            &nbsp;WORKFLOWS
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              08
+            </span>
+            &nbsp;AUTOMATION
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              09
+            </span>
+            &nbsp;MIAMI&nbsp;TC&nbsp;CHAOS&nbsp;(MANAGED)
+          </span>
+
+          {/* duplicate for seamless infinite loop */}
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              01
+            </span>
+            &nbsp;BOSSYEMAIL
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              02
+            </span>
+            &nbsp;CLAUSEVAULT
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              03
+            </span>
+            &nbsp;TRANSACTION&nbsp;COORDINATION
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              04
+            </span>
+            &nbsp;CONTRACTLOOP
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              05
+            </span>
+            &nbsp;TEMPLATES
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              06
+            </span>
+            &nbsp;TRAINING
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              07
+            </span>
+            &nbsp;WORKFLOWS
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              08
+            </span>
+            &nbsp;AUTOMATION
+          </span>
+          <span>
+            <span 
+              className="font-mono"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                fontVariantNumeric: 'slashed-zero',
+                fontFeatureSettings: '"zero"',
+              }}
+            >
+              09
+            </span>
+            &nbsp;MIAMI&nbsp;TC&nbsp;CHAOS&nbsp;(MANAGED)
+          </span>
+        </div>
+      </div>
+
+      {/* bottom hairline */}
+      <div className="h-px w-full bg-white/10"></div>
+    </section>
+  );
+}
+
+

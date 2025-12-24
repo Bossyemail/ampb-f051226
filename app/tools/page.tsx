@@ -6,95 +6,209 @@ import Footer from "@/components/Footer";
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen bg-[#0c0d11] text-white flex flex-col">
+    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: '#0E0F11' }}>
       <StickyNavigation />
 
-      <main className="flex-1">
-        <section
-          className="pb-16 px-6 sm:px-10 lg:px-16"
-          style={{ paddingTop: "272px" }} // nav gap +80px
-        >
-          <div className="max-w-5xl mx-auto space-y-4 text-center">
-            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
-              Tools Built From Real Transactions
-            </h1>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed space-y-1">
-              <span className="block">
-                These are not generic AI tools or downloadable fluff.
-              </span>
-              <span className="block">
-                They’re operational systems built from real deal flow — the emails, clauses, and backend processes that actually keep transactions moving.
-              </span>
+      {/* Tools Hero */}
+      <section className="relative pt-28 pb-32 sm:pt-36 sm:pb-40 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/clausevault-bg-11.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        ></div>
+        
+        {/* Dark overlay to darken image for better text contrast */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        {/* Gradient overlay at bottom for blending */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0E0F11] via-[#0E0F11]/80 to-transparent"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
+          <div className="max-w-3xl">
+            <p 
+              className="text-xs tracking-[0.28em] text-white/55"
+              style={{
+                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+              }}
+            >
+              TOOLS
             </p>
-          </div>
-        </section>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+              Tools built from real transactions — not templates.
+            </h1>
 
-        <section className="pb-16 px-6 sm:px-10 lg:px-16">
-          <div className="max-w-5xl mx-auto space-y-6">
-            {/* BossyEmail - Primary */}
-            <div className="border border-white/18 bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-lg shadow-white/10">
-              <div className="flex flex-col gap-3">
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">BossyEmail</h2>
-                <p className="text-gray-100">
-                  Deal-safe emails for real estate agents — instantly. When wording matters, guessing isn’t an option. BossyEmail tells you exactly what to say in inspections, follow-ups, and escalations.
-                </p>
-                <p className="text-sm text-gray-300">
-                  If you only use one tool from this page, make it this one.
-                </p>
-                <div>
-                  <a
-                    href="https://bossyemail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
+            <div className="mt-10 flex gap-2 overflow-x-auto pb-2" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <a href="#bossyemail" className="inline-flex items-center whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                BossyEmail
+              </a>
+              <a href="#clausevault" className="inline-flex items-center whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                ClauseVault
+              </a>
+              <a href="#tc" className="inline-flex items-center whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                TC Services
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+
+        {/* Tools Cards */}
+        <section className="py-24 sm:py-32">
+          <div className="space-y-6">
+            {/* BossyEmail (Primary) */}
+            <div id="bossyemail" className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 sm:p-12 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
+              <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+                <div className="max-w-2xl">
+                  <p 
+                    className="text-2xl sm:text-3xl font-mono tracking-wider text-white/55"
+                    style={{
+                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                      fontVariantNumeric: 'slashed-zero',
+                      fontFeatureSettings: '"zero"',
+                    }}
                   >
-                    Go to BossyEmail →
+                    01
+                  </p>
+                  <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">BossyEmail</h2>
+                  <p className="mt-2 text-sm text-white/60">Deal-safe emails in seconds.</p>
+                  <div className="mt-6 h-px bg-white/10"></div>
+                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg max-w-2xl">
+                    Deal-safe emails for real estate agents — instantly. When wording matters, guessing isn't an option.
+                    BossyEmail tells you exactly what to say in inspections, follow-ups, and escalations.
+                  </p>
+                  <p className="mt-6 text-sm text-white/60">
+                    Built from real transactions.
+                  </p>
+                </div>
+
+                <div className="shrink-0">
+                  <a 
+                    href="/upgrade" 
+                    className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium hover:bg-white/90"
+                    style={{ color: '#000000' }}
+                  >
+                    Try BossyEmail →
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* ClauseVault - Secondary */}
-            <div className="border border-white/12 bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-7">
-              <div className="flex flex-col gap-3">
-                <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">ClauseVault</h2>
-                <p className="text-gray-300 leading-relaxed">
-                  Contract language for real-world scenarios. A curated library of deal-support clauses built around Florida’s As-Is contract framework. Designed to reduce ambiguity and support clearer communication — not replace legal advice.
-                </p>
-                <div>
-                  <Link
-                    href="/clausevault"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-white text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+            {/* ClauseVault */}
+            <div id="clausevault" className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
+              <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+                <div className="max-w-2xl">
+                  <p 
+                    className="text-2xl sm:text-3xl font-mono tracking-wider text-white/55"
+                    style={{
+                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                      fontVariantNumeric: 'slashed-zero',
+                      fontFeatureSettings: '"zero"',
+                    }}
+                  >
+                    02
+                  </p>
+                  <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">ClauseVault</h2>
+                  <p className="mt-2 text-sm text-white/60">Contract clarity for gray areas.</p>
+                  <div className="mt-6 h-px bg-white/10"></div>
+                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg max-w-2xl">
+                    Contract language for real-world scenarios. A curated library of deal-support clauses built around
+                    Florida's As-Is framework — designed to reduce ambiguity and support clearer communication.
+                  </p>
+                  <p className="mt-6 text-sm text-white/60">
+                    Built from real transactions.
+                  </p>
+                </div>
+
+                <div className="shrink-0">
+                  <a 
+                    href="/clausevault" 
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
                   >
                     Go to ClauseVault →
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Transaction Coordination - Quiet */}
-            <div className="border border-white/10 bg-white/5 backdrop-blur-sm rounded-xl p-6 sm:p-7">
-              <div className="flex flex-col gap-3">
-                <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">Transaction Coordination</h2>
-                <p className="text-gray-300 leading-relaxed">
-                  Backend support for producing agents. I work with a limited number of agents and teams providing transaction coordination — by availability.
-                </p>
-                <div>
-                  <Link
-                    href="/elevate"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-sm border border-white text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+            {/* TC Services */}
+            <div id="tc" className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
+              <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+                <div className="max-w-2xl">
+                  <p 
+                    className="text-2xl sm:text-3xl font-mono tracking-wider text-white/55"
+                    style={{
+                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                      fontVariantNumeric: 'slashed-zero',
+                      fontFeatureSettings: '"zero"',
+                    }}
+                  >
+                    03
+                  </p>
+                  <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">Transaction Coordination</h2>
+                  <p className="mt-2 text-sm text-white/60">White-glove execution, limited capacity.</p>
+                  <div className="mt-6 h-px bg-white/10"></div>
+                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg max-w-2xl">
+                    Backend support for producing agents. White-glove file management for professionals who want fewer
+                    fires and fewer surprises — by availability.
+                  </p>
+                  <p className="mt-6 text-sm text-white/60">
+                    Built from real transactions.
+                  </p>
+                </div>
+
+                <div className="shrink-0">
+                  <a 
+                    href="/elevate" 
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
                   >
                     View TC Services →
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </main>
+
+        {/* Start Here Routing Close */}
+        <section className="py-24 sm:py-32">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
+            <div className="max-w-3xl">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                START HERE
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                If you only use one tool from this page, make it this one.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                BossyEmail removes the friction that slows deals down — the second-guessing, the rewrites, the "how do I say this?" moments that quietly eat your time and attention.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a 
+                  href="/upgrade"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium hover:bg-white/90"
+                  style={{ color: '#000000' }}
+                >
+                  Get BossyEmail →
+                </a>
+                <p className="text-sm text-white/55">Deal-safe emails in seconds.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <Footer />
     </div>
   );
 }
-

@@ -139,7 +139,7 @@ function AboutTabs() {
         {/* WHO I'M FOR */}
         {tab === 'who' && (
           <div id="panel-who" className="panel backdrop-blur-md bg-white/5 ring-1 ring-white/10 p-5 rounded-none">
-            <ul className="space-y-2">
+            <ul className="mb-6 space-y-3 text-white/75" style={{ lineHeight: '1.7' }}>
               <li className="text-neutral-300"><span className="text-white font-semibold">Seasoned</span> — A few wins under your belt, and ready to level up.</li>
               <li className="text-neutral-300"><span className="text-white font-semibold">Full-Time</span> — Active clients and systems needed to run your business.</li>
               <li className="text-neutral-300"><span className="text-white font-semibold">Partner-Ready</span> — You value protocols, delegation, and grown-up operations.</li>
@@ -287,19 +287,19 @@ export default function AboutPage() {
       number: '01',
       title: 'Story',
       content: (
-        <div className="space-y-4">
-          <p className="font-semibold text-white">This isn’t a résumé. It’s pattern recognition.</p>
-          <p>I started where most people don’t talk about starting: answering phones, managing files, cleaning up messes, and becoming the person agents relied on when things were already on fire.</p>
-          <p>Back then, contracts were faxed. Files lived in folders. “Transaction management” meant a highlighter and a stack of sticky notes.</p>
-          <p>Fast-forward through multiple market cycles, two recessions, and thousands of transactions later, and one thing hasn’t changed: Deals don’t close on technology. They close on precision, discipline, and judgment. Tools evolve. Principles don’t.</p>
-          <p className="font-semibold text-white">The 20+ year bird’s-eye view</p>
-          <ul className="space-y-2">
-            <li>• Lending — how financing pressure really shows up</li>
-            <li>• Operations — where deals actually break</li>
-            <li>• Title — what compliance catches before attorneys do</li>
-            <li>• Sales — what agents overlook until it’s too late</li>
+        <div className="space-y-6">
+          <p className="mb-6 font-semibold text-white" style={{ lineHeight: '1.2' }}>This isn’t a résumé. It’s pattern recognition.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>I started where most people don’t talk about starting: answering phones, managing files, cleaning up messes, and becoming the person agents relied on when things were already on fire.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Back then, contracts were faxed. Files lived in folders. “Transaction management” meant a highlighter and a stack of sticky notes.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Fast-forward through multiple market cycles, two recessions, and thousands of transactions later, and one thing hasn’t changed: Deals don’t close on technology. They close on precision, discipline, and judgment. Tools evolve. Principles don’t.</p>
+          <p className="mb-6 font-semibold text-white" style={{ lineHeight: '1.2' }}>The 20+ year bird’s-eye view</p>
+          <ul className="mb-6 space-y-3 text-white/75" style={{ lineHeight: '1.7' }}>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• Lending — how financing pressure really shows up</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• Operations — where deals actually break</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• Title — what compliance catches before attorneys do</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• Sales — what agents overlook until it’s too late</li>
           </ul>
-          <p>That vantage point gives me something most people don’t have: a 360° understanding of how deals move — or stall — in South Florida. It’s also why I don’t panic when things get loud. I’ve seen this movie before.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>That vantage point gives me something most people don’t have: a 360° understanding of how deals move — or stall — in South Florida. It’s also why I don’t panic when things get loud. I’ve seen this movie before.</p>
         </div>
       )
     },
@@ -308,15 +308,15 @@ export default function AboutPage() {
       number: '02',
       title: 'Closings',
       content: (
-        <div className="space-y-4">
-          <p className="font-semibold text-white">Today, I focus on building systems that make closings boring — the good kind.</p>
-          <p>That includes:</p>
-          <ul className="space-y-2">
-            <li>• backend transaction coordination for a select group of producing agents</li>
-            <li>• operational frameworks that prevent fire drills</li>
-            <li>• software and tools that turn hard-earned experience into leverage</li>
+        <div className="space-y-6">
+          <p className="mb-6 font-semibold text-white" style={{ lineHeight: '1.2' }}>Today, I focus on building systems that make closings boring — the good kind.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>That includes:</p>
+          <ul className="mb-6 space-y-3 text-white/75" style={{ lineHeight: '1.7' }}>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• backend transaction coordination for a select group of producing agents</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• operational frameworks that prevent fire drills</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• software and tools that turn hard-earned experience into leverage</li>
           </ul>
-          <p>Everything I build comes from real client work. If it hasn’t survived a live transaction, it doesn’t ship.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Everything I build comes from real client work. If it hasn’t survived a live transaction, it doesn’t ship.</p>
         </div>
       )
     },
@@ -325,16 +325,16 @@ export default function AboutPage() {
       number: '03',
       title: 'Who',
       content: (
-        <div className="space-y-4">
-          <p className="font-semibold text-white">I work with professionals who treat real estate like a business, not a side hustle.</p>
-          <p>People who:</p>
-          <ul className="space-y-2">
-            <li>• value precision and systems</li>
-            <li>• understand that compliance is non-negotiable</li>
-            <li>• care about reputation more than shortcuts</li>
-            <li>• want fewer fires, not more apps</li>
+        <div className="space-y-6">
+          <p className="mb-6 font-semibold text-white" style={{ lineHeight: '1.2' }}>I work with professionals who treat real estate like a business, not a side hustle.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>People who:</p>
+          <ul className="mb-6 space-y-3 text-white/75" style={{ lineHeight: '1.7' }}>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• value precision and systems</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• understand that compliance is non-negotiable</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• care about reputation more than shortcuts</li>
+            <li className="text-white/75" style={{ lineHeight: '1.7' }}>• want fewer fires, not more apps</li>
           </ul>
-          <p>If you’re looking for the cheapest option, I’m not it. If you’re looking for a partner who sees the whole board and protects your downside, you’re in the right place.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>If you’re looking for the cheapest option, I’m not it. If you’re looking for a partner who sees the whole board and protects your downside, you’re in the right place.</p>
         </div>
       )
     },
@@ -343,11 +343,11 @@ export default function AboutPage() {
       number: '04',
       title: 'Process',
       content: (
-        <div className="space-y-4">
-          <p className="font-semibold text-white">Every deal runs on process, not adrenaline.</p>
-          <p>I follow a protocol for every step and every contingency — reviewing documents, tracking deadlines, coordinating communication, and flagging risk before it becomes expensive.</p>
-          <p>If there’s a problem, you’ll hear it from me first. If there’s a shortcut that compromises your position, I’ll steer you away from it.</p>
-          <p>Speed matters. But safeguards matter more.</p>
+        <div className="space-y-6">
+          <p className="mb-6 font-semibold text-white" style={{ lineHeight: '1.2' }}>Every deal runs on process, not adrenaline.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>I follow a protocol for every step and every contingency — reviewing documents, tracking deadlines, coordinating communication, and flagging risk before it becomes expensive.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>If there’s a problem, you’ll hear it from me first. If there’s a shortcut that compromises your position, I’ll steer you away from it.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Speed matters. But safeguards matter more.</p>
         </div>
       )
     },
@@ -356,17 +356,20 @@ export default function AboutPage() {
       number: '05',
       title: 'Rules',
       content: (
-        <div className="space-y-4">
-          <p className="font-semibold text-white">The rules I live by</p>
-          <p>These aren’t motivational quotes. They’re survival tactics.</p>
-          <ul className="space-y-2">
-            <li>• If it feels risky, it probably is.</li>
-            <li>• Structure beats chaos — every time.</li>
-            <li>• Speed with safeguards beats speed without them.</li>
-            <li>• Reputation resets at every closing.</li>
-            <li>• Boring closings are the ultimate compliment.</li>
-          </ul>
-          <p>These rules were built in the trenches, not on social media.</p>
+        <div className="space-y-6">
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>This work only functions when expectations are clear.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>So here are mine.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We don’t guess. We verify. We don't chase files. We run them.
+We don't cut corners to move faster.
+We don't manage chaos — We prevent it.
+Communication is direct.
+Deadlines are non-negotiable.
+Compliance comes before convenience.
+If something puts your position at risk, I'll flag it — even if it's uncomfortable.
+If a shortcut compromises the deal, we won't recommend it — even if it's faster.
+We work best with professionals who value precision, respect process, and understand that clean systems beat heroics.
+If you're looking for flexibility without accountability, this won't be a fit.
+If you're looking for someone who protects the downside and keeps deals moving quietly — it will be.. They’re survival tactics.</p>
         </div>
       )
     }
@@ -432,7 +435,7 @@ export default function AboutPage() {
         }}
       />
       
-      <div className="min-h-screen bg-gradient-to-b from-[#121216] via-[#0c0d11] to-[#0a0a0d] text-white">
+      <div className="min-h-screen text-white" style={{ backgroundColor: '#0E0F11' }}>
         {/* Enhanced Sticky Navigation */}
         <StickyNavigation />
 
@@ -448,39 +451,42 @@ export default function AboutPage() {
         >
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-black/60" />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#121216] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-t from-[#0E0F11] via-[#0E0F11]/80 to-transparent" />
           {/* Mobile-specific gradient to hide feet */}
-          <div className="absolute bottom-0 left-0 right-0 h-64 md:hidden bg-gradient-to-t from-[#121216] via-black/70 to-black/20" />
+          <div className="absolute bottom-0 left-0 right-0 h-64 md:hidden bg-gradient-to-t from-[#0E0F11] via-[#0E0F11]/70 to-transparent" />
           <div className="absolute inset-0 flex items-center pt-20">
             <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
               <div className="flex items-start justify-between">
-                <div className="text-left max-w-xl md:pr-8 space-y-3">
+                <div className="text-left max-w-xl md:pr-8">
                   <motion.h1
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-tight"
-                    style={{ textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
+                    className="mb-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white"
+                    style={{ lineHeight: '1.08', textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
                   >
-                    I&apos;m Aylen Montenegro.
+                    Hi, I&apos;m Aylen Montenegro.
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.25 }}
-                    className="text-sm sm:text-base text-gray-200/80 italic"
+                    className="mb-8 text-xs tracking-[0.28em] text-white/60"
+                    style={{
+                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                    }}
                   >
-                    Deal Flow Architect · Systems Builder · Real Estate Operator
+                    Deal Flow Architect. Systems Builder. Real Estate Operator.
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.35 }}
-                    className="space-y-3 text-sm sm:text-base text-gray-200/80 leading-relaxed"
+                    className="space-y-6 max-w-[65ch]"
                   >
-                    <p>I don’t chase chaos. I contain it — calmly, cleanly, and on time.</p>
-                    <p>For more than two decades, I’ve operated inside real estate deals where wording, timing, and precision actually matter. Not in theory. In live files — inspections, extensions, escalations, compliance reviews, and the moments when one bad email can derail a closing.</p>
-                    <p>That’s the arena I come from. And that’s the perspective everything I build is grounded in.</p>
+                    <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>I don’t chase chaos. I contain it — calmly, cleanly, and on time.</p>
+                    <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>For more than two decades, I’ve operated inside real estate deals where wording, timing, and precision actually matter. Not in theory. In live files — inspections, extensions, escalations, compliance reviews, and the moments when one bad email can derail a closing.</p>
+                    <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>That’s the arena I come from. And that’s the perspective everything I build is grounded in.</p>
                   </motion.div>
                 </div>
                 </div>
@@ -495,37 +501,63 @@ export default function AboutPage() {
               className="pointer-events-none absolute right-6 top-80 hidden w-72 select-none lg:block"
               aria-label="Aylen Montenegro stats"
             >
-            <div className="space-y-6">
+            <div className="space-y-7 text-right">
               {/* item */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
+                className="pb-6"
               >
-                <p className="text-white text-4xl font-mono tracking-wider text-right">20+</p>
-                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">YEARS EXPERIENCE</p>
+                <div className="text-xl font-semibold tracking-tight text-white/90">20+</div>
+                <div
+                  className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  }}
+                >
+                  YEARS EXPERIENCE
+                </div>
+                {/* half-length divider */}
+                <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
               </motion.div>
-
-              <hr className="border-t border-white/10" />
 
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
+                className="pb-6"
               >
-                <p className="text-white text-4xl font-mono tracking-wider text-right">South</p>
-                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">FLORIDA</p>
+                <div className="text-xl font-semibold tracking-tight text-white/90">3K+</div>
+                <div
+                  className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  }}
+                >
+                  CLOSED DEALS
+                </div>
+                {/* half-length divider */}
+                <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
               </motion.div>
-
-              <hr className="border-t border-white/10" />
 
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.0 }}
+                className="pb-6"
               >
-                <p className="text-white text-4xl font-mono tracking-wider text-right">Real</p>
-                <p className="mt-2 text-right text-[11px] uppercase tracking-[0.08em] text-white/60">ESTATE EXPERT</p>
+                <div className="text-xl font-semibold tracking-tight text-white/90">4+</div>
+                <div
+                  className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  }}
+                >
+                  SAAS PRODUCTS BUILT
+                </div>
+                {/* half-length divider */}
+                <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
               </motion.div>
             </div>
           </aside>
@@ -567,7 +599,8 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="bg-[#121216] pt-0 pb-16"
+            className="pt-0 pb-16"
+            style={{ backgroundColor: '#0E0F11' }}
           >
             <div className="mx-auto max-w-4xl px-4 lg:px-8">
               {tickerItems
@@ -578,11 +611,12 @@ export default function AboutPage() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
-                      className="text-base text-gray-300 leading-relaxed max-w-4xl space-y-4"
+                      className="text-base text-white/75 max-w-[65ch] space-y-6"
+                      style={{ lineHeight: '1.7' }}
                     >
                       <div>
                         {typeof item.content === 'string' ? (
-                          <p>{item.content}</p>
+                          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>{item.content}</p>
                         ) : (
                           item.content
                         )}
@@ -595,8 +629,8 @@ export default function AboutPage() {
         )}
 
         {/* Closing message */}
-        <section className="bg-[#121216] border-t border-white/5 py-16 px-4 sm:px-8 lg:px-16">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
+        <section className="border-t border-white/5 py-28 sm:py-32 lg:py-36 px-4 sm:px-8 lg:px-16" style={{ backgroundColor: '#0E0F11' }}>
+          <div className="max-w-3xl mx-auto text-center space-y-6">
             <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">If this resonates</h3>
             <p className="text-base text-gray-300 leading-relaxed opacity-80">
               We don’t need to convince each other.

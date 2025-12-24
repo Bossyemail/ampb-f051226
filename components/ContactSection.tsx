@@ -53,20 +53,20 @@ export default function ContactSection() {
     <>
       <section className="relative py-16 border-t border-white/10">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-6">
+          <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-3"
             >
               <h2 className="t-h2">
                 Questions? Let’s talk.
               </h2>
-              <p className="t-body" style={{ maxWidth: '640px', margin: '0 auto' }}>
+              <p className="t-body mt-2" style={{ maxWidth: '640px', margin: '0 auto' }}>
                 Have questions about services or collaboration?<br />
                 Drop me a line and we’ll see if it’s a fit.
               </p>
+              <div className="mt-3">
               <motion.button
                 onClick={() => setIsModalOpen(true)}
                 whileHover={{ scale: 1.05 }}
@@ -76,8 +76,9 @@ export default function ContactSection() {
                 <MessageCircle className="w-4 h-4" />
                 Start a Conversation →
               </motion.button>
+              </div>
             </motion.div>
-            <p className="t-label">
+            <p className="t-label mt-2">
               For service and collaboration inquiries only.
             </p>
           </div>

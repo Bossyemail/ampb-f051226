@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, Suspense } from "react";
 import { useUser, useAuth } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
+import Footer from '@/components/Footer';
 
 function ClauseVaultContent() {
   const router = useRouter();
@@ -70,342 +71,673 @@ function ClauseVaultContent() {
 
   // Show landing page
   return (
-    <div className="min-h-screen flex font-sans relative" style={{ background: 'transparent' }}>
-      {/* Background Image - Same as product page */}
-      <div className="fixed inset-0 z-10">
-        <img 
-          src={`/images/clausevault/clausevault-bg-${currentImageNumber}.jpg`}
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-          onLoad={() => console.log('Image loaded successfully')}
-          onError={(e) => console.log('Image failed to load:', e.target.src)}
-        />
-        {/* Subtle overlay for readability */}
-        <div className="absolute inset-0 bg-black/60" />
-        {/* Additional gradient overlay for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-      </div>
-
+    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: '#0E0F11' }}>
       {/* Login Button - Top Right */}
-      <div className="absolute top-6 right-6 z-30">
+      <div className="absolute top-16 right-6 z-30">
         <button 
           onClick={() => router.push('/sign-in?redirect_url=/clausevault/app')}
           className="px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors font-medium"
+          style={{ color: '#000000' }}
         >
           Sign In
         </button>
       </div>
       
-      {/* Left Side - Mobile responsive */}
-      <div className="w-full md:w-1/2 bg-black/90 backdrop-blur-sm text-white flex flex-col justify-start pt-12 px-6 md:px-12 space-y-4 font-body text-sm relative z-20">
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono lowercase leading-tight"
-        >
-          clausevault
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="text-xs -mt-4 text-white/60"
-        >
-          Searchable, copy-ready clauses.
-        </motion.p>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        {/* CLAUSEVAULT HERO */}
+        <section className="py-24 sm:py-32">
+          <div className="grid gap-14 lg:grid-cols-12 lg:items-start">
+            {/* Left: Copy */}
+            <div className="lg:col-span-7">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                CLAUSEVAULT
+              </p>
 
-        <motion.ul 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-1"
-        >
-          <motion.li 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-            className="hover:text-white/80 transition-colors cursor-default"
-          >
-            ↑ 236 ready-to-paste clauses
-          </motion.li>
-          <motion.li 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-            className="hover:text-white/80 transition-colors cursor-default"
-          >
-            ↑ Covers all contingencies
-          </motion.li>
-          <motion.li 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
-            className="hover:text-white/80 transition-colors cursor-default"
-          >
-            ↑ Built for South Florida
-          </motion.li>
-          <motion.li 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
-            className="hover:text-white/80 transition-colors cursor-default"
-          >
-            ↑ Editable for anywhere
-          </motion.li>
-        </motion.ul>
+              <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+                Searchable, copy-ready clauses for real-world deals.
+              </h1>
 
-        {/* Elegant Pricing Display */}
-        <div className="space-y-3 mt-6">
-          {/* Monthly Plan */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 w-64 hover:bg-white/10 transition-all duration-500 group cursor-pointer"
-            whileHover={{ scale: 1.02, x: 5 }}
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-white font-light text-sm tracking-wide uppercase text-white/60">Monthly</h3>
-                <div className="text-2xl font-light text-white">$99</div>
-              </div>
-              <div className="text-white/40 text-sm font-light">/ month</div>
-            </div>
-          </motion.div>
-          
-          {/* Yearly Plan */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 w-64 hover:bg-white/20 transition-all duration-500 group cursor-pointer relative"
-            whileHover={{ scale: 1.02, x: 5 }}
-          >
-            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-[#7B8E90] to-[#d3ccd6] text-white text-xs px-3 py-1 rounded-full font-light tracking-wide">
-              3 Months Free
-            </div>
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-white font-light text-sm tracking-wide uppercase text-white/60">Yearly</h3>
-                <div className="text-2xl font-light text-white">$891</div>
-              </div>
-              <div className="text-white/40 text-sm font-light">/ year</div>
-            </div>
-          </motion.div>
-        </div>
-        
-        {isSignedIn ? (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="space-y-3"
-          >
-            <motion.button 
-              onClick={() => router.push('/clausevault/app')}
-              className="bg-white text-black px-6 py-3 font-medium relative overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              <span className="relative z-10">Continue to App →</span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-[#7B8E90] to-[#d3ccd6] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "0%" }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              />
-            </motion.button>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="text-xs text-gray-400"
-            >
-              Welcome back! Access your clauses
-            </motion.p>
-          </motion.div>
-        ) : (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="space-y-3"
-          >
-            <motion.button 
-              onClick={handleGetAccess}
-              className="bg-white text-black px-6 py-3 font-medium relative overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              <span className="relative z-10">Get Access →</span>
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-[#7B8E90] to-[#d3ccd6] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "0%" }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              />
-            </motion.button>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="text-xs text-gray-400"
-            >
-              Secure payment powered by Stripe
-            </motion.p>
-          </motion.div>
-        )}
-      </div>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+                ClauseVault helps you communicate clearly inside the contract framework —
+                especially when timelines shift, documents arrive late, or expectations need to be spelled out.
+              </p>
 
-      {/* Right Side - Full Height Animation - Hidden on mobile */}
-      <div className="hidden md:block w-1/2 relative z-20 px-6">
-        <div className="min-h-screen overflow-hidden relative m-0" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <div className="scrolling-content text-white" style={{ 
-            animation: isAnimationPaused ? 'scrollUp 45s linear infinite paused' : 'scrollUp 45s linear infinite running',
-            position: 'absolute',
-            top: '100%'
-          }}>
-            <div className="space-y-8">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Inspection Deadline Extension</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer and Seller agree to extend the inspection period to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Because nothing says "smooth deal" like buying yourself more time to find what's wrong with the house.</p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70">
+                Built around Florida's As-Is reality. Designed for speed, clarity, and fewer "what did you mean?" moments.
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-2">
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                  Scenario categories
+                </span>
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                  Copy + paste ready
+                </span>
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                  Updated over time
+                </span>
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                  Built by a TC
+                </span>
               </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Appraisal Gap Coverage</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer agrees to pay up to $10,000 above appraised value, not to exceed the sales price."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Translation: You're basically paying for the privilege of convincing the seller their overpriced house is worth it.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Repair Cap</h3>
-                <p className="text-sm opacity-90 mb-3">"Seller's obligation to make repairs shall not exceed $2,500."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Hope you like YouTube tutorials, because you're inheriting a few "projects."</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Early Access Agreement</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer may enter the property prior to closing for measurements and contractor bids."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Perfect. Now the buyer's mother-in-law can criticize the kitchen before they even own it.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Escrow Deposit Extension</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer and Seller agree to extend the escrow deposit deadline to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Because nothing says "organized deal" like waiting on money that was due yesterday.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Closing Date Extension</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer and Seller agree to extend the closing date to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Translation: Everyone's moving boxes are now sitting in storage, accruing fees, and a whole lot of stress.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Seller's Property Disclosure</h3>
-                <p className="text-sm opacity-90 mb-3">"Seller agrees to provide Buyer with a completed Seller's Property Disclosure prior to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: AKA: Please put in writing all the things that will mysteriously come up at the final walkthrough.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Financing Flexibility</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer may change lenders provided it does not delay closing."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Cue the lender musical chairs — everyone's invited, but don't you dare miss the deadline.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Title Defect Window</h3>
-                <p className="text-sm opacity-90 mb-3">"Seller has 10 days to cure any title defects identified in the title search."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Nothing like finding out the neighbor's cousin still "technically" owns half the backyard.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Short Sale Addendum</h3>
-                <p className="text-sm opacity-90 mb-3">"Contract is contingent on lender approval within 30 days."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Otherwise known as: "Welcome to real estate purgatory, please hold."</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Post-Occupancy Clause</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer agrees to allow Seller to remain in the property for up to 3 days after closing."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Congratulations, you're now a landlord for 72 hours — rent-free.</p>
+
+              <div className="mt-12 flex flex-wrap items-center gap-4">
+                <a 
+                  href="#pricing"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90"
+                  style={{ color: '#000000' }}
+                >
+                  Get access →
+                </a>
+                <p className="text-sm text-white/55">Monthly or yearly. Cancel anytime.</p>
               </div>
             </div>
-            {/* Duplicate content for seamless infinite loop - no gap */}
-            <div className="pt-8 space-y-8">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Inspection Deadline Extension</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer and Seller agree to extend the inspection period to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Because nothing says "smooth deal" like buying yourself more time to find what's wrong with the house.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Appraisal Gap Coverage</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer agrees to pay up to $10,000 above appraised value, not to exceed the sales price."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Translation: You're basically paying for the privilege of convincing the seller their overpriced house is worth it.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Repair Cap</h3>
-                <p className="text-sm opacity-90 mb-3">"Seller's obligation to make repairs shall not exceed $2,500."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Hope you like YouTube tutorials, because you're inheriting a few "projects."</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Early Access Agreement</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer may enter the property prior to closing for measurements and contractor bids."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Perfect. Now the buyer's mother-in-law can criticize the kitchen before they even own it.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Escrow Deposit Extension</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer and Seller agree to extend the escrow deposit deadline to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Because nothing says "organized deal" like waiting on money that was due yesterday.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Closing Date Extension</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer and Seller agree to extend the closing date to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Translation: Everyone's moving boxes are now sitting in storage, accruing fees, and a whole lot of stress.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Seller's Property Disclosure</h3>
-                <p className="text-sm opacity-90 mb-3">"Seller agrees to provide Buyer with a completed Seller's Property Disclosure prior to ( ___ )."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: AKA: Please put in writing all the things that will mysteriously come up at the final walkthrough.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Financing Flexibility</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer may change lenders provided it does not delay closing."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Cue the lender musical chairs — everyone's invited, but don't you dare miss the deadline.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Title Defect Window</h3>
-                <p className="text-sm opacity-90 mb-3">"Seller has 10 days to cure any title defects identified in the title search."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Nothing like finding out the neighbor's cousin still "technically" owns half the backyard.</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Short Sale Addendum</h3>
-                <p className="text-sm opacity-90 mb-3">"Contract is contingent on lender approval within 30 days."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Otherwise known as: "Welcome to real estate purgatory, please hold."</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <h3 className="text-lg font-semibold mb-2">Post-Occupancy Clause</h3>
-                <p className="text-sm opacity-90 mb-3">"Buyer agrees to allow Seller to remain in the property for up to 3 days after closing."</p>
-                <p className="text-xs text-gray-300 italic">Reality Check: Congratulations, you're now a landlord for 72 hours — rent-free.</p>
+
+            {/* Right: Pricing / Trust card */}
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
+                <p 
+                  className="font-mono text-xs tracking-[0.28em] text-white/55"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  PRICING
+                </p>
+
+                <div className="mt-7 space-y-4">
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
+                    <div className="flex items-baseline justify-between gap-6">
+                      <p className="text-sm text-white/70">Monthly</p>
+                      <p className="text-2xl font-semibold">$99 <span className="text-sm font-normal text-white/50">/mo</span></p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
+                    <div className="flex items-baseline justify-between gap-6">
+                      <p className="text-sm text-white/70">Yearly</p>
+                      <p className="text-2xl font-semibold">$891 <span className="text-sm font-normal text-white/50">/yr</span></p>
+                    </div>
+                    <p className="mt-2 text-xs text-white/55">3 months free.</p>
+                  </div>
+                </div>
+
+                <a 
+                  href="/clausevault/checkout"
+                  className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium text-black hover:bg-white/90"
+                  style={{ color: '#000000' }}
+                >
+                  Get access →
+                </a>
+
+                <p className="mt-4 text-xs text-white/55">
+                  Not legal advice. Contract support only.
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* THE FIX / MECHANISM */}
+        <section className="py-24 sm:py-32">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+            {/* Left: Mechanism framing */}
+            <div className="lg:col-span-5">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                02 \ THE FIX
+              </p>
+
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Less ambiguity. More execution.
+              </h2>
+
+              <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                ClauseVault gives you a curated library of deal-support clauses for the moments
+                contracts don't spell out cleanly — so expectations stay clear and timelines stay intact.
+              </p>
+
+              <p className="mt-6 text-base leading-relaxed text-white/70">
+                It's not about "adding more words."
+                It's about using the right language to prevent confusion, reduce back-and-forth,
+                and keep the deal moving calmly.
+              </p>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a 
+                  href="#how"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
+                >
+                  How it works →
+                </a>
+                <a 
+                  href="#pricing"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium text-black hover:bg-white/90"
+                  style={{ color: '#000000' }}
+                >
+                  Get access →
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Mechanism cards */}
+            <div className="lg:col-span-7">
+              <div className="space-y-6">
+                {/* Core mechanism */}
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    THE MECHANISM
+                  </p>
+                  <h3 className="mt-4 text-xl font-semibold tracking-tight text-white/90">
+                    Scenario-based clause library
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-white/70">
+                    Search by category and scenario — inspections, timing, extensions, access, documents, and more —
+                    then copy, paste, and tailor as needed for the transaction.
+                  </p>
+
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2 text-sm text-white/70">
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        01
+                      </span>
+                      <span>Fast retrieval when timing matters</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        02
+                      </span>
+                      <span>Language designed to clarify, not inflame</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        03
+                      </span>
+                      <span>Built to reduce "interpretation fights"</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <span 
+                        className="font-mono text-white/45"
+                        style={{
+                          fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                          fontVariantNumeric: 'slashed-zero',
+                          fontFeatureSettings: '"zero"',
+                        }}
+                      >
+                        04
+                      </span>
+                      <span>Updated as contracts evolve</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2-up: Why it works / What it's not */}
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      WHY IT WORKS
+                    </p>
+                    <h4 className="mt-4 text-lg font-semibold tracking-tight text-white/90">
+                      It standardizes clarity
+                    </h4>
+                    <p className="mt-4 text-sm leading-relaxed text-white/70">
+                      You stop rewriting clause language from memory or recycling old deals.
+                      Instead, you work from a consistent, scenario-first system designed to protect timelines and expectations.
+                    </p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      WHAT IT ISN'T
+                    </p>
+                    <h4 className="mt-4 text-lg font-semibold tracking-tight text-white/90">
+                      Not legal advice
+                    </h4>
+                    <p className="mt-4 text-sm leading-relaxed text-white/70">
+                      ClauseVault is contract support — built to help you communicate within the existing framework.
+                      When legal interpretation is required, you should consult an attorney.
+                    </p>
+                  </div>
+                </div>
+
+                {/* "Built by a TC" trust anchor */}
+                <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+                  <p 
+                    className="font-mono text-xs tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    BUILT IN THE REAL WORLD
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-white/70">
+                    This library is built from the recurring issues that appear in actual transactions —
+                    not theory, not chat-room opinions, and not "what sounds good."
+                  </p>
+                  <p className="mt-4 text-sm text-white/60">
+                    The goal is simple: reduce ambiguity and keep deals moving.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* HOW IT WORKS */}
+        <section id="how" className="py-24 sm:py-32">
+          <div className="max-w-3xl">
+            <p 
+              className="font-mono text-xs tracking-[0.28em] text-white/55"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+            >
+              03 \ HOW IT WORKS
+            </p>
+
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Search. Copy. Tailor.
+            </h2>
+
+            <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+              ClauseVault is designed for speed under pressure.
+              No digging through old files. No rewriting from memory.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {/* Step 1 */}
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                01
+              </p>
+              <h3 className="mt-4 text-xl font-semibold tracking-tight text-white/90">
+                Search by scenario
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/70">
+                Choose the category that matches the deal: timing, inspections, access, documents, extensions,
+                and other "gray area" moments.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 shadow-[0_18px_70px_rgba(0,0,0,.5)]">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                02
+              </p>
+              <h3 className="mt-4 text-xl font-semibold tracking-tight text-white/90">
+                Copy a clause that fits
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/70">
+                Grab language designed to clarify expectations without escalating tone.
+                Built to be readable, direct, and documentation-friendly.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                03
+              </p>
+              <h3 className="mt-4 text-xl font-semibold tracking-tight text-white/90">
+                Tailor to the deal
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/70">
+                Adjust dates, parties, and specifics. Then use it as part of the contract/addenda workflow
+                and keep the transaction moving.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 flex flex-wrap items-center gap-4">
+            <a 
+              href="#pricing"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90"
+              style={{ color: '#000000' }}
+            >
+              Get access →
+            </a>
+            <p className="text-sm text-white/55">
+              Built to reduce ambiguity — not replace legal counsel.
+            </p>
+          </div>
+        </section>
+
+        {/* WHAT'S INSIDE */}
+        <section className="py-24 sm:py-32">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+            {/* Left: framing */}
+            <div className="lg:col-span-5">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                04 \ WHAT'S INSIDE
+              </p>
+
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Organized by how real transactions actually move.
+              </h2>
+
+              <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                ClauseVault is structured around the moments where clarity matters most —
+                offers, deposits, inspections, financing, and closing logistics.
+              </p>
+
+              <p className="mt-6 text-base leading-relaxed text-white/70">
+                Categories are designed for speed, so you can find the right language
+                without breaking momentum in the deal.
+              </p>
+            </div>
+
+            {/* Right: category grid */}
+            <div className="lg:col-span-7">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      LIBRARY
+                    </p>
+                    <h3 className="mt-4 text-xl font-semibold tracking-tight text-white/90">
+                      Clause categories
+                    </h3>
+                    <p className="mt-3 text-sm text-white/60">
+                      Built for retrieval under pressure.
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
+                    Expands over time
+                  </span>
+                </div>
+
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      OFFER
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Submission & terms</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      CONTRACT
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Execution & corrections</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      DEPOSITS
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Escrow & timing</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      INSPECTIONS
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Repairs & responses</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      LENDER
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Loan process issues</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      FINANCING
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Approval & conditions</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      ACCESS
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Entry & logistics</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      CONDO DOCS
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Associations & delivery</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      REQUESTS
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Special terms & asks</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/10 bg-black/20 p-6">
+                    <p 
+                      className="font-mono text-xs tracking-[0.28em] text-white/55"
+                      style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                    >
+                      TITLE
+                    </p>
+                    <p className="mt-3 text-lg font-medium text-white/90">Closing & curative items</p>
+                  </div>
+                </div>
+
+                {/* UPDATED TIP */}
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="text-sm text-white/60">
+                    In addition to the library, you can create your own custom clauses
+                    and save them privately — so your best language is always one click away.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 flex flex-wrap items-center gap-4">
+            <a 
+              href="#pricing"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-8 py-3.5 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
+            >
+              View pricing →
+            </a>
+            <p className="text-sm text-white/55">
+              Built to support real-world contract workflows.
+            </p>
+          </div>
+        </section>
+
+        {/* PRICING SECTION */}
+        <section id="pricing" className="py-24 sm:py-32">
+          {/* YEARLY PLAN (Annual savings) */}
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 shadow-[0_18px_70px_rgba(0,0,0,.5)] max-w-md">
+            <div className="flex items-center justify-between gap-4">
+              <p 
+                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                YEARLY
+              </p>
+              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-[11px] text-white/75">
+                Annual savings
+              </span>
+            </div>
+
+            <div className="mt-4 flex items-baseline gap-2">
+              <p className="text-3xl font-semibold">$891</p>
+              <p className="text-sm text-white/55">/ year</p>
+            </div>
+
+            <p className="mt-2 text-xs text-white/55">3 months free.</p>
+
+            <p className="mt-4 text-sm text-white/70">
+              Best if you use clauses weekly (or manage multiple files).
+            </p>
+
+            <ul className="mt-6 space-y-3 text-sm text-white/70">
+              <li className="flex gap-3">
+                <span 
+                  className="font-mono text-white/45"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
+                >
+                  01
+                </span>
+                <span>Everything in Monthly</span>
+              </li>
+              <li className="flex gap-3">
+                <span 
+                  className="font-mono text-white/45"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
+                >
+                  02
+                </span>
+                <span>Lower effective monthly cost</span>
+              </li>
+              <li className="flex gap-3">
+                <span 
+                  className="font-mono text-white/45"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
+                >
+                  03
+                </span>
+                <span>Better for teams + TCs</span>
+              </li>
+              <li className="flex gap-3">
+                <span 
+                  className="font-mono text-white/45"
+                  style={{
+                    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
+                >
+                  04
+                </span>
+                <span>Updates included</span>
+              </li>
+            </ul>
+
+            <a 
+              href="/clausevault/checkout?plan=yearly"
+              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
+              style={{ color: '#000000' }}
+            >
+              Start Yearly →
+            </a>
+          </div>
+
+          {/* NO FRICTION (Risk reversal) */}
+          <div className="mt-14 max-w-md rounded-2xl border border-white/10 bg-black/20 p-7">
+            <p 
+              className="font-mono text-xs tracking-[0.28em] text-white/55"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+            >
+              NO FRICTION
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              Try it. If it doesn't make you faster and clearer, cancel.
+              ClauseVault should feel like a workflow upgrade — not another subscription you ignore.
+            </p>
+          </div>
+        </section>
       </div>
-
-      <style jsx>{`
-        @keyframes scrollUp {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-100%); }
-        }
-        .scrolling-content {
-          display: inline-block;
-          margin: 0;
-          padding: 0;
-        }
-
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

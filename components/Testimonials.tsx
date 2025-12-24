@@ -2,9 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import { useEffect, useRef } from "react";
-
-const BRAND_COLORS = ["#EFEBE2", "#7B8E90", "#d3ccd6", "#bcafaf"];
 
 type Testimonial = {
   quote: string;
@@ -20,7 +17,7 @@ const testimonials: Testimonial[] = [
     quote: "I cannot speak highly enough of my transaction manager, Aylen Montenegro. She has become an integral part of my business and a true partner in my growth. Aylen is exceptionally efficient, knowledgeable, and professional, consistently managing each transaction with precision and care. Her support has allowed me to focus more on serving my clients at the highest level, and the improvement in my workflow and productivity has been remarkable. Since Aylen joined my team, I have experienced significant growth and a level of organization that has elevated my business operations. I rely on Aylen's expertise every day, and I recommend her without reservation to any real estate professional seeking a dedicated and reliable transaction manager.",
     author: "Daniele G.",
     role: "",
-    company: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "True business partner driving significant growth"
   },
@@ -36,70 +33,70 @@ const testimonials: Testimonial[] = [
     quote: "Working with Aylen is truly a pleasure. She is incredibly knowledgeable, easy to work with, and always brings a great attitude to every task. She understands instructions quickly, communicates clearly, and stays consistently ahead throughout the transaction process. Her problem-solving skills are excellent, and she adapts easily to the changes that often come up in real estate transactions. Having her oversee the details gives me complete peace of mind. Aylen brings professionalism, reliability, and a collaborative spirit to every file.",
     author: "Claudia W.",
     role: "",
-    company: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Complete peace of mind with collaborative excellence"
   },
   {
     quote: "Aylen is an absolute powerhouse always on top of everything and constantly delivering the best results. She's the glue that holds our team together, making every transaction smooth and effortless. Self-made and unstoppable, she can get anything done and never takes no for an answer. What most teams need multiple people for, Aylen does all on her own, and she does it with grace, professionalism, and heart.",
     author: "Mia C",
-    role: "Top Producer",
-    company: "Coldwell Banker Miami Beach",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Powerhouse performance with heart"
   },
   {
     quote: "A BIG thank you to Aylen Montenegro! She was professional, precise, knowledgeable and kept us all on the ball. Smooth and quick four week closing wouldn't have happened without her.",
     author: "Maggie S",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Smooth 4-week closing"
   },
   {
     quote: "Aylen consistently delivers the highest standard of service, ensuring smooth and impeccable transactions. World-class communication skills, unwavering professionalism, an exceptional level of organization. It's always fantastic to hear that our agents are working with Aylen, as it truly contributes to making the deal feel seamless.",
     author: "Rachel I",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Seamless transactions with world-class service"
   },
   {
     quote: "I wanted to thank you and your team for your outstanding professionalism! You continue to demonstrate an impressive level of efficiency. Your commitment to accuracy not only streamlines the entire process but also instills a sense of confidence in all parties involved. Communication is key in real estate transactions, and you go above and beyond to keep all parties informed and updated.",
     author: "Debbie W",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Stress-free transactions with confidence"
   },
   {
     quote: "Aylen, is one of the best professional in Real Estate. 10 years in the business and I am truly grateful that I met them. Reliable, trustworthy, knowledgeable, very knowledgeable!! And always here to deliver the best services.",
     author: "Sofia S",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "All my business - smooth and professional deals"
   },
   {
     quote: "It is a pleasure to work with Aylen Montenegro in every transaction because her dedication to her work makes it a smooth transaction. The documentation always has all the signatures and initials; she is always attentive to every deadline, and detail that is needed, allowing the agent to dedicate more time to finding more clients.",
     author: "Yudy S",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Smooth transactions with complete documentation"
   },
   {
     quote: "I highly recommend our transaction coordinators for their efficient, professional, and helpful approach to transaction management. Their dedication to simplifying the process for our agents ensures a smooth transaction. I'm grateful for their expertise and would gladly recommend them.",
     author: "Yolanda B",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Efficient and professional transaction management"
   },
   {
     quote: "Working with Aylen has been a game-changer for my business. Her attention to detail and proactive approach to transaction management has saved me countless hours and prevented numerous potential issues. She's become an invaluable part of my team.",
     author: "Maria T",
-    role: "Top Producer",
+    role: "",
     company: "Keller Williams Realty",
     rating: 5,
     result: "Game-changing transaction support"
@@ -107,23 +104,23 @@ const testimonials: Testimonial[] = [
   {
     quote: "Aylen's expertise in real estate transactions is unmatched. She handles every detail with precision and keeps me informed throughout the entire process. My clients always comment on how smooth and professional everything feels.",
     author: "Carlos R",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Unmatched transaction expertise"
   },
   {
     quote: "Aylen...she is just wow! I've worked with her for almost four years, and she has been nothing short of amazing. Incredibly proactive, highly knowledgeable about real estate, and always on top of every detail. She has never missed a deadline. I've learned so much from her and truly value her expertise.",
     author: "Andres C",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Four years of flawless service"
   },
   {
     quote: "Aylen she is just wow! I've worked with her for almost four years, and she has been nothing short of amazing. Incredibly proactive, highly knowledgeable about real estate, and always on top of every detail, she has never missed a deadline. I've learned so much from her and truly value her expertise.",
     author: "Elina S",
-    role: "Top Producer",
+    role: "",
     company: "The Alpha Commercial",
     rating: 5,
     result: "Four years of exceptional expertise"
@@ -131,15 +128,15 @@ const testimonials: Testimonial[] = [
   {
     quote: "Where do I even begin with Aylen? She has the patience of a saint, and her knowledge spans everything from A to Z. She's someone I can truly trust every single day, and someone I feel comfortable opening up to. I've worked with Aylen since the very start of my real estate career, and I can confidently say I would not be where I am today without her. Aylen comes highly recommended — not just by me, but also by my partners Laura and Mia. She is smart, educated, patient, humble, and incredibly understanding. I'd work with Aylen 11 out of 10 times.",
     author: "Chase C",
-    role: "Top Producer",
-    company: "Coldwell Banker Miami Beach",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Trusted partner from day one"
   },
   {
     quote: "Working with Aylen has been nothing short of exceptional. She is the heartbeat of every transaction meticulous, proactive, and always several steps ahead. Her attention to detail is unmatched, ensuring that no document is overlooked and no deadline is missed. Communication with her is seamless; she anticipates needs before they arise and resolves challenges before they become problems. Thanks to her expertise and dedication, every process feels effortless and stress-free. I have worked with many professionals in real estate, but her combination of knowledge, efficiency, and genuine care for clients is truly rare. She is not just a transaction coordinator, she is the reason closings happen smoothly and successfully.",
     author: "Rosa P",
-    role: "The Poler Group",
+    role: "",
     company: "The Poler Group",
     rating: 5,
     result: "The reason closings happen smoothly and successfully"
@@ -147,16 +144,16 @@ const testimonials: Testimonial[] = [
   {
     quote: "I had an outstanding experience working with Aylen in multiple deals. She is professional, highly proficient, and handled every detail with exceptional care and efficiency. Her expertise made the process smooth and stress-free. I would highly recommend her services to anyone seeking a contract coordinator. She is a true real estate professional.",
     author: "Gloria L",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Outstanding experience in multiple deals"
   },
   {
     quote: "I’m an experienced Realtor with eight years in the business and over 500 closed deals, specializing in luxury homes in Florida and Massachusetts. I’ve worked with many transaction coordinators over the years, but Aylen and her team are by far the best I’ve ever partnered with. We now trust Aylen with every single transaction — always professional, always reliable.",
     author: "Sergio G",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Best TC partnership in 8 years and 500+ deals"
   },
@@ -178,7 +175,7 @@ const testimonials: Testimonial[] = [
     quote: "I would not dream of doing any deals without Aylen by my side. Her support from contract to close is part of the added value I like to offer my clients. From deadlines to solving problems when they arise, I can count on her to deliver",
     author: "Gisell S.",
     role: "",
-    company: "Coldwell Banker Realty",
+    company: "Coldwell Banker",
     rating: 5
   },
   {
@@ -191,8 +188,8 @@ const testimonials: Testimonial[] = [
   {
     quote: "Aylen is absolutely incredible to work with. Her attention to detail and proactive communication makes every transaction seamless. She anticipates needs before they arise and always keeps everyone informed throughout the process. I wouldn't trust anyone else with my deals.",
     author: "Judith L.",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Seamless transactions with proactive communication"
   },
@@ -207,8 +204,8 @@ const testimonials: Testimonial[] = [
   {
     quote: "Working with Aylen has transformed how I handle my real estate business. Her expertise and efficiency allow me to focus on what I do best - selling. Every transaction is handled with precision and care. She's become an essential part of my success.",
     author: "Andres E.",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Transformed business operations with precision and care"
   },
@@ -223,8 +220,8 @@ const testimonials: Testimonial[] = [
   {
     quote: "Aylen's professionalism and knowledge are unmatched. She handles every aspect of the transaction with such expertise that I never have to worry about anything falling through the cracks. Her communication is clear, timely, and always helpful.",
     author: "Fernando A.",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Unmatched professionalism with clear communication"
   },
@@ -239,8 +236,8 @@ const testimonials: Testimonial[] = [
   {
     quote: "I've been working with Aylen for years and she consistently delivers exceptional service. Her ability to manage complex transactions while keeping everyone informed is remarkable. She's not just a transaction coordinator - she's a true partner in my business success.",
     author: "Laura G.",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "True business partner with exceptional service"
   },
@@ -279,8 +276,8 @@ const testimonials: Testimonial[] = [
   {
     quote: "Aylen is my secret weapon. I don't touch a transaction without her. She keeps the chaos under control, knows exactly how to guide a deal to closing, and saves me (and my clients) more times than I can count. Simply put — she's the closer behind the closer.",
     author: "Nathalys F.",
-    role: "Top Producer",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "The closer behind the closer"
   },
@@ -310,243 +307,159 @@ const testimonials: Testimonial[] = [
   {
     quote: "Aylen Montenegro has demonstrated exceptional performance and is a crucial asset to our real estate team. Her consistently go above and beyond to ensure our transactions are seamless, compliant, and our clients' best interests are protected. Her expertise and attention to detail have significantly contributed to our team's efficiency and success. Five stars all the way—we are so grateful for her contributions!",
     author: "Edner F.",
-    role: "Real Estate Professional",
-    company: "Coldwell Banker Realty",
+    role: "",
+    company: "Coldwell Banker",
     rating: 5,
     result: "Crucial asset with five-star performance"
   }
 ];
 
-// Function to control individual card positioning
-const getCardMargin = (index: number) => {
-  // Consistent spacing throughout - let natural card heights create the Pinterest effect
-  const margins = [
-    0,    // Mia C (card 0) - top left
-    0,    // Sofia S (card 1) - top right  
-    0,    // Maggie S (card 2) - top center
-    0,    // Agelica C (card 3) - natural flow
-    0,    // Yudy S (card 4) - natural flow
-    0,    // Rachel I (card 5) - natural flow
-    0,    // Debbie W (card 6) - natural flow
-    0,    // Yolanda B (card 7) - natural flow
-    0,    // Maria T (card 8) - natural flow
-    0     // Carlos R (card 9) - natural flow
-  ];
-  return margins[index] || 0;
-};
 
-// Function to get random brand color
-const getRandomBrandColor = (index: number) => {
-  return BRAND_COLORS[index % BRAND_COLORS.length];
-};
+
 
 export default function Testimonials() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  // Distribute testimonials across 3 columns for masonry layout
+  const column1: typeof testimonials = [];
+  const column2: typeof testimonials = [];
+  const column3: typeof testimonials = [];
 
-    const cards = container.children;
-    const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-    const columnHeights = new Array(columns).fill(0);
-    const columnElements: HTMLElement[][] = Array.from({ length: columns }, () => []);
+  testimonials.forEach((testimonial, index) => {
+    if (index % 3 === 0) {
+      column1.push(testimonial);
+    } else if (index % 3 === 1) {
+      column2.push(testimonial);
+    } else {
+      column3.push(testimonial);
+    }
+  });
 
-    // Reset positions
-    Array.from(cards).forEach((card) => {
-      (card as HTMLElement).style.position = 'absolute';
-      (card as HTMLElement).style.top = '0';
-      (card as HTMLElement).style.left = '0';
-    });
-
-    // Position cards
-    Array.from(cards).forEach((card, index) => {
-      const cardElement = card as HTMLElement;
-      const columnIndex = index % columns;
-      
-      cardElement.style.position = 'absolute';
-      cardElement.style.top = `${columnHeights[columnIndex]}px`;
-      cardElement.style.left = `${columnIndex * (100 / columns)}%`;
-      cardElement.style.width = `${100 / columns - 2}%`;
-      
-      columnElements[columnIndex].push(cardElement);
-      columnHeights[columnIndex] += cardElement.offsetHeight + 16; // 16px gap
-    });
-
-    // Set container height
-    const maxHeight = Math.max(...columnHeights);
-    container.style.height = `${maxHeight}px`;
-  }, [testimonials]);
-
-  return (
-    <section
-      className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 overflow-hidden"
-    >
-      {/* Falling Particles Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Streams 1-13: Far Left */}
-        <motion.div className="absolute top-64 left-0 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 300], x: [0, 200], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0 }} />
-        <motion.div className="absolute top-64 left-0 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 250], x: [0, 180], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} />
-        <motion.div className="absolute top-64 left-1/24 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 350], x: [0, 190], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} />
-        <motion.div className="absolute top-64 left-1/24 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 280], x: [0, 170], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 2.0 }} />
-        <motion.div className="absolute top-64 left-1/12 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 320], x: [0, 150], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 1.6 }} />
-        <motion.div className="absolute top-64 left-1/12 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 270], x: [0, 160], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }} />
-        <motion.div className="absolute top-64 left-1/8 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 290], x: [0, 140], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} />
-        <motion.div className="absolute top-64 left-1/8 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 330], x: [0, 130], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.4 }} />
-        <motion.div className="absolute top-64 left-1/6 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 250], x: [0, 120], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.0 }} />
-        <motion.div className="absolute top-64 left-1/6 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 310], x: [0, 110], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.8 }} />
-        <motion.div className="absolute top-64 left-5/24 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 340], x: [0, 100], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} />
-        <motion.div className="absolute top-64 left-5/24 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 260], x: [0, 90], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.4 }} />
-        <motion.div className="absolute top-64 left-1/4 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 300], x: [0, 80], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} />
+  const renderColumn = (columnTestimonials: typeof testimonials, columnIndex: number, offsetClass: string) => (
+    <div className={`space-y-6 ${offsetClass}`}>
+      {columnTestimonials.map((testimonial, index) => {
+        const globalIndex = columnIndex === 0 
+          ? index * 3 
+          : columnIndex === 1 
+          ? index * 3 + 1 
+          : index * 3 + 2;
         
-        {/* Streams 14-26: Left Center */}
-        <motion.div className="absolute top-64 left-1/4 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 250], x: [0, 70], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.2 }} />
-        <motion.div className="absolute top-64 left-7/24 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 350], x: [0, 60], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.9 }} />
-        <motion.div className="absolute top-64 left-7/24 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 280], x: [0, 50], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.6 }} />
-        <motion.div className="absolute top-64 left-1/3 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 320], x: [0, 40], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }} />
-        <motion.div className="absolute top-64 left-1/3 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 270], x: [0, 30], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.7 }} />
-        <motion.div className="absolute top-64 left-3/8 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 290], x: [0, 25], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 }} />
-        <motion.div className="absolute top-64 left-3/8 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 330], x: [0, 20], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.9 }} />
-        <motion.div className="absolute top-64 left-5/12 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 250], x: [0, 15], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.3 }} />
-        <motion.div className="absolute top-64 left-5/12 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 310], x: [0, 10], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.1 }} />
-        <motion.div className="absolute top-64 left-11/24 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 340], x: [0, 8], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} />
-        <motion.div className="absolute top-64 left-11/24 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 260], x: [0, 5], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.9 }} />
-        <motion.div className="absolute top-64 left-1/2 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 300], x: [0, 3], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }} />
-        <motion.div className="absolute top-64 left-1/2 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 280], x: [0, 2], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.5 }} />
-        
-        {/* Streams 27-39: Right Center */}
-        <motion.div className="absolute top-64 left-13/24 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 350], x: [0, 1], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.1 }} />
-        <motion.div className="absolute top-64 left-13/24 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 270], x: [0, 1], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.7 }} />
-        <motion.div className="absolute top-64 left-7/12 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 320], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }} />
-        <motion.div className="absolute top-64 left-7/12 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 290], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} />
-        <motion.div className="absolute top-64 left-5/8 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 250], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} />
-        <motion.div className="absolute top-64 left-5/8 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 330], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.3 }} />
-        <motion.div className="absolute top-64 left-2/3 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 310], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.1 }} />
-        <motion.div className="absolute top-64 left-2/3 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 260], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.9 }} />
-        <motion.div className="absolute top-64 left-17/24 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 340], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} />
-        <motion.div className="absolute top-64 left-17/24 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 280], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.7 }} />
-        <motion.div className="absolute top-64 left-3/4 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 300], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} />
-        <motion.div className="absolute top-64 left-3/4 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 270], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.1 }} />
-        <motion.div className="absolute top-64 left-19/24 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 320], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.3 }} />
-        
-        {/* Streams 40-52: Far Right */}
-        <motion.div className="absolute top-64 left-19/24 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 290], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.7 }} />
-        <motion.div className="absolute top-64 left-5/6 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 250], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} />
-        <motion.div className="absolute top-64 left-5/6 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 350], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.9 }} />
-        <motion.div className="absolute top-64 left-7/8 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 310], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} />
-        <motion.div className="absolute top-64 left-7/8 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 280], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.3 }} />
-        <motion.div className="absolute top-64 left-23/24 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 340], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.1 }} />
-        <motion.div className="absolute top-64 left-23/24 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 260], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.9 }} />
-        <motion.div className="absolute top-64 left-11/12 w-2 h-2 bg-white/40 rounded-full" animate={{ y: [0, 300], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.7 }} />
-        <motion.div className="absolute top-64 left-11/12 w-1.5 h-1.5 bg-white/30 rounded-full" animate={{ y: [0, 270], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} />
-        <motion.div className="absolute top-64 left-47/48 w-2 h-2 bg-white/35 rounded-full" animate={{ y: [0, 320], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.9 }} />
-        <motion.div className="absolute top-64 left-47/48 w-1.5 h-1.5 bg-white/40 rounded-full" animate={{ y: [0, 290], x: [0, 0], opacity: [0, 0.6, 0.6, 0] }} transition={{ duration: 6.0, repeat: Infinity, ease: "easeInOut", delay: 2.5 }} />
-        <motion.div className="absolute top-64 left-95/96 w-2 h-2 bg-white/30 rounded-full" animate={{ y: [0, 250], x: [0, 0], opacity: [0, 0.4, 0.4, 0] }} transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.3 }} />
-        <motion.div className="absolute top-64 left-95/96 w-1.5 h-1.5 bg-white/35 rounded-full" animate={{ y: [0, 350], x: [0, 0], opacity: [0, 0.5, 0.5, 0] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.7 }} />
-      </div>
-      {/* Section Header */}
-      <div className="text-center mb-8 md:mb-12">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 md:mb-4"
-        >
-          What Other People Said<br />(No NDA Required)
-        </motion.h2>
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
-        >
-          <p>They swear I deliver. Either that, or I&apos;m way better at bribery than I thought.</p>
-          <p>Turns out contract triage is a marketable skill.</p>
-          <p>Real feedback. Zero bribes. Pinky swear.</p>
-        </motion.div>
-      </div>
-
-            {/* Testimonials Container */}
-      <div ref={containerRef} className="relative max-h-[600px] overflow-y-auto pb-16 scrollbar-hide">
-        {testimonials.map((testimonial, index) => (
+        return (
           <motion.div
-            key={`${testimonial.author}-${index}`}
-            initial={{ opacity: 0, y: 20 }}
+            key={`${testimonial.author}-${globalIndex}`}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: globalIndex * 0.05 }}
             className="group relative"
           >
-            {/* Glass Effect Card */}
+            {/* Clean Minimal Card */}
             <div 
-              className="relative overflow-hidden rounded-lg border text-white hover:bg-white hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/5 group/neon hover:scale-[1.02] hover:-translate-y-1"
-              style={{ 
-                borderColor: getRandomBrandColor(index),
-                backgroundColor: `${getRandomBrandColor(index)}10`
-              }}
+              className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 sm:p-12 text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.03]"
             >
-                <div className="relative p-4">
+              <div className="space-y-6">
+                {/* Quote Icon */}
+                <div>
+                  <Quote className="w-5 h-5 text-white/30" />
+                </div>
+                
                   {/* Quote Text */}
-                  <blockquote className="text-white/90 group-hover/neon:text-white/90 text-sm font-medium leading-relaxed mb-3">
-                    "{testimonial.quote}"
+                <blockquote className="font-sans text-base sm:text-[17px] text-white/75 max-w-[52ch]" style={{ lineHeight: '1.7' }}>
+                  {testimonial.quote}
                   </blockquote>
       
                   {/* Author Info */}
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-white/20 to-white/10 group-hover/neon:from-white/20 group-hover/neon:to-white/10 flex items-center justify-center">
-                      <span className="text-white/90 group-hover/neon:text-white/90 font-semibold text-xs">
-                        {testimonial.author.split(' ')[0][0]}{testimonial.author.split(' ')[1]?.[0] || ''}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="text-white group-hover/neon:text-white font-medium text-sm">
+                <div className="pt-6 border-t border-white/10">
+                <div className="font-sans text-sm font-medium text-white/90 mb-1">
                         {testimonial.author}
                       </div>
-                      <div className="text-gray-400 group-hover/neon:text-gray-300 text-xs">
-                        {testimonial.company}
+                {(testimonial.role || testimonial.company) && (
+                  <div 
+                    className="text-xs uppercase tracking-[0.28em] text-white/60 mt-1"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    {testimonial.role && testimonial.company 
+                      ? `${testimonial.role}${testimonial.company ? ` • ${testimonial.company}` : ''}`
+                      : testimonial.role || testimonial.company
+                    }
                       </div>
+                )}
+                {testimonial.result && (
+                  <div className="mt-2 font-sans text-xs text-white/60 italic">
+                    {testimonial.result}
                     </div>
+                )}
                   </div>
                 </div>
               </div>
             </motion.div>
-        ))}
-      </div>
-          
-          {/* Scroll Indicator - Above CTA */}
-          <div className="text-center py-4">
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex flex-col items-center gap-2"
-            >
-              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-1 h-3 bg-white/60 rounded-full mt-2"
-                />
-              </div>
-              <span className="text-white/60 text-xs font-medium">Scroll for more testimonials ({testimonials.length} total)</span>
-            </motion.div>
-          </div>
+        );
+      })}
+    </div>
+  );
 
-      {/* Bottom CTA */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="text-center mt-12"
-      >
-        <p className="text-gray-300 mb-4">
-          Ready to join them?
-        </p>
-        <a 
-          href="/elevate" 
-          className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white hover:bg-white/[0.03] transition rounded-lg"
+  return (
+    <section className="mt-10">
+      {/* Scroll viewport */}
+      <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
+        {/* top fade */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-12 bg-gradient-to-b from-black/70 to-transparent" />
+        {/* bottom fade */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-gradient-to-t from-black/70 to-transparent" />
+
+        <div
+          className="max-h-[520px] overflow-y-auto px-6 py-6 sm:px-8 sm:py-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          Let's Talk Results
-        </a>
-      </motion.div>
+
+          {/* Staggered grid */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {/* column 1 */}
+            {renderColumn(column1, 0, '')}
+            
+            {/* column 2 (offset downward) */}
+            {renderColumn(column2, 1, 'md:pt-10')}
+            
+            {/* column 3 (offset upward or less) */}
+            {renderColumn(column3, 2, 'md:pt-4')}
+          </div>
+        </div>
+      </div>
+
+      {/* Total count and scroll indicator */}
+      <div className="mt-6 flex flex-col items-center gap-3">
+        {/* Scrollbar icon */}
+        <svg
+          className="h-8 w-4 text-white/40"
+          fill="none"
+          viewBox="0 0 16 32"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          {/* Scrollbar track */}
+          <rect
+            x="1"
+            y="1"
+            width="14"
+            height="30"
+            rx="7"
+            stroke="currentColor"
+            fill="none"
+          />
+          {/* Scrollbar thumb */}
+          <rect
+            x="3"
+            y="22"
+            width="10"
+            height="6"
+            rx="3"
+            fill="currentColor"
+            className="animate-bounce"
+            style={{ animationDuration: '1.5s' }}
+          />
+        </svg>
+        
+        {/* Text */}
+        <p className="text-[10px] text-white/45 text-center" style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>
+          Scroll for more ({testimonials.length} total)
+        </p>
+      </div>
     </section>
   );
 }

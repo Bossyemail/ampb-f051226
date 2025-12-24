@@ -94,12 +94,9 @@ export default function RootLayout({
         }
       }}
     >
-      <html lang="en">
+      <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
         <head>
-          {/* Google Fonts */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+          {/* Fonts are loaded via Next.js font loader - removed duplicate Google Fonts link */}
           
           {/* Google Analytics */}
           <Script
@@ -122,9 +119,7 @@ export default function RootLayout({
             `}
           </Script>
         </head>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body className="bg-black text-white antialiased">
           <SkipToContent />
           <main id="main-content" tabIndex={-1}>
             {children}

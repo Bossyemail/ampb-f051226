@@ -1,8 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Design System Tokens */
+  --bg: #0E0F11;
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.75);
+  --faint: rgba(255,255,255,0.55);
+  --hairline: rgba(255,255,255,0.10);
+
+  --container: 72rem; /* 1152px */
+  --px: 1.5rem;       /* 24px */
+  --px-lg: 2.5rem;    /* 40px */
+
+  --section-y: 4rem;  /* 64px */
+  --section-y-sm: 5rem; /* 80px */
+  --section-y-lg: 6rem; /* 96px */
+
+  --h1: 3.5rem; /* 56px */
+  --h2: 2.25rem; /* 36px */
+  --body: 1.0625rem; /* 17px */
 }
 
 @theme inline {
@@ -19,14 +39,264 @@
   }
 }
 
-body {
-  background: #0c0d11;
-  color: rgba(255, 255, 255, 0.82);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+/* Ticker animation */
+.ticker-edge-to-edge {
+  animation: ticker-scroll 26s linear infinite;
+  will-change: transform;
 }
 
-@layer base {
-  /* Typography is now handled by type-system.css */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-edge-to-edge {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+}
+
+/* Hard Reset / Normalize */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Container */
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+@media (min-width: 640px) {
+  .wrap { padding-left: var(--px-lg); padding-right: var(--px-lg); }
+}
+
+/* Section Rhythm */
+.section { padding: var(--section-y) 0; }
+@media (min-width: 640px) { .section { padding: var(--section-y-sm) 0; } }
+@media (min-width: 1024px) { .section { padding: var(--section-y-lg) 0; } }
+
+.rule { border-top: 1px solid var(--hairline); }
+
+/* Type Scale */
+.h1 {
+  font-size: 2.5rem;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin: 0;
+}
+@media (min-width: 640px) { .h1 { font-size: 3rem; } }
+@media (min-width: 1024px) { .h1 { font-size: var(--h1); } }
+
+.h2 {
+  font-size: 1.875rem;
+    line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin: 0;
+}
+@media (min-width: 640px) { .h2 { font-size: 2.25rem; } }
+
+.p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+@media (min-width: 640px) { .p { font-size: var(--body); } }
+
+.stack-4 > * + * { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-14 { margin-top: 3.5rem; }
+
+/* Hero Grid */
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 5fr 5fr 2fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Image Card + Falloff */
+.portrait {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+.portrait img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center top;
+}
+@media (max-width: 1023px) { .portrait img { height: 520px; } }
+@media (max-width: 639px) { .portrait img { height: 420px; } }
+.falloff {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-side at 50% 35%,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.45) 60%,
+    rgba(0,0,0,0.88) 100%);
+}
+
+/* Stats */
+.stats { padding-top: 0.5rem; text-align: right; }
+.stats > * + * { margin-top: 2.5rem; }
+.stat-num { font-size: 1.5rem; font-weight: 500; color: rgba(255,255,255,0.9); }
+.stat-label { margin-top: 0.75rem; font-size: 11px; color: rgba(255,255,255,0.45); }
+
+/* Sharp Glass Buttons */
+.btn-stack { max-width: 420px; }
+.btn-stack > * + * { margin-top: 0.75rem; }
+.btn {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.875rem;
+    font-weight: 500;
+  text-align: left;
+  transition: border-color .2s ease, background .2s ease;
+  }
+.btn:hover {
+  border-color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Cross-browser normalization */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure consistent box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Safari-specific backdrop filter fixes */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Ensure consistent mask rendering across browsers */
+@supports (-webkit-mask-image: none) {
+  [style*="maskImage"],
+  [style*="WebkitMaskImage"] {
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+}
+
+/* Force consistent rendering for hero image mask */
+.hero-image-mask {
+  -webkit-mask-size: 100% 100% !important;
+  mask-size: 100% 100% !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+  mask-position: center !important;
+}
+
+/* Safari-specific fixes for flexbox and grid */
+@supports (-webkit-appearance: none) {
+  .home-root {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ensure consistent flex rendering */
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  /* Ensure consistent grid rendering */
+  .grid {
+    display: -webkit-grid;
+    display: grid;
+  }
+}
+
+/* Safari fixes for roller component */
+.roller-item {
+  contain: layout style paint;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.roller-num,
+.roller-label {
+  contain: layout style paint;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  display: block !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Home root isolation - prevents type-system.css from affecting homepage */
+/* Must be outside @layer to override type-system.css !important rules */
+.home-root h1,
+.home-root h2,
+.home-root h3,
+.home-root h4,
+.home-root h5,
+.home-root h6,
+.home-root p,
+.home-root li {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  color: inherit !important;
+  text-align: initial !important;
+  text-justify: auto !important;
+  margin: 0 !important;
+  max-width: none !important;
+  }
+
+.home-root p + p {
+  margin-top: 1rem !important;
 }
 
 @layer components {
@@ -162,4 +432,60 @@ body {
     inset -3px -3px 6px rgba(255, 255, 255, 0.15),
     0 4px 8px rgba(0, 0, 0, 0.3),
     0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide details marker for expandable sections */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Expandable details sections */
+details[open] .details-chevron {
+  transform: rotate(180deg);
+}
+
+details .details-content {
+  display: none;
+}
+
+details[open] .details-content {
+  display: block;
+}
+
+/* Refined details styling */
+details summary {
+  outline: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+}
+
+details[open] summary {
+  border-bottom: none;
+}
+
+/* Override type-system.css for section labels */
+.section-label {
+  font-size: 10px !important;
+  letter-spacing: 0.28em !important;
+}
+
+/* Roller section - scroll-driven stepper */
+.roller .track {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.roller .snap-off {
+  transition: none !important;
+}
+
+.roller .chip {
+  opacity: 0.65;
+  cursor: pointer;
 }

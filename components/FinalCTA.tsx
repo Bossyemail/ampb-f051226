@@ -6,17 +6,16 @@ import { ChevronRight } from "lucide-react";
 export default function FinalCTA() {
   return (
     <section className="relative py-14 lg:py-16 bg-[#0a0a0a]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-4 sm:space-y-5"
         >
           <h2 className="t-h2">
             Still Scrolling?
           </h2>
-          <p className="t-body" style={{ maxWidth: '640px', margin: '0 auto' }}>
+          <p className="t-body mt-2" style={{ maxWidth: '640px', margin: '0 auto' }}>
             At some point, you stop browsing and start closing.<br />
             Chaos won’t fix itself.
           </p>
@@ -26,7 +25,7 @@ export default function FinalCTA() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="pt-2"
+          className="mt-3"
         >
           <a
             href="https://bossyemail.com"
