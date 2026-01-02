@@ -14,11 +14,11 @@ export default function PrivacyPage() {
         <div className="mx-auto max-w-6xl px-6 sm:px-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
-              Privacy Policy
-            </h1>
+            Privacy Policy
+          </h1>
             <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-              We respect your privacy more than sellers respect showing schedules.
-            </p>
+            We respect your privacy more than sellers respect showing schedules.
+          </p>
           </div>
         </div>
       </section>

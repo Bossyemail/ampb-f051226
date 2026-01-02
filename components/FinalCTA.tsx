@@ -32,6 +32,7 @@ export default function FinalCTA() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
+            style={{ color: '#000000' }}
           >
             Try BossyEmail →
           </a>

@@ -14,11 +14,11 @@ export default function TermsPage() {
         <div className="mx-auto max-w-6xl px-6 sm:px-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
-              Terms & Conditions
-            </h1>
+            Terms & Conditions
+          </h1>
             <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-              Our tools, templates, books, and services are designed to add value to your business—not to replace your broker, your attorney, or your common sense.
-            </p>
+            Our tools, templates, books, and services are designed to add value to your business—not to replace your broker, your attorney, or your common sense.
+          </p>
           </div>
         </div>
       </section>

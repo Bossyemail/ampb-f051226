@@ -202,6 +202,7 @@ export default function BookPage({ params }: BookPageProps) {
                           <button
                             onClick={() => handlePurchase(format)}
                             className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors"
+                            style={{ color: '#000000' }}
                           >
                             Get {format.charAt(0).toUpperCase() + format.slice(1)}
                             <ChevronRight className="w-4 h-4" />
@@ -261,6 +262,7 @@ export default function BookPage({ params }: BookPageProps) {
                       <button
                         onClick={() => trackEvent('click', 'related_book', relatedBook.id)}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors text-sm"
+                        style={{ color: '#000000' }}
                       >
                         View Book
                         <ChevronRight className="w-4 h-4" />

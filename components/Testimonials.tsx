@@ -352,7 +352,8 @@ export default function Testimonials() {
           >
             {/* Clean Minimal Card */}
             <div 
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 sm:p-12 text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.03]"
+              className="rounded-2xl border border-white/8 bg-white/[0.03] p-7 sm:p-12 text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.03]"
+              style={{ boxShadow: '0 40px 120px rgba(0,0,0,0.65)' }}
             >
               <div className="space-y-6">
                 {/* Quote Icon */}
@@ -396,9 +397,9 @@ export default function Testimonials() {
   );
 
   return (
-    <section className="mt-10">
+    <section className="relative py-16 lg:py-24">
       {/* Scroll viewport */}
-      <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
+      <div className="relative rounded-3xl border border-white/8 bg-white/[0.03] overflow-hidden" style={{ boxShadow: 'none' }}>
         {/* top fade */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-12 bg-gradient-to-b from-black/70 to-transparent" />
         {/* bottom fade */}
@@ -421,7 +422,7 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-
+          
       {/* Total count and scroll indicator */}
       <div className="mt-6 flex flex-col items-center gap-3">
         {/* Scrollbar icon */}

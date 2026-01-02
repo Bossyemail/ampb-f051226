@@ -359,17 +359,19 @@ export default function AboutPage() {
         <div className="space-y-6">
           <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>This work only functions when expectations are clear.</p>
           <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>So here are mine.</p>
-          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We don’t guess. We verify. We don't chase files. We run them.
-We don't cut corners to move faster.
-We don't manage chaos — We prevent it.
-Communication is direct.
-Deadlines are non-negotiable.
-Compliance comes before convenience.
-If something puts your position at risk, I'll flag it — even if it's uncomfortable.
-If a shortcut compromises the deal, we won't recommend it — even if it's faster.
-We work best with professionals who value precision, respect process, and understand that clean systems beat heroics.
-If you're looking for flexibility without accountability, this won't be a fit.
-If you're looking for someone who protects the downside and keeps deals moving quietly — it will be.. They’re survival tactics.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We don't guess. We verify.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We don't chase files. We run them.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We don't cut corners to move faster.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We don't manage chaos — We prevent it.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Communication is direct.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Deadlines are non-negotiable.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>Compliance comes before convenience.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>If something puts your position at risk, I'll flag it — even if it's uncomfortable.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>If a shortcut compromises the deal, we won't recommend it — even if it's faster.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>We work best with professionals who value precision, respect process, and understand that clean systems beat heroics.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>If you're looking for flexibility without accountability, this won't be a fit.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>If you're looking for someone who protects the downside and keeps deals moving quietly — it will be.</p>
+          <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>They're survival tactics.</p>
         </div>
       )
     }
@@ -462,8 +464,8 @@ If you're looking for someone who protects the downside and keeps deals moving q
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="mb-8 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white"
-                    style={{ lineHeight: '1.08', textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
+                    className="mb-8 text-2xl sm:text-3xl font-semibold tracking-tight text-white"
+                    style={{ textShadow: '0 1px 2px rgba(0,0,0,0.25)' }}
                   >
                     Hi, I&apos;m Aylen Montenegro.
                   </motion.h1>
@@ -471,12 +473,12 @@ If you're looking for someone who protects the downside and keeps deals moving q
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.25 }}
-                    className="mb-8 text-xs tracking-[0.28em] text-white/60"
+                    className="mb-8 text-xs tracking-[0.28em] text-white/60 uppercase"
                     style={{
                       fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                     }}
                   >
-                    Deal Flow Architect. Systems Builder. Real Estate Operator.
+                    DEAL FLOW ARCHITECT. SYSTEMS BUILDER. REAL ESTATE OPERATOR.
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
@@ -484,9 +486,9 @@ If you're looking for someone who protects the downside and keeps deals moving q
                     transition={{ duration: 0.5, delay: 0.35 }}
                     className="space-y-6 max-w-[65ch]"
                   >
-                    <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>I don’t chase chaos. I contain it — calmly, cleanly, and on time.</p>
-                    <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>For more than two decades, I’ve operated inside real estate deals where wording, timing, and precision actually matter. Not in theory. In live files — inspections, extensions, escalations, compliance reviews, and the moments when one bad email can derail a closing.</p>
-                    <p className="mb-6 text-white/75" style={{ lineHeight: '1.7' }}>That’s the arena I come from. And that’s the perspective everything I build is grounded in.</p>
+                    <p className="mb-6 text-sm leading-[1.7] text-white/75 sm:text-base sm:leading-[1.75]">I don't chase chaos. I contain it — calmly, cleanly, and on time.</p>
+                    <p className="mb-6 text-sm leading-[1.7] text-white/75 sm:text-base sm:leading-[1.75]">For more than two decades, I've operated inside real estate deals where wording, timing, and precision actually matter. Not in theory. In live files — inspections, extensions, escalations, compliance reviews, and the moments when one bad email can derail a closing.</p>
+                    <p className="mb-6 text-sm leading-[1.7] text-white/75 sm:text-base sm:leading-[1.75]">That's the arena I come from and that's the perspective everything I build is grounded in.</p>
                   </motion.div>
                 </div>
                 </div>
@@ -630,22 +632,23 @@ If you're looking for someone who protects the downside and keeps deals moving q
 
         {/* Closing message */}
         <section className="border-t border-white/5 py-28 sm:py-32 lg:py-36 px-4 sm:px-8 lg:px-16" style={{ backgroundColor: '#0E0F11' }}>
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">If this resonates</h3>
-            <p className="text-base text-gray-300 leading-relaxed opacity-80">
-              We don’t need to convince each other.
+            <p className="mt-2 text-base text-gray-300 leading-relaxed opacity-80">
+              We don't need to convince each other.
             </p>
-            <p className="text-base text-gray-300 leading-relaxed opacity-80">
-              If you read this and thought, “Finally — someone who actually gets it,” then it’s worth a conversation.
+            <p className="mt-6 text-base text-gray-300 leading-relaxed opacity-80">
+              If you read this and thought, "Finally — someone who actually gets it," then it's worth a conversation.
             </p>
-            <p className="text-base text-gray-300 leading-relaxed opacity-80">
-              If not, that’s fine too. Fit matters. Let’s see if it is.
+            <p className="mt-2 text-base text-gray-300 leading-relaxed opacity-80">
+              If not, that's fine too. Fit matters. Let's see if it is.
             </p>
-            <div className="pt-4">
+            <div className="pt-8">
               <a
                 href="mailto:hello@aylenmontenegro.com"
                 onClick={() => handleButtonClick('Contact Aylen', 'closing-message')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
+                style={{ color: '#000000' }}
               >
                 Contact Aylen →
               </a>

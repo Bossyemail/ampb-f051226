@@ -5,23 +5,26 @@ import Link from "next/link";
 import StickyNavigation from '@/components/StickyNavigation';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
+import { Container } from '@/components/ui/Container';
+import { GlassButton } from '@/components/ui/GlassButton';
 
 export default function Page() {
   return (
-    <div className="text-white antialiased" style={{ backgroundColor: '#0E0F11' }}>
+    <div className="min-h-screen bg-[#0b0c0f] text-white">
       <StickyNavigation />
 
       {/* HERO */}
       <HeroNew />
 
-      <div className="mx-auto max-w-6xl px-6 sm:px-10">
-        {/* WHAT I BUILD */}
-        <WhatIBuildNew />
+      {/* TICKER */}
+      <HeroTickerNew />
 
-        {/* ROLLER SECTION - breaks out of container for full bleed */}
-      </div>
+      {/* NEXT SECTION (starts already blended because hero bottom gradient matches bg) */}
+      <WhatIBuildNew />
+
+      {/* ROLLER SECTION - breaks out of container for full bleed */}
       <RollerSection />
-      <div className="mx-auto max-w-6xl px-6 sm:px-10 pt-16 pb-24 sm:pt-20 sm:pb-32" style={{ backgroundColor: '#0E0F11' }}>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
 
         {/* CTA: BOSSYEMAIL */}
         <BossyEmailCTANew />
@@ -41,10 +44,10 @@ export default function Page() {
 
         {/* CONTACT SECTION */}
         <ContactSectionNew />
-
-        {/* EDGE-TO-EDGE INFINITE INDEXED TICKER */}
-        <EdgeToEdgeTickerNew />
       </div>
+
+      {/* EDGE-TO-EDGE INFINITE INDEXED TICKER - breaks out of container for full bleed */}
+      <EdgeToEdgeTickerNew />
 
       {/* FOOTER */}
       <Footer />
@@ -55,128 +58,104 @@ export default function Page() {
 /* ----------------------------- HERO ----------------------------- */
 function HeroNew() {
   return (
-    <section className="relative min-h-[92vh] overflow-hidden" style={{ backgroundColor: '#0E0F11' }}>
-      {/* Background image */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url(/images/14.png)",
-          backgroundSize: "60%",
-          backgroundPosition: "center 35%",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></div>
+    <section className="mx-auto max-w-6xl px-6 sm:px-10 pt-16 sm:pt-20 pb-14">
+      <div className="grid lg:grid-cols-12 gap-10 items-start">
+        {/* Copy */}
+        <div className="lg:col-span-5 pt-24 lg:pt-32">
+          <p 
+            className="text-[11px] tracking-[0.36em] text-white/50"
+            style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+          >
+            HI THERE
+          </p>
 
-      {/* Side gradients to blend image edges into soft charcoal background - stronger right side and bottom */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(14, 15, 17, 1) 0%, rgba(14, 15, 17, 0.95) 10%, rgba(14, 15, 17, 0.8) 20%, rgba(14, 15, 17, 0.4) 30%, transparent 35%, transparent 55%, rgba(14, 15, 17, 0.5) 65%, rgba(14, 15, 17, 0.85) 75%, rgba(14, 15, 17, 0.95) 85%, rgba(14, 15, 17, 1) 100%)' }}></div>
-      {/* Bottom fade gradient - blends to soft charcoal */}
-      <div className="absolute inset-x-0 bottom-0 h-64" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(14, 15, 17, 0.4) 50%, rgba(14, 15, 17, 1) 100%)' }}></div>
+          <h1 className="mt-5 text-2xl sm:text-3xl font-semibold tracking-tight">
+            Close deals<br />
+            without the chaos.
+          </h1>
 
-      {/* Content container */}
-      <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
-        {/* HERO GRID */}
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-          {/* LEFT COPY (pushed DOWN) */}
-          <div className="lg:col-span-6">
-            {/* This spacer is what moves everything lower */}
-            <div className="pt-32 sm:pt-36 lg:pt-40">
-              <p
-                className="text-[10px] tracking-[0.28em] text-white/55"
-                style={{
-                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                }}
+          <p className="mt-7 text-sm leading-[1.7] text-white/70 max-w-[46ch] sm:text-base sm:leading-[1.75]">
+            Work with me — or use the tools I built.<br />
+            Built from 3,000+ real transactions to reduce friction, mistakes, and back-and-forth.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <GlassButton href="/tools" variant="primary">
+              Explore the Tools
+            </GlassButton>
+
+            <GlassButton href="/elevate" variant="secondary">
+              Work With Me
+            </GlassButton>
+          </div>
+        </div>
+
+        {/* FLOATING portrait (NO outline box) */}
+        <div className="lg:col-span-4 lg:col-start-6">
+          <div className="relative overflow-hidden">
+            {/* soft halo behind image */}
+            <div className="pointer-events-none absolute -inset-10 bg-[radial-gradient(closest-side,rgba(255,255,255,0.10),transparent_70%)] blur-2xl opacity-60"></div>
+
+            <img
+              className="relative h-[520px] w-full object-cover"
+              src="/images/14.png"
+              alt="Aylen Montenegro"
+              style={{ 
+                transform: 'scale(1.35)', 
+                transformOrigin: 'center',
+                objectPosition: 'center 40%'
+              }}
+            />
+
+            {/* blend into background on all sides */}
+            <div className="pointer-events-none absolute inset-0">
+              {/* Top blend */}
+              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0b0c0f] via-[#0b0c0f]/60 to-transparent"></div>
+              {/* Bottom blend */}
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0b0c0f] via-[#0b0c0f]/50 to-transparent"></div>
+              {/* Left blend */}
+              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0b0c0f] via-[#0b0c0f]/70 to-transparent"></div>
+              {/* Right blend */}
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0c0f] via-[#0b0c0f]/70 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right stats */}
+        <div className="lg:col-span-3 lg:col-start-10">
+          <div className="pt-24 lg:pt-32 space-y-7 text-right">
+            <div className="pb-6">
+              <div className="text-xl font-semibold tracking-tight text-white/90">20+</div>
+              <div 
+                className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
               >
-                HI THERE
-              </p>
-
-              <h1 className="mt-3 mb-8 text-4xl font-semibold tracking-tight sm:text-5xl" style={{ lineHeight: '1.08' }}>
-                I&apos;m Aylen<span className="text-white/90">,</span>
-              </h1>
-
-              <p className="mb-6 max-w-[65ch] text-base sm:text-[17px] text-white/75" style={{ lineHeight: '1.7' }}>
-                I help real estate professionals close deals with fewer mistakes, fewer emails, and less stress.
-              </p>
-
-              <p className="mb-6 max-w-[65ch] text-base sm:text-[17px] text-white/75" style={{ lineHeight: '1.7' }}>
-                Contracts, deadlines, and communication don&apos;t need to be chaotic. I build tools, systems, and support that keep transactions moving — quietly and correctly.
-              </p>
-
-              {/* Buttons: rectangular, with "selected" style available */}
-              <div className="mt-7 flex flex-wrap items-center gap-3">
-                {/* Selected example (white) */}
-                <Link
-                  href="/tools"
-                  className="inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90"
-                  style={{ color: '#000000' }}
-                >
-                  Explore the Tools
-                </Link>
-
-                {/* Default button */}
-                <Link
-                  href="/work-with-me"
-                  className="inline-flex items-center justify-center rounded-md border border-white/18 bg-white/0 px-5 py-2.5 text-sm font-medium text-white/85 hover:border-white/30 hover:bg-white/5 hover:text-white"
-                >
-                  Work With Me
-                </Link>
+                YEARS EXPERIENCE
               </div>
+              <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
             </div>
-          </div>
 
-          {/* RIGHT STATS (no box, floating) */}
-          <div className="lg:col-span-6">
-            <div className="pt-24 sm:pt-28 lg:pt-32">
-              <div className="max-w-[360px] lg:ml-auto">
-                <div className="space-y-7 text-right">
-                  <div className="pb-6">
-                    <div className="text-xl font-semibold tracking-tight text-white/90">20+</div>
-                    <div
-                      className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
-                      style={{
-                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                      }}
-                    >
-                      YEARS EXPERIENCE
-                    </div>
-                    {/* half-length divider */}
-                    <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
-                  </div>
-
-                  <div className="pb-6">
-                    <div className="text-xl font-semibold tracking-tight text-white/90">3K+</div>
-                    <div
-                      className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
-                      style={{
-                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                      }}
-                    >
-                      CLOSED DEALS
-                    </div>
-                    {/* half-length divider */}
-                    <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
-                  </div>
-
-                  <div className="pb-6">
-                    <div className="text-xl font-semibold tracking-tight text-white/90">4+</div>
-                    <div
-                      className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
-                      style={{
-                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                      }}
-                    >
-                      SAAS PRODUCTS BUILT
-                    </div>
-                    {/* half-length divider */}
-                    <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
-                  </div>
-                </div>
+            <div className="pb-6">
+              <div className="text-xl font-semibold tracking-tight text-white/90">3K+</div>
+              <div 
+                className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                CLOSED DEALS
               </div>
+              <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
             </div>
-          </div>
 
-          {/* Divider line at bottom of hero */}
-          <div className="lg:col-span-12">
-            <div className="mt-16 h-px w-full bg-white/10"></div>
+            <div className="pb-6">
+              <div className="text-xl font-semibold tracking-tight text-white/90">4+</div>
+              <div 
+                className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                SAAS PRODUCTS BUILT
+              </div>
+              <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -184,198 +163,190 @@ function HeroNew() {
   );
 }
 
-
 /* -------------------------- WHAT I BUILD -------------------------- */
 function WhatIBuildNew() {
+  const [openAccordion, setOpenAccordion] = React.useState<number | null>(null);
+
+  const toggleAccordion = (index: number) => {
+    setOpenAccordion(openAccordion === index ? null : index);
+  };
+
   return (
-    <section className="py-24 sm:py-32">
-      <div className="grid gap-10 lg:grid-cols-12">
-        {/* Left intro */}
-        <div className="lg:col-span-4">
-          <p
-            className="text-[10px] tracking-wide text-white/50"
-            style={{ 
-              fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-            }}
+    <section id="tools" className="mx-auto max-w-6xl px-6 sm:px-10 pt-8 lg:pt-12 pb-24 lg:pb-28">
+      <div className="grid lg:grid-cols-12 gap-10 items-start">
+        <div className="lg:col-span-5">
+          <p 
+            className="text-xs tracking-[0.34em] text-white/45"
+            style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
           >
             WHAT I BUILD
           </p>
-
-          <h2 className="mt-3 mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
-            Tools that remove the chaos.
-          </h2>
-
-          <p className="mb-6 max-w-[65ch] text-base text-white/70" style={{ lineHeight: '1.7' }}>
-            These are the systems behind the scenes — bottled up and built for scale.
+          <h2 className="mt-3 text-3xl sm:text-4xl font-medium tracking-tight">Tools that remove the chaos.</h2>
+          <p className="mt-4 text-white/65 leading-relaxed max-w-[46ch]">
+            These are the systems behind the scenes — built from real transactions and designed for scale.
           </p>
         </div>
 
-        {/* Right: expandable rows */}
-        <div className="lg:col-span-8">
-          <div className="overflow-hidden rounded-2xl border border-white/10" style={{ backgroundColor: '#0E0F11' }}>
-            {/* Row 01 */}
-            <details className="border-b border-white/10">
-              <summary className="flex w-full cursor-pointer list-none items-start gap-5 p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
-                <div
-                  className="pt-0.5 text-lg tracking-[0.28em] text-white/45 sm:text-xl"
+        <div className="lg:col-span-7">
+          <div className="rounded-[26px] border border-white/10 bg-white/[0.03] backdrop-blur-sm overflow-hidden">
+            {/* Row 01 - BossyEmail */}
+            <button
+              onClick={() => toggleAccordion(1)}
+              className="acc-trigger w-full text-left px-7 py-6 flex items-center justify-between gap-6 border-b border-white/10 hover:bg-white/[0.02] transition-colors"
+              aria-expanded={openAccordion === 1}
+            >
+              <div className="flex items-start gap-5">
+                <div 
+                  className="text-xs tracking-[0.32em] text-white/40 pt-1"
                   style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
                 >
                   01
                 </div>
-
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl" style={{ lineHeight: '1.2' }}>
-                        BossyEmail
-                      </h3>
-                      <p className="mt-3 mb-6 max-w-[65ch] text-sm text-white/65" style={{ lineHeight: '1.7' }}>
-                        Email templates + AI generator built for real estate chaos. Stop rewriting the same message 47 times.
-                      </p>
-                    </div>
-
-                    {/* chevron */}
-                    <svg
-                      className="details-chevron mt-1 h-5 w-5 flex-none text-white/55 transition-transform duration-200"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M6 9l6 6 6-6"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </summary>
-
-              {/* Expanded content (clean, not boxy) */}
-              <div className="details-content px-6 pb-6 sm:px-7">
-                <div className="ml-[calc(1.25rem+1.25rem)] max-w-[65ch] text-sm text-white/70 sm:ml-[calc(1.75rem+1.25rem)]" style={{ lineHeight: '1.7' }}>
-                  <div className="mt-4 aspect-video w-full rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
-                    <video
-                      className="w-full h-full object-cover"
-                      controls
-                      preload="metadata"
-                    >
-                      <source src="/videos/bossyemail-vsl.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                <div>
+                  <div className="text-lg font-semibold tracking-tight">BossyEmail</div>
+                  <div className="mt-1 text-sm text-white/60">
+                    Stop rewriting the same email 47 times.
                   </div>
                 </div>
               </div>
-            </details>
+              <span className="acc-icon text-white/50">{openAccordion === 1 ? '▴' : '▾'}</span>
+            </button>
+            {openAccordion === 1 && (
+              <div className="acc-panel px-7 pb-6 border-b border-white/10">
+                <div className="pl-[44px] mb-4">
+                  <p className="text-sm leading-[1.7] text-white/70 mb-4">
+                    Ready-to-send real estate emails and an AI generator trained on actual transaction chaos — inspections, delays, escalations, and save-the-deal moments.
+                  </p>
+                  <p 
+                    className="text-xs tracking-[0.30em] text-white/40"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    OUTCOME: CLEANER COMMUNICATION. FEWER MISTAKES. FASTER RESOLUTIONS.
+                  </p>
+                </div>
+                <div className="pl-[44px] mt-4 aspect-video w-full rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                  >
+                    <source src="/videos/bossyemail-vsl.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="pl-[44px] mt-4">
+                  <GlassButton href="/upgrade" variant="secondary" className="h-10 px-5 text-sm font-medium">
+                    Try BossyEmail →
+                  </GlassButton>
+                </div>
+              </div>
+            )}
 
-            {/* Row 02 */}
-            <details className="border-b border-white/10">
-              <summary className="flex w-full cursor-pointer list-none items-start gap-5 p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
-                <div
-                  className="pt-0.5 text-lg tracking-[0.28em] text-white/45 sm:text-xl"
+            {/* Row 02 - ClauseVault */}
+            <button
+              onClick={() => toggleAccordion(2)}
+              className="acc-trigger w-full text-left px-7 py-6 flex items-center justify-between gap-6 border-b border-white/10 hover:bg-white/[0.02] transition-colors"
+              aria-expanded={openAccordion === 2}
+            >
+              <div className="flex items-start gap-5">
+                <div 
+                  className="text-xs tracking-[0.32em] text-white/40 pt-1"
                   style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
                 >
                   02
                 </div>
-
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
-                        ClauseVault
-                      </h3>
-                      <p className="mt-3 mb-6 max-w-[65ch] text-sm text-white/65" style={{ lineHeight: '1.7' }}>
-                        Contract language support that keeps deals moving — without playing attorney.
-                      </p>
-                    </div>
-
-                    <svg
-                      className="details-chevron mt-1 h-5 w-5 flex-none text-white/55 transition-transform duration-200"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M6 9l6 6 6-6"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </summary>
-
-              <div className="details-content px-6 pb-6 sm:px-7">
-                <div className="ml-[calc(1.25rem+1.25rem)] max-w-[65ch] text-sm text-white/70 sm:ml-[calc(1.75rem+1.25rem)]" style={{ lineHeight: '1.7' }}>
-                  <div className="mt-4 aspect-video w-full rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
-                    <video
-                      className="w-full h-full object-cover"
-                      controls
-                      preload="metadata"
-                    >
-                      <source src="/videos/clausevault-vsl 2.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                <div>
+                  <div className="text-lg font-semibold tracking-tight">ClauseVault</div>
+                  <div className="mt-1 text-sm text-white/60">
+                    Contract clarity without playing attorney.
                   </div>
                 </div>
               </div>
-            </details>
+              <span className="acc-icon text-white/50">{openAccordion === 2 ? '▴' : '▾'}</span>
+            </button>
+            {openAccordion === 2 && (
+              <div className="acc-panel px-7 pb-6 border-b border-white/10">
+                <div className="pl-[44px] mb-4">
+                  <p className="text-sm leading-[1.7] text-white/70 mb-4">
+                    Deal-support clauses built for real-world use to reduce ambiguity, set expectations, and keep transactions moving when things get gray.
+                  </p>
+                  <p 
+                    className="text-xs tracking-[0.30em] text-white/40"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    OUTCOME: LESS BACK-AND-FORTH. FEWER DISPUTES. STRONGER PAPER TRAILS.
+                  </p>
+                </div>
+                <div className="pl-[44px] mt-4 aspect-video w-full rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                  >
+                    <source src="/videos/clausevault-vsl 2.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="pl-[44px] mt-4">
+                  <GlassButton href="/clausevault" variant="secondary" className="h-10 px-5 text-sm font-medium">
+                    Go to ClauseVault →
+                  </GlassButton>
+                </div>
+              </div>
+            )}
 
-            {/* Row 03 */}
-            <details>
-              <summary className="flex w-full cursor-pointer list-none items-start gap-5 p-6 transition-colors hover:bg-white/[0.02] sm:p-7">
-                <div
-                  className="pt-0.5 text-lg tracking-[0.28em] text-white/45 sm:text-xl"
+            {/* Row 03 - Transaction Coordination */}
+            <button
+              onClick={() => toggleAccordion(3)}
+              className="acc-trigger w-full text-left px-7 py-6 flex items-center justify-between gap-6 hover:bg-white/[0.02] transition-colors"
+              aria-expanded={openAccordion === 3}
+            >
+              <div className="flex items-start gap-5">
+                <div 
+                  className="text-xs tracking-[0.32em] text-white/40 pt-1"
                   style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
                 >
                   03
                 </div>
-
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
-                        Transaction Coordination
-                      </h3>
-                      <p className="mt-3 mb-6 max-w-[65ch] text-sm text-white/65" style={{ lineHeight: '1.7' }}>
-                        White-glove file management for agents who want fewer fires and fewer surprises.
-                      </p>
-                    </div>
-
-                    <svg
-                      className="details-chevron mt-1 h-5 w-5 flex-none text-white/55 transition-transform duration-200"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M6 9l6 6 6-6"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </summary>
-
-              <div className="details-content px-6 pb-6 sm:px-7">
-                <div className="ml-[calc(1.25rem+1.25rem)] max-w-[65ch] text-sm text-white/70 sm:ml-[calc(1.75rem+1.25rem)]" style={{ lineHeight: '1.7' }}>
-                  <div className="mt-4 aspect-video w-full rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
-                    <video
-                      className="w-full h-full object-cover"
-                      controls
-                      preload="metadata"
-                    >
-                      <source src="/videos/tc-services.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                <div>
+                  <div className="text-lg font-semibold tracking-tight">Transaction Coordination</div>
+                  <div className="mt-1 text-sm text-white/60">
+                    White-glove execution for agents who don't have margin for error.
                   </div>
                 </div>
               </div>
-            </details>
+              <span className="acc-icon text-white/50">{openAccordion === 3 ? '▴' : '▾'}</span>
+            </button>
+            {openAccordion === 3 && (
+              <div className="acc-panel px-7 pb-7">
+                <div className="pl-[44px] mb-4">
+                  <p className="text-sm leading-[1.7] text-white/70 mb-4">
+                    I manage the file, the deadlines, the follow-ups, and the details that quietly kill deals when ignored.
+                  </p>
+                  <p 
+                    className="text-xs tracking-[0.30em] text-white/40"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    OUTCOME: MORE CONTROL. LESS STRESS. CLEANER CLOSINGS.
+                  </p>
+                </div>
+                <div className="pl-[44px] mt-4 aspect-video w-full rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover"
+                    controls
+                    preload="metadata"
+                  >
+                    <source src="/videos/tc-services-vsl.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="pl-[44px] mt-4">
+                  <GlassButton href="/elevate" variant="secondary" className="h-10 px-5 text-sm font-medium">
+                    View TC Services →
+                  </GlassButton>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -397,26 +368,26 @@ function RollerSection() {
 
   const stageText: { [key: number]: string } = { 1: "PROBLEM", 2: "WHY", 3: "WHAT", 4: "WHO" };
 
-  const copy = React.useMemo(() => ({
+  const copy: { [key: number]: { title: string; body: string; foot: string } } = React.useMemo(() => ({
     1: {
       title: "Deals don't fall apart from drama.",
-      body: "They fall apart from friction.\n\nMissed details. Unclear ownership.\n\n\"I thought you had it\" moments that quietly stack up under pressure.\n\nUnder volume, small gaps become expensive fast.",
-      foot: "Deadlines slip. Communication fragments. Reputations take hits — without anyone noticing until it's too late."
+      body: "They fall apart from friction.\n\nMissed details. Unclear ownership. Small gaps that compound under pressure.",
+      foot: ""
     },
     2: {
-      title: "Because most agents are scaling activity, not systems.",
-      body: "As deal volume increases, coordination becomes invisible work —\n\nand invisible work is where things break.\n\nMore emails. More people. More handoffs.\n\nSame tools. Same habits. Same fire-drills.",
-      foot: "Chaos doesn't come from incompetence. It comes from growth without structure."
+      title: "Most agents scale activity, not systems.",
+      body: "As volume increases, coordination becomes invisible work — and invisible work is where deals break.",
+      foot: ""
     },
     3: {
       title: "Control.",
-      body: "Not micromanagement.\n\nNot working harder.\n\nNot being \"on\" 24/7.\n\nReal control comes from clear ownership, clean communication, and repeatable systems that run whether you're watching or not.",
-      foot: "When the process is tight, deals move quietly. When deals move quietly, your reputation compounds."
+      body: "Not micromanagement.\n\nNot being \"on\" 24/7.\n\nReal control comes from ownership, clean communication, and repeatable systems.",
+      foot: ""
     },
     4: {
       title: "This is built for agents and teams who:",
-      body: "Close enough volume to feel the friction\n\nCare deeply about reputation, speed, and consistency\n\nAre done being the safety net for broken processes\n\nWant fewer fires — not more adrenaline",
-      foot: "If you're protecting a brand, not just chasing closings, you don't need more hustle. You need control."
+      body: "• Close enough volume to feel friction\n• Care about reputation and consistency\n• Are done using adrenaline as a safety net",
+      foot: "If you're protecting a brand — not just chasing closings — you don't need more hustle. You need control."
     }
   }), []);
 
@@ -533,7 +504,9 @@ function RollerSection() {
   };
 
   return (
-    <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden mb-32">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
+      {/* Section divider */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6"></div>
       {/* Background image - full bleed */}
       <div
         className="absolute inset-0"
@@ -553,7 +526,7 @@ function RollerSection() {
       {/* Content container */}
       <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
         <div ref={sectionElementRef} id="rollerSection" className="roller mt-0">
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
           {/* LEFT */}
           <div className="lg:col-span-5">
             {/* Stage indicator (side-by-side) */}
@@ -561,10 +534,10 @@ function RollerSection() {
               className="flex gap-6 text-base tracking-[0.28em] text-white/60"
               style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
             >
-              <span className={step === 1 ? "font-medium text-white" : "text-white/30"}>PROBLEM</span>
-              <span className={step === 2 ? "font-medium text-white" : "text-white/30"}>WHY</span>
-              <span className={step === 3 ? "font-medium text-white" : "text-white/30"}>WHAT</span>
-              <span className={step === 4 ? "font-medium text-white" : "text-white/30"}>WHO</span>
+              <span className={step === 1 ? "font-medium text-white" : "text-white/30"}>01 — PROBLEM</span>
+              <span className={step === 2 ? "font-medium text-white" : "text-white/30"}>02 — WHY</span>
+              <span className={step === 3 ? "font-medium text-white" : "text-white/30"}>03 — WHAT</span>
+              <span className={step === 4 ? "font-medium text-white" : "text-white/30"}>04 — WHO</span>
             </div>
 
             {/* INFINITE TIMER NUMBER */}
@@ -588,6 +561,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -601,6 +579,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -614,6 +597,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -627,6 +615,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -642,6 +635,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -655,6 +653,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -668,6 +671,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -681,6 +689,11 @@ function RollerSection() {
                         fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                         fontVariantNumeric: 'slashed-zero',
                         fontFeatureSettings: '"zero"',
+                        WebkitFontSmoothing: 'antialiased',
+                        MozOsxFontSmoothing: 'grayscale',
+                        textRendering: 'geometricPrecision',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
                       }}
                       suppressHydrationWarning
                     >
@@ -691,27 +704,31 @@ function RollerSection() {
               </div>
             </div>
 
-            <div className="mt-4 mb-6 max-w-[65ch] text-base text-white/75 sm:text-[17px] space-y-2" style={{ lineHeight: '1.7' }}>
-              <p>Deals don&apos;t fall apart from drama.</p>
-              <p>They fall apart from friction.</p>
-            </div>
           </div>
 
           {/* RIGHT */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-white/20 bg-white/[0.08] backdrop-blur-md p-7 sm:p-12" style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
-              <h3 className="mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-md p-6 lg:p-8" style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
+              <h3 className="mb-6 text-3xl font-semibold tracking-tight lg:text-4xl" style={{ lineHeight: '1.15' }}>
                 {cardContent.title}
               </h3>
-              <div className="mt-4 mb-6 max-w-[65ch] text-sm text-white/70 sm:text-[15px] space-y-4" style={{ lineHeight: '1.7' }}>
-                {cardContent.body.split('\n\n').map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
+              <div className="mt-4 mb-6 max-w-[65ch] text-sm leading-7 text-white/70 lg:text-base lg:leading-8 space-y-4">
+                {cardContent.body.includes('•') && !cardContent.body.includes('\n\n') ? (
+                  <p style={{ whiteSpace: 'pre-line' }}>{cardContent.body}</p>
+                ) : (
+                  cardContent.body.split('\n\n').filter(p => p.trim()).map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))
+                )}
               </div>
-              <div className="mt-8 h-px w-full bg-white/10"></div>
-              <p className="mt-4 mb-6 text-sm text-white/60" style={{ lineHeight: '1.7' }}>
-                {cardContent.foot}
-              </p>
+              {cardContent.foot && (
+                <>
+                  <div className="mt-8 h-px w-full bg-white/10"></div>
+                  <p className="mt-4 mb-6 text-sm leading-7 text-white/60 lg:text-base lg:leading-8">
+                    {cardContent.foot}
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -725,99 +742,93 @@ function RollerSection() {
 /* -------------------------- CTA: BOSSYEMAIL (STATIC) -------------------------- */
 function BossyEmailCTANew() {
   return (
-    <section className="mb-32 mt-8 sm:mt-10">
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 sm:p-12">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-8">
-            <p
-              className="text-[10px] tracking-wide text-white/50"
-              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-            >
-              FASTEST WIN
-            </p>
-
-            <h3 className="mt-4 mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
-              Stop writing real estate emails from scratch.
-            </h3>
-
-            <p className="mb-6 max-w-[65ch] text-sm text-white/70 sm:text-[15px]" style={{ lineHeight: '1.7' }}>
-              BossyEmail gives you ready-to-send templates + an AI generator trained for the kinds of messages that
-              actually happen in transactions. Less typing. Fewer mistakes. More control.
-            </p>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <span
-                className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-[11px] tracking-[0.22em] text-white/55"
+    <section className="relative py-16 lg:py-24">
+      {/* Section divider */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6"></div>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        <div className="rounded-2xl border border-white/5 bg-[#0E0F11] p-6 lg:p-8" style={{ boxShadow: 'none', WebkitBoxShadow: 'none', MozBoxShadow: 'none' }}>
+          <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-5">
+              <p
+                className="text-xs uppercase tracking-[0.2em] text-white/60"
                 style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
               >
-                TEMPLATES
-              </span>
-              <span
-                className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-[11px] tracking-[0.22em] text-white/55"
-                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-              >
-                AI GENERATOR
-              </span>
-              <span
-                className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-[11px] tracking-[0.22em] text-white/55"
-                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-              >
-                REAL ESTATE SPECIFIC
-              </span>
-            </div>
-          </div>
-
-          <div className="lg:col-span-4 lg:flex lg:justify-end">
-            <div className="flex w-full flex-col gap-3 sm:w-auto">
-              {/* Primary (rectangular, turns white) */}
-              <Link
-                href="https://bossyemail.com"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/15 px-6 text-sm font-medium bg-white hover:bg-white/90"
-                style={{ color: '#000000' }}
-              >
-                Try BossyEmail
-              </Link>
-
-              {/* Secondary (outline, turns white on hover) */}
-              <Link
-                href="/tools"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/15 px-6 text-sm font-medium text-white/85 hover:bg-white hover:text-black"
-              >
-                See all tools
-              </Link>
-
-              <p className="text-center text-[10px] leading-relaxed text-white/50 sm:text-left">
-                Two minutes to try.<br />
-                Saves hours a week.
+                FASTEST WIN
               </p>
+
+              <h3 className="mt-4 mb-6 text-3xl font-semibold tracking-tight lg:text-4xl" style={{ lineHeight: '1.15' }}>
+                Stop writing real estate emails from scratch.
+              </h3>
+
+              <p className="mb-6 max-w-[65ch] text-sm leading-7 text-white/70 lg:text-base lg:leading-8">
+                BossyEmail gives you ready-to-send templates and an AI generator trained for the messages that actually happen in real transactions.<br />
+                <br />
+                Inspections. Delays. Escalations. Save-the-deal moments.<br />
+                <br />
+                Less typing. Fewer mistakes. More control.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span
+                  className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs tracking-[0.2em] text-white/60"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  TEMPLATES
+                </span>
+                <span
+                  className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs tracking-[0.2em] text-white/60"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  AI GENERATOR
+                </span>
+                <span
+                  className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs tracking-[0.2em] text-white/60"
+                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                >
+                  REAL ESTATE SPECIFIC
+                </span>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div className="mt-8 h-px w-full bg-white/10"></div>
-
-        {/* micro-proof (keep it Apple-minimal) */}
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-            <p className="text-sm font-medium">320+ templates</p>
-            <p className="mt-1 text-xs leading-relaxed text-white/60">
-              Built for listing, escrow, and closing chaos.
-            </p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-            <p className="text-sm font-medium">Less back-and-forth</p>
-            <p className="mt-1 text-xs leading-relaxed text-white/60">
-              Cleaner communication = fewer mistakes.
-            </p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-            <p className="text-sm font-medium">Made by a TC</p>
-            <p className="mt-1 text-xs leading-relaxed text-white/60">
-              Real files. Real deadlines. Real consequences.
-            </p>
+            <div className="lg:col-span-7">
+              <div className="space-y-3">
+                <div className="rounded-2xl border border-white/10 bg-[#0E0F11] p-4 shadow-none">
+                  <p className="text-sm font-medium text-white/90">320+ real templates</p>
+                  <p className="mt-1 text-xs leading-7 text-white/60">
+                    Built for listing, escrow, and closing chaos.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-[#0E0F11] p-4 shadow-none">
+                  <p className="text-sm font-medium text-white/90">Less back-and-forth</p>
+                  <p className="mt-1 text-xs leading-7 text-white/60">
+                    Cleaner communication means fewer mistakes.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-[#0E0F11] p-4 shadow-none">
+                  <p className="text-sm font-medium text-white/90">Built by a TC</p>
+                  <p className="mt-1 text-xs leading-7 text-white/60">
+                    Real files. Real deadlines. Real consequences.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 pt-2">
+                  <GlassButton href="https://bossyemail.com" variant="primary" external className="px-7 py-3 text-sm font-medium">
+                    Try BossyEmail
+                  </GlassButton>
+                  <GlassButton href="/tools" variant="secondary" className="px-7 py-3 text-sm font-medium">
+                    See all tools
+                  </GlassButton>
+                  <p className="text-xs leading-7 text-white/60">
+                    Two minutes to try.<br />
+                    Saves hours a week.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {/* Section bottom divider */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-white/6"></div>
     </section>
   );
 }
@@ -825,22 +836,26 @@ function BossyEmailCTANew() {
 /* -------------------------- REVIEWS: HEADING ONLY -------------------------- */
 function ReviewsHeadingNew() {
   return (
-    <section className="mt-16 sm:mt-20">
-      <div className="max-w-3xl">
-        <p
-          className="text-[10px] tracking-[0.28em] text-white/55"
-          style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-        >
-          HYPE FOLDER
-        </p>
+    <section className="relative pt-16 lg:pt-24 pb-8 lg:pb-12">
+      {/* Section divider */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6"></div>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        <div className="max-w-3xl">
+          <p
+            className="text-xs uppercase tracking-[0.2em] text-white/60"
+            style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+          >
+            HYPE FOLDER
+          </p>
 
-        <h2 className="mt-4 text-xl font-semibold tracking-tight sm:text-2xl">
-          What other people said.
-        </h2>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight lg:text-4xl" style={{ lineHeight: '1.15' }}>
+            What other people said.
+          </h2>
 
-        <p className="mt-2 text-sm leading-relaxed text-white/65">
-          Real feedback from real clients.
-        </p>
+          <p className="mt-6 text-base leading-7 text-white/70 lg:text-lg lg:leading-8">
+            Real feedback from real clients.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -849,62 +864,60 @@ function ReviewsHeadingNew() {
 /* -------------------------- ABOUT PREVIEW -------------------------- */
 function AboutPreviewNew() {
   return (
-    <section className="mb-32 mt-16 sm:mt-20">
-      <div className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto max-w-6xl px-6 sm:px-10 py-28 sm:py-40">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-        {/* COPY */}
-        <div className="lg:col-span-7">
-          <p 
-            className="text-[10px] tracking-wide text-white/50"
-            style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-          >
-            ABOUT
-          </p>
-
-          <h2 className="mt-3 mb-8 text-2xl font-semibold tracking-tight sm:text-3xl" style={{ lineHeight: '1.2' }}>
-            I make closings boring — so you can scale.
-          </h2>
-
-          <p className="mb-6 max-w-[65ch] text-base text-white/70" style={{ lineHeight: '1.7' }}>
-            I've managed thousands of real transactions, not hypotheticals.
-            When the same problems show up over and over, you either keep firefighting —
-            or you build systems that stop the fires.
-          </p>
-
-          <p className="mb-6 max-w-[65ch] text-base text-white/70" style={{ lineHeight: '1.7' }}>
-            That's what I do. I turn repeatable chaos into workflows, tools,
-            and support that let agents focus on clients instead of cleanup.
-          </p>
-
-          <div className="mt-6">
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center rounded-md border border-white bg-white px-6 py-3 text-sm font-medium hover:bg-white/90"
-              style={{ color: '#000000' }}
+    <section className="relative py-16 lg:py-24">
+      {/* Full-width divider for clean top edge */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6"></div>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            {/* COPY */}
+          <div className="lg:col-span-5">
+            <p 
+              className="text-xs uppercase tracking-[0.2em] text-white/60"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
             >
-              Read the full story →
-            </Link>
-          </div>
-        </div>
+              ABOUT
+            </p>
 
-        {/* IMAGE */}
-        <div className="lg:col-span-5">
-          <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/30">
-            <img
-              src="/27.png"
-              alt="Aylen Montenegro"
-              className="h-full w-full object-cover"
-              style={{
-                objectPosition: 'center 20%',
-                transform: 'scale(1.5)',
-              }}
-            />
+            <h2 className="mt-4 mb-6 text-3xl font-semibold tracking-tight lg:text-4xl" style={{ lineHeight: '1.15' }}>
+              I make closings boring — so you can scale.
+            </h2>
+
+            <p className="mb-6 max-w-[65ch] text-base leading-7 text-white/70 lg:text-lg lg:leading-8">
+              I've managed thousands of real transactions, not hypotheticals.
+              When the same problems show up over and over, you either keep firefighting —
+              or you build systems that stop the fires.
+            </p>
+
+            <p className="mb-6 max-w-[65ch] text-base leading-7 text-white/70 lg:text-lg lg:leading-8">
+              That's what I do. I turn repeatable chaos into workflows, tools,
+              and support that let agents focus on clients instead of cleanup.
+            </p>
+
+            <div className="mt-6">
+              <GlassButton href="/about" variant="primary" className="px-7 py-3 text-sm font-medium">
+                Read the full story →
+              </GlassButton>
+            </div>
           </div>
-        </div>
+
+          {/* IMAGE */}
+          <div className="lg:col-span-7">
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+              <img
+                src="/27.png"
+                alt="Aylen Montenegro"
+                className="h-full w-full object-cover"
+                style={{
+                  objectPosition: 'center 20%',
+                  transform: 'scale(1.5)',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
+      {/* Section bottom divider */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-white/6"></div>
     </section>
   );
 }
@@ -912,46 +925,44 @@ function AboutPreviewNew() {
 /* -------------------------- FINAL CTA -------------------------- */
 function FinalCTANew() {
   return (
-    <section className="mb-32 mt-16 sm:mt-20">
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 sm:p-12">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <section className="relative py-16 lg:py-24">
+      {/* Section divider */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6"></div>
+      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 lg:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           {/* COPY */}
           <div className="max-w-xl">
             <p 
-              className="text-[10px] tracking-wide text-white/50"
+              className="text-xs uppercase tracking-[0.2em] text-white/60"
               style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
             >
               NEXT STEP
             </p>
 
-            <h3 className="mt-3 mb-8 text-xl font-semibold tracking-tight sm:text-2xl" style={{ lineHeight: '1.2' }}>
+            <h3 className="mt-4 mb-6 text-3xl font-semibold tracking-tight lg:text-4xl" style={{ lineHeight: '1.15' }}>
               If you're closing volume, you need systems.
             </h3>
 
-            <p className="mb-6 text-sm text-white/65" style={{ lineHeight: '1.7' }}>
+            <p className="mb-6 text-base leading-7 text-white/70 lg:text-lg lg:leading-8">
               Pick the tool — or hand the file over and let me run it.
             </p>
           </div>
 
           {/* ACTIONS */}
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/elevate"
-              className="inline-flex items-center justify-center rounded-md border border-white bg-white px-6 py-3 text-sm font-medium hover:bg-white/90"
-              style={{ color: '#000000' }}
-            >
+          <div className="flex flex-col gap-3 lg:flex-row">
+            <GlassButton href="/elevate" variant="primary" className="px-7 py-3 text-sm font-medium">
               TC Services →
-            </Link>
-
-            <Link
-              href="/tools"
-              className="inline-flex items-center justify-center rounded-md border border-white/15 bg-transparent px-6 py-3 text-sm font-medium text-white/85 hover:border-white/30 hover:bg-white/5 hover:text-white"
-            >
+            </GlassButton>
+            <GlassButton href="/tools" variant="secondary" className="px-7 py-3 text-sm font-medium">
               Browse Tools
-            </Link>
+            </GlassButton>
+          </div>
           </div>
         </div>
       </div>
+      {/* Section bottom divider */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-white/6"></div>
     </section>
   );
 }
@@ -959,81 +970,94 @@ function FinalCTANew() {
 /* -------------------------- CONTACT SECTION -------------------------- */
 function ContactSectionNew() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="relative py-16 lg:py-20">
+      {/* Section divider */}
+      <div className="absolute inset-x-0 top-0 h-px bg-white/6"></div>
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
-        {/* Label */}
-        <p
-          className="font-mono text-xs tracking-[0.28em] text-white/55"
-          style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-        >
-          CONTACT
-        </p>
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          {/* Left: Label + Heading */}
+          <div className="lg:col-span-4">
+            <p
+              className="text-xs tracking-[0.34em] text-white/50 uppercase"
+              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+            >
+              Contact
+            </p>
+            <h2 className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight">
+              The fastest way to reach us is by email.
+            </h2>
+          </div>
 
-        {/* Heading */}
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-          Contact
-        </h1>
+          {/* Right: Email Card */}
+          <div className="lg:col-span-8">
+            <div className="border-t border-white/10 py-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                {/* Left: Email + Links */}
+                <div className="flex-1">
+                  <a
+                    href="mailto:hello@aylenmontenegro.com"
+                    className="text-lg font-medium tracking-tight text-white/90 hover:text-white"
+                  >
+                    hello@aylenmontenegro.com
+                  </a>
+                  <p className="mt-2 text-sm text-white/60">
+                    We typically respond within 1–2 hours.
+                  </p>
 
-        {/* Intro */}
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-          For product support, partnerships, or general inquiries, the best way to reach us is by email.
-        </p>
+                  <div className="mt-6 space-y-2 text-sm text-white/60">
+                    <p>For the quickest response:</p>
+                    <div className="space-y-1">
+                      <div><Link href="/upgrade" className="text-white/80 hover:text-white underline">BossyEmail</Link> → product questions or access</div>
+                      <div><Link href="/clausevault" className="text-white/80 hover:text-white underline">ClauseVault</Link> → contract support tools</div>
+                      <div><Link href="/elevate" className="text-white/80 hover:text-white underline">TC Services</Link> → availability & onboarding</div>
+                    </div>
+                  </div>
+                </div>
 
-        {/* Card */}
-        <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.02] p-10 shadow-[0_24px_90px_rgba(0,0,0,.55)] sm:p-12">
-          <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
-            {/* Left: Email + note */}
-            <div className="max-w-2xl">
-              <p className="text-sm text-white/60">Email</p>
-
-              <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-                {/* Email address */}
-                <a
-                  href="mailto:hello@aylenmontenegro.com"
-                  className="text-lg font-medium tracking-tight text-white/90 hover:text-white"
-                >
-                  hello@aylenmontenegro.com
-                </a>
-
-                {/* Divider (desktop) */}
-                <span className="hidden h-4 w-px bg-white/10 sm:block"></span>
-
-                {/* Response time */}
-                <p className="text-sm text-white/60">
-                  We typically respond within 1–2 business days.
-                </p>
+                {/* Right: CTA button */}
+                <div className="w-full sm:w-auto sm:pl-6">
+                  <GlassButton 
+                    href="mailto:hello@aylenmontenegro.com" 
+                    variant="primary"
+                    className="w-full sm:w-auto"
+                  >
+                    Email Us
+                  </GlassButton>
+                  <div className="mt-2 space-y-1 text-xs text-white/50">
+                    <div>No forms.</div>
+                    <div>No spam.</div>
+                    <div>Just email.</div>
+                  </div>
+                </div>
               </div>
-
-              {/* Boundary / routing line */}
-              <p className="mt-8 max-w-2xl text-sm leading-relaxed text-white/60">
-                If you're interested in working together, please use the relevant page (BossyEmail, TC Services, or ClauseVault) to get started.
-              </p>
-            </div>
-
-            {/* Right: CTA button */}
-            <div className="w-full sm:w-auto">
-              <a
-                href="mailto:hello@aylenmontenegro.com"
-                className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black hover:bg-white/90 sm:w-auto"
-                style={{ color: '#000000' }}
-              >
-                Email Us
-              </a>
-
-              <p className="mt-4 text-xs text-white/55">
-                No forms. No spam. Just email.
-              </p>
             </div>
           </div>
         </div>
+      </div>
+      {/* Section bottom divider */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-white/6"></div>
+    </section>
+  );
+}
 
-        {/* Optional: Secondary line (quiet, not salesy) */}
-        <div className="mt-14 border-t border-white/10 pt-12">
-          <p className="max-w-2xl text-sm leading-relaxed text-white/60">
-            For billing questions, include the email associated with your account so we can help faster.
-          </p>
+/* -------------------------- HERO TICKER -------------------------- */
+function HeroTickerNew() {
+  return (
+    <section className="mt-8 pb-20 lg:pb-24">
+      {/* top hairline */}
+      <div className="h-px w-full bg-white/10"></div>
+
+      <div className="relative overflow-hidden">
+        <div className="ticker-edge-to-edge flex items-center gap-12 whitespace-nowrap px-6 py-4 text-xs tracking-[0.22em] text-white/70 sm:px-10">
+          {/* sequence */}
+          <span>Real estate doesn't break from lack of effort. It breaks from missed details, unclear communication and bad systems. I fix that.</span>
+          {/* duplicate for seamless infinite loop */}
+          <span>Real estate doesn't break from lack of effort. It breaks from missed details, unclear communication and bad systems. I fix that.</span>
         </div>
       </div>
+
+      {/* bottom hairline */}
+      <div className="h-px w-full bg-white/10"></div>
     </section>
   );
 }
@@ -1046,7 +1070,7 @@ function EdgeToEdgeTickerNew() {
       <div className="h-px w-full bg-white/10"></div>
 
       <div className="relative overflow-hidden">
-        <div className="ticker-edge-to-edge flex items-center gap-12 whitespace-nowrap px-6 py-4 text-xs tracking-[0.22em] text-white/70 sm:px-10">
+        <div className="ticker-edge-to-edge flex items-center gap-12 whitespace-nowrap py-4 text-xs tracking-[0.22em] text-white/70">
           {/* sequence */}
           <span>
             <span 

@@ -14,11 +14,11 @@ export default function AffiliateDisclosurePage() {
         <div className="mx-auto max-w-6xl px-6 sm:px-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
-              Affiliate Disclosure
-            </h1>
+            Affiliate Disclosure
+          </h1>
             <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-              Sometimes we recommend products, services, or tools we use ourselves (or would happily pay for).
-            </p>
+            Sometimes we recommend products, services, or tools we use ourselves (or would happily pay for).
+          </p>
           </div>
         </div>
       </section>

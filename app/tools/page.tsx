@@ -3,15 +3,25 @@
 import Link from "next/link";
 import StickyNavigation from "@/components/StickyNavigation";
 import Footer from "@/components/Footer";
+import { GlassButton } from "@/components/ui/GlassButton";
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: '#0E0F11' }}>
+    <>
+    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: '#0B0C0F' }}>
+      {/* vignette / depth (cohesive with your other pages) */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(900px_620px_at_12%_-10%,rgba(255,255,255,0.06),transparent_58%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(900px_700px_at_86%_0%,rgba(201,194,255,0.07),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_900px_at_50%_120%,rgba(0,0,0,0.9),transparent_62%)]"></div>
+        <div className="absolute inset-0 bg-black/15"></div>
+      </div>
+
       <StickyNavigation />
 
-      {/* Tools Hero */}
-      <section className="relative pt-28 pb-32 sm:pt-36 sm:pb-40 overflow-hidden">
-        {/* Background Image */}
+      {/* HERO */}
+      <section className="relative pt-20 sm:pt-24 pb-14 overflow-hidden w-full">
+        {/* Background Image - full width bleed */}
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
@@ -23,192 +33,415 @@ export default function ToolsPage() {
         ></div>
         
         {/* Dark overlay to darken image for better text contrast */}
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
         
         {/* Gradient overlay at bottom for blending */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0E0F11] via-[#0E0F11]/80 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-[#0B0C0F] via-[#0B0C0F]/80 via-[#0B0C0F]/60 via-[#0B0C0F]/30 to-transparent"></div>
         
-        {/* Content */}
         <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <p 
-              className="text-xs tracking-[0.28em] text-white/55"
-              style={{
-                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-              }}
-            >
-              TOOLS
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Tools built from real transactions — not templates.
-            </h1>
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-7 pt-24 lg:pt-32">
+              <p 
+                className="text-xs tracking-[0.34em] text-white/50 uppercase"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                Tools
+              </p>
 
-            <div className="mt-10 flex gap-2 overflow-x-auto pb-2" style={{ WebkitOverflowScrolling: 'touch' }}>
-              <a href="#bossyemail" className="inline-flex items-center whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
-                BossyEmail
-              </a>
-              <a href="#clausevault" className="inline-flex items-center whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
-                ClauseVault
-              </a>
-              <a href="#tc" className="inline-flex items-center whitespace-nowrap rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-xs text-white/75">
-                TC Services
-              </a>
+              <h1 className="mt-5 text-2xl sm:text-3xl font-semibold tracking-tight">
+                Tools built from real transactions<br />
+                <span className="text-white/70">— not templates.</span>
+              </h1>
+
+              <p className="mt-6 text-sm leading-[1.7] text-white/70 max-w-[64ch] sm:text-base sm:leading-[1.75]">
+                Every tool here exists because something broke in a real file<br />
+                — and I refused to let it happen twice.
+              </p>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <GlassButton href="#bossyemail" variant="primary">
+                  Start with BossyEmail
+                </GlassButton>
+                <GlassButton href="#bossyemail" variant="secondary">
+                  Browse the tools
+                </GlassButton>
+              </div>
+            </div>
+
+            {/* Right: editorial stats */}
+            <div className="lg:col-span-5 lg:pl-10">
+              <div className="pt-24 lg:pt-32 space-y-7 text-right">
+                <div className="pb-6">
+                  <div className="text-xl font-semibold tracking-tight text-white/90">Industry</div>
+                  <div 
+                    className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    SPECIFIC
+                  </div>
+                  <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+                </div>
+
+                <div className="pb-6">
+                  <div className="text-xl font-semibold tracking-tight text-white/90">Built</div>
+                  <div 
+                    className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    FROM EXPERIENCE
+                  </div>
+                  <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+                </div>
+
+                <div className="pb-6">
+                  <div className="text-xl font-semibold tracking-tight text-white/90">Designed</div>
+                  <div 
+                    className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    FOR VOLUME
+                  </div>
+                  <div className="mt-4 ml-auto h-px w-1/2 bg-white/10"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-6 sm:px-10">
+      {/* TICKER (rotating index right after hero) */}
+      <section className="mt-8 pb-20 lg:pb-24">
+        {/* top hairline */}
+        <div className="h-px w-full bg-white/10"></div>
 
-        {/* Tools Cards */}
-        <section className="py-24 sm:py-32">
-          <div className="space-y-6">
-            {/* BossyEmail (Primary) */}
-            <div id="bossyemail" className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 sm:p-12 shadow-[0_24px_90px_rgba(0,0,0,.55)]">
-              <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-                <div className="max-w-2xl">
-                  <p 
-                    className="text-2xl sm:text-3xl font-mono tracking-wider text-white/55"
-                    style={{
-                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                      fontVariantNumeric: 'slashed-zero',
-                      fontFeatureSettings: '"zero"',
-                    }}
-                  >
-                    01
-                  </p>
-                  <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">BossyEmail</h2>
-                  <p className="mt-2 text-sm text-white/60">Deal-safe emails in seconds.</p>
-                  <div className="mt-6 h-px bg-white/10"></div>
-                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg max-w-2xl">
-                    Deal-safe emails for real estate agents — instantly. When wording matters, guessing isn't an option.
-                    BossyEmail tells you exactly what to say in inspections, follow-ups, and escalations.
-                  </p>
-                  <p className="mt-6 text-sm text-white/60">
-                    Built from real transactions.
-                  </p>
-                </div>
-
-                <div className="shrink-0">
-                  <a 
-                    href="/upgrade" 
-                    className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium hover:bg-white/90"
-                    style={{ color: '#000000' }}
-                  >
-                    Try BossyEmail →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* ClauseVault */}
-            <div id="clausevault" className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
-              <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-                <div className="max-w-2xl">
-                  <p 
-                    className="text-2xl sm:text-3xl font-mono tracking-wider text-white/55"
-                    style={{
-                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                      fontVariantNumeric: 'slashed-zero',
-                      fontFeatureSettings: '"zero"',
-                    }}
-                  >
-                    02
-                  </p>
-                  <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">ClauseVault</h2>
-                  <p className="mt-2 text-sm text-white/60">Contract clarity for gray areas.</p>
-                  <div className="mt-6 h-px bg-white/10"></div>
-                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg max-w-2xl">
-                    Contract language for real-world scenarios. A curated library of deal-support clauses built around
-                    Florida's As-Is framework — designed to reduce ambiguity and support clearer communication.
-                  </p>
-                  <p className="mt-6 text-sm text-white/60">
-                    Built from real transactions.
-                  </p>
-                </div>
-
-                <div className="shrink-0">
-                  <a 
-                    href="/clausevault" 
-                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
-                  >
-                    Go to ClauseVault →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* TC Services */}
-            <div id="tc" className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
-              <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-                <div className="max-w-2xl">
-                  <p 
-                    className="text-2xl sm:text-3xl font-mono tracking-wider text-white/55"
-                    style={{
-                      fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                      fontVariantNumeric: 'slashed-zero',
-                      fontFeatureSettings: '"zero"',
-                    }}
-                  >
-                    03
-                  </p>
-                  <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">Transaction Coordination</h2>
-                  <p className="mt-2 text-sm text-white/60">White-glove execution, limited capacity.</p>
-                  <div className="mt-6 h-px bg-white/10"></div>
-                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg max-w-2xl">
-                    Backend support for producing agents. White-glove file management for professionals who want fewer
-                    fires and fewer surprises — by availability.
-                  </p>
-                  <p className="mt-6 text-sm text-white/60">
-                    Built from real transactions.
-                  </p>
-                </div>
-
-                <div className="shrink-0">
-                  <a 
-                    href="/elevate" 
-                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/[0.03] px-7 py-3 text-sm font-medium text-white/90 hover:bg-white/[0.06]"
-                  >
-                    View TC Services →
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div className="relative overflow-hidden">
+          <div className="ticker-edge-to-edge flex items-center gap-12 whitespace-nowrap py-4 px-6 text-xs tracking-[0.22em] text-white/70 sm:px-10">
+            {/* sequence */}
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                01
+              </span>
+              &nbsp;BOSSYEMAIL
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                02
+              </span>
+              &nbsp;CLAUSEVAULT
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                03
+              </span>
+              &nbsp;TC SERVICES
+            </span>
+            {/* duplicates for seamless infinite loop */}
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                01
+              </span>
+              &nbsp;BOSSYEMAIL
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                02
+              </span>
+              &nbsp;CLAUSEVAULT
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                03
+              </span>
+              &nbsp;TC SERVICES
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                01
+              </span>
+              &nbsp;BOSSYEMAIL
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                02
+              </span>
+              &nbsp;CLAUSEVAULT
+            </span>
+            <span>
+              <span 
+                className="font-mono"
+                style={{
+                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                  fontVariantNumeric: 'slashed-zero',
+                  fontFeatureSettings: '"zero"',
+                }}
+              >
+                03
+              </span>
+              &nbsp;TC SERVICES
+            </span>
           </div>
-        </section>
+        </div>
 
-        {/* Start Here Routing Close */}
-        <section className="py-24 sm:py-32">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
-            <div className="max-w-3xl">
+        {/* bottom hairline */}
+        <div className="h-px w-full bg-white/10"></div>
+      </section>
+
+      <main className="relative mx-auto max-w-6xl px-6 sm:px-10" style={{ backgroundColor: '#0B0C0F' }}>
+
+        {/* SECTION: BossyEmail */}
+        <section id="bossyemail" className="py-14">
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-4">
               <p 
-                className="font-mono text-xs tracking-[0.28em] text-white/55"
+                className="text-xs tracking-[0.34em] text-white/50 uppercase"
                 style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
               >
-                START HERE
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-                If you only use one tool from this page, make it this one.
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-                BossyEmail removes the friction that slows deals down — the second-guessing, the rewrites, the "how do I say this?" moments that quietly eat your time and attention.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a 
-                  href="/upgrade"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-medium hover:bg-white/90"
-                  style={{ color: '#000000' }}
+                <span 
+                  style={{ 
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
                 >
-                  Get BossyEmail →
-                </a>
-                <p className="text-sm text-white/55">Deal-safe emails in seconds.</p>
+                  01
+                </span>
+                {' '}— BOSSYEMAIL
+              </p>
+              <h2 className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight">
+                Stop rewriting the same email 47 times.
+              </h2>
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="border-t border-white/10 py-6">
+                <p className="text-white/70 leading-relaxed max-w-[86ch]">
+                  Ready-to-send templates plus an AI generator trained on real transaction chaos —
+                  inspections, delays, escalations, and save-the-deal moments.
+                </p>
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-3 gap-6">
+                <div className="border-t border-white/10 pt-6">
+                  <div 
+                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    Built for
+                  </div>
+                  <div className="mt-3 text-sm text-white/70">Listing, escrow, and closing chaos.</div>
+                </div>
+                <div className="border-t border-white/10 pt-6">
+                  <div 
+                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    Outcome
+                  </div>
+                  <div className="mt-3 text-sm text-white/70">Cleaner communication. Fewer mistakes.</div>
+                </div>
+                <div className="border-t border-white/10 pt-6">
+                  <div 
+                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    Time
+                  </div>
+                  <div className="mt-3 text-sm text-white/70">Two minutes to try. Hours saved weekly.</div>
+                </div>
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <GlassButton href="/upgrade" variant="primary">
+                  Try BossyEmail
+                </GlassButton>
+                <GlassButton href="/upgrade" variant="secondary">
+                  View templates
+                </GlassButton>
               </div>
             </div>
           </div>
         </section>
-      </div>
 
+        <div className="h-px bg-white/10"></div>
+
+        {/* SECTION: ClauseVault */}
+        <section id="clausevault" className="py-14">
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-4">
+              <p 
+                className="text-xs tracking-[0.34em] text-white/50 uppercase"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                <span 
+                  style={{ 
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
+                >
+                  02
+                </span>
+                {' '}— CLAUSEVAULT
+              </p>
+              <h2 className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight">
+                Contract clarity — without playing attorney.
+              </h2>
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="border-t border-white/10 py-6">
+                <p className="text-white/70 leading-relaxed max-w-[86ch]">
+                  Deal-support clauses built around Florida&apos;s As-Is framework —
+                  designed to reduce ambiguity, set expectations, and keep files moving when things get gray.
+                </p>
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-3 gap-6">
+                <div className="border-t border-white/10 pt-6">
+                  <div 
+                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    Designed to
+                  </div>
+                  <div className="mt-3 text-sm text-white/70">Reduce ambiguity and disputes.</div>
+                </div>
+                <div className="border-t border-white/10 pt-6">
+                  <div 
+                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    Outcome
+                  </div>
+                  <div className="mt-3 text-sm text-white/70">Stronger paper trails.</div>
+                </div>
+                <div className="border-t border-white/10 pt-6">
+                  <div 
+                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
+                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+                  >
+                    Use case
+                  </div>
+                  <div className="mt-3 text-sm text-white/70">When contract language isn&apos;t enough.</div>
+                </div>
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <GlassButton href="/clausevault" variant="primary">
+                  Explore ClauseVault
+                </GlassButton>
+                <GlassButton href="/clausevault" variant="secondary">
+                  Browse categories
+                </GlassButton>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="h-px bg-white/10"></div>
+
+        {/* SECTION: TC */}
+        <section id="tc" className="py-14 pb-24">
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-4">
+              <p 
+                className="text-xs tracking-[0.34em] text-white/50 uppercase"
+                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
+              >
+                <span 
+                  style={{ 
+                    fontVariantNumeric: 'slashed-zero',
+                    fontFeatureSettings: '"zero"',
+                  }}
+                >
+                  03
+                </span>
+                {' '}— TC SERVICES
+              </p>
+              <h2 className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight">
+                Transaction coordination for agents who refuse to compromise.
+              </h2>
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="border-y border-white/10 py-6">
+                <p className="text-white/70 leading-relaxed max-w-[86ch]">
+                  Licensed, high-precision transaction coordination designed to protect deadlines, documentation,
+                  and reputation — under real volume. Limited capacity. Select clients only.
+                </p>
+              </div>
+
+              <div className="mt-10">
+                <GlassButton href="/elevate" variant="secondary">
+                  Check availability
+                </GlassButton>
+              </div>
+
+              <p className="mt-8 text-sm text-white/55 max-w-[86ch]">
+                If you&apos;re protecting a brand — not just chasing closings — this is the layer that keeps everything quiet.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div className="py-24 sm:py-32"></div>
       <Footer />
     </div>
+    </>
   );
 }

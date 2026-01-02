@@ -182,6 +182,7 @@ export default function ContactSection() {
                     type="submit"
                     disabled={!formData.name || !formData.email || !formData.message || isSubmitting}
                     className="flex-1 bg-white text-black hover:bg-white/90 transition-all duration-300 rounded px-4 py-2 flex items-center justify-center gap-2"
+                    style={{ color: '#000000' }}
                   >
                     {isSubmitting ? "Sending..." : "Send"}
                     {!isSubmitting && <Send className="w-4 h-4" />}

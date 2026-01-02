@@ -124,6 +124,7 @@ export default function BookNotificationModal({
                 type="submit"
                 disabled={!email || isSubmitting}
                 className="flex-1 bg-white text-black hover:bg-white/90"
+                style={{ color: '#000000' }}
               >
                 {isSubmitting ? "Submitting..." : "Notify Me"}
               </Button>

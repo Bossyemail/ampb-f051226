@@ -9,7 +9,6 @@ import SkipToContent from "@/components/SkipToContent";
 import BackToTop from "@/components/BackToTop";
 import OfflineIndicator from "@/components/OfflineIndicator";
 import "./globals.css";
-import "./type-system.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
