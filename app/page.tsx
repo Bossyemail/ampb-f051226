@@ -235,7 +235,7 @@ function WhatIBuildNew() {
                   </video>
                 </div>
                 <div className="pl-[44px] mt-4">
-                  <GlassButton href="/upgrade" variant="secondary" className="h-10 px-5 text-sm font-medium">
+                  <GlassButton href="https://bossyemail.com" variant="secondary" external className="h-10 px-5 text-sm font-medium">
                     Try BossyEmail →
                   </GlassButton>
                 </div>

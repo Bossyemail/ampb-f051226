@@ -12,7 +12,6 @@ export default function SignInPage() {
       <div className="w-full max-w-md">
         <SignIn 
           fallbackRedirectUrl={redirectUrl}
-          forceRedirectUrl={redirectUrl}
           appearance={{
             elements: {
               rootBox: "mx-auto",

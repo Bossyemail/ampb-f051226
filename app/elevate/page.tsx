@@ -133,8 +133,9 @@ export default function ElevatePage() {
 
                     <div className="mt-10 flex flex-wrap items-center gap-4">
                       <GlassButton
-                        href="#availability"
+                        href="https://form.jotform.com/252496909826069"
                         variant="primary"
+                        external
                         className="relative z-40"
                         onClick={() => handleButtonClick('Request availability', 'Hero')}
                       >
@@ -392,8 +393,9 @@ export default function ElevatePage() {
 
                 <div className="mt-10">
                   <GlassButton 
-                    href="#availability" 
+                    href="https://form.jotform.com/252496909826069" 
                     variant="primary"
+                    external
                     onClick={() => handleButtonClick('Request availability', 'Scope')}
                   >
                     Request availability
@@ -609,8 +611,9 @@ export default function ElevatePage() {
                 </div>
                 <div className="lg:col-span-4 lg:justify-self-end flex gap-3">
                   <GlassButton 
-                    href="#" 
+                    href="https://form.jotform.com/252496909826069" 
                     variant="primary"
+                    external
                     className="text-center"
                     onClick={() => handleButtonClick('Request availability', 'Final CTA')}
                   >

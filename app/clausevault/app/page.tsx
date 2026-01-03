@@ -663,7 +663,7 @@ export default function ClauseVaultAppPage() {
               </button>
             ) : (
               <button
-                onClick={() => router.push('/sign-in')}
+                onClick={() => router.push('/sign-in?redirect_url=/clausevault')}
                 className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
               >
                 Sign In

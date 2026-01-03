@@ -306,7 +306,7 @@ export default function ToolsPage() {
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <GlassButton href="/upgrade" variant="primary">
+                <GlassButton href="https://bossyemail.com" variant="primary" external>
                   Try BossyEmail
                 </GlassButton>
                 <GlassButton href="/upgrade" variant="secondary">

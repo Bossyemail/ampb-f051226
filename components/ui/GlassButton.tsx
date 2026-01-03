@@ -29,13 +29,13 @@ export function GlassButton({
 
   const buttonContent = (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <motion.div
-        whileHover={{ opacity: 0.9 }}
+        whileHover={{ opacity: 0.9, y: -1 }}
         whileTap={{ scale: 0.98 }}
         className={`${baseClasses} ${variantClasses} ${className}`}
         style={variant === "primary" ? {

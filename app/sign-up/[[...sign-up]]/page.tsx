@@ -1,10 +1,17 @@
+"use client";
+
 import { SignUp } from "@clerk/nextjs";
+import { useSearchParams } from "next/navigation";
 
 export default function SignUpPage() {
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get('redirect_url') || '/clausevault';
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <SignUp 
+          fallbackRedirectUrl={redirectUrl}
           appearance={{
             elements: {
               rootBox: "mx-auto",

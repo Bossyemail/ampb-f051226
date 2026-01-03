@@ -93,7 +93,7 @@ export default function UpgradePage() {
                     </p>
 
                     <div className="mt-10 flex flex-wrap items-center gap-4 relative z-40">
-                      <GlassButton href="/signup" variant="primary" className="relative z-40">
+                      <GlassButton href="https://bossyemail.com" variant="primary" external className="relative z-40">
                         Try BossyEmail
                       </GlassButton>
                       <GlassButton href="#how" variant="secondary" className="relative z-40">
@@ -442,7 +442,7 @@ export default function UpgradePage() {
                 </div>
 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
-                  <GlassButton href="/signup" variant="primary">
+                  <GlassButton href="https://bossyemail.com" variant="primary" external>
                     Try BossyEmail
                   </GlassButton>
                   <GlassButton href="#proof" variant="secondary">
@@ -521,7 +521,7 @@ export default function UpgradePage() {
                   </p>
                 </div>
                 <div className="lg:col-span-4 lg:justify-self-end flex gap-3">
-                  <GlassButton href="/signup" variant="primary">
+                  <GlassButton href="https://bossyemail.com" variant="primary" external>
                     Try BossyEmail
                   </GlassButton>
                   <GlassButton href="/tools" variant="secondary">
