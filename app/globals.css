@@ -1,0 +1,648 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Design System Tokens */
+  --bg: #0b0c0f;
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.75);
+  --faint: rgba(255,255,255,0.55);
+  --hairline: rgba(255,255,255,0.10);
+
+  --container: 72rem; /* 1152px */
+  --px: 1.5rem;       /* 24px */
+  --px-lg: 2.5rem;    /* 40px */
+
+  --section-y: 4rem;  /* 64px */
+  --section-y-sm: 5rem; /* 80px */
+  --section-y-lg: 6rem; /* 96px */
+
+  --h1: 3.5rem; /* 56px */
+  --h2: 2.25rem; /* 36px */
+  --body: 1.0625rem; /* 17px */
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Ticker animation */
+.ticker-edge-to-edge {
+  animation: ticker-scroll 26s linear infinite;
+  will-change: transform;
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-edge-to-edge {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+/* Testimonials: vertical infinite columns (duplicate block = 50% height → translateY -50%) */
+@keyframes testimonial-scroll-y {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.ticker-testimonials-col-slow {
+  animation: testimonial-scroll-y 100s linear infinite;
+  will-change: transform;
+}
+.ticker-testimonials-col-mid {
+  animation: testimonial-scroll-y 78s linear infinite;
+  will-change: transform;
+}
+.ticker-testimonials-col-fast {
+  animation: testimonial-scroll-y 62s linear infinite;
+  will-change: transform;
+}
+
+/* Paused when user clicks the testimonial strip (see Testimonials.tsx) */
+.testimonials-scroll-paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-testimonials-col-slow,
+  .ticker-testimonials-col-mid,
+  .ticker-testimonials-col-fast {
+    animation: none;
+    transform: translateY(0);
+  }
+}
+
+:root { 
+  font-size: 16px; 
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+}
+
+h1, h2, h3, h4 { 
+  line-height: 1.1; 
+}
+
+/* Hard Reset / Normalize */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Container */
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--px);
+  padding-right: var(--px);
+}
+@media (min-width: 640px) {
+  .wrap { padding-left: var(--px-lg); padding-right: var(--px-lg); }
+}
+
+/* Section Rhythm */
+.section { padding: var(--section-y) 0; }
+@media (min-width: 640px) { .section { padding: var(--section-y-sm) 0; } }
+@media (min-width: 1024px) { .section { padding: var(--section-y-lg) 0; } }
+
+.rule { border-top: 1px solid var(--hairline); }
+
+/* Type Scale */
+.h1 {
+  font-size: 2.375rem; /* 38px */
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin: 0;
+}
+@media (min-width: 640px) { .h1 { font-size: 3rem; } } /* 48px */
+
+.h2 {
+  font-size: 1.875rem;
+    line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin: 0;
+}
+@media (min-width: 640px) { .h2 { font-size: 2.25rem; } }
+
+.p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+@media (min-width: 640px) { .p { font-size: var(--body); } }
+
+.stack-4 > * + * { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-14 { margin-top: 3.5rem; }
+
+/* Hero Grid */
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 5fr 5fr 2fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Image Card + Falloff */
+.portrait {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+.portrait img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center top;
+}
+@media (max-width: 1023px) { .portrait img { height: 520px; } }
+@media (max-width: 639px) { .portrait img { height: 420px; } }
+.falloff {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-side at 50% 35%,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.45) 60%,
+    rgba(0,0,0,0.88) 100%);
+}
+
+/* Stats */
+.stats { padding-top: 0.5rem; text-align: right; }
+.stats > * + * { margin-top: 2.5rem; }
+.stat-num { font-size: 1.5rem; font-weight: 500; color: rgba(255,255,255,0.9); }
+.stat-label { margin-top: 0.75rem; font-size: 11px; color: rgba(255,255,255,0.45); }
+
+/* Sharp Glass Buttons */
+.btn-stack { max-width: 420px; }
+.btn-stack > * + * { margin-top: 0.75rem; }
+.btn {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.875rem;
+    font-weight: 500;
+  text-align: left;
+  border-radius: 0;
+  user-select: none;
+  transition: border-color .2s ease, background .2s ease, transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  }
+.btn:hover {
+  border-color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.05);
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.35);
+  filter: brightness(0.88);
+}
+
+/* Cross-browser normalization */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure consistent box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Safari-specific backdrop filter fixes */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Ensure consistent mask rendering across browsers */
+@supports (-webkit-mask-image: none) {
+  [style*="maskImage"],
+  [style*="WebkitMaskImage"] {
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+}
+
+/* Force consistent rendering for hero image mask */
+.hero-image-mask {
+  -webkit-mask-size: 100% 100% !important;
+  mask-size: 100% 100% !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+  mask-position: center !important;
+}
+
+/* Safari-specific fixes for flexbox and grid */
+@supports (-webkit-appearance: none) {
+  .home-root {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ensure consistent flex rendering */
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  /* Ensure consistent grid rendering */
+  .grid {
+    display: -webkit-grid;
+    display: grid;
+  }
+}
+
+/* Safari fixes for roller component */
+.roller-item {
+  contain: layout style paint;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.roller-num,
+.roller-label {
+  contain: layout style paint;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  display: block !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+@layer components {
+  .copy-left {
+    max-width: 42.5rem;
+  }
+
+  .copy-center {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .copy-muted {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .section-gap {
+    padding-top: clamp(3rem, 6vw, 5.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  /* Design system spacing utilities */
+  .stack > * + * {
+    margin-top: 16px; /* --gap-1 */
+  }
+}
+
+/* Ultra-minimal auto-hide scrollbar for categories */
+.categories-scroll {
+  /* Hide scrollbar by default */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.categories-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Alternative: Ultra-thin scrollbar that appears only on hover */
+.categories-scroll-thin::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
+}
+
+.categories-scroll-thin:hover::-webkit-scrollbar {
+  height: 1px;
+  width: 1px;
+}
+
+.categories-scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.categories-scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0px;
+}
+
+.categories-scroll-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Embossed/Debossed Risk Level Dots */
+.risk-dot-embossed {
+  position: relative;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.risk-dot-debossed {
+  position: relative;
+  box-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced 3D effect for risk dots */
+.risk-dot-3d {
+  position: relative;
+  transform: translateZ(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.risk-dot-3d:hover {
+  transform: translateZ(0) scale(1.15);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.5),
+    0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle pulse animation for risk dots */
+@keyframes risk-pulse {
+  0%, 100% { 
+    box-shadow: 
+      inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  50% { 
+    box-shadow: 
+      inset 1px 1px 2px rgba(0, 0, 0, 0.4),
+      inset -1px -1px 2px rgba(255, 255, 255, 0.15),
+      0 3px 6px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.risk-dot-embossed {
+  animation: risk-pulse 3s ease-in-out infinite;
+}
+
+/* Inner glow effect for enhanced embossed look */
+.risk-dot-embossed::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Enhanced embossed effect with multiple shadow layers */
+.risk-dot-embossed {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.4),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide details marker for expandable sections */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Expandable details sections */
+details[open] .details-chevron {
+  transform: rotate(180deg);
+}
+
+details .details-content {
+  display: none;
+}
+
+details[open] .details-content {
+  display: block;
+}
+
+/* Refined details styling */
+details summary {
+  outline: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+}
+
+details[open] summary {
+  border-bottom: none;
+}
+
+/* Override type-system.css for section labels */
+.section-label {
+  font-size: 10px !important;
+  letter-spacing: 0.28em !important;
+}
+
+/* Roller section - scroll-driven stepper */
+.roller .track {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.roller .snap-off {
+  transition: none !important;
+}
+
+.roller .chip {
+  opacity: 0.65;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Kit newsletter form — dark theme override (Kit injects aggressive inline styles) */
+/* -------------------------------------------------------------------------- */
+.formkit-form {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  max-width: 560px !important;
+}
+
+.formkit-form [data-element="fields"] {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+}
+
+.formkit-form [data-element="field"] {
+  flex: 1 !important;
+  min-width: 240px !important;
+  margin: 0 !important;
+}
+
+/* Kit email input — force dark override with higher specificity */
+.formkit-form input.formkit-input,
+.formkit-form input[type="email"],
+.formkit-form input.formkit-input[type="email"],
+body .formkit-form input[type="email"],
+body .formkit-form input.formkit-input {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  padding: 0 18px !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  line-height: normal !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.formkit-form input.formkit-input::placeholder,
+.formkit-form input[type="email"]::placeholder,
+body .formkit-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1 !important;
+}
+
+.formkit-form input.formkit-input:focus,
+.formkit-form input[type="email"]:focus,
+body .formkit-form input[type="email"]:focus {
+  outline: none !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Autofill override — browsers force white backgrounds on autofilled inputs */
+.formkit-form input.formkit-input:-webkit-autofill,
+.formkit-form input[type="email"]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(10, 10, 10, 0.95) inset !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.95) !important;
+  caret-color: rgba(255, 255, 255, 0.95) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.formkit-form button[type="submit"],
+.formkit-form .formkit-submit {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0a0a0a !important;
+  padding: 0 28px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  letter-spacing: -0.01em !important;
+  box-sizing: border-box !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  line-height: 1 !important;
+}
+
+.formkit-form button[type="submit"]:hover,
+.formkit-form .formkit-submit:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.formkit-form [data-element="powered-by"],
+.formkit-powered-by-convertkit,
+.formkit-powered-by {
+  display: none !important;
+}
+
+.formkit-form .formkit-alert {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  margin-top: 12px !important;
+  font-size: 14px !important;
+}
+
+.formkit-form .formkit-alert-success {
+  border-color: rgba(34, 197, 94, 0.3) !important;
+  background: rgba(34, 197, 94, 0.05) !important;
+}
+
+/* Mobile — stack vertically */
+@media (max-width: 640px) {
+  .formkit-form [data-element="fields"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .formkit-form button[type="submit"],
+  .formkit-form .formkit-submit {
+    width: 100% !important;
+  }
+}
