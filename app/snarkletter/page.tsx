@@ -1,179 +1,632 @@
-import type { Metadata } from "next";
-import StickyNavigation from "@/components/StickyNavigation";
-import Footer from "@/components/Footer";
-import KitSnarkletterEmbed from "@/components/snarkletter/KitSnarkletterEmbed";
+'use client'
+import { useEffect, useRef, useState } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
-export const metadata: Metadata = {
-  title: "The Real Estate Snarkletter",
-  description:
-    "Weekly operations intelligence for real estate professionals who are done working for cents on the dollar.",
-};
+import Cursor      from '@/components/Cursor'
+import ProgressBar from '@/components/ProgressBar'
+import CinemaNav   from '@/components/CinemaNav'
+import SocialBar   from '@/components/SocialBar'
+import PanelIndex  from '@/components/PanelIndex'
+import Footer      from '@/components/Footer'
 
-const whatYouGet = [
-  {
-    title: "Compliance breakdowns",
-    body:
-      "Real disclosure failures from real files. Named, dated, and dissected — so you never get caught.",
-  },
-  {
-    title: "Operator playbooks",
-    body:
-      "How top TCs and brokerages run 40+ files without losing their minds. Templates, systems, and why they work.",
-  },
-  {
-    title: "Industry commentary",
-    body:
-      "What's actually happening in South Florida, not what NAR's press release says. Opinions with teeth.",
-  },
-];
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export default function SnarkletterPage() {
+const BG = ['#363231', '#2a2827', '#2a2827', '#114B4D']
+
+const KIT_ACTION = 'https://app.kit.com/forms/b3faf3ce2a/subscriptions'
+
+const CARDS = [
+  { title: 'Compliance breakdowns', body: "Real disclosure failures from real files. Named, dated, and dissected — so you never get caught." },
+  { title: 'Operator playbooks',    body: "How top TCs and brokerages run 40+ files without losing their minds. Templates, systems, and why they work." },
+  { title: 'Industry commentary',   body: "What's actually happening in South Florida, not what NAR's press release says. Opinions with teeth." },
+]
+
+const PILLARS = [
+  { title: 'Weekly',       sub: 'In Your Inbox' },
+  { title: 'Field-tested', sub: 'Not Theory'    },
+  { title: 'Zero Fluff',   sub: 'Just Ops'      },
+]
+
+// ─── Subscribe Form ───────────────────────────────────────────────────────────
+function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
+  const isDark = variant === 'dark'
+  const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email) return
+    fetch(KIT_ACTION, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ email_address: email }).toString(),
+      mode: 'no-cors',
+    })
+    setSubmitted(true)
+  }
+
+  if (submitted) {
+    return (
+      <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', margin: 0 }}>
+        You&apos;re on the list. First issue incoming.
+      </p>
+    )
+  }
+
   return (
-    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: "#0B0C0F" }}>
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(900px_620px_at_12%_-10%,rgba(255,255,255,0.06),transparent_58%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(900px_700px_at_86%_0%,rgba(201,194,255,0.07),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_900px_at_50%_120%,rgba(0,0,0,0.9),transparent_62%)]" />
-        <div className="absolute inset-0 bg-black/15" />
+    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+      <div style={{ display: 'flex', gap: 0, maxWidth: isDark ? '480px' : undefined }}>
+        <input
+          type="email"
+          name="email_address"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="your@email.com"
+          required
+          style={{
+            flex:        1,
+            height:      '48px',
+            background:  isDark ? 'transparent' : 'rgba(239,235,226,0.1)',
+            border:      isDark ? '1px solid rgba(239,235,226,0.2)' : '0.5px solid rgba(239,235,226,0.3)',
+            borderRight: 'none',
+            color:       'var(--cream)',
+            fontFamily:  'var(--font-dm-mono)',
+            fontSize:    '13px',
+            padding:     '0 16px',
+            outline:     'none',
+            boxSizing:   'border-box' as const,
+          }}
+          onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
+          onBlur={e   => { e.currentTarget.style.borderColor = isDark ? 'rgba(239,235,226,0.2)' : 'rgba(239,235,226,0.3)' }}
+        />
+        <button
+          type="submit"
+          style={{
+            height:        '48px',
+            background:    isDark ? '#2d6a6a' : 'var(--cream)',
+            color:         isDark ? '#ffffff' : 'var(--teal)',
+            fontFamily:    'var(--font-dm-mono)',
+            fontSize:      '11px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            padding:       isDark ? '0 32px' : '0 40px',
+            border:        'none',
+            boxSizing:     'border-box' as const,
+            cursor:        'pointer',
+            whiteSpace:    'nowrap',
+            transition:    'background 0.2s, color 0.2s',
+            flexShrink:    0,
+          }}
+          onMouseEnter={e => {
+            const b = e.currentTarget
+            b.style.background = isDark ? '#235858' : '#2a2827'
+            if (!isDark) b.style.color = 'var(--cream)'
+          }}
+          onMouseLeave={e => {
+            const b = e.currentTarget
+            b.style.background = isDark ? '#2d6a6a' : 'var(--cream)'
+            if (!isDark) b.style.color = 'var(--teal)'
+          }}
+        >
+          Subscribe
+        </button>
       </div>
+    </form>
+  )
+}
 
-      <main className="relative z-10">
-        <StickyNavigation />
+// ─── Panel 1 — Hero ───────────────────────────────────────────────────────────
+function P1Hero() {
+  const eyebrowRef = useRef<HTMLDivElement>(null)
+  const line1Ref   = useRef<HTMLSpanElement>(null)
+  const line2Ref   = useRef<HTMLSpanElement>(null)
+  const ruleRef    = useRef<HTMLDivElement>(null)
+  const bodyRef    = useRef<HTMLParagraphElement>(null)
+  const pillarsRef = useRef<HTMLDivElement>(null)
+  const formRef    = useRef<HTMLDivElement>(null)
+  const [heroEmail, setHeroEmail]         = useState('')
+  const [heroSubmitted, setHeroSubmitted] = useState(false)
 
-        {/* Hero */}
-        <section className="relative w-full overflow-hidden pb-12 sm:pb-16">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: "url(/clausevault-bg-11.jpg)",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/35" />
-          <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#0B0C0F] via-[#0B0C0F]/75 to-transparent" />
+  const handleHeroSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!heroEmail) return
+    fetch(KIT_ACTION, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ email_address: heroEmail }).toString(),
+      mode: 'no-cors',
+    })
+    setHeroSubmitted(true)
+  }
 
-          <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
-            <div className="grid items-start gap-10 pt-32 sm:pt-40 lg:grid-cols-12 lg:pt-48">
-              <div className="lg:col-span-7">
-                <p
-                  className="mb-4 text-xs tracking-[0.34em] text-white/50 uppercase"
-                  style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-                >
-                  THE NEWSLETTER
-                </p>
+  useEffect(() => {
+    const lines = [line1Ref.current, line2Ref.current]
+    const fades = [eyebrowRef.current, ruleRef.current, bodyRef.current, pillarsRef.current, formRef.current]
+    if (lines.some(e => !e) || fades.some(e => !e)) return
 
-                <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                  The Real Estate Snarkletter.
-                </h1>
+    gsap.set(lines, { y: '110%' })
+    gsap.set(fades, { opacity: 0, y: 20 })
 
-                <p className="mt-6 max-w-[64ch] text-sm leading-[1.7] text-white/70 sm:text-base sm:leading-[1.75]">
-                  Weekly operations intelligence for real estate professionals who are done working for cents on
-                  the dollar.
-                </p>
-              </div>
+    gsap.to(lines,              { y: '0%', duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)', stagger: 0.06, delay: 0.2 })
+    gsap.to(eyebrowRef.current, { opacity: 1, y: 0, duration: 0.7, delay: 0.5 })
+    gsap.to(ruleRef.current,    { opacity: 1, y: 0, duration: 0.7, delay: 0.7 })
+    gsap.to(bodyRef.current,    { opacity: 1, y: 0, duration: 0.7, delay: 0.85 })
+    gsap.to(pillarsRef.current, { opacity: 1, y: 0, duration: 0.7, delay: 1.0 })
+    gsap.to(formRef.current,    { opacity: 1, y: 0, duration: 0.7, delay: 1.1 })
+  }, [])
 
-              <div className="lg:col-span-5 lg:pl-6">
-                <div className="space-y-7 text-right lg:pt-2">
-                  {[
-                    { label: "Weekly", tag: "IN YOUR INBOX" },
-                    { label: "Field-tested", tag: "NOT THEORY" },
-                    { label: "Zero fluff", tag: "JUST OPS" },
-                  ].map((row, index) => (
-                    <div key={row.tag} className="pb-2">
-                      {index === 1 ? (
-                        <div className="mb-4 ml-auto h-px w-1/2 bg-white/10" aria-hidden />
-                      ) : null}
-                      <div className="text-lg font-semibold tracking-tight text-white/90 sm:text-xl">{row.label}</div>
-                      <div
-                        className="mt-1 text-[10px] tracking-[0.28em] text-white/55"
-                        style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-                      >
-                        {row.tag}
-                      </div>
-                      {index > 0 ? (
-                        <div className="mt-4 ml-auto h-px w-1/2 bg-white/10" />
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+  return (
+    <section
+      data-panel="0"
+      className="snarkletter-hero"
+      style={{
+        background:          '#2a2827',
+        display:             'grid',
+        gridTemplateColumns: '44% 56%',
+        minHeight:           '100vh',
+        position:            'relative',
+        overflow:            'hidden',
+      }}
+    >
+      {/* Left text column */}
+      <div className="snarkletter-text-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 6% 40px 80px', position: 'relative', zIndex: 1 }}>
+
+        {/* Eyebrow */}
+        <div ref={eyebrowRef} style={{ display: 'flex', alignItems: 'center', gap: '14px', opacity: 0 }}>
+          <div style={{ width: '32px', height: '0.5px', background: 'var(--cognac)', flexShrink: 0 }} />
+          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', color: 'var(--cognac)', textTransform: 'uppercase' }}>
+            The Newsletter
+          </span>
+        </div>
+
+        {/* Headline */}
+        <h1 style={{ margin: '28px 0 0 0', lineHeight: 0.92 }}>
+          <div style={{ overflow: 'hidden' }}>
+            <span ref={line1Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(40px,5vw,68px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, paddingBottom: '0.04em' }}>
+              The Real Estate
+            </span>
           </div>
-        </section>
+          <div style={{ overflow: 'hidden' }}>
+            <span ref={line2Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(40px,5vw,68px)', fontWeight: 300, fontStyle: 'italic', color: 'var(--cream)', lineHeight: 1, paddingBottom: '0.04em' }}>
+              Snarkletter.
+            </span>
+          </div>
+        </h1>
 
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        {/* Rule */}
+        <div ref={ruleRef} style={{ width: '48px', height: '0.5px', background: 'rgba(239,235,226,0.15)', margin: '32px 0', opacity: 0 }} />
 
-        {/* What you'll actually get */}
-        <section className="relative py-16 md:py-24" aria-labelledby="what-you-get-heading">
-          <div className="mx-auto max-w-6xl px-6 md:px-8">
-            <p
-              className="mb-4 text-xs tracking-[0.34em] text-white/45 uppercase"
-              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-            >
-              WHAT YOU&apos;LL ACTUALLY GET
+        {/* Body */}
+        <p ref={bodyRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', fontWeight: 300, lineHeight: 1.8, color: 'rgba(239,235,226,0.6)', maxWidth: '400px', margin: '0 0 40px 0', opacity: 0 }}>
+          Weekly operations intelligence for real estate professionals who are done working for cents on the dollar.
+        </p>
+
+        {/* Pillars */}
+        <div ref={pillarsRef} style={{ display: 'flex', gap: 0, marginBottom: '48px', opacity: 0 }}>
+          {PILLARS.map((p, i) => (
+            <div key={p.title} style={{
+              paddingRight:  '24px',
+              paddingTop:    '24px',
+              paddingBottom: '24px',
+              borderRight:   i < PILLARS.length - 1 ? '0.5px solid rgba(255,255,255,0.2)' : 'none',
+              marginRight:   i < PILLARS.length - 1 ? '24px' : 0,
+            }}>
+              <span style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(20px,2.4vw,26px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, marginBottom: '6px' }}>{p.title}</span>
+              <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>{p.sub}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Subscribe form */}
+        <div ref={formRef} style={{ opacity: 0 }}>
+          {/* Card */}
+          <div style={{
+            maxWidth:       '480px',
+            border:         '1px solid rgba(255,255,255,0.15)',
+            background:     'rgba(255,255,255,0.04)',
+            backdropFilter: 'blur(8px)',
+            padding:        '32px 40px',
+          }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#5f9ea0', margin: '0 0 16px 0' }}>
+              Get on the List
             </p>
-            <h2
-              id="what-you-get-heading"
-              className="max-w-[40ch] text-2xl font-semibold tracking-tight sm:text-3xl"
-            >
-              <span className="block">Six months of systems.</span>
-              <span className="mt-2 block sm:mt-3">Not six months of SEO filler.</span>
-            </h2>
-
-            <div className="mt-8 max-w-[64ch] space-y-4 text-sm leading-relaxed text-white/65 sm:text-base sm:leading-relaxed">
-              <p>One letter a week. No fluff, no vendor pitches, no motivational reheats.</p>
-              <p>
-                Just what actually broke in real files this week, what brokers miss until it costs them $15K, and the
-                systems I&apos;ve pulled out of 3,000+ transactions to keep volume from turning into chaos.
+            {heroSubmitted ? (
+              <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', margin: 0 }}>
+                You&apos;re on the list. First issue incoming.
               </p>
-              <p>Built for agents, brokers, and TCs who are done being surprised on Friday at 4pm.</p>
-            </div>
-
-            <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-              {whatYouGet.map((item) => (
-                <div key={item.title}>
-                  <h3 className="text-lg font-semibold tracking-tight text-white/95">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/65 sm:text-base sm:leading-relaxed">
-                    {item.body}
-                  </p>
+            ) : (
+              <form onSubmit={handleHeroSubmit} style={{ width: '100%' }}>
+                <div style={{ display: 'flex', width: '100%' }}>
+                  <input
+                    type="email"
+                    name="email_address"
+                    value={heroEmail}
+                    onChange={e => setHeroEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    style={{
+                      flex:        1,
+                      height:      '48px',
+                      background:  'transparent',
+                      border:      '1px solid rgba(255,255,255,0.2)',
+                      borderRight: 'none',
+                      color:       '#ffffff',
+                      fontFamily:  'var(--font-dm-mono)',
+                      fontSize:    '13px',
+                      paddingLeft: '16px',
+                      outline:     'none',
+                      boxSizing:   'border-box' as const,
+                    }}
+                    onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)' }}
+                    onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)' }}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      height:        '48px',
+                      background:    '#5f9ea0',
+                      color:         '#ffffff',
+                      fontFamily:    'var(--font-dm-mono)',
+                      fontSize:      '11px',
+                      letterSpacing: '0.16em',
+                      textTransform: 'uppercase',
+                      padding:       '0 24px',
+                      border:        'none',
+                      cursor:        'pointer',
+                      whiteSpace:    'nowrap',
+                      flexShrink:    0,
+                      transition:    'background 0.2s',
+                      boxSizing:     'border-box' as const,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#4a8a8a' }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#5f9ea0' }}
+                  >
+                    Subscribe
+                  </button>
                 </div>
-              ))}
-            </div>
+              </form>
+            )}
           </div>
-        </section>
-
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-        {/* Get on the list — Kit embed */}
-        <section className="relative py-16 md:py-24" aria-labelledby="subscribe-heading">
-          <div className="mx-auto max-w-6xl px-6 md:px-8">
-            <p
-              className="mb-4 text-xs tracking-[0.34em] text-white/45 uppercase"
-              style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-            >
-              GET ON THE LIST
-            </p>
-            <h2 id="subscribe-heading" className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Join before the next issue drops.
-            </h2>
-            <p className="mt-4 max-w-[60ch] text-sm leading-relaxed text-white/65 sm:text-base">
-              Free forever. Unsubscribe with one click. No sales pipeline.
-            </p>
-
-            <div className="mt-10 mx-auto w-full max-w-2xl">
-              {/* Script must mount inside this div — next/script injects at document end and Kit renders after the script */}
-              <KitSnarkletterEmbed />
-            </div>
-
-            <p className="mt-8 max-w-[70ch] text-sm leading-relaxed text-white/50">
-              Read by agents, brokers, attorneys, and ops teams in South Florida and beyond.
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <div className="relative z-10">
-        <Footer />
+          {/* Social proof — outside card */}
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'rgba(255,255,255,0.4)', margin: '16px 0 0 0' }}>
+            <span style={{ marginRight: '6px' }}>·</span>Read by the people closest to the closing table.
+          </p>
+        </div>
       </div>
-    </div>
-  );
+
+      {/* Right photo column */}
+      <div className="snarkletter-right-col" style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/28.png"
+          alt=""
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+        />
+        {/* Gradient overlay — dark on left (behind text), light on right (face) */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(20,18,17,0.75) 0%, rgba(20,18,17,0.40) 40%, rgba(20,18,17,0.10) 70%, rgba(20,18,17,0.05) 100%)' }} />
+        {/* Left-edge fade */}
+        <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '40%', background: 'linear-gradient(to right, #2a2827 0%, transparent 100%)', pointerEvents: 'none' }} />
+        {/* Bottom fade */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to bottom, transparent 60%, #2a2827 100%)', pointerEvents: 'none' }} />
+        {/* Photo protection overlay */}
+        <div className="img-protect-overlay" />
+      </div>
+    </section>
+  )
+}
+
+// ─── Panel 1b — Why This Exists ───────────────────────────────────────────────
+function P1bWhyThisExists() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const leftRef    = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    gsap.fromTo(leftRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', toggleActions: 'play none none reverse' },
+      }
+    )
+  }, { scope: sectionRef })
+
+  return (
+    <section
+      ref={sectionRef}
+      data-panel="1"
+      style={{
+        position:  'relative',
+        minHeight: '100vh',
+        overflow:  'hidden',
+      }}
+    >
+      {/* Background image */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/testimonial-pic.jpg"
+        alt=""
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+      />
+
+      {/* Dark overlay for legibility */}
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)', zIndex: 1 }} />
+
+      {/* Bottom fade into next section */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '500px', background: 'linear-gradient(to bottom, transparent 0%, rgba(42,40,39,0.6) 50%, #2a2827 100%)', zIndex: 2, pointerEvents: 'none' }} />
+
+      {/* Text overlay */}
+      <div ref={leftRef} style={{ position: 'relative', zIndex: 3, paddingTop: '8vh', maxWidth: '800px', margin: '0 auto', paddingLeft: '32px', paddingRight: '32px', textAlign: 'center' }}>
+        <div style={{ marginBottom: '24px' }}>
+          <span style={{ display: 'inline-block', background: '#2d6a6a', color: '#ffffff', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 0 }}>
+            Why This Exists
+          </span>
+        </div>
+        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(40px,5vw,64px)', fontWeight: 300, color: '#ffffff', lineHeight: 1.05, margin: '0 0 32px 0', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
+          What 3,000+ closings taught me.<br />
+          <span style={{ fontStyle: 'italic' }}>Your inbox gets it weekly.</span>
+        </h2>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '15px', fontWeight: 300, lineHeight: 1.8, color: 'rgba(255,255,255,0.85)', maxWidth: '512px', margin: '0 auto 40px' }}>
+          Most real estate content is recycled LinkedIn advice. This is different. Every issue pulls from real transactions — what worked, what failed, what saved the deal, and what the textbooks never covered.<br />Insider access, no paywall, just show up.
+        </p>
+        <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '20px', fontStyle: 'italic', color: 'rgba(255,255,255,0.75)', lineHeight: 1.5, margin: 0, whiteSpace: 'nowrap' }}>
+          &ldquo;The closing table has secrets. This is where they live.&rdquo;
+        </p>
+      </div>
+
+      {/* Scroll indicator */}
+      <div style={{ position: 'absolute', bottom: '48px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', zIndex: 3 }}>
+        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Scroll</span>
+        <div style={{ width: '0.5px', height: '32px', background: 'rgba(255,255,255,0.2)' }} />
+      </div>
+    </section>
+  )
+}
+
+// ─── Panel 2 — What You Get ───────────────────────────────────────────────────
+function P2WhatYouGet() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const leftRef    = useRef<HTMLDivElement>(null)
+  const cardsRef   = useRef<(HTMLDivElement | null)[]>([])
+
+  useGSAP(() => {
+    gsap.fromTo(leftRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', toggleActions: 'play none none reverse' },
+      }
+    )
+
+    const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[]
+    gsap.fromTo(cards,
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', toggleActions: 'play none none reverse' },
+      }
+    )
+  }, { scope: sectionRef })
+
+  return (
+    <section
+      ref={sectionRef}
+      data-panel="2"
+      style={{
+        background:  '#2a2827',
+        minHeight:   '100vh',
+        display:     'flex',
+        alignItems:  'center',
+        padding:     0,
+        borderTop:   '0.5px solid rgba(239,235,226,0.08)',
+      }}
+    >
+      <div className="section-pad-inner" style={{ width: '100%', paddingTop: '96px', paddingBottom: '96px', paddingLeft: '80px', paddingRight: '6%' }}>
+        <div className="two-col-flex" style={{ display: 'flex', gap: '64px', alignItems: 'flex-start', maxWidth: '1200px' }}>
+
+          {/* Left col — 38% */}
+          <div ref={leftRef} style={{ flex: '0 0 38%' }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#5f9ea0', margin: '0 0 24px 0' }}>
+              What You&apos;ll Actually Get
+            </p>
+            <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,4vw,52px)', fontWeight: 400, color: 'var(--cream)', margin: '0 0 32px 0', lineHeight: 1.1, letterSpacing: '-0.01em' }}>
+              Six months of systems.<br />
+              Not six months of{' '}
+              <span style={{ fontStyle: 'italic', color: 'var(--teal2)' }}>SEO filler.</span>
+            </h2>
+            {[
+              "One letter a week. No fluff, no vendor pitches, no motivational reheats.",
+              "Just what actually broke in real files this week, what brokers miss until it costs them $15K, and the systems I've pulled out of 3,000+ transactions to keep volume from turning into chaos.",
+              "Built for agents, brokers, and TCs who are done being surprised on Friday at 4pm.",
+            ].map((t, i) => (
+              <p key={i} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(224,220,214,0.82)', lineHeight: 1.85, margin: i === 0 ? 0 : '16px 0 0 0' }}>{t}</p>
+            ))}
+          </div>
+
+          {/* Right col — numbered list */}
+          <div style={{ flex: 1 }}>
+            {CARDS.map((card, i) => (
+              <div
+                key={i}
+                ref={el => { cardsRef.current[i] = el }}
+                style={{
+                  borderTop:    '0.5px solid rgba(239,235,226,0.1)',
+                  borderBottom: i === CARDS.length - 1 ? '0.5px solid rgba(239,235,226,0.1)' : 'none',
+                  display:      'flex',
+                  gap:          '32px',
+                  padding:      '24px 0 32px 0',
+                }}
+              >
+                <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.25em', color: '#5f9ea0', flexShrink: 0, minWidth: '40px', paddingTop: '4px' }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(22px,2vw,28px)', fontWeight: 400, color: 'var(--cream)', margin: '0 0 8px 0', lineHeight: 1.15 }}>{card.title}</h3>
+                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#a8a49c', lineHeight: 1.75, margin: 0 }}>{card.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Panel 3 — Subscribe CTA ─────────────────────────────────────────────────
+function P3Subscribe() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    gsap.fromTo(contentRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', toggleActions: 'play none none reverse' },
+      }
+    )
+  }, { scope: sectionRef })
+
+  return (
+    <section
+      ref={sectionRef}
+      data-panel="3"
+      style={{
+        background:     '#114B4D',
+        minHeight:      '100vh',
+        display:        'flex',
+        flexDirection:  'column',
+        alignItems:     'center',
+        justifyContent: 'center',
+        paddingTop:     '96px',
+        paddingBottom:  '96px',
+        paddingLeft:    '6%',
+        paddingRight:   '6%',
+        position:       'relative',
+      }}
+    >
+      <div className="seam-tab" style={{
+        position:   'absolute',
+        top:        0,
+        left:       '64px',
+        transform:  'translateY(-100%)',
+        background: '#114B4D',
+        padding:    '16px 24px',
+        zIndex:     10,
+      }}>
+        <div style={{
+          fontFamily:  'var(--font-cormorant)',
+          fontSize:    '28px',
+          fontWeight:  600,
+          color:       'var(--cream)',
+          lineHeight:  1,
+        }}>
+          Get
+        </div>
+        <div style={{
+          fontFamily:    'var(--font-dm-mono)',
+          fontSize:      '9px',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          color:         'rgba(239,235,226,0.65)',
+          marginTop:     '5px',
+        }}>
+          on the list
+        </div>
+      </div>
+
+      <div ref={contentRef} style={{ maxWidth: '672px', width: '100%', textAlign: 'center' }}>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(239,235,226,0.5)', margin: '0 0 32px 0' }}>
+          Get on the List
+        </p>
+        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(44px,6vw,72px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 0.95, margin: 0 }}>
+          Join before the<br />next issue drops.
+        </h2>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(239,235,226,0.65)', margin: '24px 0 0 0', lineHeight: 1.8 }}>
+          Free forever. Unsubscribe with one click. No sales pipeline.
+        </p>
+        <div style={{ marginTop: '48px', width: '100%', maxWidth: '500px', margin: '48px auto 0' }}>
+          <SubscribeForm variant="teal" />
+        </div>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'rgba(239,235,226,0.5)', margin: '16px 0 0 0' }}>
+          <span style={{ color: '#5f9ea0', marginRight: '6px' }}>·</span>Read by the people closest to the closing table.
+        </p>
+      </div>
+    </section>
+  )
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+export default function SnarkletterPage() {
+  const [activePanel, setActivePanel] = useState(0)
+  const activePanelRef                = useRef(0)
+  const panelEls                      = useRef<(HTMLElement | null)[]>([])
+
+  useEffect(() => {
+    document.documentElement.classList.add('cinema')
+    return () => document.documentElement.classList.remove('cinema')
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const nodes = document.querySelectorAll('[data-panel]')
+      const kills: ScrollTrigger[] = []
+
+      nodes.forEach((node, i) => {
+        panelEls.current[i] = node as HTMLElement
+        const st = ScrollTrigger.create({
+          trigger: node,
+          start:   'top 50%',
+          end:     'bottom 50%',
+          onEnter: () => {
+            activePanelRef.current = i
+            setActivePanel(i)
+            gsap.to('html', { backgroundColor: BG[i], duration: 0.6, ease: 'power2.out' })
+          },
+          onEnterBack: () => {
+            activePanelRef.current = i
+            setActivePanel(i)
+            gsap.to('html', { backgroundColor: BG[i], duration: 0.6, ease: 'power2.out' })
+          },
+        })
+        kills.push(st)
+      })
+
+      ScrollTrigger.refresh()
+      return () => kills.forEach(k => k.kill())
+    }, 150)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const handle = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        const next = Math.min(activePanelRef.current + 1, 3)
+        panelEls.current[next]?.scrollIntoView({ behavior: 'smooth' })
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        const prev = Math.max(activePanelRef.current - 1, 0)
+        panelEls.current[prev]?.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    window.addEventListener('keydown', handle)
+    return () => window.removeEventListener('keydown', handle)
+  }, [])
+
+  return (
+    <>
+      <Cursor />
+      <ProgressBar />
+      <CinemaNav />
+      <SocialBar />
+      <PanelIndex activePanel={activePanel} panelEls={panelEls.current} total={4} />
+
+      <main>
+        <P1Hero />
+        <P1bWhyThisExists />
+        <P2WhatYouGet />
+        <P3Subscribe />
+      </main>
+      <Footer />
+    </>
+  )
 }

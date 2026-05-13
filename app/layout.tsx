@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond, DM_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -8,6 +8,7 @@ import CookieConsentBanner from "@/components/CookieConsentBanner";
 import SkipToContent from "@/components/SkipToContent";
 import BackToTop from "@/components/BackToTop";
 import OfflineIndicator from "@/components/OfflineIndicator";
+import ImageProtection from "@/components/ImageProtection";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,6 +19,21 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -93,8 +109,13 @@ export default function RootLayout({
         }
       }}
     >
-      <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmMono.variable}`}>
         <head>
+          {/* Image copyright protection */}
+          <meta name="copyright" content="© 2025 Aylen Montenegro. All rights reserved." />
+          <meta name="author" content="Aylen Montenegro" />
+          <meta name="robots" content="noimageindex" />
+
           {/* Fonts are loaded via Next.js font loader - removed duplicate Google Fonts link */}
           
           {/* Google Analytics */}
@@ -125,6 +146,7 @@ export default function RootLayout({
           </main>
           <BackToTop />
           <OfflineIndicator />
+          <ImageProtection />
           <CookieConsentBanner />
           <SpeedInsights />
           <Analytics />
