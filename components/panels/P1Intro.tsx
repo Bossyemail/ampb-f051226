@@ -89,6 +89,18 @@ export default function P1Intro() {
         background: 'linear-gradient(to right, transparent 0%, #363231 100%)',
       }} />
 
+      {/* Bottom-right corner gradient — hides decorative element in photo */}
+      <div style={{
+        position:      'absolute',
+        bottom:        0,
+        right:         0,
+        width:         '420px',
+        height:        '320px',
+        zIndex:        4,
+        background:    'radial-gradient(ellipse at bottom right, #363231 0%, #363231 35%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
       {/* Left text column */}
       <div className="hero-text-col-mobile" style={{
         position:       'relative',
@@ -109,7 +121,7 @@ export default function P1Intro() {
           margin:        '0 0 2rem 0',
           opacity:       0,
         }}>
-          Contract Manager · SaaS Founder · Miami, FL
+          Contract Manager · SaaS Founder
         </p>
 
         <h1 style={{ margin: 0, lineHeight: 0.88 }}>
