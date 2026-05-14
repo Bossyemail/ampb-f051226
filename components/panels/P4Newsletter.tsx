@@ -48,7 +48,7 @@ export default function P4Newsletter() {
           {/* Headline */}
           <h2 style={{
             fontFamily: 'var(--font-cormorant)',
-            fontSize:   'clamp(36px, 4.5vw, 58px)',
+            fontSize:   'clamp(24px, 2.8vw, 38px)',
             fontWeight: 300,
             color:      '#EFEBE2',
             lineHeight: 1.1,
