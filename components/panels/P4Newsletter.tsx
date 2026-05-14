@@ -24,14 +24,13 @@ export default function P4Newsletter() {
     <section
       data-panel="2"
       style={{
-        background: '#363231',
+        background: '#114B4D',
         display:    'flex',
         alignItems: 'center',
-        borderTop:  '0.5px solid rgba(239,235,226,0.08)',
       }}
     >
       {/* Inner wrapper — cinema CSS strips padding from section[data-panel], so padding goes here */}
-      <div className="newsletter-inner" style={{ width: '100%', padding: '96px 6%' }}>
+      <div className="newsletter-inner" style={{ width: '100%', padding: '96px 6%', textAlign: 'center' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
 
           {/* Label */}
@@ -40,7 +39,7 @@ export default function P4Newsletter() {
             fontSize:      '10px',
             letterSpacing: '0.28em',
             textTransform: 'uppercase',
-            color:         '#114B4D',
+            color:         'rgba(239,235,226,0.55)',
             margin:        '0 0 24px 0',
           }}>
             Weekly from the Trenches
@@ -52,7 +51,7 @@ export default function P4Newsletter() {
             fontSize:   'clamp(36px, 4.5vw, 58px)',
             fontWeight: 300,
             color:      '#EFEBE2',
-            lineHeight: 1.05,
+            lineHeight: 1.1,
             margin:     '0 0 20px 0',
           }}>
             The only real estate newsletter written by someone still closing deals.
@@ -76,7 +75,7 @@ export default function P4Newsletter() {
             </p>
           ) : (
             <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-              <div className="newsletter-form-row" style={{ display: 'flex', maxWidth: '520px' }}>
+              <div className="newsletter-form-row" style={{ display: 'flex', maxWidth: '520px', margin: '0 auto' }}>
                 <input
                   type="email"
                   name="email_address"
@@ -87,8 +86,8 @@ export default function P4Newsletter() {
                   style={{
                     flex:        1,
                     height:      '48px',
-                    background:  'transparent',
-                    border:      '1px solid rgba(239,235,226,0.2)',
+                    background:  'rgba(0,0,0,0.15)',
+                    border:      '1px solid rgba(239,235,226,0.5)',
                     borderRight: 'none',
                     color:       '#EFEBE2',
                     fontFamily:  'var(--font-dm-mono)',
@@ -97,15 +96,15 @@ export default function P4Newsletter() {
                     outline:     'none',
                     boxSizing:   'border-box' as const,
                   }}
-                  onFocus={e => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
-                  onBlur={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.2)' }}
+                  onFocus={e => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.9)' }}
+                  onBlur={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
                 />
                 <button
                   type="submit"
                   style={{
                     height:        '48px',
-                    background:    '#114B4D',
-                    color:         '#EFEBE2',
+                    background:    '#EFEBE2',
+                    color:         '#363231',
                     fontFamily:    'var(--font-dm-mono)',
                     fontSize:      '11px',
                     letterSpacing: '0.16em',
@@ -115,11 +114,11 @@ export default function P4Newsletter() {
                     cursor:        'pointer',
                     whiteSpace:    'nowrap',
                     flexShrink:    0,
-                    transition:    'background 0.2s',
+                    transition:    'background 0.2s, color 0.2s',
                     boxSizing:     'border-box' as const,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#0d3a3c' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = '#114B4D' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#ffffff' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = '#EFEBE2' }}
                 >
                   Get the Snarkletter
                 </button>

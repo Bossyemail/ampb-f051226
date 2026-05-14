@@ -23,7 +23,7 @@ gsap.registerPlugin(ScrollTrigger)
 const BG = [
   '#363231', // P1
   '#363231', // P3 Stats
-  '#363231', // P4 Newsletter
+  '#114B4D', // P4 Newsletter
   '#2a2827', // P5
   '#363231', // P7 Testimonials
   '#363231', // P8 About
