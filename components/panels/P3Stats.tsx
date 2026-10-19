@@ -7,9 +7,9 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const STATS = [
-  { num: '20+', suffix: '', label: 'Years in South Florida' },
-  { num: '3K+', suffix: '', label: 'Closings Supported'    },
-  { num: '4',   suffix: '', label: 'Systems Built'         },
+  { num: '20+',    suffix: '', label: 'Years in South Florida'  },
+  { num: '3,000+', suffix: '', label: 'Closings Supported'      },
+  { num: '4',      suffix: '', label: 'Software Products Built' },
 ]
 
 export default function P3Stats() {

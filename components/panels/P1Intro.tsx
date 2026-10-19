@@ -270,17 +270,23 @@ export default function P1Intro() {
 
         {/* CTAs */}
         <div style={{ display: 'flex', gap: '16px', marginTop: '32px' }}>
-          <a href="/tc-services" className="btn-teal" style={{
-            fontFamily:    'var(--font-dm-mono)',
-            fontSize:      '10px',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            padding:       '14px 36px',
-            display:       'inline-block',
-            flexShrink:    0,
-          }}>
+          <button
+            type="button"
+            className="btn-teal"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-tc-intake'))}
+            style={{
+              fontFamily:    'var(--font-dm-mono)',
+              fontSize:      '10px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              padding:       '14px 36px',
+              flexShrink:    0,
+              cursor:        'pointer',
+              border:        'none',
+            }}
+          >
             Work With Me
-          </a>
+          </button>
         </div>
       </div>
 

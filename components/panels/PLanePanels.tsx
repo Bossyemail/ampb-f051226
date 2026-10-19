@@ -15,7 +15,8 @@ const LANES = [
   {
     eyebrow:  'For Transaction Coordinators',
     heading:  "I\u2019m a TC, and I\u2019m tired of being\nthe last line of defense.",
-    sub:      "Tools built by someone who\u2019s done your job,\nnot a product team guessing at it.",
+    sub:      "CloseAdmin. Built by someone who\u2019s actually done the job.",
+    badge:    'Private Beta',
     cta:      'See CloseAdmin \u2192',
     href:     '/closeadmin',
     image:    '/images/tc-services-final-hero-bg.jpg',
@@ -24,7 +25,7 @@ const LANES = [
     bg:       '#8B5E3C',
   },
   {
-    eyebrow:  'For the Real Estate Curious',
+    eyebrow:  'For the People Who Actually Do the Work',
     heading:  "I just want the unfiltered version\nof what\u2019s actually happening.",
     sub:      'No pitch, no funnel \u2014 just what\u2019s breaking in real files this week.',
     cta:      'Get the Snarkletter \u2192',
@@ -170,6 +171,21 @@ export default function PLanePanels() {
             }}>
               {lane.sub}
             </p>
+
+            {/* Private Beta label — subtle, no badge chrome */}
+            {'badge' in lane && lane.badge && (
+              <p style={{
+                fontFamily:    'var(--font-dm-mono)',
+                fontSize:      '10px',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color:         'rgba(239,235,226,0.35)',
+                margin:        '-24px 0 32px 0',
+                fontStyle:     'italic',
+              }}>
+                {lane.badge}
+              </p>
+            )}
 
             {/* CTA */}
             <a href={lane.href} className="btn-teal" style={{

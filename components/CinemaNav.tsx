@@ -18,6 +18,14 @@ export default function CinemaNav() {
   const [mounted, setMounted]     = useState(false)
 
   useEffect(() => setMounted(true), [])
+
+  // Allow external components (e.g. hero CTA) to open this modal via a custom event
+  useEffect(() => {
+    const handleOpen = () => setModalOpen(true)
+    window.addEventListener('open-tc-intake', handleOpen)
+    return () => window.removeEventListener('open-tc-intake', handleOpen)
+  }, [])
+
   useEffect(() => {
     document.body.style.overflow = modalOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }

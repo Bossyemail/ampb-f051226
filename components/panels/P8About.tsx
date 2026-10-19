@@ -218,7 +218,7 @@ export default function P8About() {
           {[
             "20+ years managing real transactions — not hypotheticals. When the same problems showed up over and over, I stopped firefighting and started building systems that prevent the fires.",
             "Now I do both: running TC services for South Florida's top agents and building the SaaS tools I always wished existed.",
-            "Based in Miami. Built different.",
+            "Based in Miami. Still in the files every day.",
           ].map((text, i) => (
             <p
               key={i}
