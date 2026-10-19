@@ -52,6 +52,41 @@ export default function CinemaNav() {
     return () => window.removeEventListener('keydown', handle)
   }, [modalOpen])
 
+  // Focus trap: cycle Tab/Shift+Tab within the dialog while the modal is open.
+  // Escape (above) and the close button remain the deliberate exit paths.
+  useEffect(() => {
+    if (!modalOpen) return
+
+    const trapFocus = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+
+      const panel = document.querySelector<HTMLElement>('[role="dialog"]')
+      if (!panel) return
+
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), ' +
+          'select:not([disabled]), textarea:not([disabled]), ' +
+          '[tabindex]:not([tabindex="-1"])'
+        )
+      ).filter(el => el.offsetParent !== null)   // exclude hidden elements
+
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last  = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus() }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus() }
+      }
+    }
+
+    window.addEventListener('keydown', trapFocus)
+    return () => window.removeEventListener('keydown', trapFocus)
+  }, [modalOpen])
+
   useEffect(() => {
     document.body.style.overflow = modalOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
