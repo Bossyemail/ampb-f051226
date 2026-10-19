@@ -131,7 +131,7 @@ export default function ToolsPage() {
               &nbsp;CLOSEADMIN
             </span>
             <span>
-              <span 
+              <span
                 className="font-mono"
                 style={{
                   fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
@@ -140,19 +140,6 @@ export default function ToolsPage() {
                 }}
               >
                 02
-              </span>
-              &nbsp;DEALDESK
-            </span>
-            <span>
-              <span 
-                className="font-mono"
-                style={{
-                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                  fontVariantNumeric: 'slashed-zero',
-                  fontFeatureSettings: '"zero"',
-                }}
-              >
-                03
               </span>
               &nbsp;TC SERVICES
             </span>
@@ -171,7 +158,7 @@ export default function ToolsPage() {
               &nbsp;CLOSEADMIN
             </span>
             <span>
-              <span 
+              <span
                 className="font-mono"
                 style={{
                   fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
@@ -180,19 +167,6 @@ export default function ToolsPage() {
                 }}
               >
                 02
-              </span>
-              &nbsp;DEALDESK
-            </span>
-            <span>
-              <span 
-                className="font-mono"
-                style={{
-                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                  fontVariantNumeric: 'slashed-zero',
-                  fontFeatureSettings: '"zero"',
-                }}
-              >
-                03
               </span>
               &nbsp;TC SERVICES
             </span>
@@ -210,7 +184,7 @@ export default function ToolsPage() {
               &nbsp;CLOSEADMIN
             </span>
             <span>
-              <span 
+              <span
                 className="font-mono"
                 style={{
                   fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
@@ -219,19 +193,6 @@ export default function ToolsPage() {
                 }}
               >
                 02
-              </span>
-              &nbsp;DEALDESK
-            </span>
-            <span>
-              <span 
-                className="font-mono"
-                style={{
-                  fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-                  fontVariantNumeric: 'slashed-zero',
-                  fontFeatureSettings: '"zero"',
-                }}
-              >
-                03
               </span>
               &nbsp;TC SERVICES
             </span>
@@ -319,81 +280,6 @@ export default function ToolsPage() {
 
         <div className="h-px bg-white/10"></div>
 
-        {/* SECTION: DealDesk */}
-        <section id="dealdesk" className="py-14">
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-4">
-              <p 
-                className="text-xs tracking-[0.34em] text-white/50 uppercase"
-                style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-              >
-                <span 
-                  style={{ 
-                    fontVariantNumeric: 'slashed-zero',
-                    fontFeatureSettings: '"zero"',
-                  }}
-                >
-                  02
-                </span>
-                {' '}— DEALDESK
-              </p>
-              <h2 className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight">
-                Contract clarity — without playing attorney.
-              </h2>
-            </div>
-
-            <div className="lg:col-span-8">
-              <div className="border-t border-white/10 py-6">
-                <p className="text-white/70 leading-relaxed max-w-[86ch]">
-                  Deal-support clauses built around Florida&apos;s As-Is framework —
-                  designed to reduce ambiguity, set expectations, and keep files moving when things get gray.
-                </p>
-              </div>
-
-              <div className="mt-8 grid sm:grid-cols-3 gap-6">
-                <div className="border-t border-white/10 pt-6">
-                  <div 
-                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
-                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-                  >
-                    Designed to
-                  </div>
-                  <div className="mt-3 text-sm text-white/70">Reduce ambiguity and disputes.</div>
-                </div>
-                <div className="border-t border-white/10 pt-6">
-                  <div 
-                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
-                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-                  >
-                    Outcome
-                  </div>
-                  <div className="mt-3 text-sm text-white/70">Stronger paper trails.</div>
-                </div>
-                <div className="border-t border-white/10 pt-6">
-                  <div 
-                    className="text-[10px] tracking-[0.34em] text-white/45 uppercase"
-                    style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}
-                  >
-                    Use case
-                  </div>
-                  <div className="mt-3 text-sm text-white/70">When contract language isn&apos;t enough.</div>
-                </div>
-              </div>
-
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <GlassButton href="/dealdesk" variant="primary">
-                  Explore DealDesk
-                </GlassButton>
-                <GlassButton href="/dealdesk" variant="secondary">
-                  Browse categories
-                </GlassButton>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div className="h-px bg-white/10"></div>
-
         {/* SECTION: TC */}
         <section id="tc" className="py-14 pb-24">
           <div className="grid lg:grid-cols-12 gap-10 items-start">
@@ -426,7 +312,7 @@ export default function ToolsPage() {
               </div>
 
               <div className="mt-10">
-                <GlassButton href="/elevate" variant="secondary">
+                <GlassButton href="/tc-services" variant="secondary">
                   Check availability
                 </GlassButton>
               </div>

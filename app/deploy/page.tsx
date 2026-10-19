@@ -146,7 +146,7 @@ export default function DeployPage() {
                       transition={{ duration: 0.5, delay: 0.8 }}
                     >
                       <Link 
-                        href="/dealdesk"
+                        href="/closeadmin"
                         className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-150 backdrop-blur-sm bg-white/5 text-sm sm:text-base rounded-none select-none active:scale-[0.97] active:shadow-[inset_0_2px_12px_rgba(0,0,0,0.35)] active:brightness-90"
                         aria-label="Get ClauseVault Now"
                         onClick={() => handleButtonClick('Get ClauseVault Now', 'hero')}
@@ -370,7 +370,7 @@ export default function DeployPage() {
                 ClauseVault makes sure your next clause is airtight, fast, and impossible to ignore.
               </p>
               <Link 
-                href="/dealdesk"
+                href="/closeadmin"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-150 backdrop-blur-sm bg-white/5 rounded-none select-none active:scale-[0.97] active:shadow-[inset_0_2px_12px_rgba(0,0,0,0.35)] active:brightness-90"
                 onClick={() => handleButtonClick('Get ClauseVault Now', 'final-cta')}
               >

@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Aylen Montenegro - Real Estate Consultant & Industry Expert',
     description: 'Learn about Aylen Montenegro, a licensed real estate consultant and industry expert with over 20 years of experience in South Florida real estate.',
-    url: 'https://yourdomain.com/about',
+    url: 'https://aylenmontenegro.com/about',
     siteName: 'Aylen Montenegro',
     images: [
       {
-        url: 'https://yourdomain.com/og-about.jpg',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Aylen Montenegro - Real Estate Consultant',
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Aylen Montenegro - Real Estate Consultant & Industry Expert',
     description: 'Learn about Aylen Montenegro, a licensed real estate consultant and industry expert with over 20 years of experience in South Florida real estate.',
-    images: ['https://yourdomain.com/twitter-about.jpg'],
-    creator: '@aylenmontenegro',
+    images: ['/images/og-image.jpg'],
+    creator: '@aylenbuilds',
   },
   robots: {
     index: true,
@@ -54,13 +54,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
+  // NOTE: This file is not imported by any page. Live metadata for /about is in app/about/layout.tsx.
   alternates: {
-    canonical: 'https://yourdomain.com/about',
+    canonical: 'https://aylenmontenegro.com/about',
   },
   authors: [{ name: 'Aylen Montenegro' }],
   creator: 'Aylen Montenegro',
@@ -70,6 +66,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://yourdomain.com'),
+  // metadataBase is set in root layout; retained here for reference only.
+  // metadataBase: new URL('https://aylenmontenegro.com'),
   category: 'Real Estate Professional',
 };

@@ -33,17 +33,6 @@ const services: Service[] = [
     href: "/closeadmin",
   },
   {
-            title: "DealDesk",
-    desc: "Legal language that actually makes sense — faster addenda, fewer fires.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" className="text-[#D6C3F3]">
-        <rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" fill="none"/>
-        <path d="M8 12h8M8 16h5M8 8h8" stroke="currentColor"/>
-      </svg>
-    ),
-    href: "/dealdesk",
-  },
-  {
     title: "TC & Consulting",
     desc: "VIP transaction coordination + systems so your pipeline runs on rails.",
     icon: (
@@ -52,7 +41,7 @@ const services: Service[] = [
         <path d="M8 12h8" stroke="currentColor"/>
       </svg>
     ),
-    href: "/elevate",
+    href: "/tc-services",
   },
 ];
 

@@ -1,63 +1,85 @@
-"use client";
-
-import React from 'react';
-import StickyNavigation from '@/components/StickyNavigation';
-import Footer from '@/components/Footer';
+'use client'
+import LegalPage, { LegalSection } from '@/components/LegalPage'
 
 export default function DataSecurityPage() {
   return (
-    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: "#0B0C0F" }}>
-      <StickyNavigation />
-      
-      {/* Hero Section */}
-      <section className="pt-28 pb-32 sm:pt-36 sm:pb-40">
-        <div className="mx-auto max-w-6xl px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
-              Data & Security
-            </h1>
-            <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-              We take data handling seriously and keep it simple.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      {/* Content Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl px-6 sm:px-10">
-          <div className="max-w-3xl space-y-6">
-            <ul className="space-y-4 text-base leading-relaxed text-white/70 sm:text-lg">
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 text-white/50">•</span>
-                <span>Payments are processed securely through Stripe</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 text-white/50">•</span>
-                <span>We collect only what's necessary to operate our products and provide support</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 text-white/50">•</span>
-                <span>We do not sell or rent user data</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 text-white/50">•</span>
-                <span>Access to data is limited to trusted service providers (such as payment processors and email platforms)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1.5 text-white/50">•</span>
-                <span>Internal access is restricted to operational needs only</span>
-              </li>
-            </ul>
-            
-            <p className="mt-8 text-base leading-relaxed text-white/70 sm:text-lg">
-              Our goal is to keep your information as protected and boring as a clean closing file.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <Footer />
-    </div>
-  );
+    <LegalPage
+      eyebrow="Legal"
+      headline="Data & Security"
+      subhead="Your deal files aren't sitting in a spreadsheet on someone's desktop. Here's how we actually protect them."
+      lastUpdated="July 2026"
+    >
+      <LegalSection>
+        <p>
+          Given the sensitivity of real estate transaction data, we take security
+          seriously. Here's a plain-language breakdown of how your information is
+          protected.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="Infrastructure">
+        <ul>
+          <li>
+            <strong>Database</strong> — data is stored using Supabase, a secure,
+            encrypted database provider.
+          </li>
+          <li>
+            <strong>Authentication</strong> — account access is managed through Clerk,
+            which handles secure login, password protection, and session management.
+          </li>
+          <li>
+            <strong>Payments</strong> — processed through Stripe. We never see or store
+            your raw card details.
+          </li>
+          <li>
+            <strong>Hosting</strong> — our site and tools are hosted on Vercel, with
+            encrypted HTTPS connections enforced across the platform.
+          </li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection heading="Access controls">
+        <p>
+          Access to client and transaction data is limited to what's necessary to
+          provide the service — only the team members actively working your file can
+          view its details.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="Encryption">
+        <p>
+          Data is encrypted in transit via HTTPS/TLS and at rest through our
+          infrastructure providers' standard encryption practices.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="Incident response">
+        <p>
+          In the event of a data breach affecting your personal information, we will
+          notify affected users in accordance with applicable law, as promptly as
+          reasonably possible.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="Your role">
+        <p>
+          Security is a two-way street — please use a strong, unique password for your
+          account and never share your login credentials with anyone.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="Questions or concerns">
+        <p>
+          If you have questions about how your data is secured, or want to report a
+          suspected vulnerability, contact us at{' '}
+          <a
+            href="mailto:hello@aylenmontenegro.com"
+            style={{ color: '#5f9ea0', textDecoration: 'none' }}
+          >
+            hello@aylenmontenegro.com
+          </a>.
+        </p>
+      </LegalSection>
+    </LegalPage>
+  )
 }

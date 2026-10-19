@@ -22,16 +22,10 @@ const services: Service[] = [
     href: "/closeadmin",
   },
   {
-            title: "DealDesk",
-    desc: "Legal language that actually makes sense — faster addenda, fewer fires.",
-    icon: <FileText className="w-6 h-6" />,
-    href: "/dealdesk",
-  },
-  {
     title: "TC & Consulting",
     desc: "VIP transaction coordination + systems so your pipeline runs on rails.",
     icon: <Users className="w-6 h-6" />,
-    href: "/elevate",
+    href: "/tc-services",
   },
 ];
 

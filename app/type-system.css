@@ -6,8 +6,8 @@
   --t2: rgba(255,255,255,.75);
   --t3: rgba(255,255,255,.55);
 
-  --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --sans: system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 
   --gap1: 16px;
   --gap2: 24px;
@@ -19,7 +19,7 @@
 
 /* Global base element styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--sans) !important;
+  font-family: var(--sans);
   text-align: left !important;
   text-justify: auto !important;
   hyphens: manual !important;

@@ -11,21 +11,29 @@ export default function P7CTA() {
   const contentRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    gsap.fromTo(
-      contentRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity:  1,
-        y:        0,
-        duration: 1,
-        ease:     'power3.out',
-        scrollTrigger: {
-          trigger:       sectionRef.current,
-          start:         'top 65%',
-          toggleActions: 'play none none reverse',
-        },
-      }
-    )
+    const mm = gsap.matchMedia()
+
+    mm.add('(max-width: 768px)', () => {
+      gsap.set(contentRef.current, { opacity: 1, y: 0 })
+    })
+
+    mm.add('(min-width: 769px)', () => {
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity:  1,
+          y:        0,
+          duration: 1,
+          ease:     'power3.out',
+          scrollTrigger: {
+            trigger:       sectionRef.current,
+            start:         'top 65%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+    })
   }, { scope: sectionRef })
 
   return (
@@ -73,7 +81,19 @@ export default function P7CTA() {
             textDecoration: 'none',
             display:        'inline-block',
             fontWeight:     400,
-          }}>
+            transition:     'background 0.2s, border-color 0.2s, color 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background   = 'var(--cream)'
+            e.currentTarget.style.borderColor  = 'var(--cream)'
+            e.currentTarget.style.color        = 'var(--teal)'
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background   = 'transparent'
+            e.currentTarget.style.borderColor  = 'rgba(239,235,226,0.4)'
+            e.currentTarget.style.color        = 'var(--cream)'
+          }}
+          >
             Work With Me
           </a>
         </div>

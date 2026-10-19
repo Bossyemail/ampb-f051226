@@ -34,9 +34,8 @@ export default function ShopPage() {
 
   // Product data with categories
   const products = [
-    { id: 1, type: 'Tool', title: 'DealDesk', description: 'The searchable clause library you wish you had sooner.', price: '$99 / $891 per year', action: 'Secure My Clauses', href: '/dealdesk' },
     { id: 2, type: 'Resource', title: 'The Real Estate Email Vault', description: '200 plug-and-play email templates.\nBuilt from 1,000+ real closings.', price: '$42', action: 'Get The Email Vault', href: 'https://aylen3.gumroad.com/l/jojlkc', spanTwo: true },
-    { id: 3, type: 'Service', title: 'Transaction Coordination', description: 'Outsource the chaos.\nKeep the commission.', action: 'Apply to Work With Us', href: '/elevate' },
+    { id: 3, type: 'Service', title: 'Transaction Coordination', description: 'Outsource the chaos.\nKeep the commission.', action: 'Apply to Work With Us', href: '/tc-services' },
     { id: 4, type: 'Tool', title: 'CloseAdmin', description: '100+ templates + AI email generator. Inbox domination.', price: '$19 / $39 per month', action: 'Fix My Inbox Chaos', href: '/closeadmin' }
   ];
 

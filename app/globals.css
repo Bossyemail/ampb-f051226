@@ -239,6 +239,58 @@ a { color: inherit; text-decoration: none; }
   filter: brightness(0.88);
 }
 
+/* ── Site-wide button system ─────────────────────────────────────────────
+   Use these classes instead of per-instance inline hover handlers.
+   All transition durations match the site standard: 0.2s ease for color,
+   0.1s ease for scale. No transforms on hover — editorial, not bouncy.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* Filled teal → charcoal on hover */
+.btn-teal {
+  background:      var(--teal);
+  color:           var(--cream);
+  text-decoration: none;
+  cursor:          pointer;
+  transition:      background 0.2s ease, transform 0.1s ease;
+}
+.btn-teal:hover  { background: var(--black); }
+.btn-teal:active { transform: scale(0.98); }
+
+/* Filled cognac → teal on hover */
+.btn-cognac {
+  background:      var(--cognac);
+  color:           var(--cream);
+  text-decoration: none;
+  cursor:          pointer;
+  transition:      background 0.2s ease, transform 0.1s ease;
+}
+.btn-cognac:hover  { background: var(--teal); }
+.btn-cognac:active { transform: scale(0.98); }
+
+/* Ghost / outline — border + text shift to teal on hover */
+.btn-outline {
+  background:      transparent;
+  color:           var(--cream);
+  border:          0.5px solid rgba(239,235,226,0.4);
+  text-decoration: none;
+  cursor:          pointer;
+  transition:      background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+.btn-outline:hover  { background: var(--teal); border-color: var(--teal); color: var(--cream); }
+.btn-outline:focus-visible { background: var(--teal); border-color: var(--teal); color: var(--cream); outline: none; }
+.btn-outline:active { transform: scale(0.98); }
+
+/* Inverted (cream bg / teal text) → charcoal bg / cream text on hover */
+.btn-inverted {
+  background:      var(--cream);
+  color:           var(--teal);
+  text-decoration: none;
+  cursor:          pointer;
+  transition:      background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+.btn-inverted:hover  { background: var(--black); color: var(--cream); }
+.btn-inverted:active { transform: scale(0.98); }
+
 /* Cross-browser normalization */
 * {
   -webkit-tap-highlight-color: transparent;
@@ -650,14 +702,15 @@ body .formkit-form input[type="email"]:focus {
    CINEMA SCROLL EXPERIENCE — BRAND TOKENS + STYLES
    ============================================================ */
 :root {
-  --black:   #363231;
-  --black2:  #2a2827;
-  --teal:    #114B4D;
-  --teal2:   #1a6668;
-  --cognac:  #8B5E3C;
-  --cream:   #EFEBE2;
-  --greige:  #BCAFAF;
-  --lavender:#D3CCD6;
+  --black:    #363231;
+  --black2:   #2a2827;
+  --teal:     #114B4D;
+  --teal2:    #1a6668;
+  --teal-mid: #5f9ea0;
+  --cognac:   #8B5E3C;
+  --cream:    #EFEBE2;
+  --greige:   #BCAFAF;
+  --lavender: #D3CCD6;
 }
 
 html.cinema,
@@ -715,9 +768,60 @@ html.cinema [class*="bottom-6"][class*="right-6"] {
    MOBILE RESPONSIVE — 768px breakpoint
    ============================================================ */
 
+/* ── Mobile design tokens ────────────────────────────────────────────
+   Single source of truth for all mobile type sizes and spacing.
+   Apply via CSS rules below — never set these inline in JSX.
+   ─────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --mobile-h1:       38px;  /* hero headlines                  */
+    --mobile-h2:       30px;  /* section headlines               */
+    --mobile-h3:       22px;  /* subheads within sections        */
+    --mobile-body:     14px;  /* DM Mono paragraph copy          */
+    --mobile-body-sm:  12px;  /* secondary / caption copy        */
+    --mobile-eyebrow:  10px;  /* eyebrow/tag labels              */
+    --mobile-btn:      11px;  /* button text                     */
+    --mobile-space-sm: 16px;  /* tight in-content gaps           */
+    --mobile-space-md: 24px;  /* headline→body, body→CTA         */
+    --mobile-space-lg: 64px;  /* section top/bottom padding      */
+  }
+}
+
 /* Hide on mobile */
 @media (max-width: 768px) {
   .mobile-hide { display: none !important; }
+}
+
+/* ── Mobile typography scale — token-driven ─────────────────────────
+   h1/h2/h3 rules target BOTH the element itself AND any inline-sized
+   span or div children, so components that wrap text in a span
+   (P5Products, P8About, About story cards) are covered too.
+   ─────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* H1 — covers direct text and GSAP-masked span/div wrappers */
+  h1, h1 span, h1 div {
+    font-size:   var(--mobile-h1) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* H2 — `h2 span` is the critical fix: P5Products, P8About, and
+     About story cards all put their text in inline-sized <span>
+     children; those would bypass a plain `h2` rule entirely. */
+  h2, h2 span {
+    font-size:   var(--mobile-h2) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* H3 */
+  h3 {
+    font-size:   var(--mobile-h3) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Buttons */
+  button {
+    font-size: var(--mobile-btn) !important;
+  }
 }
 
 /* Seam tabs — hide on mobile */
@@ -725,13 +829,13 @@ html.cinema [class*="bottom-6"][class*="right-6"] {
   .seam-tab { display: none !important; }
 }
 
-/* Responsive section inner padding */
+/* Responsive section inner padding — uses --mobile-space-lg token */
 @media (max-width: 768px) {
   .section-pad-inner {
-    padding-top: clamp(48px, 8vw, 96px) !important;
-    padding-bottom: clamp(48px, 8vw, 96px) !important;
-    padding-left: clamp(20px, 5vw, 48px) !important;
-    padding-right: clamp(20px, 5vw, 5%) !important;
+    padding-top:    var(--mobile-space-lg) !important;
+    padding-bottom: var(--mobile-space-lg) !important;
+    padding-left:   clamp(24px, 6vw, 48px) !important;
+    padding-right:  clamp(24px, 6vw, 48px) !important;
   }
 }
 
@@ -752,6 +856,25 @@ html.cinema [class*="bottom-6"][class*="right-6"] {
   .stats-4-col {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+  /* Thin lines forming a cross between the 4 squares */
+  .stats-4-col > div {
+    border-right:  none !important;
+    border-bottom: 0.5px solid rgba(239,235,226,0.1) !important;
+  }
+  /* Right column — no right border, no bottom on last row */
+  .stats-4-col > div:nth-child(odd)  { border-right: 0.5px solid rgba(239,235,226,0.1) !important; }
+  .stats-4-col > div:nth-child(3),
+  .stats-4-col > div:nth-child(4)    { border-bottom: none !important; }
+}
+
+/* 3-column stats — stays single row on mobile */
+@media (max-width: 768px) {
+  .stats-3-col {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .stats-3-col > div {
+    border-bottom: none !important;
+  }
 }
 
 /* 2×2 card grid → single column */
@@ -769,12 +892,47 @@ html.cinema [class*="bottom-6"][class*="right-6"] {
   }
 }
 
+/* TC Services hero — hide pillars + rule on mobile */
+@media (max-width: 768px) {
+  .tc-hero-pillars { display: none !important; }
+  .tc-hero-rule    { display: none !important; }
+  /* Full-coverage overlay on mobile so text stays legible across full width */
+  .tc-hero-overlay {
+    background: rgba(20,18,17,0.72) !important;
+  }
+}
+
 /* Hero text column — full width on mobile */
 @media (max-width: 768px) {
   .hero-text-col-mobile {
-    width: 100% !important;
-    padding-left: clamp(20px, 5vw, 48px) !important;
-    padding-right: clamp(20px, 5vw, 48px) !important;
+    width:           100% !important;
+    padding-top:     68px !important;
+    padding-bottom:  160px !important;
+    padding-left:    clamp(24px, 6vw, 48px) !important;
+    padding-right:   clamp(24px, 6vw, 48px) !important;
+    justify-content: flex-end !important;
+  }
+  /* Internal spacing */
+  .hero-text-col-mobile > div:first-child { margin-bottom: 14px !important; }
+  .hero-text-col-mobile > p               { margin-top: 20px !important; }
+  .hero-text-col-mobile > div:last-child  { margin-top: 24px !important; }
+}
+
+/* Hero text column body copy — enforce --mobile-body token.
+   Scoped to .hero-text-col-mobile so Cormorant editorial paragraphs
+   elsewhere are not affected. */
+@media (max-width: 768px) {
+  .hero-text-col-mobile p {
+    font-size: var(--mobile-body) !important;
+  }
+}
+
+/* Heading → body spacing inside content sections and About cards.
+   Standardises the 16/20/24/32px spread to --mobile-space-md. */
+@media (max-width: 768px) {
+  .section-pad-inner h2,
+  .about-card-content h2 {
+    margin-bottom: var(--mobile-space-md) !important;
   }
 }
 
@@ -787,9 +945,76 @@ html.cinema [class*="bottom-6"][class*="right-6"] {
     display: none !important;
   }
   .snarkletter-text-col {
-    padding-left: clamp(20px, 5vw, 48px) !important;
-    padding-right: clamp(20px, 5vw, 48px) !important;
+    padding-top:    88px !important;  /* clear 68px fixed nav + 20px breathing room */
+    padding-left:   clamp(20px, 5vw, 48px) !important;
+    padding-right:  clamp(20px, 5vw, 48px) !important;
     padding-bottom: 48px !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* Snarkletter "Why This Exists" — mobile legibility + readability fixes */
+@media (max-width: 768px) {
+  /* Strengthen overlay: lighter sky/water areas need more scrim */
+  .snarkletter-why-overlay {
+    background: rgba(54,50,49,0.68) !important;
+  }
+
+  /* More horizontal padding so text doesn't hug the viewport edges */
+  .why-exists-content {
+    padding-left:  28px !important;
+    padding-right: 28px !important;
+  }
+
+  /* More breathing room between headline and body paragraph;
+     explicit center-align guards against any inherited left-align leak */
+  .why-exists-headline {
+    margin-bottom: 48px !important;
+    text-align:    center !important;
+  }
+
+  /* Left-align body paragraph (centered is hard to scan at this length);
+     headline and pull-quote stay centered via the parent's textAlign */
+  .why-exists-body {
+    text-align:   left !important;
+    max-width:    100% !important;
+    margin-left:  0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 56px !important;
+  }
+}
+
+/* Snarkletter subscribe section — collapse min-height and left-align content on mobile */
+@media (max-width: 768px) {
+  .snark-subscribe-section {
+    justify-content: flex-start !important;
+    min-height:      0 !important;
+    height:          auto !important;
+  }
+  /* High-specificity rule: same as cinema (0,2,2) but later in file → wins on cascade */
+  html.cinema section.snark-subscribe-section {
+    padding-top:    72px !important;
+    padding-bottom: 72px !important;
+  }
+  /* Content block — horizontal padding so form/text share one edge */
+  .snark-subscribe-content {
+    width:         100% !important;
+    box-sizing:    border-box !important;
+    padding-left:  clamp(24px, 6vw, 48px) !important;
+    padding-right: clamp(24px, 6vw, 48px) !important;
+  }
+}
+
+/* Kit.com floating/sticky widgets — hide on mobile entirely.
+   Previous fix used z-index: 80 which still overlapped card content (z-index: 4).
+   The inline embed on /snarkletter serves mobile users; the popups are unusable
+   at narrow widths and the script can persist across SPA navigations.          */
+@media (max-width: 768px) {
+  [data-formkit-type],
+  .formkit-slide-in,
+  .formkit-sticky-bar,
+  .formkit-notification {
+    display: none !important;
   }
 }
 
@@ -802,6 +1027,26 @@ html.cinema [class*="bottom-6"][class*="right-6"] {
   }
   .about-img-col {
     height: 45vh !important;
+  }
+}
+
+/* P8About CTA buttons — stack on mobile */
+@media (max-width: 768px) {
+  .about-cta-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .about-cta-row a {
+    text-align: center !important;
+  }
+}
+
+/* P7Testimonials header — reduce left padding on mobile */
+@media (max-width: 768px) {
+  .testimonials-header {
+    padding-left: clamp(20px, 5vw, 48px) !important;
+    padding-right: clamp(20px, 5vw, 48px) !important;
+    padding-top: 80px !important;
   }
 }
 
@@ -835,6 +1080,11 @@ img {
   }
 }
 
+/* P4Newsletter email input — lighten placeholder for legibility on dark teal */
+.newsletter-email-input::placeholder {
+  color: rgba(239,235,226,0.65);
+}
+
 /* P4Newsletter — centered desktop, left-aligned + stacked form on mobile */
 .newsletter-inner {
   text-align: center;
@@ -848,14 +1098,22 @@ img {
   }
   .newsletter-form-row {
     flex-direction: column !important;
+    gap:            10px !important;
   }
   .newsletter-form-row input {
-    border-right: 1px solid rgba(239,235,226,0.2) !important;
-    border-bottom: none !important;
+    border-right:  1px solid rgba(239,235,226,0.5) !important;
+    border-bottom: 1px solid rgba(239,235,226,0.5) !important;
+    height:        56px !important;
+    font-size:     15px !important;
+    padding:       0 20px !important;
+    width:         100% !important;
+    box-sizing:    border-box !important;
   }
   .newsletter-form-row button {
-    width: 100% !important;
-    height: 48px !important;
+    width:          100% !important;
+    height:         56px !important;
+    font-size:      13px !important;
+    letter-spacing: 0.08em !important;
   }
 }
 
@@ -864,16 +1122,365 @@ img {
   .footer-cols {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
-    padding: 48px clamp(20px, 5vw, 48px) !important;
+    /* Mobile: no sidebar, so normal edge padding is fine */
+    padding: 48px clamp(20px, 5vw, 40px) !important;
   }
   .footer-bottom-row {
     flex-direction: column !important;
-    gap: 8px !important;
-    padding-left: clamp(20px, 5vw, 48px) !important;
-    padding-right: clamp(20px, 5vw, 48px) !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    padding-left: clamp(20px, 5vw, 40px) !important;
+    padding-right: clamp(20px, 5vw, 40px) !important;
   }
   .footer-disclaimer {
-    padding-left: clamp(20px, 5vw, 48px) !important;
-    padding-right: clamp(20px, 5vw, 48px) !important;
+    padding-left: clamp(20px, 5vw, 40px) !important;
+    padding-right: clamp(20px, 5vw, 40px) !important;
+    padding-bottom: 56px !important;
+  }
+}
+
+/* Mobile portrait block — hidden on desktop, shown on mobile About hero */
+.about-hero-mobile-portrait { display: none; }
+
+/* Hero portrait — hide on mobile, About hero uses .about-hero-mobile-portrait instead */
+@media (max-width: 768px) {
+  .hero-portrait-right { display: none !important; }
+  .hero-portrait-fade  { display: none !important; }
+}
+
+/* ── About hero — mobile column layout with portrait image ── */
+@media (max-width: 768px) {
+  /* Section becomes a column: image on top, text below */
+  .about-hero-section {
+    flex-direction: column !important;
+    align-items:    stretch !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Portrait block — full-width, occupies top ~44vh */
+  .about-hero-mobile-portrait {
+    display:     block;
+    position:    relative;
+    width:       100%;
+    height:      44vh;
+    flex-shrink: 0;
+    z-index:     1;
+  }
+
+  .about-hero-mobile-portrait img {
+    position:        absolute;
+    inset:           0;
+    width:           100%;
+    height:          100%;
+    object-fit:      cover;
+    object-position: 50% 20%; /* face + upper body; avoids empty floor */
+    display:         block;
+    user-select:     none;
+    pointer-events:  none;
+    -webkit-user-drag: none;
+  }
+
+  /* Gradient fades image into charcoal — no hard edge */
+  .about-hero-mobile-fade {
+    position:   absolute;
+    bottom:     0;
+    left:       0;
+    right:      0;
+    height:     70%;
+    background: linear-gradient(
+      to bottom,
+      transparent         0%,
+      rgba(54,50,49,0.45) 45%,
+      rgba(54,50,49,0.85) 75%,
+      #363231             100%
+    );
+    pointer-events: none;
+  }
+
+  /* Text column — fills remaining height, content from top, no nav-offset needed */
+  .about-hero-section .hero-text-col-mobile {
+    flex:            1 !important;
+    padding-top:     16px !important;
+    padding-bottom:  96px !important;
+    justify-content: flex-start !important;
+    z-index:         5;
+  }
+
+  /* Remove the thin rule line below the H1 on mobile — no space to spare */
+  .about-hero-section .about-hero-rule {
+    display: none !important;
+  }
+}
+
+/* Custom cursor — desktop only */
+@media (max-width: 768px) {
+  .cinema-cursor { display: none !important; }
+}
+
+/* ── P5 Products — native CSS swipe on mobile (GSAP pin disabled) ── */
+@media (max-width: 768px) {
+  [data-panel="3"] {
+    overflow-x:              scroll !important;
+    scroll-snap-type:        x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  [data-panel="3"] > div:first-child > div {
+    scroll-snap-align: start;
+  }
+}
+
+/* ── P4 Newsletter — auto height on mobile, bigger form targets ─────── */
+@media (max-width: 768px) {
+  [data-panel="2"] {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
+/* ── P7 CTA — restore content padding on mobile (cinema CSS strips it) */
+@media (max-width: 768px) {
+  [data-panel="6"] > div {
+    padding-left:  clamp(24px, 6vw, 48px) !important;
+    padding-right: clamp(24px, 6vw, 48px) !important;
+  }
+}
+
+/* ── P8 About — right column: top padding + left-align on mobile ───── */
+@media (max-width: 768px) {
+  .about-split-section > div:last-child {
+    padding-top:    48px !important;
+    padding-bottom: 64px !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* About horizontal scroll cards — mobile layout fixes */
+@media (max-width: 768px) {
+  /* Content block: clear the absolutely-positioned labels at the top and
+     prevent ghost-number overlap at the bottom */
+  .about-card-content {
+    padding-top:    88px !important;  /* clears section-label (top:48px) + h2 breathing room */
+    padding-bottom: 48px !important;  /* clears ghost-number area at bottom */
+    padding-left:   6% !important;
+    padding-right:  6% !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+  }
+  /* Ghost number: hide on mobile — 6rem at narrow viewport overlaps body text */
+  .about-ghost-num {
+    display: none !important;
+  }
+  /* Counter: tighten right margin for 375px viewports */
+  .about-card-counter {
+    right: 20px !important;
+    top:   20px !important;
+  }
+  /* Section label: anchor it closer to the top so padding-top clearance is consistent */
+  .about-section-label {
+    top: 48px !important;
+  }
+}
+
+/* About horizontal section — native vertical scroll on mobile */
+@media (max-width: 768px) {
+  .about-horiz-wrapper {
+    height:   auto !important;
+    overflow: visible !important;
+  }
+  .about-horiz-track {
+    flex-direction: column !important;
+    width:          100% !important;
+    height:         auto !important;
+  }
+  .about-horiz-track > div {
+    width:           100% !important;
+    height:          auto !important;
+    min-height:      0 !important;       /* auto height — content defines card height */
+    justify-content: flex-start !important; /* don't center-vertically when height:auto */
+  }
+}
+
+/* About "If This Resonates" CTA — mobile overflow + spacing fix */
+@media (max-width: 768px) {
+  /* Breathing room at the top — content was flush against section edge */
+  .about-cta-section {
+    padding-top:    60px !important;
+    padding-bottom: 60px !important;
+    height:         auto !important;
+    min-height:     85vh !important;
+  }
+
+  /* Give content div a fixed width so children respect horizontal padding.
+     Without this, the flex child sizes to intrinsic content width and the
+     long quoted string overflows the section's 6% padding on each side.  */
+  .about-cta-content {
+    width:      100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Paragraph containing the quoted text — constrain to container,
+     allow soft wrap at any point so the long quote line doesn't break out. */
+  .about-cta-content p {
+    max-width:     100% !important;
+    width:         100% !important;
+    box-sizing:    border-box !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+/* About mobile carousel — card-specific type overrides.
+   Overrides the global h2 span (30px) and h3 (22px) tokens to
+   smaller sizes suited for a contained card context.             */
+@media (max-width: 767px) {
+  .mobile-carousel-inner h2,
+  .mobile-carousel-inner h2 span {
+    font-size:   24px !important;
+    line-height: 1.25 !important;
+  }
+  /* Tighten list items that have 12px inline — bring up to 13px */
+  .mobile-carousel-inner li {
+    font-size:   13px !important;
+    line-height: 1.85 !important;
+  }
+}
+
+/* CloseAdmin hero — hide pillars + rule on mobile */
+@media (max-width: 768px) {
+  .ca-hero-pillars { display: none !important; }
+  .ca-hero-rule    { display: none !important; }
+}
+
+/* All email form rows — consistent stacked design on mobile */
+@media (max-width: 768px) {
+  .ca-form-row {
+    flex-direction: column !important;
+    max-width:      100% !important;
+    gap:            14px !important;
+  }
+  .ca-form-row input {
+    background:    rgba(239,235,226,0.06) !important;
+    border:        1.5px solid rgba(239,235,226,0.55) !important;
+    width:         100% !important;
+    height:        56px !important;
+    box-sizing:    border-box !important;
+    font-size:     14px !important;
+    padding:       0 18px !important;
+    color:         var(--cream) !important;
+  }
+  .ca-form-row input::placeholder {
+    color:   var(--greige) !important;
+    opacity: 1 !important;
+  }
+  .ca-form-row button {
+    background:     var(--teal) !important;
+    color:          var(--cream) !important;
+    border:         none !important;
+    width:          100% !important;
+    height:         56px !important;
+    letter-spacing: 0.08em !important;
+    font-size:      12px !important;
+  }
+}
+
+/* Form on teal background — input needs darker bg, button needs cream */
+@media (max-width: 768px) {
+  .ca-form-on-teal {
+    margin-top: 28px !important;
+  }
+  .ca-form-on-teal input {
+    background: rgba(0,0,0,0.25) !important;
+    border:     1px solid rgba(239,235,226,0.45) !important;
+  }
+  .ca-form-on-teal button {
+    background: var(--cream) !important;
+    color:      #114B4D !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* CloseAdmin CTA section — remove fixed height on mobile */
+@media (max-width: 768px) {
+  .ca-cta-section {
+    height:    auto !important;
+    min-height: 0 !important;
+  }
+  /* High-specificity rule: overrides cinema padding:0 (same specificity, later in file wins) */
+  html.cinema section.ca-cta-section {
+    overflow: hidden !important;
+  }
+  /* Constrain content block — padding here is immune to cinema CSS */
+  .ca-cta-content {
+    width:          100% !important;
+    box-sizing:     border-box !important;
+    padding-top:    64px !important;
+    padding-bottom: 64px !important;
+    padding-left:   clamp(24px, 6vw, 48px) !important;
+    padding-right:  clamp(24px, 6vw, 48px) !important;
+  }
+}
+
+/* ─── Legal pages ─────────────────────────────────────────────────────────── */
+.legal-pad {
+  padding-left: 80px;
+  padding-right: 6%;
+}
+/* Prose body — paragraphs, lists, bold */
+.legal-body p            { margin: 0 0 14px 0; }
+.legal-body p:last-child { margin-bottom: 0; }
+.legal-body ul           { margin: 8px 0 14px 0; padding-left: 0; list-style: none; }
+.legal-body li           { position: relative; padding-left: 18px; margin-bottom: 8px; }
+.legal-body li::before   { content: '—'; position: absolute; left: 0; color: rgba(239,235,226,0.28); }
+.legal-body strong       { color: rgba(239,235,226,0.88); font-weight: normal; }
+
+@media (max-width: 768px) {
+  .legal-pad {
+    padding-left: clamp(20px, 5vw, 40px) !important;
+    padding-right: clamp(20px, 5vw, 40px) !important;
+  }
+  .legal-nobody { display: none !important; }
+}
+
+/* ── About ExperienceTimeline — mobile layout ───────────────────────────────
+   Desktop: two-column flex. Mobile: stack left col above timeline entries.   */
+@media (max-width: 768px) {
+  .about-experience-inner {
+    flex-direction: column !important;
+    gap:            48px !important;
+    padding-top:    64px !important;
+    padding-bottom: 64px !important;
+  }
+  .about-experience-left {
+    flex:      unset !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── PLanePanels — mobile fixes ──────────────────────────────────────────
+   Desktop uses marginTop: -160px on content to pull text above visual centre
+   of the photo. On mobile (70vh ≈ 467px) that offset pushes content above
+   the top edge of the panel (clipped by overflow:hidden). Reset to 0 and
+   reduce eyebrow spacing so all four elements fit comfortably.              */
+@media (max-width: 768px) {
+  [data-panel="lane-1"] .plane-content,
+  [data-panel="lane-2"] .plane-content,
+  [data-panel="lane-3"] .plane-content,
+  [data-panel="lane-4"] .plane-content {
+    margin-top:  0 !important;
+    padding:     0 6% !important;
+  }
+  [data-panel="lane-1"] .plane-eyebrow,
+  [data-panel="lane-2"] .plane-eyebrow,
+  [data-panel="lane-3"] .plane-eyebrow,
+  [data-panel="lane-4"] .plane-eyebrow {
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ── PSearchSection — mobile padding ─────────────────────────────────────
+   16% padding on 375px = 60px per side → only 255px of content. Drop to 6%.  */
+@media (max-width: 768px) {
+  .search-section-pad {
+    padding-left:  6% !important;
+    padding-right: 6% !important;
   }
 }

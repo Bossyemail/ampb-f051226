@@ -7,10 +7,9 @@ import { useGSAP } from '@gsap/react'
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const STATS = [
-  { num: '20+',    suffix: '',    label: 'Years Experience' },
-  { num: '3K+',    suffix: '',    label: 'Closed Transactions' },
-  { num: '4+',     suffix: '',    label: 'SaaS Products'       },
-  { num: 'Top 1%', suffix: '',    label: 'TC South Florida'    },
+  { num: '20+', suffix: '', label: 'Years in South Florida' },
+  { num: '3K+', suffix: '', label: 'Closings Supported'    },
+  { num: '4',   suffix: '', label: 'Systems Built'         },
 ]
 
 export default function P3Stats() {
@@ -19,19 +18,27 @@ export default function P3Stats() {
 
   useGSAP(() => {
     const items = statsRef.current.filter(Boolean) as HTMLDivElement[]
-    gsap.set(items, { opacity: 0, y: 20 })
+    const mm = gsap.matchMedia()
 
-    gsap.to(items, {
-      opacity:  1,
-      y:        0,
-      duration: 0.7,
-      ease:     'power3.out',
-      stagger:  0.08,
-      scrollTrigger: {
-        trigger:       sectionRef.current,
-        start:         'top 85%',
-        toggleActions: 'play none none reverse',
-      },
+    mm.add('(max-width: 768px)', () => {
+      // Mobile: show immediately, no scroll trigger
+      gsap.set(items, { opacity: 1, y: 0 })
+    })
+
+    mm.add('(min-width: 769px)', () => {
+      gsap.set(items, { opacity: 0, y: 20 })
+      gsap.to(items, {
+        opacity:  1,
+        y:        0,
+        duration: 0.7,
+        ease:     'power3.out',
+        stagger:  0.08,
+        scrollTrigger: {
+          trigger:       sectionRef.current,
+          start:         'top 85%',
+          toggleActions: 'play none none reverse',
+        },
+      })
     })
   }, { scope: sectionRef })
 
@@ -40,14 +47,14 @@ export default function P3Stats() {
       ref={sectionRef}
       data-panel="1"
       style={{
-        background: '#2a2827',
+        background: '#000000',
         height:     'auto',
-        padding:    '28px 0',
+        padding:    '0',
       }}
     >
-      <div style={{
+      <div className="stats-3-col" style={{
         display:             'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(3, 1fr)',
         width:               '100%',
       }}>
         {STATS.map((stat, i) => (
@@ -60,7 +67,7 @@ export default function P3Stats() {
               justifyContent: 'center',
               alignItems:     'center',
               textAlign:      'center',
-              padding:        '40px 0',
+              padding:        '20px 0',
               borderRight:    i < STATS.length - 1
                 ? '0.5px solid rgba(239,235,226,0.1)'
                 : 'none',
@@ -68,9 +75,9 @@ export default function P3Stats() {
           >
             <div style={{
               fontFamily:    'var(--font-cormorant)',
-              fontSize:      'clamp(32px, 3.5vw, 44px)',
-              fontWeight:    300,
-              color:         'var(--cream)',
+              fontSize:      'clamp(26px, 2.8vw, 36px)',
+              fontWeight:    200,
+              color:         '#ffffff',
               lineHeight:    1,
               letterSpacing: '-0.02em',
               whiteSpace:    'nowrap',
@@ -84,8 +91,8 @@ export default function P3Stats() {
               fontFamily:    'var(--font-dm-mono)',
               fontSize:      '10px',
               letterSpacing: '0.22em',
-              color:         '#5f9ea0',
-              marginTop:     '12px',
+              color:         'rgba(255,255,255,0.55)',
+              marginTop:     '8px',
               textTransform: 'uppercase',
             }}>
               {stat.label}

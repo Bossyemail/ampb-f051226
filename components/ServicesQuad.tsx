@@ -58,7 +58,7 @@ const items: Item[] = [
             title: "clausevault Pro",
     desc:
       "Your Secret Weapon for Bulletproof Contracts\nStop copy-pasting outdated clauses. Get a vetted library built for South Florida real estate — and keep your deals airtight.",
-    href: "/dealdesk",
+    href: "/closeadmin",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -79,7 +79,7 @@ const items: Item[] = [
     title: "Contract Management",
     desc:
       "Keep the Paperwork Moving (Without Losing Your Mind)\nFlawless transaction coordination so nothing slips through the cracks. Deadlines? Met. Docs? Filed. You? Still breathing.",
-    href: "/elevate",
+    href: "/tc-services",
     icon: (
       <svg
         viewBox="0 0 24 24"

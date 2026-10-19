@@ -27,15 +27,14 @@ const lineStyle: React.CSSProperties = {
 export default function SocialBar() {
   return (
     <div className="mobile-hide" style={{
-      position:   'fixed',
-      left:       '28px',
-      top:        '62%',
-      zIndex:     400,
-      display:    'flex',
+      position:      'fixed',
+      left:          '28px',
+      top:           '62%',
+      zIndex:        400,
+      display:       'flex',
       flexDirection: 'column',
-      alignItems: 'center',
-      gap:        '20px',
-      mixBlendMode: 'difference',
+      alignItems:    'center',
+      gap:           '20px',
     }}>
       <div style={{ ...lineStyle, marginBottom: '8px' }} />
 

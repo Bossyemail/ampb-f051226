@@ -34,27 +34,29 @@ export default function P4Newsletter() {
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
 
           {/* Label */}
-          <p style={{
-            fontFamily:    'var(--font-dm-mono)',
-            fontSize:      '10px',
-            letterSpacing: '0.28em',
-            textTransform: 'uppercase',
-            color:         'rgba(239,235,226,0.55)',
-            margin:        '0 0 24px 0',
-          }}>
-            Weekly from the Trenches
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '36px' }}>
+            <div style={{ width: '40px', height: '0.5px', background: 'var(--teal-mid)', flexShrink: 0 }} />
+            <span style={{
+              fontFamily:    'var(--font-dm-mono)',
+              fontSize:      '10px',
+              letterSpacing: '0.28em',
+              textTransform: 'uppercase',
+              color:         'rgba(239,235,226,0.55)',
+            }}>
+              Weekly from the Trenches
+            </span>
+          </div>
 
           {/* Headline */}
           <h2 style={{
             fontFamily: 'var(--font-cormorant)',
             fontSize:   'clamp(24px, 2.8vw, 38px)',
             fontWeight: 300,
-            color:      '#EFEBE2',
+            color:      'var(--cream)',
             lineHeight: 1.1,
             margin:     '0 0 20px 0',
           }}>
-            The only real estate newsletter written by someone still closing deals.
+            The only real estate newsletter written<br />by someone still closing deals.
           </h2>
 
           {/* Subline */}
@@ -65,17 +67,17 @@ export default function P4Newsletter() {
             lineHeight: 1.75,
             margin:     '0 0 48px 0',
           }}>
-            Scripts. Systems. Ops intel. No fluff. Every Tuesday. Free.
+            Scripts. Systems. Ops intel.
           </p>
 
           {/* Form */}
           {submitted ? (
-            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', margin: 0 }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: 0 }}>
               You&apos;re on the list. First issue incoming.
             </p>
           ) : (
             <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-              <div className="newsletter-form-row" style={{ display: 'flex', maxWidth: '520px', margin: '0 auto' }}>
+              <div className="newsletter-form-row ca-form-row ca-form-on-teal" style={{ display: 'flex', maxWidth: '520px', margin: '0 auto' }}>
                 <input
                   type="email"
                   name="email_address"
@@ -89,13 +91,14 @@ export default function P4Newsletter() {
                     background:  'rgba(0,0,0,0.15)',
                     border:      '1px solid rgba(239,235,226,0.5)',
                     borderRight: 'none',
-                    color:       '#EFEBE2',
+                    color:       'var(--cream)',
                     fontFamily:  'var(--font-dm-mono)',
                     fontSize:    '13px',
                     padding:     '0 16px',
                     outline:     'none',
                     boxSizing:   'border-box' as const,
                   }}
+                  className="newsletter-email-input"
                   onFocus={e => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.9)' }}
                   onBlur={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
                 />
@@ -103,7 +106,7 @@ export default function P4Newsletter() {
                   type="submit"
                   style={{
                     height:        '48px',
-                    background:    '#EFEBE2',
+                    background:    'var(--cream)',
                     color:         '#363231',
                     fontFamily:    'var(--font-dm-mono)',
                     fontSize:      '11px',
@@ -117,8 +120,8 @@ export default function P4Newsletter() {
                     transition:    'background 0.2s, color 0.2s',
                     boxSizing:     'border-box' as const,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#ffffff' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = '#EFEBE2' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,235,226,0.85)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'var(--cream)' }}
                 >
                   Get the Snarkletter
                 </button>

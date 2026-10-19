@@ -18,50 +18,62 @@ export default function P8About() {
     const section = sectionRef.current
     if (!section) return
 
-    // Image scale scrub
-    gsap.fromTo(imgRef.current,
-      { scale: 1.08 },
-      {
-        scale: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: section,
-          start:   'top bottom',
-          end:     'bottom top',
-          scrub:   2,
-        },
-      }
-    )
+    const mm = gsap.matchMedia()
 
-    // Eyebrow fade + slide
-    gsap.fromTo(eyebrowRef.current,
-      { opacity: 0, y: 16 },
-      {
-        opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
-        scrollTrigger: { trigger: section, start: 'top 70%' },
-      }
-    )
+    mm.add('(max-width: 768px)', () => {
+      // Mobile: reveal everything immediately, no scroll trigger
+      gsap.set(eyebrowRef.current, { opacity: 1, y: 0 })
+      gsap.set([line1Ref.current, line2Ref.current], { y: 0 })
+      const paras = paraRefs.current.filter(Boolean) as HTMLParagraphElement[]
+      gsap.set(paras, { opacity: 1, y: 0 })
+    })
 
-    // Heading lines masked reveal
-    gsap.fromTo([line1Ref.current, line2Ref.current],
-      { y: '105%' },
-      {
-        y: 0, duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)',
-        stagger: 0.1,
-        scrollTrigger: { trigger: section, start: 'top 70%' },
-      }
-    )
+    mm.add('(min-width: 769px)', () => {
+      // Image scale scrub
+      gsap.fromTo(imgRef.current,
+        { scale: 1.08 },
+        {
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start:   'top bottom',
+            end:     'bottom top',
+            scrub:   2,
+          },
+        }
+      )
 
-    // Body paragraphs sequential fade
-    const paras = paraRefs.current.filter(Boolean) as HTMLParagraphElement[]
-    gsap.fromTo(paras,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
-        stagger: 0.15,
-        scrollTrigger: { trigger: section, start: 'top 65%' },
-      }
-    )
+      // Eyebrow fade + slide
+      gsap.fromTo(eyebrowRef.current,
+        { opacity: 0, y: 16 },
+        {
+          opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+          scrollTrigger: { trigger: section, start: 'top 70%' },
+        }
+      )
+
+      // Heading lines masked reveal
+      gsap.fromTo([line1Ref.current, line2Ref.current],
+        { y: '105%' },
+        {
+          y: 0, duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)',
+          stagger: 0.1,
+          scrollTrigger: { trigger: section, start: 'top 70%' },
+        }
+      )
+
+      // Body paragraphs sequential fade
+      const paras = paraRefs.current.filter(Boolean) as HTMLParagraphElement[]
+      gsap.fromTo(paras,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+          stagger: 0.15,
+          scrollTrigger: { trigger: section, start: 'top 65%' },
+        }
+      )
+    })
   }, { scope: sectionRef })
 
   return (
@@ -130,35 +142,6 @@ export default function P8About() {
           background: 'linear-gradient(to right, transparent 0%, #363231 100%)',
         }} />
 
-        {/* Credential badge bottom-left */}
-        <div style={{
-          position:   'absolute',
-          bottom:     0,
-          left:       0,
-          zIndex:     3,
-          background: 'var(--teal)',
-          padding:    '16px 24px',
-        }}>
-          <div style={{
-            fontFamily:  'var(--font-cormorant)',
-            fontSize:    '28px',
-            fontWeight:  600,
-            color:       'var(--cream)',
-            lineHeight:  1,
-          }}>
-            Top 1%
-          </div>
-          <div style={{
-            fontFamily:    'var(--font-dm-mono)',
-            fontSize:      '9px',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color:         'rgba(239,235,226,0.65)',
-            marginTop:     '5px',
-          }}>
-            South Florida
-          </div>
-        </div>
 
         {/* Corner accent top-right */}
         <div style={{
@@ -225,7 +208,7 @@ export default function P8About() {
               transform:     'translateY(105%)',
             }}>
               I&apos;m a builder{' '}
-              <em style={{ color: '#7bbcbe' }}>in the trenches.</em>
+              <em style={{ color: 'var(--teal-mid)' }}>in the trenches.</em>
             </span>
           </span>
         </h2>
@@ -245,7 +228,7 @@ export default function P8About() {
                 fontSize:   '15px',
                 fontWeight: 300,
                 lineHeight: 1.85,
-                color:      '#d4d0c8',
+                color:      'var(--greige)',
                 margin:     i < 2 ? '0 0 1.4em 0' : '0',
                 opacity:    0,
               }}
@@ -256,44 +239,31 @@ export default function P8About() {
         </div>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', gap: '16px', marginTop: '44px' }}>
-          <a href="/about"
-            style={{
-              fontFamily:     'var(--font-dm-mono)',
-              fontSize:       '10px',
-              letterSpacing:  '0.16em',
-              textTransform:  'uppercase',
-              background:     '#2d6a6a',
-              color:          'var(--cream)',
-              padding:        '16px 36px',
-              textDecoration: 'none',
-              display:        'inline-block',
-              flexShrink:     0,
-              transition:     'background 0.2s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#3a8080' }}
-            onMouseLeave={e => { e.currentTarget.style.background = '#2d6a6a' }}
-          >
+        <div className="about-cta-row" style={{ display: 'flex', gap: '16px', marginTop: '44px' }}>
+          <a href="/about" className="btn-teal" style={{
+            fontFamily:    'var(--font-dm-mono)',
+            fontSize:      '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            padding:       '16px 36px',
+            display:       'inline-block',
+            flexShrink:    0,
+          }}>
             Read my story
           </a>
           <a href="https://instagram.com/aylenbuilds"
             target="_blank"
             rel="noopener noreferrer"
+            className="btn-outline"
             style={{
-              fontFamily:     'var(--font-dm-mono)',
-              fontSize:       '10px',
-              letterSpacing:  '0.16em',
-              textTransform:  'uppercase',
-              border:         '1px solid rgba(239,235,226,0.3)',
-              color:          'var(--cream)',
-              padding:        '16px 36px',
-              textDecoration: 'none',
-              display:        'inline-block',
-              flexShrink:     0,
-              transition:     'border-color 0.2s',
+              fontFamily:    'var(--font-dm-mono)',
+              fontSize:      '10px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              padding:       '16px 36px',
+              display:       'inline-block',
+              flexShrink:    0,
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.65)' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.3)' }}
           >
             Follow @aylenbuilds
           </a>

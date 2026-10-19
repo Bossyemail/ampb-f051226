@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant_Garamond, DM_Mono } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -38,11 +37,10 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Aylen Montenegro — Turn Real Estate Chaos Into Systems & Profit",
+    default: "Aylen Montenegro | Real Estate Operations & Transaction Management",
     template: "%s | Aylen Montenegro"
   },
-  description: "20+ years of real estate expertise. I turn chaos into closings with proven systems, smart tools, and battle-tested frameworks. From contract to closing, I manage the details so you can sell more.",
-  keywords: ["real estate", "contract management", "transaction coordination", "email templates", "real estate tools", "South Florida", "Miami real estate", "clausevault", "bossyemail"],
+  description: "Aylen Montenegro manages real estate transactions for South Florida agents and develops software for better real estate operations. 3,000+ closings since 2004.",
   authors: [{ name: "Aylen Montenegro" }],
   creator: "Aylen Montenegro",
   publisher: "Aylen Montenegro",
@@ -56,16 +54,16 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Aylen Montenegro, Contract Manager • SaaS Builder • Author",
-    description: "Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.",
+    title: "Aylen Montenegro | Real Estate Operations & Transaction Management",
+    description: "Aylen Montenegro manages real estate transactions for South Florida agents and develops software for better real estate operations. 3,000+ closings since 2004.",
     url: 'https://aylenmontenegro.com',
     siteName: 'Aylen Montenegro',
     images: [
       {
-        url: '/images/14.png',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Aylen Montenegro, Contract Manager • SaaS Builder • Author',
+        alt: 'Aylen Montenegro | Real Estate Operations & Transaction Management',
       },
     ],
     locale: 'en_US',
@@ -73,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Aylen Montenegro, Contract Manager • SaaS Builder • Author",
-    description: "Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.",
-    images: ['/images/14.png'],
+    title: "Aylen Montenegro | Real Estate Operations & Transaction Management",
+    description: "Aylen Montenegro manages real estate transactions for South Florida agents and develops software for better real estate operations. 3,000+ closings since 2004.",
+    images: ['/images/og-image.jpg'],
     creator: '@aylenbuilds',
   },
   robots: {
@@ -89,9 +87,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // NOTE: Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel env vars (Dashboard → Settings → Environment Variables).
+  // The value comes from Google Search Console → Settings → Ownership verification → HTML tag method.
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -100,19 +100,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      signInFallbackRedirectUrl="/admin/dashboard"
-      signUpFallbackRedirectUrl="/admin/dashboard"
-      appearance={{
-        elements: {
-          formButtonPrimary: 'bg-blue-600 hover:bg-blue-700 text-white',
-        }
-      }}
-    >
       <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmMono.variable}`}>
         <head>
           {/* Image copyright protection */}
-          <meta name="copyright" content="© 2025 Aylen Montenegro. All rights reserved." />
+          <meta name="copyright" content={`© ${new Date().getFullYear()} Aylen Montenegro. All rights reserved.`} />
           <meta name="author" content="Aylen Montenegro" />
           <meta name="robots" content="noimageindex" />
 
@@ -138,6 +129,70 @@ export default function RootLayout({
               function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fe97d1360003a5e99e6d50683bcd79d3"})});
             `}
           </Script>
+
+          {/* Site-wide entity graph — Person · Organization · WebSite */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://aylenmontenegro.com/#person",
+                  "name": "Aylen Montenegro",
+                  "jobTitle": "Transaction Coordinator",
+                  "description": "Licensed Florida real estate professional and South Florida transaction coordinator with 20+ years of experience and 3,000+ closings supported.",
+                  "url": "https://aylenmontenegro.com",
+                  "image": "https://aylenmontenegro.com/images/og-image.jpg",
+                  "email": "hello@aylenmontenegro.com",
+                  "sameAs": [
+                    "https://www.linkedin.com/in/aylen-montenegro-pa-02083939/",
+                    "https://instagram.com/aylenbuilds",
+                    "https://youtube.com/@aylenmontenegropa",
+                    "https://threads.net/@aylenbuilds"
+                  ],
+                  "knowsAbout": [
+                    "Real Estate Transaction Coordination",
+                    "Florida Real Estate Law",
+                    "Contract-to-Close Operations",
+                    "South Florida Real Estate",
+                    "Real Estate Compliance",
+                    "Real Estate Contracts"
+                  ],
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "FL",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://aylenmontenegro.com/#organization",
+                  "name": "Aylen Montenegro",
+                  "url": "https://aylenmontenegro.com",
+                  "founder": { "@id": "https://aylenmontenegro.com/#person" },
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "email": "hello@aylenmontenegro.com",
+                    "contactType": "customer service",
+                    "availableLanguage": "English"
+                  },
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressRegion": "FL",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://aylenmontenegro.com/#website",
+                  "url": "https://aylenmontenegro.com",
+                  "name": "Aylen Montenegro",
+                  "publisher": { "@id": "https://aylenmontenegro.com/#organization" }
+                }
+              ]
+            }) }}
+          />
         </head>
         <body className="bg-black text-white antialiased">
           <SkipToContent />
@@ -152,6 +207,5 @@ export default function RootLayout({
           <Analytics />
         </body>
       </html>
-    </ClerkProvider>
   );
 }

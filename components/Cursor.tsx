@@ -47,7 +47,7 @@ export default function Cursor() {
 
   return (
     <>
-      <div ref={cursorRef} style={{
+      <div ref={cursorRef} className="cinema-cursor" style={{
         position:       'fixed',
         top:            0,
         left:           0,
@@ -60,7 +60,7 @@ export default function Cursor() {
         zIndex:         9999,
         willChange:     'transform',
       }} />
-      <div ref={followerRef} style={{
+      <div ref={followerRef} className="cinema-cursor" style={{
         position:       'fixed',
         top:            0,
         left:           0,

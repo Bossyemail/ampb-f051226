@@ -1,5 +1,5 @@
 'use client'
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -75,7 +75,7 @@ function ReviewCard({ r }: { r: Review }) {
         fontSize:    '16px',
         fontStyle:   'italic',
         lineHeight:  1.65,
-        color:       '#e8e4dc',
+        color:       'var(--cream)',
         margin:      '0 0 12px 0',
       }}>
         &ldquo;{r.quote}&rdquo;
@@ -85,7 +85,7 @@ function ReviewCard({ r }: { r: Review }) {
         fontSize:      '9px',
         letterSpacing: '0.2em',
         textTransform: 'uppercase',
-        color:         '#5f9ea0',
+        color:         'var(--teal-mid)',
         marginTop:     '8px',
       }}>
         {r.attr}
@@ -99,13 +99,21 @@ function ScrollColumn({ reviews, animClass, paused }: {
   animClass: string
   paused: boolean
 }) {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   return (
     <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
       <div className={`${animClass}${paused ? ' testimonials-scroll-paused' : ''}`}
         style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}
       >
         {reviews.map((r, i) => <ReviewCard key={`a-${i}`} r={r} />)}
-        {reviews.map((r, i) => <ReviewCard key={`b-${i}`} r={r} />)}
+        {/* Clone set — injected client-side only so crawlers see one copy per testimonial */}
+        {mounted && (
+          <div aria-hidden="true">
+            {reviews.map((r, i) => <ReviewCard key={`b-${i}`} r={r} />)}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -116,7 +124,7 @@ export default function P7Testimonials() {
   const toggle = useCallback(() => setPaused(p => !p), [])
 
   const sectionRef   = useRef<HTMLElement>(null)
-  const eyebrowRef   = useRef<HTMLSpanElement>(null)
+  const eyebrowRef   = useRef<HTMLDivElement>(null)
   const voices42Ref  = useRef<HTMLSpanElement>(null)
   const verdictRef   = useRef<HTMLSpanElement>(null)
   const columnsRef   = useRef<HTMLDivElement>(null)
@@ -125,41 +133,46 @@ export default function P7Testimonials() {
     const section = sectionRef.current
     if (!section) return
 
-    // Eyebrow fade + slide
-    gsap.fromTo(eyebrowRef.current,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
-        scrollTrigger: { trigger: section, start: 'top 70%' },
-      }
-    )
+    const mm = gsap.matchMedia()
 
-    // "42 Voices." masked slide-up
-    gsap.fromTo(voices42Ref.current,
-      { y: '105%' },
-      {
-        y: 0, duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)',
-        scrollTrigger: { trigger: section, start: 'top 70%' },
-      }
-    )
+    mm.add('(max-width: 768px)', () => {
+      // Mobile: reveal everything immediately, no scroll trigger
+      gsap.set(eyebrowRef.current,  { opacity: 1, y: 0 })
+      gsap.set([voices42Ref.current, verdictRef.current], { y: 0 })
+      gsap.set(columnsRef.current,  { opacity: 1, y: 0 })
+    })
 
-    // "One verdict." staggered slide-up
-    gsap.fromTo(verdictRef.current,
-      { y: '105%' },
-      {
-        y: 0, duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)', delay: 0.12,
-        scrollTrigger: { trigger: section, start: 'top 70%' },
-      }
-    )
-
-    // Columns wall rise
-    gsap.fromTo(columnsRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
-        scrollTrigger: { trigger: section, start: 'top 60%' },
-      }
-    )
+    mm.add('(min-width: 769px)', () => {
+      // Desktop: scroll-triggered animations
+      gsap.fromTo(eyebrowRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
+          scrollTrigger: { trigger: section, start: 'top 70%' },
+        }
+      )
+      gsap.fromTo(voices42Ref.current,
+        { y: '105%' },
+        {
+          y: 0, duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)',
+          scrollTrigger: { trigger: section, start: 'top 70%' },
+        }
+      )
+      gsap.fromTo(verdictRef.current,
+        { y: '105%' },
+        {
+          y: 0, duration: 0.9, ease: 'cubic-bezier(0.16,1,0.3,1)', delay: 0.12,
+          scrollTrigger: { trigger: section, start: 'top 70%' },
+        }
+      )
+      gsap.fromTo(columnsRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
+          scrollTrigger: { trigger: section, start: 'top 60%' },
+        }
+      )
+    })
   }, { scope: sectionRef })
 
   return (
@@ -216,19 +229,19 @@ export default function P7Testimonials() {
       }} />
 
       {/* Header */}
-      <div style={{ flexShrink: 0, zIndex: 3, position: 'relative', paddingTop: '96px', paddingLeft: '80px', paddingRight: '6%', maxWidth: '960px' }}>
-        <span ref={eyebrowRef} style={{
-          display:       'inline-block',
-          fontFamily:    'var(--font-dm-mono)',
-          fontSize:      '9px',
-          letterSpacing: '0.28em',
-          color:         '#5f9ea0',
-          textTransform: 'uppercase',
-          marginBottom:  '14px',
-          opacity:       0,
-        }}>
-          What agents say
-        </span>
+      <div className="testimonials-header" style={{ flexShrink: 0, zIndex: 3, position: 'relative', paddingTop: '96px', paddingLeft: '80px', paddingRight: '6%', maxWidth: '960px' }}>
+        <div ref={eyebrowRef} style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px', opacity: 0 }}>
+          <div style={{ width: '40px', height: '0.5px', background: 'var(--teal-mid)', flexShrink: 0 }} />
+          <span style={{
+            fontFamily:    'var(--font-dm-mono)',
+            fontSize:      '11px',
+            letterSpacing: '0.12em',
+            color:         'var(--teal-mid)',
+            textTransform: 'uppercase',
+          }}>
+            What agents say
+          </span>
+        </div>
         <h2 style={{
           fontFamily:    'var(--font-cormorant)',
           fontSize:      'clamp(32px, 4vw, 56px)',

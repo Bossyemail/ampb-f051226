@@ -1,40 +1,52 @@
-"use client";
-
-import React from 'react';
-import StickyNavigation from '@/components/StickyNavigation';
-import Footer from '@/components/Footer';
+'use client'
+import LegalPage, { LegalSection } from '@/components/LegalPage'
 
 export default function AccessibilityPage() {
   return (
-    <div className="min-h-screen text-white antialiased" style={{ backgroundColor: "#0B0C0F" }}>
-      <StickyNavigation />
-      
-      {/* Hero Section */}
-      <section className="pt-28 pb-32 sm:pt-36 sm:pb-40">
-        <div className="mx-auto max-w-6xl px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
-              Accessibility Statement
-            </h1>
-            <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
-              We aim to make this site accessible and usable for everyone. If you experience difficulty accessing any content or functionality, please reach out and we'll do our best to help.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      {/* Content Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl px-6 sm:px-10">
-          <div className="max-w-3xl space-y-6">
-            <p className="text-base leading-relaxed text-white/70 sm:text-lg">
-              Accessibility is an ongoing effort, and we welcome feedback on how we can improve.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <Footer />
-    </div>
-  );
+    <LegalPage
+      eyebrow="Legal"
+      headline="Accessibility Statement"
+      subhead="Built to work for everyone — not just the people who never zoom out."
+      lastUpdated="July 2026"
+    >
+      <LegalSection>
+        <p>
+          We're committed to making aylenmontenegro.com usable by as many people as
+          possible, including people with visual, auditory, motor, or cognitive
+          disabilities.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="What we're doing">
+        <ul>
+          <li>Using semantic HTML and clear heading structure so screen readers can navigate the site logically</li>
+          <li>Maintaining sufficient color contrast between text and backgrounds</li>
+          <li>Ensuring interactive elements (buttons, links, forms) are keyboard-navigable</li>
+          <li>Testing key flows (signup forms, newsletter opt-in, contact) for basic screen-reader compatibility</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection heading="Ongoing work">
+        <p>
+          Accessibility isn't a one-time checklist — it's something we keep improving as
+          the site evolves. If new features or design changes fall short, we want to know.
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="Feedback & contact">
+        <p>
+          If you experience any difficulty accessing content or functionality on this site,
+          please reach out at{' '}
+          <a
+            href="mailto:hello@aylenmontenegro.com"
+            style={{ color: '#5f9ea0', textDecoration: 'none' }}
+          >
+            hello@aylenmontenegro.com
+          </a>.
+          Tell us what page you were on and what happened — we'll do our best to fix
+          it and get back to you.
+        </p>
+      </LegalSection>
+    </LegalPage>
+  )
 }

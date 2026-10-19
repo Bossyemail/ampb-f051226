@@ -96,7 +96,7 @@ export default function SupportPage() {
             </button>
             <div className="flex flex-col">
               <button
-                onClick={() => router.push('/dealdesk')}
+                onClick={() => router.push('/closeadmin')}
                 className="text-2xl font-bold text-white font-mono lowercase hover:text-white/80 transition-colors text-left"
               >
                 clausevault

@@ -8,9 +8,10 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const PRODUCTS = [
   {
-    pill:     'White-Glove Service',
-    name:     ['TC', 'Services'],
-    desc:     "You sell. I run the file. White-glove transaction coordination for agents who don't have margin for error — and don't want any.",
+    pill:     'TC Services',
+    name:     ['You sell.', 'I run the file.'],
+    nameSize: 'clamp(40px, 5.5vw, 72px)',
+    desc:     "White-glove transaction coordination for agents who don't have margin for error — and don't want any.",
     cta:      'Check availability →',
     href:     '/tc-services',
     image:    '/images/af-miamibeach11.jpg',
@@ -19,25 +20,18 @@ const PRODUCTS = [
   {
     pill:     'SaaS Platform',
     name:     ['Close', 'Admin'],
-    desc:     'The back office for serious agents. BossyEmail, ClauseVault, and DealDesk — all in one place.',
+    nameSize: 'clamp(40px, 5.5vw, 72px)',
+    desc:     'Everything it takes to run a deal — minus the five open tabs and the chaos.',
     cta:      'Explore CloseAdmin →',
     href:     '/closeadmin',
     image:    '/images/clausevault-bg-18.jpg',
     overlay:  'linear-gradient(to top, rgba(30,27,26,0.98) 0%, rgba(139,94,60,0.85) 50%, rgba(139,94,60,0.5) 100%)',
   },
   {
-    pill:     'Content System',
-    name:     ['Content', 'OS'],
-    desc:     'Your entire content operation systemized. Built for real estate pros who want to show up consistently without the chaos.',
-    cta:      'See how it works →',
-    href:     '/content-os',
-    image:    '/images/clausevault-bg-33.jpg',
-    overlay:  'linear-gradient(to top, rgba(30,27,26,0.98) 0%, rgba(54,50,49,0.88) 50%, rgba(211,204,214,0.4) 100%)',
-  },
-  {
-    pill:     'Newsletter',
-    name:     ['Snark', 'letter'],
-    desc:     "The Real Estate Snarkletter — sharp takes, no fluff, straight to your inbox. Written by someone who's actually in the trenches.",
+    pill:     'The Real Estate Snarkletter',
+    name:     ['Sharp takes.', 'No fluff.'],
+    nameSize: 'clamp(40px, 5.5vw, 72px)',
+    desc:     "Weekly, straight from the trenches, not a content calendar.",
     cta:      'Subscribe free →',
     href:     '/snarkletter',
     image:    '/images/clausevault-bg-71.jpg',
@@ -53,6 +47,7 @@ export default function P5Products() {
 
   useGSAP(() => {
     if (!wrapperRef.current || !trackRef.current) return
+    if (window.innerWidth <= 768) return   // mobile: CSS scroll-snap handles it
 
     const tl = gsap.timeline().to(trackRef.current, {
       x:                  () => -(PRODUCTS.length - 1) * window.innerWidth,
@@ -137,7 +132,7 @@ export default function P5Products() {
                 fontFamily:     'var(--font-dm-mono)',
                 fontSize:       '10px',
                 letterSpacing:  '0.25em',
-                color:          '#EFEBE2',
+                color:          'var(--cream)',
                 textTransform:  'uppercase',
                 background:     'rgba(239,235,226,0.1)',
                 border:         '1px solid rgba(239,235,226,0.35)',
@@ -152,9 +147,9 @@ export default function P5Products() {
                 <span style={{
                   display:       'block',
                   fontFamily:    'var(--font-cormorant)',
-                  fontSize:      'clamp(64px, 9vw, 120px)',
+                  fontSize:      p.nameSize,
                   fontWeight:    700,
-                  color:         '#EFEBE2',
+                  color:         'var(--cream)',
                   letterSpacing: '-0.02em',
                 }}>
                   {p.name[0]}
@@ -162,10 +157,10 @@ export default function P5Products() {
                 <span style={{
                   display:       'block',
                   fontFamily:    'var(--font-cormorant)',
-                  fontSize:      'clamp(64px, 9vw, 120px)',
+                  fontSize:      p.nameSize,
                   fontWeight:    300,
                   fontStyle:     'italic',
-                  color:         '#EFEBE2',
+                  color:         'var(--cream)',
                   letterSpacing: '-0.02em',
                 }}>
                   {p.name[1]}
@@ -188,9 +183,9 @@ export default function P5Products() {
                 fontSize:             '11px',
                 letterSpacing:        '0.18em',
                 textTransform:        'uppercase',
-                color:                '#EFEBE2',
+                color:                'var(--cream)',
                 textDecoration:       'underline',
-                textDecorationColor:  'rgba(95,158,160,0.7)',
+                textDecorationColor:  'var(--teal-mid)',
                 textUnderlineOffset:  '5px',
                 display:              'inline-block',
               }}>

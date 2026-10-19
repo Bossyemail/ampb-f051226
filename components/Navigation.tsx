@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 import { ScreenReaderAnnouncer } from '@/lib/accessibility';
-import SocialLinksRow from '@/components/SocialLinksRow';
+
 
 interface NavigationProps {
   className?: string;
@@ -12,8 +12,7 @@ interface NavigationProps {
 
 const navigationItems = [
   { label: 'CloseAdmin', href: '/closeadmin' },
-  { label: 'DealDesk', href: '/dealdesk' },
-  { label: 'TC Services', href: '/elevate' },
+  { label: 'TC Services', href: '/tc-services' },
   { label: 'Snarkletter', href: '/snarkletter' },
   { label: 'About', href: '/about' },
 ] as const;
@@ -65,7 +64,8 @@ export default function Navigation({ className = '' }: NavigationProps) {
         <div className="flex items-center flex-shrink-0">
           <Link
             href="/"
-            className="text-white hover:text-gray-300 transition-colors text-xs font-medium tracking-widest uppercase"
+            className="text-white hover:text-gray-300 transition-colors text-xs tracking-widest uppercase"
+            style={{ fontFamily: 'var(--font-dm-mono)', letterSpacing: '0.2em' }}
           >
             Aylen Montenegro
           </Link>
@@ -84,10 +84,6 @@ export default function Navigation({ className = '' }: NavigationProps) {
           ))}
         </div>
 
-        {/* Social icons - show on all pages */}
-        <div className={`hidden shrink-0 md:flex ${!mounted ? "opacity-0" : "opacity-100"}`}>
-          <SocialLinksRow />
-        </div>
       </div>
     </nav>
   );

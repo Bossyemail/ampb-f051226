@@ -1,17 +1,27 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import TCIntakeForm from './TCIntakeForm'
+import modalStyles from './TCIntakeModal.module.css'
 
 const LINKS = [
   { label: 'TC Services',  href: '/tc-services' },
   { label: 'CloseAdmin',   href: '/closeadmin'  },
-  { label: 'Content OS',   href: '/content-os'  },
   { label: 'Snarkletter',  href: '/snarkletter'  },
   { label: 'About',        href: '/about'        },
 ]
 
 export default function CinemaNav() {
-  const [isMobile, setIsMobile] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [isMobile, setIsMobile]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [mounted, setMounted]     = useState(false)
+
+  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    document.body.style.overflow = modalOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [modalOpen])
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768)
@@ -56,11 +66,12 @@ export default function CinemaNav() {
       }}>
         {/* Logo */}
         <a href="/" style={{
-          fontFamily:     'var(--font-cormorant)',
-          fontSize:       '18px',
-          fontWeight:     600,
+          fontFamily:     'var(--font-dm-mono)',
+          fontSize:       '12px',
+          fontWeight:     400,
           color:          'var(--cream)',
-          letterSpacing:  '0.01em',
+          letterSpacing:  '0.2em',
+          textTransform:  'uppercase',
           flexShrink:     0,
           textDecoration: 'none',
         }}>
@@ -73,13 +84,18 @@ export default function CinemaNav() {
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
             style={{
-              background: 'none',
-              border:     'none',
-              color:      'var(--cream)',
-              fontSize:   '22px',
-              cursor:     'pointer',
-              padding:    '8px',
-              lineHeight: 1,
+              background:      'none',
+              border:          'none',
+              color:           'var(--cream)',
+              fontSize:        '27px',
+              cursor:          'pointer',
+              padding:         0,
+              lineHeight:      1,
+              minWidth:        '44px',
+              height:          '44px',
+              display:         'flex',
+              alignItems:      'center',
+              justifyContent:  'center',
             }}
           >
             ☰
@@ -107,35 +123,46 @@ export default function CinemaNav() {
               </a>
             ))}
 
-            <a
-              href="https://form.jotform.com/252496909826069"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => setModalOpen(true)}
+              className="btn-teal"
               style={{
-                fontFamily:     'var(--font-dm-mono)',
-                fontSize:       '10px',
-                letterSpacing:  '0.16em',
-                textTransform:  'uppercase',
-                color:          'var(--cream)',
-                textDecoration: 'none',
-                border:         '0.5px solid rgba(239,235,226,0.4)',
-                padding:        '9px 22px',
-                transition:     'background 0.2s ease, border-color 0.2s ease',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background  = 'var(--teal)'
-                e.currentTarget.style.borderColor = 'var(--teal)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background  = 'transparent'
-                e.currentTarget.style.borderColor = 'rgba(239,235,226,0.4)'
+                fontFamily:    'var(--font-dm-mono)',
+                fontSize:      '10px',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                padding:       '9px 22px',
               }}
             >
-              Hire Me
-            </a>
+              Work With Me
+            </button>
           </div>
         )}
       </nav>
+
+      {/* TC Intake Modal */}
+      {mounted && modalOpen && createPortal(
+        <div
+          className={modalStyles.overlay}
+          onClick={e => { if (e.target === e.currentTarget) setModalOpen(false) }}
+        >
+          <div className={modalStyles.panel} role="dialog" aria-modal="true" aria-label="TC Intake Form">
+            <button
+              type="button"
+              onClick={() => setModalOpen(false)}
+              className={modalStyles.closeBtn}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <div className={modalStyles.panelInner}>
+              <TCIntakeForm />
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* Mobile full-screen overlay */}
       {menuOpen && (
@@ -148,7 +175,7 @@ export default function CinemaNav() {
           flexDirection:  'column',
           alignItems:     'center',
           justifyContent: 'center',
-          gap:            '28px',
+          gap:            '12px',
         }}>
           {/* Close button */}
           <button
@@ -192,25 +219,21 @@ export default function CinemaNav() {
             </a>
           ))}
 
-          <a
-            href="https://form.jotform.com/252496909826069"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
+          <button
+            type="button"
+            onClick={() => { setMenuOpen(false); setModalOpen(true) }}
+            className="btn-teal"
             style={{
-              fontFamily:     'var(--font-dm-mono)',
-              fontSize:       '11px',
-              letterSpacing:  '0.18em',
-              textTransform:  'uppercase',
-              color:          'var(--cream)',
-              textDecoration: 'none',
-              border:         '0.5px solid rgba(239,235,226,0.4)',
-              padding:        '14px 32px',
-              marginTop:      '8px',
+              fontFamily:    'var(--font-dm-mono)',
+              fontSize:      '11px',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              padding:       '14px 32px',
+              marginTop:     '8px',
             }}
           >
-            Hire Me
-          </a>
+            Work With Me
+          </button>
         </div>
       )}
     </>

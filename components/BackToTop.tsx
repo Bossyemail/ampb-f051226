@@ -11,13 +11,22 @@ interface BackToTopProps {
   showText?: boolean;
 }
 
-export default function BackToTop({ 
-  threshold = 300, 
+export default function BackToTop({
+  threshold = 300,
   className = '',
-  showText = false 
+  showText = false
 }: BackToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [isCinema, setIsCinema] = useState(false);
+
+  useEffect(() => {
+    const checkCinema = () => setIsCinema(document.documentElement.classList.contains('cinema'));
+    checkCinema();
+    const observer = new MutationObserver(checkCinema);
+    observer.observe(document.documentElement, { attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +37,8 @@ export default function BackToTop({
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [threshold]);
+
+  if (isCinema) return null;
 
   const handleClick = () => {
     window.scrollTo({
@@ -87,14 +98,12 @@ export default function BackToTop({
           onBlur={() => setIsFocused(false)}
           className={`
             fixed bottom-6 right-6 z-50
-            bg-blue-600 hover:bg-blue-700 
-            text-white rounded-full shadow-lg
             transition-all duration-200
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-            ${isFocused ? 'ring-2 ring-blue-500 ring-offset-2' : ''}
+            focus:outline-none
             ${showText ? 'px-4 py-2' : 'p-3'}
             ${className}
           `}
+          style={{ background: 'var(--teal)', color: 'var(--cream)' }}
           aria-label={ARIA_LABELS.BACK_TO_TOP}
           title="Back to top"
         >

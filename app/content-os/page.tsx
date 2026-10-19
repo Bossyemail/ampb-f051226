@@ -208,9 +208,8 @@ function P1Hero() {
         <div ref={ctaRef} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px' }}>
           <button
             onClick={() => window.open('https://agentcontentengine.netlify.app', '_blank', 'noopener,noreferrer')}
-            style={{ background: 'var(--teal)', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '18px 0', width: '280px', border: 'none', cursor: 'pointer', transition: 'background 0.2s', flexShrink: 0 }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'var(--teal2)' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'var(--teal)' }}
+            className="btn-teal"
+            style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '18px 0', width: '280px', border: 'none', flexShrink: 0 }}
           >
             Build Your Content Reflex →
           </button>

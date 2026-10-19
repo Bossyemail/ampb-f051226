@@ -12,12 +12,6 @@ const services = [
   },
   {
     number: "02",
-    title: "DealDesk",
-    href: "/dealdesk",
-    description: "Contract support tools that close communication gaps"
-  },
-  {
-    number: "03",
     title: "Transaction Coordination",
     href: "mailto:hello@aylenmontenegro.com?subject=TC%20availability",
     description: "White-glove transaction coordination and advisory support"

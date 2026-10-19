@@ -16,12 +16,12 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 const BG = ['#363231', '#2a2827', '#363231', '#114B4D']
 
 const MODULES = [
-  { num: '01', name: 'Email',     status: 'AVAILABLE NOW', desc: 'Custom AI email generation so your team communicates faster and consistently. Reduces mistakes, back-and-forth, and time spent writing routine messages.' },
-  { num: '02', name: 'Clauses',   status: 'AVAILABLE NOW', desc: 'Standardized clause language for common real estate scenarios. Helps teams handle edge cases quickly without rewriting or guessing.' },
-  { num: '03', name: 'Templates', status: 'COMING SOON',   desc: 'Repeatable checklists and workflows for every stage of a transaction. Keeps files moving the same way every time, regardless of who is working them.' },
-  { num: '04', name: 'Calendar',  status: 'COMING SOON',   desc: 'Tracks key dates, appointments, and transaction milestones automatically. Keeps everyone aligned on what\'s happening and when.' },
-  { num: '05', name: 'Deadlines', status: 'COMING SOON',   desc: 'Tracks responsibility and enforces critical dates across the file. Prevents missed deadlines and last-minute fire drills.' },
-  { num: '06', name: 'Reports',   status: 'COMING SOON',   desc: 'Shows pipeline status, activity, and performance in one view. Gives team leaders and brokers visibility and control without chasing updates.' },
+  { num: '01', name: 'Email',     status: 'Included at launch', desc: 'Custom AI email generation so your team communicates faster and consistently. Reduces mistakes, back-and-forth, and time spent writing routine messages.' },
+  { num: '02', name: 'Clauses',   status: 'Included at launch', desc: 'Standardized clause language for common real estate scenarios. Helps teams handle edge cases quickly without rewriting or guessing.' },
+  { num: '03', name: 'Templates', status: 'Included at launch',   desc: 'Repeatable checklists and workflows for every stage of a transaction. Keeps files moving the same way every time, regardless of who is working them.' },
+  { num: '04', name: 'Calendar',  status: 'Included at launch',   desc: 'Tracks key dates, appointments, and transaction milestones automatically. Keeps everyone aligned on what\'s happening and when.' },
+  { num: '05', name: 'Deadlines', status: 'Included at launch',   desc: 'Tracks responsibility and enforces critical dates across the file. Prevents missed deadlines and last-minute fire drills.' },
+  { num: '06', name: 'Reports',   status: 'Included at launch',   desc: 'Shows pipeline status, activity, and performance in one view. Gives team leaders and brokers visibility and control without chasing updates.' },
 ]
 
 const PROOF_POINTS = [
@@ -95,7 +95,8 @@ function P1Hero() {
 
       {/* Portrait */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/25-nobg.png" alt="" style={{ position: 'absolute', right: 0, bottom: 0, height: '90%', width: '50%', objectFit: 'contain', objectPosition: 'bottom right', zIndex: 2 }} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/25-nobg.png" alt="" className="hero-portrait-right" style={{ position: 'absolute', right: 0, bottom: 0, height: '90%', width: '50%', objectFit: 'contain', objectPosition: 'bottom right', zIndex: 2 }} />
 
       {/* Photo protection overlay */}
       <div className="img-protect-overlay" style={{ zIndex: 3 }} />
@@ -105,48 +106,48 @@ function P1Hero() {
 
         {/* Eyebrow */}
         <div ref={eyebrowRef} style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}>
-          <div style={{ width: '32px', height: '0.5px', background: '#5f9ea0', flexShrink: 0 }} />
-          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', color: '#5f9ea0', textTransform: 'uppercase' }}>CloseAdmin</span>
+          <div style={{ width: '32px', height: '0.5px', background: 'rgba(239,235,226,0.45)', flexShrink: 0 }} />
+          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(239,235,226,0.65)', textTransform: 'uppercase' }}>CloseAdmin</span>
         </div>
 
         {/* Badge */}
         <span ref={badgeRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(239,235,226,0.7)', border: '0.5px solid rgba(239,235,226,0.3)', padding: '5px 14px', display: 'inline-block', alignSelf: 'flex-start', marginBottom: '28px' }}>
-          Coming Soon
+          Private Beta
         </span>
 
         {/* Headline */}
         <h1 style={{ margin: 0, lineHeight: 0.9 }}>
           <div style={{ overflow: 'hidden' }}>
-            <span ref={line1Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(64px,8vw,110px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, letterSpacing: '-0.02em', paddingBottom: '0.04em' }}>
+            <span ref={line1Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,8vw,110px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, letterSpacing: '-0.02em', paddingBottom: '0.04em' }}>
               Operational
             </span>
           </div>
           <div style={{ overflow: 'hidden' }}>
-            <span ref={line2Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(64px,8vw,110px)', fontWeight: 300, fontStyle: 'italic', color: '#7bbcbe', lineHeight: 1, letterSpacing: '-0.02em', paddingBottom: '0.04em' }}>
+            <span ref={line2Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,8vw,110px)', fontWeight: 300, fontStyle: 'italic', color: 'var(--teal-mid)', lineHeight: 1, letterSpacing: '-0.02em', paddingBottom: '0.04em' }}>
               Purity.
             </span>
           </div>
         </h1>
 
         {/* Rule */}
-        <div ref={ruleRef} style={{ display: 'block', width: '48px', height: '0.5px', background: 'rgba(239,235,226,0.15)', margin: '32px 0' }} />
+        <div ref={ruleRef} className="ca-hero-rule" style={{ display: 'block', width: '48px', height: '0.5px', background: 'rgba(239,235,226,0.15)', margin: '32px 0' }} />
 
         {/* Body */}
-        <p ref={bodyRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '15px', fontWeight: 300, lineHeight: 1.8, color: 'rgba(224,220,214,0.82)', maxWidth: '400px', margin: '0 0 40px 0' }}>
+        <p ref={bodyRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '15px', fontWeight: 300, lineHeight: 1.8, color: 'rgba(239,235,226,0.82)', maxWidth: '400px', margin: '0 0 40px 0' }}>
           The complete operating system for agents, TCs, and teams running real volume. Six modules. One dashboard. Built from 3,000+ real transactions — not a SaaS brainstorm.
         </p>
 
         {/* Waitlist form */}
         <div ref={formRef} id="waitlist">
-          <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#5f9ea0', marginBottom: '14px' }}>
+          <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', marginBottom: '14px' }}>
             Join the Waitlist
           </span>
           {submitted ? (
-            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', margin: '8px 0 0 0' }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: '8px 0 0 0' }}>
               You&apos;re on the list. We&apos;ll be in touch.
             </p>
           ) : (
-            <div style={{ display: 'flex', gap: 0, maxWidth: '460px' }}>
+            <div className="ca-form-row" style={{ display: 'flex', gap: 0, maxWidth: '460px' }}>
               <input
                 type="email"
                 value={email}
@@ -158,18 +159,21 @@ function P1Hero() {
               />
               <button
                 onClick={handleNotifySubmit}
-                style={{ background: 'var(--teal)', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '18px 32px', border: '0.5px solid rgba(239,235,226,0.2)', cursor: 'pointer', flexShrink: 0, transition: 'background 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'var(--teal2)' }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--teal)' }}
+                className="btn-teal"
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '18px 32px', border: '0.5px solid rgba(239,235,226,0.2)', flexShrink: 0 }}
               >
                 Notify Me
               </button>
             </div>
           )}
         </div>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', color: 'rgba(239,235,226,0.3)', margin: '12px 0 0 0', lineHeight: 1.6 }}>
+          Your email is sent to Kit (our email provider). Unsubscribe any time.{' '}
+          <a href="/privacy" style={{ color: 'rgba(95,158,160,0.5)', textDecoration: 'none' }}>Privacy Policy</a>.
+        </p>
 
         {/* Pillars */}
-        <div ref={pillarsRef} style={{ display: 'flex', gap: 0, marginTop: '36px' }}>
+        <div ref={pillarsRef} className="ca-hero-pillars" style={{ display: 'flex', gap: 0, marginTop: '36px' }}>
           {PILLARS.map((p, i) => (
             <div key={p.title} style={{ paddingRight: '24px', borderRight: i < PILLARS.length - 1 ? '0.5px solid rgba(239,235,226,0.1)' : 'none', marginRight: i < PILLARS.length - 1 ? '24px' : 0, whiteSpace: 'nowrap' }}>
               <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '8px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--cognac)', marginBottom: '4px' }}>{p.title}</span>
@@ -249,7 +253,7 @@ function P2Suite() {
 
           {/* Left col */}
           <div style={{ flex: '0 0 38%' }}>
-            <p ref={eyebrowRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#5f9ea0', margin: '0 0 20px 0' }}>
+            <p ref={eyebrowRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', margin: '0 0 20px 0' }}>
               The Suite
             </p>
             <h2 ref={headRef} style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,4vw,52px)', fontWeight: 300, color: 'var(--cream)', margin: '0 0 24px 0', lineHeight: 1.05 }}>
@@ -257,12 +261,12 @@ function P2Suite() {
               One operating<br />
               <em>system.</em>
             </h2>
-            <p ref={bodyRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(224,220,214,0.82)', lineHeight: 1.8, margin: '0 0 40px 0' }}>
+            <p ref={bodyRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(239,235,226,0.82)', lineHeight: 1.8, margin: '0 0 40px 0' }}>
               Every module was built because I needed it in a real transaction. Then refined because my clients needed it better.
             </p>
-            <a href="#waitlist" style={{ display: 'inline-block', width: '208px', textAlign: 'center', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#5f9ea0', border: '0.5px solid rgba(95,158,160,0.5)', padding: '14px 0', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s' }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#5f9ea0'; e.currentTarget.style.color = 'var(--cream)' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(95,158,160,0.5)'; e.currentTarget.style.color = '#5f9ea0' }}
+            <a href="#waitlist" style={{ display: 'inline-block', fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--teal-mid)', border: '0.5px solid rgba(95,158,160,0.5)', padding: '14px 36px', textDecoration: 'none', transition: 'border-color 0.2s, color 0.2s' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--teal-mid)'; e.currentTarget.style.color = 'var(--cream)' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(95,158,160,0.5)'; e.currentTarget.style.color = 'var(--teal-mid)' }}
             >
               Join the Waitlist →
             </a>
@@ -281,7 +285,7 @@ function P2Suite() {
                 <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'rgba(239,235,226,0.2)', letterSpacing: '0.2em', flexShrink: 0, paddingTop: '4px', minWidth: '28px' }}>{mod.num}</span>
                 <div style={{ flex: 1 }}>
                   <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: '28px', fontWeight: 600, color: 'var(--cream)', lineHeight: 1.0, margin: '0 0 8px 0' }}>{mod.name}</h3>
-                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'rgba(224,220,214,0.7)', lineHeight: 1.75, margin: 0 }}>{mod.desc}</p>
+                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'rgba(239,235,226,0.7)', lineHeight: 1.75, margin: 0 }}>{mod.desc}</p>
                 </div>
                 <span style={{
                   fontFamily:    'var(--font-dm-mono)',
@@ -290,8 +294,8 @@ function P2Suite() {
                   textTransform: 'uppercase',
                   padding:       '4px 12px',
                   flexShrink:    0,
-                  color:         mod.status === 'AVAILABLE NOW' ? '#5f9ea0' : 'rgba(239,235,226,0.3)',
-                  border:        mod.status === 'AVAILABLE NOW' ? '0.5px solid rgba(95,158,160,0.4)' : '0.5px solid rgba(239,235,226,0.1)',
+                  color:         mod.status === 'Included at launch' ? 'var(--teal-mid)' : 'rgba(239,235,226,0.3)',
+                  border:        mod.status === 'Included at launch' ? '0.5px solid rgba(95,158,160,0.4)' : '0.5px solid rgba(239,235,226,0.1)',
                 }}>
                   {mod.status}
                 </span>
@@ -363,14 +367,14 @@ function P3Proof() {
 
           {/* Left col */}
           <div ref={leftRef} style={{ flex: '0 0 38%' }}>
-            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#5f9ea0', margin: '0 0 20px 0' }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', margin: '0 0 20px 0' }}>
               Why It Exists
             </p>
             <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,4vw,52px)', fontWeight: 300, color: 'var(--cream)', margin: '0 0 24px 0', lineHeight: 1.05 }}>
               Built by a TC.<br />
               <em>Not a product team.</em>
             </h2>
-            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(224,220,214,0.82)', lineHeight: 1.8, margin: '0 0 40px 0' }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(239,235,226,0.82)', lineHeight: 1.8, margin: '0 0 40px 0' }}>
               This wasn&apos;t designed to sound good. It was designed to hold up under pressure — inside real transactions, with real deadlines, and real consequences.
             </p>
             <blockquote style={{ margin: 0, borderLeft: '2px solid #5f9ea0', paddingLeft: '24px', fontFamily: 'var(--font-cormorant)', fontSize: '20px', fontStyle: 'italic', color: 'rgba(239,235,226,0.6)', lineHeight: 1.55 }}>
@@ -393,7 +397,7 @@ function P3Proof() {
                 </span>
                 <div style={{ flex: 1 }}>
                   <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(26px,2.8vw,36px)', fontWeight: 400, color: 'var(--cream)', margin: '0 0 12px 0' }}>{pt.title}</h3>
-                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(224,220,214,0.82)', lineHeight: 1.75, margin: 0 }}>{pt.body}</p>
+                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(239,235,226,0.82)', lineHeight: 1.75, margin: 0 }}>{pt.body}</p>
                 </div>
               </div>
             ))}
@@ -433,7 +437,7 @@ function P4CTA() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} data-panel="3" style={{ background: '#114B4D', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 6%', textAlign: 'center', position: 'relative' }}>
+    <section ref={sectionRef} data-panel="3" className="ca-cta-section" style={{ background: '#114B4D', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 6%', textAlign: 'center', position: 'relative' }}>
       <div className="seam-tab" style={{
         position:   'absolute',
         top:        '-72px',
@@ -462,24 +466,24 @@ function P4CTA() {
           access
         </div>
       </div>
-      <div ref={contentRef}>
+      <div ref={contentRef} className="ca-cta-content">
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(239,235,226,0.5)', margin: '0 0 32px 0' }}>
           Get Early Access
         </p>
-        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(48px,6.5vw,88px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 0.92, maxWidth: '700px', margin: '0 auto' }}>
+        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(32px,6.5vw,88px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 0.92, maxWidth: '700px', margin: '0 auto' }}>
           Ready to run your<br />
           operation like a<br />
           real business?
         </h2>
-        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(239,235,226,0.65)', maxWidth: '480px', margin: '28px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 'clamp(14px,1.2vw,15px)', color: 'rgba(239,235,226,0.65)', maxWidth: '480px', margin: '20px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
           Start free. No credit card. Full access to every module. If it saves you time, you&apos;ll know in a week. If it doesn&apos;t, close the tab and forget you met me.
         </p>
         {submitted ? (
-          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', marginTop: '48px', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', marginTop: '48px', textAlign: 'center' }}>
             You&apos;re on the list. We&apos;ll be in touch.
           </p>
         ) : (
-          <div style={{ marginTop: '48px', width: '100%', maxWidth: '500px', margin: '48px auto 0', display: 'flex', gap: 0 }}>
+          <div className="ca-form-row ca-form-on-teal" style={{ marginTop: '48px', width: '100%', maxWidth: '500px', margin: '48px auto 0', display: 'flex', gap: 0 }}>
             <input
               type="email"
               value={email}
@@ -491,15 +495,8 @@ function P4CTA() {
             />
             <button
               onClick={handleWaitlistSubmit}
-              style={{ background: 'var(--cream)', color: 'var(--teal)', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '16px 36px', border: '0.5px solid var(--cream)', cursor: 'pointer', flexShrink: 0, transition: 'background 0.2s, color 0.2s' }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = '#2a2827'
-                e.currentTarget.style.color = 'var(--cream)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'var(--cream)'
-                e.currentTarget.style.color = 'var(--teal)'
-              }}
+              className="btn-inverted"
+              style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '16px 36px', border: '0.5px solid var(--cream)', flexShrink: 0 }}
             >
               Join Waitlist
             </button>

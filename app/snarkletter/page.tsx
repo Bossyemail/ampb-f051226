@@ -4,10 +4,11 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 
-import Cursor      from '@/components/Cursor'
-import ProgressBar from '@/components/ProgressBar'
-import CinemaNav   from '@/components/CinemaNav'
-import SocialBar   from '@/components/SocialBar'
+import Cursor         from '@/components/Cursor'
+import ProgressBar    from '@/components/ProgressBar'
+import CinemaNav      from '@/components/CinemaNav'
+import SocialBar      from '@/components/SocialBar'
+import WatermarkPatch from '@/components/WatermarkPatch'
 import PanelIndex  from '@/components/PanelIndex'
 import Footer      from '@/components/Footer'
 
@@ -18,7 +19,7 @@ const BG = ['#363231', '#2a2827', '#2a2827', '#114B4D']
 const KIT_ACTION = 'https://app.kit.com/forms/b3faf3ce2a/subscriptions'
 
 const CARDS = [
-  { title: 'Compliance breakdowns', body: "Real disclosure failures from real files. Named, dated, and dissected — so you never get caught." },
+  { title: 'Compliance breakdowns', body: "Anonymized breakdowns of real transaction failures — what happened, what was missed, and how to prevent it." },
   { title: 'Operator playbooks',    body: "How top TCs and brokerages run 40+ files without losing their minds. Templates, systems, and why they work." },
   { title: 'Industry commentary',   body: "What's actually happening in South Florida, not what NAR's press release says. Opinions with teeth." },
 ]
@@ -49,7 +50,7 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
 
   if (submitted) {
     return (
-      <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', margin: 0 }}>
+      <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: 0 }}>
         You&apos;re on the list. First issue incoming.
       </p>
     )
@@ -57,7 +58,7 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
 
   return (
     <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-      <div style={{ display: 'flex', gap: 0, maxWidth: isDark ? '480px' : undefined }}>
+      <div className={`ca-form-row${!isDark ? ' ca-form-on-teal' : ''}`} style={{ display: 'flex', gap: 0, maxWidth: isDark ? '480px' : undefined }}>
         <input
           type="email"
           name="email_address"
@@ -85,8 +86,8 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
           type="submit"
           style={{
             height:        '48px',
-            background:    isDark ? '#2d6a6a' : 'var(--cream)',
-            color:         isDark ? '#ffffff' : 'var(--teal)',
+            background:    isDark ? 'var(--teal)' : 'var(--cream)',
+            color:         isDark ? 'var(--cream)' : 'var(--teal)',
             fontFamily:    'var(--font-dm-mono)',
             fontSize:      '11px',
             letterSpacing: '0.16em',
@@ -101,12 +102,12 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
           }}
           onMouseEnter={e => {
             const b = e.currentTarget
-            b.style.background = isDark ? '#235858' : '#2a2827'
+            b.style.background = isDark ? 'var(--teal2)' : '#2a2827'
             if (!isDark) b.style.color = 'var(--cream)'
           }}
           onMouseLeave={e => {
             const b = e.currentTarget
-            b.style.background = isDark ? '#2d6a6a' : 'var(--cream)'
+            b.style.background = isDark ? 'var(--teal)' : 'var(--cream)'
             if (!isDark) b.style.color = 'var(--teal)'
           }}
         >
@@ -175,8 +176,8 @@ function P1Hero() {
 
         {/* Eyebrow */}
         <div ref={eyebrowRef} style={{ display: 'flex', alignItems: 'center', gap: '14px', opacity: 0 }}>
-          <div style={{ width: '32px', height: '0.5px', background: 'var(--cognac)', flexShrink: 0 }} />
-          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', color: 'var(--cognac)', textTransform: 'uppercase' }}>
+          <div style={{ width: '32px', height: '0.5px', background: 'rgba(239,235,226,0.45)', flexShrink: 0 }} />
+          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(239,235,226,0.65)', textTransform: 'uppercase' }}>
             The Newsletter
           </span>
         </div>
@@ -184,7 +185,7 @@ function P1Hero() {
         {/* Headline */}
         <h1 style={{ margin: '28px 0 0 0', lineHeight: 0.92 }}>
           <div style={{ overflow: 'hidden' }}>
-            <span ref={line1Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(40px,5vw,68px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, paddingBottom: '0.04em' }}>
+            <span ref={line1Ref} style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,5vw,72px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, letterSpacing: '-0.02em', paddingBottom: '0.04em' }}>
               The Real Estate
             </span>
           </div>
@@ -210,11 +211,11 @@ function P1Hero() {
               paddingRight:  '24px',
               paddingTop:    '24px',
               paddingBottom: '24px',
-              borderRight:   i < PILLARS.length - 1 ? '0.5px solid rgba(255,255,255,0.2)' : 'none',
+              borderRight:   i < PILLARS.length - 1 ? '0.5px solid rgba(239,235,226,0.2)' : 'none',
               marginRight:   i < PILLARS.length - 1 ? '24px' : 0,
             }}>
               <span style={{ display: 'block', fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(20px,2.4vw,26px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1, marginBottom: '6px' }}>{p.title}</span>
-              <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>{p.sub}</span>
+              <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(239,235,226,0.5)' }}>{p.sub}</span>
             </div>
           ))}
         </div>
@@ -224,21 +225,21 @@ function P1Hero() {
           {/* Card */}
           <div style={{
             maxWidth:       '480px',
-            border:         '1px solid rgba(255,255,255,0.15)',
-            background:     'rgba(255,255,255,0.04)',
+            border:         '1px solid rgba(239,235,226,0.15)',
+            background:     'rgba(239,235,226,0.04)',
             backdropFilter: 'blur(8px)',
             padding:        '32px 40px',
           }}>
-            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#5f9ea0', margin: '0 0 16px 0' }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', margin: '0 0 16px 0' }}>
               Get on the List
             </p>
             {heroSubmitted ? (
-              <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#5f9ea0', margin: 0 }}>
+              <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: 0 }}>
                 You&apos;re on the list. First issue incoming.
               </p>
             ) : (
               <form onSubmit={handleHeroSubmit} style={{ width: '100%' }}>
-                <div style={{ display: 'flex', width: '100%' }}>
+                <div className="ca-form-row" style={{ display: 'flex', width: '100%' }}>
                   <input
                     type="email"
                     name="email_address"
@@ -250,29 +251,29 @@ function P1Hero() {
                       flex:        1,
                       height:      '48px',
                       background:  'transparent',
-                      border:      '1px solid rgba(255,255,255,0.2)',
+                      border:      '1px solid rgba(239,235,226,0.2)',
                       borderRight: 'none',
-                      color:       '#ffffff',
+                      color:       'var(--cream)',
                       fontFamily:  'var(--font-dm-mono)',
                       fontSize:    '13px',
                       paddingLeft: '16px',
                       outline:     'none',
                       boxSizing:   'border-box' as const,
                     }}
-                    onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)' }}
-                    onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)' }}
+                    onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.4)' }}
+                    onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.2)' }}
                   />
                   <button
                     type="submit"
                     style={{
                       height:        '48px',
-                      background:    '#5f9ea0',
-                      color:         '#ffffff',
+                      background:    'var(--teal-mid)',
+                      color:         'var(--cream)',
                       fontFamily:    'var(--font-dm-mono)',
                       fontSize:      '11px',
                       letterSpacing: '0.16em',
                       textTransform: 'uppercase',
-                      padding:       '0 24px',
+                      padding:       '0 32px',
                       border:        'none',
                       cursor:        'pointer',
                       whiteSpace:    'nowrap',
@@ -280,8 +281,8 @@ function P1Hero() {
                       transition:    'background 0.2s',
                       boxSizing:     'border-box' as const,
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#4a8a8a' }}
-                    onMouseLeave={e => { e.currentTarget.style.background = '#5f9ea0' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'var(--teal2)' }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'var(--teal-mid)' }}
                   >
                     Subscribe
                   </button>
@@ -290,8 +291,12 @@ function P1Hero() {
             )}
           </div>
           {/* Social proof — outside card */}
-          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'rgba(255,255,255,0.4)', margin: '16px 0 0 0' }}>
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'rgba(239,235,226,0.4)', margin: '16px 0 0 0' }}>
             <span style={{ marginRight: '6px' }}>·</span>Read by the people closest to the closing table.
+          </p>
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', color: 'rgba(239,235,226,0.25)', margin: '10px 0 0 0', lineHeight: 1.6 }}>
+            Your email is sent to Kit (our email provider). Unsubscribe any time.{' '}
+            <a href="/privacy" style={{ color: 'rgba(95,158,160,0.6)', textDecoration: 'none' }}>Privacy Policy</a>.
           </p>
         </div>
       </div>
@@ -310,6 +315,8 @@ function P1Hero() {
         <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '40%', background: 'linear-gradient(to right, #2a2827 0%, transparent 100%)', pointerEvents: 'none' }} />
         {/* Bottom fade */}
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to bottom, transparent 60%, #2a2827 100%)', pointerEvents: 'none' }} />
+        {/* Watermark patch — bottom-right sparkle icon */}
+        <WatermarkPatch corner="bottom-right" width={100} height={100} color="rgba(42,40,39,0.98)" />
         {/* Photo protection overlay */}
         <div className="img-protect-overlay" />
       </div>
@@ -350,33 +357,35 @@ function P1bWhyThisExists() {
       />
 
       {/* Dark overlay for legibility */}
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)', zIndex: 1 }} />
+      <div className="snarkletter-why-overlay" style={{ position: 'absolute', inset: 0, background: 'rgba(54,50,49,0.55)', zIndex: 1 }} />
+      {/* Centered radial scrim — extra density behind the text column */}
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(20,18,17,0.55) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }} />
 
       {/* Bottom fade into next section */}
       <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '500px', background: 'linear-gradient(to bottom, transparent 0%, rgba(42,40,39,0.6) 50%, #2a2827 100%)', zIndex: 2, pointerEvents: 'none' }} />
 
       {/* Text overlay */}
-      <div ref={leftRef} style={{ position: 'relative', zIndex: 3, paddingTop: '8vh', maxWidth: '800px', margin: '0 auto', paddingLeft: '32px', paddingRight: '32px', textAlign: 'center' }}>
+      <div ref={leftRef} className="why-exists-content" style={{ position: 'relative', zIndex: 3, paddingTop: '8vh', maxWidth: '800px', margin: '0 auto', paddingLeft: '32px', paddingRight: '32px', textAlign: 'center' }}>
         <div style={{ marginBottom: '24px' }}>
-          <span style={{ display: 'inline-block', background: '#2d6a6a', color: '#ffffff', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 0 }}>
+          <span style={{ display: 'inline-block', background: 'var(--teal)', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 0 }}>
             Why This Exists
           </span>
         </div>
-        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(40px,5vw,64px)', fontWeight: 300, color: '#ffffff', lineHeight: 1.05, margin: '0 0 32px 0', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
-          What 3,000+ closings taught me.<br />
-          <span style={{ fontStyle: 'italic' }}>Your inbox gets it weekly.</span>
+        <h2 className="why-exists-headline" style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(40px,5vw,64px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 1.05, margin: '0 0 32px 0' }}>
+          What 3K+ closings taught&nbsp;me.<br />
+          <span style={{ fontStyle: 'italic', display: 'block', textAlign: 'center' }}>Your inbox gets it weekly.</span>
         </h2>
-        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '15px', fontWeight: 300, lineHeight: 1.8, color: 'rgba(255,255,255,0.85)', maxWidth: '512px', margin: '0 auto 40px' }}>
-          Most real estate content is recycled LinkedIn advice. This is different. Every issue pulls from real transactions — what worked, what failed, what saved the deal, and what the textbooks never covered.<br />Insider access, no paywall, just show up.
+        <p className="why-exists-body" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '15px', fontWeight: 300, lineHeight: 1.8, color: 'rgba(239,235,226,0.85)', maxWidth: '512px', margin: '0 auto 16px' }}>
+          Most real estate content is recycled LinkedIn advice. This is different. Every issue pulls from real transactions — what worked, what failed, what saved the deal, and what the textbooks never covered.<br /><br />Insider access, no paywall, just show up.
         </p>
-        <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '20px', fontStyle: 'italic', color: 'rgba(255,255,255,0.75)', lineHeight: 1.5, margin: 0, whiteSpace: 'nowrap' }}>
+        <p className="why-exists-quote" style={{ fontFamily: 'var(--font-cormorant)', fontSize: '20px', fontStyle: 'italic', color: 'rgba(239,235,226,0.75)', lineHeight: 1.5, margin: 0 }}>
           &ldquo;The closing table has secrets. This is where they live.&rdquo;
         </p>
       </div>
 
       {/* Scroll indicator */}
       <div style={{ position: 'absolute', bottom: '48px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', zIndex: 3 }}>
-        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Scroll</span>
+        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(239,235,226,0.4)' }}>Scroll</span>
         <div style={{ width: '0.5px', height: '32px', background: 'rgba(255,255,255,0.2)' }} />
       </div>
     </section>
@@ -424,7 +433,7 @@ function P2WhatYouGet() {
 
           {/* Left col — 38% */}
           <div ref={leftRef} style={{ flex: '0 0 38%' }}>
-            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#5f9ea0', margin: '0 0 24px 0' }}>
+            <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--teal-mid)', margin: '0 0 24px 0' }}>
               What You&apos;ll Actually Get
             </p>
             <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(36px,4vw,52px)', fontWeight: 400, color: 'var(--cream)', margin: '0 0 32px 0', lineHeight: 1.1, letterSpacing: '-0.01em' }}>
@@ -434,7 +443,7 @@ function P2WhatYouGet() {
             </h2>
             {[
               "One letter a week. No fluff, no vendor pitches, no motivational reheats.",
-              "Just what actually broke in real files this week, what brokers miss until it costs them $15K, and the systems I've pulled out of 3,000+ transactions to keep volume from turning into chaos.",
+              "Just what actually broke in real files this week, what brokers routinely miss before it becomes a problem, and the systems I've pulled out of 3,000+ transactions to keep volume from turning into chaos.",
               "Built for agents, brokers, and TCs who are done being surprised on Friday at 4pm.",
             ].map((t, i) => (
               <p key={i} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(224,220,214,0.82)', lineHeight: 1.85, margin: i === 0 ? 0 : '16px 0 0 0' }}>{t}</p>
@@ -455,12 +464,12 @@ function P2WhatYouGet() {
                   padding:      '24px 0 32px 0',
                 }}
               >
-                <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.25em', color: '#5f9ea0', flexShrink: 0, minWidth: '40px', paddingTop: '4px' }}>
+                <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.25em', color: 'var(--teal-mid)', flexShrink: 0, minWidth: '40px', paddingTop: '4px' }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(22px,2vw,28px)', fontWeight: 400, color: 'var(--cream)', margin: '0 0 8px 0', lineHeight: 1.15 }}>{card.title}</h3>
-                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: '#a8a49c', lineHeight: 1.75, margin: 0 }}>{card.body}</p>
+                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'rgba(188,175,175,0.75)', lineHeight: 1.75, margin: 0 }}>{card.body}</p>
                 </div>
               </div>
             ))}
@@ -490,6 +499,7 @@ function P3Subscribe() {
     <section
       ref={sectionRef}
       data-panel="3"
+      className="snark-subscribe-section"
       style={{
         background:     '#114B4D',
         minHeight:      '100vh',
@@ -534,21 +544,25 @@ function P3Subscribe() {
         </div>
       </div>
 
-      <div ref={contentRef} style={{ maxWidth: '672px', width: '100%', textAlign: 'center' }}>
+      <div ref={contentRef} className="snark-subscribe-content" style={{ maxWidth: '672px', width: '100%', textAlign: 'center' }}>
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(239,235,226,0.5)', margin: '0 0 32px 0' }}>
           Get on the List
         </p>
-        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(44px,6vw,72px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 0.95, margin: 0 }}>
+        <h2 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(32px,6vw,72px)', fontWeight: 300, color: 'var(--cream)', lineHeight: 0.95, margin: 0 }}>
           Join before the<br />next issue drops.
         </h2>
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'rgba(239,235,226,0.65)', margin: '24px 0 0 0', lineHeight: 1.8 }}>
-          Free forever. Unsubscribe with one click. No sales pipeline.
+          Free forever.<br />Unsubscribe with one click.
         </p>
         <div style={{ marginTop: '48px', width: '100%', maxWidth: '500px', margin: '48px auto 0' }}>
           <SubscribeForm variant="teal" />
         </div>
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', color: 'rgba(239,235,226,0.5)', margin: '16px 0 0 0' }}>
-          <span style={{ color: '#5f9ea0', marginRight: '6px' }}>·</span>Read by the people closest to the closing table.
+          <span style={{ color: 'var(--teal-mid)', marginRight: '6px' }}>·</span>Read by the people closest to the closing table.
+        </p>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', color: 'rgba(239,235,226,0.3)', margin: '10px 0 0 0', lineHeight: 1.6 }}>
+          Your email is sent to Kit (our email provider). Unsubscribe any time.{' '}
+          <a href="/privacy" style={{ color: 'rgba(95,158,160,0.5)', textDecoration: 'none' }}>Privacy Policy</a>.
         </p>
       </div>
     </section>
@@ -626,7 +640,7 @@ export default function SnarkletterPage() {
         <P2WhatYouGet />
         <P3Subscribe />
       </main>
-      <Footer />
+      <Footer easterEgg />
     </>
   )
 }

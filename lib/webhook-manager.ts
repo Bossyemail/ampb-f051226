@@ -1,4 +1,5 @@
 // Advanced Webhook Management System
+import { sendAccessEmail } from './send-access-email';
 
 interface WebhookEvent {
   id: string;
@@ -252,7 +253,7 @@ class WebhookManager {
   // Stripe webhook handlers
   private async handleCheckoutCompleted(session: any) {
     if (session.customer_email && session.metadata?.product === 'clausevault') {
-      await this.sendAccessEmail({
+      await sendAccessEmail({
         email: session.customer_email,
         customerName: session.customer_details?.name || '',
         productName: 'ClauseVault Pro',
@@ -310,37 +311,6 @@ class WebhookManager {
   private async handleSessionEnded(session: any) {
     console.log('Session ended:', session.id);
     // Handle user logout
-  }
-
-  private async sendAccessEmail({ email, customerName, productName, accessUrl }: {
-    email: string;
-    customerName: string;
-    productName: string;
-    accessUrl: string;
-  }) {
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-access-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          customerName,
-          productName,
-          accessUrl,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send access email');
-      }
-
-      console.log('Access email sent successfully to:', email);
-    } catch (error) {
-      console.error('Error sending access email:', error);
-      throw error;
-    }
   }
 
   // Get webhook statistics

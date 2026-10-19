@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 import { headers } from 'next/headers';
 import { webhookManager } from '@/lib/webhook-manager';
 import { rateLimiters, withRateLimit } from '@/lib/rate-limiter';
+import { sendAccessEmail } from '@/lib/send-access-email';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-07-30.basil',
@@ -110,32 +111,4 @@ async function processEventImmediately(event: Stripe.Event) {
   }
 }
 
-async function sendAccessEmail({ email, customerName, productName, accessUrl }: {
-  email: string;
-  customerName: string;
-  productName: string;
-  accessUrl: string;
-}) {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-access-email`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        customerName,
-        productName,
-        accessUrl,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to send access email');
-    }
-
-    console.log('Access email sent successfully to:', email);
-  } catch (error) {
-    console.error('Error sending access email:', error);
-  }
-}
+// sendAccessEmail is imported from @/lib/send-access-email and called directly above.

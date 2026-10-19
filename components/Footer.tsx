@@ -1,84 +1,96 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import SocialLinksRow from "@/components/SocialLinksRow";
+export default function Footer({ hideSocial, easterEgg }: { hideSocial?: boolean; easterEgg?: boolean } = {}) {
+  const linkBase: React.CSSProperties = {
+    display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '12px',
+    color: 'rgba(239,235,226,0.5)', textDecoration: 'none', marginBottom: '12px', transition: 'color 0.2s',
+  }
+  const colHead: React.CSSProperties = {
+    display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '9px',
+    letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--cognac)', marginBottom: '20px',
+  }
+  const hIn  = (e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.color = 'var(--cream)' }
+  const hOut = (e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.color = 'rgba(239,235,226,0.5)' }
 
-export default function Footer() {
   return (
-    <footer className="relative -mt-px w-full overflow-hidden">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 z-0 w-full bg-cover bg-center"
-        style={{
-          backgroundImage: "url(/clausevault-bg-71.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
+    <footer style={{ background: '#2a2827', position: 'relative' }}>
 
-      {/* Black overlay for legibility */}
-      <div className="absolute inset-0 z-[1] bg-black/60 sm:bg-black/80" />
-
-      {/* Blend page background into footer image (matches #0b0c0f canvas on marketing pages) */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-28 bg-gradient-to-b from-[#0b0c0f] via-[#0b0c0f]/70 to-transparent sm:h-36 md:h-40"
-        aria-hidden
-      />
-
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-12 pt-16 md:px-8">
-        <div className="grid gap-10 md:grid-cols-12">
-          {/* brand */}
-          <div className="md:col-span-4">
-            <p className="text-[10px] tracking-[0.28em] text-white/55" style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>AYLEN MONTENEGRO</p>
-            <p className="mt-4 text-sm text-white/75">
-              The operational spine for real estate professionals closing real volume.
-            </p>
-
-            <div className="mt-4">
-              <SocialLinksRow />
-            </div>
-          </div>
-
-          {/* explore */}
-          <div className="md:col-span-4 md:col-start-6">
-            <p className="text-[10px] tracking-[0.28em] text-white/55" style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>EXPLORE</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/75">
-              <li><Link className="hover:text-white" href="/closeadmin">CloseAdmin</Link></li>
-              <li><Link className="hover:text-white" href="/dealdesk">DealDesk</Link></li>
-              <li><Link className="hover:text-white" href="/elevate">TC Services</Link></li>
-              <li><Link className="hover:text-white" href="/snarkletter">Snarkletter</Link></li>
-              <li><Link className="hover:text-white" href="/about">About</Link></li>
-            </ul>
-          </div>
-
-          {/* legal */}
-          <div className="md:col-span-3 md:col-start-10">
-            <p className="text-[10px] tracking-[0.28em] text-white/55" style={{ fontFamily: "'IBM Plex Mono', ui-monospace, monospace" }}>LEGAL</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/75">
-              <li><Link className="hover:text-white" href="/privacy">Privacy Policy</Link></li>
-              <li><Link className="hover:text-white" href="/terms">Terms &amp; Conditions</Link></li>
-              <li><Link className="hover:text-white" href="/affiliate-disclosure">Affiliate Disclosure</Link></li>
-              <li><Link className="hover:text-white" href="/accessibility">Accessibility</Link></li>
-              <li><Link className="hover:text-white" href="/data-security">Data &amp; Security</Link></li>
-            </ul>
-          </div>
+      {/* Seam tab — easter egg, shown only on homepage and Snarkletter */}
+      {easterEgg && <div className="seam-tab" style={{
+        position:   'absolute',
+        top:        0,
+        right:      0,
+        transform:  'translateY(-100%)',
+        background: '#2a2827',
+        padding:    '16px 24px',
+        zIndex:     10,
+      }}>
+        <div style={{
+          fontFamily:  'var(--font-cormorant)',
+          fontSize:    '28px',
+          fontWeight:  600,
+          color:       'var(--cream)',
+          lineHeight:  1,
+        }}>
+          Nobody
         </div>
-
-        {/* divider row */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2025 Aylen Montenegro. All rights reserved.</span>
-          <span>Built in Miami. Engineered for every closing table in Florida.</span>
-          </div>
-
-        {/* disclaimer */}
-        <div className="mt-8 max-w-4xl text-sm leading-relaxed text-white/70">
-          This site contains caffeine-powered opinions, sharp tools, and insider content for real estate pros.
-          Nothing here is legal, tax, or financial advice. Use our resources responsibly, confirm with your broker or attorney when needed.
-          Proceed at your own risk (and reward).
+        <div style={{
+          fontFamily:    'var(--font-dm-mono)',
+          fontSize:      '9px',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          color:         'rgba(239,235,226,0.65)',
+          marginTop:     '5px',
+        }}>
+          reads this
+        </div>
+      </div>}
+      <div className="footer-cols" style={{ padding: '64px 64px 64px 80px', display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: '8%' }}>
+        <div>
+          <div style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--cream)', marginBottom: '16px' }}>Aylen Montenegro</div>
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', fontWeight: 300, lineHeight: 1.7, color: 'rgba(239,235,226,0.60)', maxWidth: '280px', margin: '0 0 16px 0' }}>
+            Aylen Montenegro — transaction coordination and operational software for South Florida real estate.
+          </p>
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', fontWeight: 300, lineHeight: 1.7, color: 'rgba(239,235,226,0.55)', maxWidth: '280px', margin: '0 0 28px 0' }}>
+            Miami, Florida. Serving Miami-Dade, Broward, and Palm Beach.
+          </p>
+          <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', fontWeight: 300, lineHeight: 1.7, color: 'rgba(239,235,226,0.55)', maxWidth: '280px', margin: '0 0 28px 0' }}>
+            The operational spine for real estate professionals closing real volume.
+          </p>
+        </div>
+        <div>
+          <span style={colHead}>Explore</span>
+          {[
+            { label: 'TC Services',  href: '/tc-services'  },
+            { label: 'CloseAdmin',   href: '/closeadmin'   },
+            { label: 'Snarkletter',  href: '/snarkletter'  },
+            { label: 'About',        href: '/about'        },
+          ].map(({ label, href }) => (
+            <a key={label} href={href} style={linkBase} onMouseEnter={hIn} onMouseLeave={hOut}>{label}</a>
+          ))}
+        </div>
+        <div>
+          <span style={colHead}>Legal</span>
+          {[
+            { label: 'Privacy Policy',       href: '/privacy'               },
+            { label: 'Terms & Conditions',   href: '/terms'                 },
+            { label: 'Affiliate Disclosure', href: '/affiliate-disclosure'  },
+            { label: 'Accessibility',        href: '/accessibility'         },
+            { label: 'Data & Security',      href: '/data-security'         },
+          ].map(({ label, href }) => (
+            <a key={label} href={href} style={linkBase} onMouseEnter={hIn} onMouseLeave={hOut}>{label}</a>
+          ))}
         </div>
       </div>
+      <div className="footer-bottom-row" style={{ borderTop: '0.5px solid rgba(239,235,226,0.08)', padding: '24px 64px 24px 80px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', color: 'rgba(239,235,226,0.2)' }}>© {new Date().getFullYear()} Aylen Montenegro. All rights reserved.</span>
+        <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', color: 'rgba(239,235,226,0.2)' }}>Built in Miami. Engineered for every closing table in Florida.</span>
+      </div>
+      <div className="footer-disclaimer" style={{ padding: '0 64px 72px 80px' }}>
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', lineHeight: 1.7, color: 'rgba(239,235,226,0.25)', maxWidth: '800px', margin: '24px 0 0 0' }}>
+          Information on this website is provided for general educational and operational purposes and does not constitute legal, tax, financial, brokerage, or professional advice. Users should confirm transaction-specific requirements with their broker, attorney, title professional, lender, or other appropriate adviser.
+        </p>
+      </div>
     </footer>
-  );
+  )
 }

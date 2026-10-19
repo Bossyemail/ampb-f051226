@@ -3,8 +3,8 @@ export const structuredData = {
   "@type": "Person",
   "name": "Aylen Montenegro",
   "description": "Real estate consultant and industry expert with over 20 years of experience in South Florida real estate.",
-  "url": "https://yourdomain.com/about",
-  "image": "https://yourdomain.com/aylen-montenegro.jpg",
+  "url": "https://aylenmontenegro.com/about",
+  "image": "https://aylenmontenegro.com/aylen-montenegro.jpg",
   "sameAs": [
     "https://linkedin.com/in/aylenmontenegro",
     "https://facebook.com/aylenmontenegro",
@@ -56,7 +56,7 @@ export const structuredData = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://yourdomain.com/about"
+    "@id": "https://aylenmontenegro.com/about"
   }
 };
 
@@ -64,8 +64,8 @@ export const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Aylen Montenegro Consulting",
-  "url": "https://yourdomain.com",
-  "logo": "https://yourdomain.com/logo.png",
+  "url": "https://aylenmontenegro.com",
+  "logo": "https://aylenmontenegro.com/logo.png",
   "description": "Real estate consulting services by Aylen Montenegro, industry expert with over 20 years of experience",
   "foundingDate": "2024",
   "founder": {
@@ -96,13 +96,13 @@ export const breadcrumbData = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://yourdomain.com"
+      "item": "https://aylenmontenegro.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "About",
-      "item": "https://yourdomain.com/about"
+      "item": "https://aylenmontenegro.com/about"
     }
   ]
 };

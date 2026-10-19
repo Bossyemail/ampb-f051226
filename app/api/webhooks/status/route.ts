@@ -2,8 +2,23 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getWebhookStats, getFailedWebhooks, retryFailedWebhook, cleanupWebhookEvents } from '@/lib/webhook-manager';
 import { rateLimiters, withRateLimit } from '@/lib/rate-limiter';
 
+function requireAdminSecret(request: NextRequest): NextResponse | null {
+  const adminSecret = process.env.ADMIN_SECRET;
+  if (!adminSecret) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  const authHeader = request.headers.get('authorization');
+  if (authHeader !== `Bearer ${adminSecret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  return null;
+}
+
 export async function GET(request: NextRequest) {
   try {
+    const authError = requireAdminSecret(request);
+    if (authError) return authError;
+
     // Apply rate limiting
     const rateLimitError = withRateLimit(rateLimiters.admin)(request);
     if (rateLimitError) {
@@ -58,6 +73,9 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const authError = requireAdminSecret(request);
+    if (authError) return authError;
+
     // Apply rate limiting
     const rateLimitError = withRateLimit(rateLimiters.admin)(request);
     if (rateLimitError) {

@@ -43,3 +43,7 @@ next-env.d.ts
 # clerk configuration (can include secrets)
 /.clerk/
 .env*.local
+
+# Video assets — binary files, managed outside git (two files exceed GitHub 100MB limit)
+public/videos/
+public/hero-bg-3.mp4
