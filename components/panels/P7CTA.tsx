@@ -69,34 +69,36 @@ export default function P7CTA() {
         </h2>
 
         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          {/* Primary CTA — solid fill on hover */}
-          <a href="/tc-services" style={{
-            fontFamily:     'var(--font-dm-mono)',
-            fontSize:       '11px',
-            letterSpacing:  '0.22em',
-            textTransform:  'uppercase',
-            background:     'var(--cream)',
-            color:          'var(--teal)',
-            padding:        '18px 44px',
-            border:         '1px solid var(--cream)',
-            textDecoration: 'none',
-            display:        'inline-block',
-            fontWeight:     400,
-            transition:     'background 0.2s, border-color 0.2s, color 0.2s',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background  = 'transparent'
-            e.currentTarget.style.borderColor = 'var(--cream)'
-            e.currentTarget.style.color       = 'var(--cream)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background  = 'var(--cream)'
-            e.currentTarget.style.borderColor = 'var(--cream)'
-            e.currentTarget.style.color       = 'var(--teal)'
-          }}
+          {/* Primary CTA — opens TC intake modal (same as hero + nav CTAs) */}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-tc-intake'))}
+            style={{
+              fontFamily:    'var(--font-dm-mono)',
+              fontSize:      '11px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              background:    'var(--cream)',
+              color:         'var(--teal)',
+              padding:       '18px 44px',
+              border:        '1px solid var(--cream)',
+              fontWeight:    400,
+              cursor:        'pointer',
+              transition:    'background 0.2s, border-color 0.2s, color 0.2s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background  = 'transparent'
+              e.currentTarget.style.borderColor = 'var(--cream)'
+              e.currentTarget.style.color       = 'var(--cream)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background  = 'var(--cream)'
+              e.currentTarget.style.borderColor = 'var(--cream)'
+              e.currentTarget.style.color       = 'var(--teal)'
+            }}
           >
             Work With Me
-          </a>
+          </button>
 
           {/* Secondary CTA — outline */}
           <a href="/closeadmin" style={{

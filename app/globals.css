@@ -1472,7 +1472,10 @@ img {
   [data-panel="lane-2"] .plane-eyebrow,
   [data-panel="lane-3"] .plane-eyebrow,
   [data-panel="lane-4"] .plane-eyebrow {
-    margin-bottom: 20px !important;
+    margin-bottom:  20px !important;
+    /* Reduce letter-spacing so the longer lane-3 eyebrow fits on one line
+       at 360–390px viewports (0.25em would orphan "WORK" alone on line 2). */
+    letter-spacing: 0.12em !important;
   }
 }
 

@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import TCIntakeForm from './TCIntakeForm'
 import modalStyles from './TCIntakeModal.module.css'
@@ -17,14 +17,40 @@ export default function CinemaNav() {
   const [modalOpen, setModalOpen] = useState(false)
   const [mounted, setMounted]     = useState(false)
 
+  // Focus management: track the triggering element; ref to the close button
+  const lastFocusRef  = useRef<HTMLElement | null>(null)
+  const modalCloseRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => setMounted(true), [])
 
-  // Allow external components (e.g. hero CTA) to open this modal via a custom event
+  // Allow external components (hero CTA, final CTA) to open this modal via custom event.
+  // Store the active element so focus can be restored when the modal closes.
   useEffect(() => {
-    const handleOpen = () => setModalOpen(true)
+    const handleOpen = () => {
+      lastFocusRef.current = document.activeElement as HTMLElement
+      setModalOpen(true)
+    }
     window.addEventListener('open-tc-intake', handleOpen)
     return () => window.removeEventListener('open-tc-intake', handleOpen)
   }, [])
+
+  // Focus close button when modal opens; restore focus to trigger when it closes.
+  useEffect(() => {
+    if (modalOpen) {
+      modalCloseRef.current?.focus()
+    } else {
+      lastFocusRef.current?.focus()
+      lastFocusRef.current = null
+    }
+  }, [modalOpen])
+
+  // Escape key closes the modal (mirrors TCIntakeModal.tsx standalone behaviour)
+  useEffect(() => {
+    if (!modalOpen) return
+    const handle = (e: KeyboardEvent) => { if (e.key === 'Escape') setModalOpen(false) }
+    window.addEventListener('keydown', handle)
+    return () => window.removeEventListener('keydown', handle)
+  }, [modalOpen])
 
   useEffect(() => {
     document.body.style.overflow = modalOpen ? 'hidden' : ''
@@ -133,7 +159,10 @@ export default function CinemaNav() {
 
             <button
               type="button"
-              onClick={() => setModalOpen(true)}
+              onClick={e => {
+                lastFocusRef.current = e.currentTarget
+                setModalOpen(true)
+              }}
               className="btn-teal"
               style={{
                 fontFamily:    'var(--font-dm-mono)',
@@ -157,6 +186,7 @@ export default function CinemaNav() {
         >
           <div className={modalStyles.panel} role="dialog" aria-modal="true" aria-label="TC Intake Form">
             <button
+              ref={modalCloseRef}
               type="button"
               onClick={() => setModalOpen(false)}
               className={modalStyles.closeBtn}
@@ -229,7 +259,11 @@ export default function CinemaNav() {
 
           <button
             type="button"
-            onClick={() => { setMenuOpen(false); setModalOpen(true) }}
+            onClick={e => {
+              lastFocusRef.current = e.currentTarget
+              setMenuOpen(false)
+              setModalOpen(true)
+            }}
             className="btn-teal"
             style={{
               fontFamily:    'var(--font-dm-mono)',
