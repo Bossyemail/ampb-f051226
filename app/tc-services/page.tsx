@@ -41,7 +41,7 @@ const SCOPE_ITEMS = [
   { num: '01', label: 'DEADLINE CONTROL',    body: "Tracking with proactive reminders." },
   { num: '02', label: 'DOCUMENT DISCIPLINE', body: "Collection, compliance packaging, audit-ready files." },
   { num: '03', label: 'AGENT COMMUNICATION', body: "Clear status updates so you're never chasing your own file." },
-  { num: '04', label: 'CONTRACT TO CLOSE',   body: "Full oversight from executed contract through recorded deed." },
+  { num: '04', label: 'CONTRACT TO CLOSE',   body: "Both buyer-side and seller-side transactions, from fully executed contract through closing." },
 ]
 
 // ─── Panel 1 — Hero ───────────────────────────────────────────────────────────
@@ -125,7 +125,7 @@ function P1Hero({ onOpen }: { onOpen: () => void }) {
 
         {/* Body */}
         <p ref={body1Ref} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 'clamp(13px,1.1vw,15px)', fontWeight: 300, lineHeight: 1.85, color: 'rgba(239,235,226,0.82)', maxWidth: '420px', margin: 0 }}>
-          Coordination without compromise.
+          Contract-to-close management for South Florida agents and teams.
         </p>
         <p ref={body2Ref} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 'clamp(13px,1.1vw,14px)', fontWeight: 300, lineHeight: 1.85, color: 'rgba(239,235,226,0.65)', maxWidth: '420px', margin: '12px 0 0 0' }}>
           Licensed, high-precision contract-to-close coordination designed to protect your reputation, timelines, and peace of mind under real volume.
@@ -236,7 +236,7 @@ function P2WhatThisIs() {
             <span style={{ fontStyle: 'italic', color: 'var(--teal-mid)' }}>not &ldquo;help.&rdquo;</span>
           </h2>
           <p ref={bodyRef} style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '13px', color: 'var(--greige)', lineHeight: 1.85, margin: 0, maxWidth: '300px' }}>
-            Deep contract fluency, proactive communication, and clean documentation — handled like your reputation depends on it. Because it does.
+            Deep contract fluency, proactive communication, and clean documentation — from executed contract through closing. Agent negotiations, lender underwriting, and title or attorney work remain with their respective professionals.
           </p>
         </div>
 
@@ -725,7 +725,7 @@ const FAQ_ITEMS = [
       'A real estate transaction coordinator manages the administrative and deadline-driven work required to move a transaction from executed contract through closing.',
       'This typically includes reviewing the contract and addenda for completeness, organizing the transaction file, tracking critical dates, confirming deposits, coordinating documents and signatures, and following up with the lender, title company, attorneys, inspectors, condominium associations, homeowners associations, and other parties involved.',
       'The goal is to identify missing items and potential delays early, keep communication documented, and give the agent clear visibility into the file\u2019s progress.',
-      'Transaction coordination does not replace the real estate agent. The agent remains responsible for negotiations, client advice, strategy, and decisions requiring their license or judgment. The coordinator manages the process around those responsibilities so the agent can remain focused on clients and production.',
+      'Transaction coordination does not replace the real estate agent, the lender, or the title company or closing attorney. The agent remains responsible for negotiations, client advice, strategy, and all decisions requiring their license or judgment. Lender underwriting and loan approval are the lender\u2019s domain. Title examination, closing preparation, and disbursements remain with the title company or closing attorney. The coordinator manages the administrative and deadline-driven process around each of those roles so every party has what they need, when they need it.',
     ],
   },
   {
@@ -757,9 +757,10 @@ const FAQ_ITEMS = [
     q: 'How do I get started?',
     a: [
       'Start by completing the fit and availability form.',
-      'You will be asked to provide information about your market, average monthly transaction volume, typical transaction types, brokerage, current systems, and preferred start date. This helps determine whether the service matches your business and whether capacity is available.',
-      'If the fit is confirmed, you will receive the onboarding requirements, service agreement, file-submission instructions, and next steps.',
-      'Work begins once onboarding is complete and the fully executed contract and applicable addenda have been delivered according to the transaction-submission process.',
+      'You will be asked about your market, transaction volume, typical transaction types, brokerage, current platforms, and preferred start date. This gives me enough context to evaluate whether the service is a strong match for your business and whether capacity is currently available.',
+      'Each inquiry is personally reviewed. If the fit looks right, you may receive a brief follow-up or a short discovery call to confirm details before moving forward.',
+      'Confirmed clients receive the service agreement, onboarding requirements, and file-submission instructions.',
+      'Work begins once onboarding is complete. New-file submissions are accepted only from onboarded clients, starting with a fully executed contract delivered on the day the contract is signed by all parties.',
     ],
   },
   {
@@ -893,6 +894,13 @@ export default function TCServicesPage() {
   const panelEls                      = useRef<(HTMLElement | null)[]>([])
   const [modalOpen, setModalOpen]     = useState(false)
   const [mounted, setMounted]         = useState(false)
+  const lastFocusRef                  = useRef<HTMLElement | null>(null)
+  const modalCloseRef                 = useRef<HTMLButtonElement>(null)
+
+  function openModal() {
+    lastFocusRef.current = document.activeElement as HTMLElement
+    setModalOpen(true)
+  }
 
   useEffect(() => setMounted(true), [])
   useEffect(() => {
@@ -900,10 +908,48 @@ export default function TCServicesPage() {
     return () => { document.body.style.overflow = '' }
   }, [modalOpen])
   useEffect(() => {
-    function onKey(e: KeyboardEvent) { if (e.key === 'Escape') setModalOpen(false) }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [])
+    if (!modalOpen) return
+    const handle = (e: KeyboardEvent) => { if (e.key === 'Escape') setModalOpen(false) }
+    window.addEventListener('keydown', handle)
+    return () => window.removeEventListener('keydown', handle)
+  }, [modalOpen])
+
+  // Focus close button on open; restore focus to trigger element on close.
+  useEffect(() => {
+    if (modalOpen) {
+      modalCloseRef.current?.focus()
+    } else {
+      lastFocusRef.current?.focus()
+      lastFocusRef.current = null
+    }
+  }, [modalOpen])
+
+  // Tab / Shift+Tab focus trap while modal is open.
+  useEffect(() => {
+    if (!modalOpen) return
+    const trapFocus = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const panel = document.querySelector<HTMLElement>('[role="dialog"]')
+      if (!panel) return
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), ' +
+          'select:not([disabled]), textarea:not([disabled]), ' +
+          '[tabindex]:not([tabindex="-1"])'
+        )
+      ).filter(el => el.offsetParent !== null)
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last  = focusable[focusable.length - 1]
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus() }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus() }
+      }
+    }
+    window.addEventListener('keydown', trapFocus)
+    return () => window.removeEventListener('keydown', trapFocus)
+  }, [modalOpen])
 
   useEffect(() => {
     document.documentElement.classList.add('cinema')
@@ -958,45 +1004,6 @@ export default function TCServicesPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ProfessionalService',
-          '@id': 'https://aylenmontenegro.com/tc-services#service',
-          'name': 'Aylen Montenegro — TC Services',
-          'url': 'https://aylenmontenegro.com/tc-services',
-          'image': 'https://aylenmontenegro.com/images/og-image.jpg',
-          'description': 'Licensed transaction coordination for South Florida real estate agents closing high volume. 20+ years experience, 3,000+ closed transactions.',
-          'areaServed': [
-            { '@type': 'City', 'name': 'Miami' },
-            { '@type': 'City', 'name': 'Fort Lauderdale' },
-            { '@type': 'City', 'name': 'Boca Raton' },
-            { '@type': 'City', 'name': 'Coral Gables' },
-            { '@type': 'City', 'name': 'Doral' },
-            { '@type': 'City', 'name': 'Aventura' },
-            { '@type': 'AdministrativeArea', 'name': 'Miami-Dade County' },
-            { '@type': 'AdministrativeArea', 'name': 'Broward County' },
-            { '@type': 'AdministrativeArea', 'name': 'Palm Beach County' },
-          ],
-          'provider': { '@id': 'https://aylenmontenegro.com/#person' },
-        }) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          'mainEntity': FAQ_ITEMS.map(item => ({
-            '@type': 'Question',
-            'name': item.q,
-            'acceptedAnswer': {
-              '@type': 'Answer',
-              'text': item.a.join(' '),
-            },
-          })),
-        }) }}
-      />
       <Cursor />
       <ProgressBar />
       <CinemaNav />
@@ -1004,17 +1011,17 @@ export default function TCServicesPage() {
       <PanelIndex activePanel={activePanel} panelEls={panelEls.current} total={8} />
 
       <main style={{ margin: 0, padding: 0, display: 'block', gap: 0 }}>
-        <P1Hero onOpen={() => setModalOpen(true)} />
+        <P1Hero onOpen={openModal} />
         <P1bCredibility />
         <div className="border-t border-white/[0.06] mx-16" />
         <P2WhatThisIs />
         <div className="border-t border-white/[0.06] mx-16" />
-        <P3Scope onOpen={() => setModalOpen(true)} />
+        <P3Scope onOpen={openModal} />
         <P3bServiceArea />
         <P4FitMatters />
         <P5Rules />
         <P6FAQ />
-        <P6CTA onOpen={() => setModalOpen(true)} />
+        <P6CTA onOpen={openModal} />
       </main>
       <Footer />
 
@@ -1025,6 +1032,7 @@ export default function TCServicesPage() {
         >
           <div className={modalStyles.panel} role="dialog" aria-modal="true" aria-label="TC Intake Form">
             <button
+              ref={modalCloseRef}
               type="button"
               onClick={() => setModalOpen(false)}
               className={modalStyles.closeBtn}

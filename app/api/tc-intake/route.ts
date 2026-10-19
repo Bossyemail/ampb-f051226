@@ -2,63 +2,54 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const Q_LABELS: Record<string, string> = {
-  // Q1
+  // Q1 — pricing alignment
   'aligned':           "It's in line with what I expect to pay",
   'more-info':         "I'd like to understand the service in more detail before deciding",
   'lower':             "I'm looking for a lower-cost option",
-  // Q2
+
+  // Q2 — volume (shared for past and expected)
   '1-5': '1–5', '6-10': '6–10', '11-20': '11–20', '21-40': '21–40', '40+': '40+',
-  // Q4
-  'volume':            "I'm closing more than I can manage alone",
-  'tc':                "My current TC isn't working out",
-  'first':             "First time delegating this — want to see how it feels",
-  'referral':          "A colleague or broker referred me",
-  'structure':         "I want a more structured and consistent transaction process",
-  'other':             'Something else',
-  // Q5
-  'same-day':          'The same day',
-  'usually-same':      'Usually the same day, but occasionally the next business day',
-  '1-2-days':          'Within 1–2 business days',
-  'depends':           'It depends on how busy I am',
-  'no-process':        "I don't currently have a consistent submission process",
-  // Q6
-  'full':              'The fully executed contract and all applicable addenda',
-  'most':              'Most documents are included, with a few items occasionally pending',
-  'contract-first':    'I usually send the contract first and provide the remaining documents later',
-  'varies':            'It varies from transaction to transaction',
-  'help-needed':       'I would need help creating a more consistent submission process',
-  // Q7
-  'delegate':          'I send the relevant information to the person handling it and trust them to take the next step.',
-  'follow-up':         'I follow up when necessary but generally allow the process to work.',
-  'frequent':          'I prefer frequent updates until the issue is completely resolved.',
-  'all-channels':      'I tend to call, text, and email the people involved to make sure everyone is aware.',
-  // Q8
-  'time':              'Get more of my time back',
-  'tracking':          'Stop personally tracking every moving piece',
-  'process':           'Create a more consistent transaction process',
-  'followup':          'Improve follow-up and organization',
-  'client-exp':        'Provide a better client experience',
-  'ownership':         'Have someone take ownership of the administrative side of my transactions',
-  'misc':              'Have additional help available whenever miscellaneous tasks come up',
-  // Q9
-  'very-open':         'Very open — I want to improve how my business operates',
-  'open-reason':       'Open, as long as I understand the reason behind the change',
-  'prefer-existing':   'I prefer to keep my existing process',
-  // Q10
-  'highly':            'Highly experienced',
-  'experienced':       'Experienced',
-  'developing':        'Developing',
-  'newer':             'Newer to the process',
-  // Q11
-  'proactive':         'I understand the deadlines, stay aware of their status, and address any issues before they become critical',
-  'involved':          'I stay involved in the major deadlines but rely on my TC to help monitor the transaction',
-  'rely':              'I generally rely on my TC, lender, or other parties to tell me when action is needed',
-  'reactive':          'I tend to address deadlines and contingency issues as they come up',
+
+  // Q4 — why seeking TC
+  'volume':    "I'm closing more than I can manage alone",
+  'tc':        "My current TC isn't working out",
+  'first':     "First time delegating this — want to see how it feels",
+  'referral':  "A colleague or broker referred me",
+  'structure': "I want a more structured and consistent transaction process",
+  'other':     'Something else',
+
+  // Q5 — contract delivery method
+  'same-day-copy':   "I send the complete executed contract and addenda to all parties, copying my transaction manager, the same day.",
+  'same-day-approx': "I generally send everything the same day, but sometimes the following business day.",
+  'tc-first':        "I send the documents to my transaction manager first and have them distribute everything.",
+  'varies':          "My process varies depending on the transaction.",
+  'needs-info':      "I'm not familiar with these submission requirements and would like more information.",
+
+  // Q6 — urgency response (neutral phrasing)
+  'inform-direct':    "I share the relevant details with the responsible party and leave the next step with them.",
+  'periodic-checkin': "I check in periodically while the issue is being resolved.",
+  'step-updates':     "I stay in contact at each step until the issue is fully resolved.",
+  'multi-channel':    "I reach out across multiple channels to make sure everyone involved has the information.",
+
+  // Q7 — deadline management
+  'proactive': "I understand the deadlines, stay aware of their status, and address any issues before they become critical",
+  'involved':  "I stay involved in the major deadlines but rely on my TC to help monitor the transaction",
+  'rely':      "I generally rely on my TC, lender, or other parties to tell me when action is needed",
+  'reactive':  "I tend to address deadlines and contingency issues as they come up",
+
+  // transactionSides
+  'buyer':  "Buyer-side primarily",
+  'seller': "Seller-side primarily",
+  'both':   "Both buyer and seller sides",
+
+  // startDate
+  'within-30':  "Within 30 days",
+  '1-3-months': "Within 1–3 months",
+  'exploring':  "Exploring options — no specific timeline",
 }
 
-function label(val: string | string[] | undefined): string {
+function label(val: string | undefined): string {
   if (!val) return '—'
-  if (Array.isArray(val)) return val.length ? val.map(v => Q_LABELS[v] ?? v).join(', ') : '—'
   return Q_LABELS[val] ?? val
 }
 
@@ -70,18 +61,21 @@ function row(question: string, answer: string): string {
     </tr>`
 }
 
-function buildEmail(d: Record<string, unknown>): string {
-  const q3 = [
-    ...(d.q3_contracts as string[] ?? []),
-    ...(d.q3_crm as string[] ?? []),
-    ...(d.q3_ops as string[] ?? []),
-    ...(d.q3_storage as string[] ?? []),
-    ...(d.q3_other ? [d.q3_other as string] : []),
-  ].join(', ') || '—'
+const CONSENT_TEXT = 'I understand that new files are accepted only from onboarded clients and must be submitted on the day the contract is fully executed and delivered.'
 
-  const q8 = label(d.q8 as string[])
-  const q4Other = d.q4_other ? ` <em>(${d.q4_other})</em>` : ''
-  const q12 = d.q12 ? `<em>${d.q12}</em>` : '—'
+function buildEmail(d: Record<string, unknown>): string {
+  const software3: string[] = Array.isArray(d.q3_software) ? d.q3_software as string[] : []
+  const softwareParts = [
+    ...software3.filter(s => s !== 'Other'),
+    ...(software3.includes('Other')
+      ? [d.q3_other ? `Other: ${d.q3_other as string}` : 'Other']
+      : []),
+  ]
+  const software  = softwareParts.length ? softwareParts.join(', ') : '—'
+  const q4Other   = d.q4 === 'other' && d.q4_other ? ` — ${d.q4_other as string}` : ''
+  const comments  = d.comments ? `<em>${d.comments as string}</em>` : '—'
+  const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' })
+  const ackValue  = `&ldquo;${CONSENT_TEXT}&rdquo; &mdash; <strong>Accepted</strong> &middot; ${timestamp} ET`
 
   return `
 <!DOCTYPE html>
@@ -95,21 +89,22 @@ function buildEmail(d: Record<string, unknown>): string {
     <div style="font-size:13px;color:rgba(239,235,226,0.8);margin-top:6px;">${d.email}${d.phone ? ` · ${d.phone}` : ''}</div>
   </div>
   <table style="width:100%;border-collapse:collapse;background:#fff;">
-    ${row('Pricing alignment',      label(d.q1 as string))}
-    ${row('Transactions / 12 mo',   label(d.q2 as string))}
-    ${row('Current systems',        q3)}
-    ${row('Why looking now',        label(d.q4 as string) + q4Other)}
-    ${row('Submission speed',       label(d.q5 as string))}
-    ${row("What's submitted",       label(d.q6 as string))}
-    ${row('Urgency style',          label(d.q7 as string))}
-    ${row('Goals with TC',          q8)}
-    ${row('Open to process change', label(d.q9 as string))}
-    ${row('RE experience',          label(d.q10 as string))}
-    ${row('Deadline management',    label(d.q11 as string))}
-    ${row('Anything else',          q12)}
+    ${row('Brokerage',             String(d.brokerage || '—'))}
+    ${row('Transaction sides',     label(d.transactionSides as string))}
+    ${row('Start date',            label(d.startDate as string))}
+    ${row('Pricing alignment',     label(d.q1 as string))}
+    ${row('Closings — past 12 mo', label(d.q2_past as string))}
+    ${row('Expected — next 12 mo', label(d.q2_expected as string))}
+    ${row('Platforms / systems',   software)}
+    ${row('Why looking now',       label(d.q4 as string) + q4Other)}
+    ${row('Document delivery',     label(d.q5 as string))}
+    ${row('Urgency response',      label(d.q6 as string))}
+    ${row('Deadline management',   label(d.q7 as string))}
+    ${row('Additional comments',   comments)}
+    ${row('Submission acknowledged', ackValue)}
   </table>
   <div style="padding:20px 32px;background:#f5f1e8;font-size:11px;color:#BCAFAF;letter-spacing:0.04em;">
-    Submitted via aylenmontenegro.com/tc-services · ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' })} ET
+    Submitted via aylenmontenegro.com/tc-services
   </div>
 </div>
 </body>
@@ -124,8 +119,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
   }
 
-  const { firstName, lastName, email, consent } = data
-  if (!firstName || !lastName || !email || !consent) {
+  const { firstName, lastName, email, brokerage, consent } = data
+  if (!firstName || !lastName || !email || !brokerage || !consent) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
 
