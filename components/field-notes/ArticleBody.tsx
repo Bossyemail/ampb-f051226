@@ -1,5 +1,6 @@
 import type { Article } from "@/lib/field-notes";
 import PullQuote from "./PullQuote";
+import ArticleAuthorBox from "./ArticleAuthorBox";
 
 function formatDate(iso: string): string {
   const [year, month, day] = iso.split("-").map(Number);
@@ -151,9 +152,7 @@ export default function ArticleBody({ article }: { article: Article }) {
         />
       )}
 
-      <p className="fn-article-author" aria-label="Author">
-        Aylen Montenegro
-      </p>
+      <ArticleAuthorBox />
 
       {article.cta && <ArticleCTABlock article={article} />}
 

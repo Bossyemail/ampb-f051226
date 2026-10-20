@@ -843,6 +843,73 @@ function P6FAQ() {
   )
 }
 
+// ─── Field Notes Reading ──────────────────────────────────────────────────────
+const FIELD_NOTES_READS = [
+  {
+    section: 'Communication',
+    title:   '"We\'re Looking Good" Is Not a Status Update',
+    slug:    'were-looking-good-is-not-a-status-update',
+  },
+  {
+    section: 'Operations',
+    title:   'Hiring an Assistant Doesn\'t Automatically Give You Your Time Back',
+    slug:    'hiring-an-assistant',
+  },
+  {
+    section: 'Clients',
+    title:   'The Most Expensive Client Is Sometimes the One You\'re Afraid to Lose',
+    slug:    'the-most-expensive-client',
+  },
+]
+
+function PFieldNotesReading() {
+  return (
+    <section style={{ background: '#2a2827', padding: 0 }}>
+      <div className="section-pad-inner" style={{ width: '100%', paddingTop: '64px', paddingBottom: '64px', paddingLeft: '80px', paddingRight: '6%' }}>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '36px' }}>
+          <div style={{ width: '32px', height: '0.5px', background: 'rgba(239,235,226,0.45)', flexShrink: 0 }} />
+          <span style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(239,235,226,0.65)', textTransform: 'uppercase' }}>From Field Notes</span>
+          <a
+            href="/field-notes"
+            style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.14em', color: 'rgba(239,235,226,0.38)', textDecoration: 'none', marginLeft: 'auto', transition: 'color 0.18s' }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'rgba(239,235,226,0.72)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(239,235,226,0.38)')}
+          >
+            All articles →
+          </a>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: 'rgba(239,235,226,0.07)' }}>
+          {FIELD_NOTES_READS.map(article => (
+            <a
+              key={article.slug}
+              href={`/field-notes/${article.slug}`}
+              style={{
+                display:        'block',
+                background:     '#2a2827',
+                padding:        '32px 28px',
+                textDecoration: 'none',
+                transition:     'background 0.18s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(239,235,226,0.04)')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#2a2827')}
+            >
+              <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--teal-mid)', marginBottom: '12px' }}>
+                {article.section}
+              </span>
+              <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(18px,1.6vw,22px)', fontWeight: 400, color: 'var(--cream)', lineHeight: 1.35, margin: 0 }}>
+                {article.title}
+              </p>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
 // ─── Final CTA ────────────────────────────────────────────────────────────────
 function P6CTA({ onOpen }: { onOpen: () => void }) {
   const ctaSectionRef = useRef<HTMLElement>(null)
@@ -1021,6 +1088,7 @@ export default function TCServicesPage() {
         <P4FitMatters />
         <P5Rules />
         <P6FAQ />
+        <PFieldNotesReading />
         <P6CTA onOpen={openModal} />
       </main>
       <Footer />

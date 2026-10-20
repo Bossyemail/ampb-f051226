@@ -93,22 +93,34 @@ export default async function ArticlePage({
 
   const url = `https://aylenmontenegro.com/field-notes/${article.slug}`;
 
-  const blogPostingSchema = {
-    "@context":    "https://schema.org",
-    "@type":       "BlogPosting",
-    "@id":         url,
-    "headline":    article.title,
-    "description": article.description,
-    "url":         url,
-    "datePublished": article.publishedAt,
-    "dateModified":  article.updatedAt ?? article.publishedAt,
-    "author":    { "@id": "https://aylenmontenegro.com/#person" },
-    "publisher": { "@id": "https://aylenmontenegro.com/#organization" },
-    "isPartOf":  { "@id": "https://aylenmontenegro.com/field-notes#blog" },
-    "image": article.heroImage?.src
-      ? `https://aylenmontenegro.com${article.heroImage.src}`
-      : "https://aylenmontenegro.com/images/og-image.jpg",
-    "inLanguage": "en-US",
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type":       "BlogPosting",
+        "@id":         url,
+        "headline":    article.title,
+        "description": article.description,
+        "url":         url,
+        "datePublished": article.publishedAt,
+        "dateModified":  article.updatedAt ?? article.publishedAt,
+        "author":    { "@id": "https://aylenmontenegro.com/#person" },
+        "publisher": { "@id": "https://aylenmontenegro.com/#organization" },
+        "isPartOf":  { "@id": "https://aylenmontenegro.com/field-notes#blog" },
+        "image": article.heroImage?.src
+          ? `https://aylenmontenegro.com${article.heroImage.src}`
+          : "https://aylenmontenegro.com/images/og-image.jpg",
+        "inLanguage": "en-US",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home",        "item": "https://aylenmontenegro.com" },
+          { "@type": "ListItem", "position": 2, "name": "Field Notes", "item": "https://aylenmontenegro.com/field-notes" },
+          { "@type": "ListItem", "position": 3, "name": article.title, "item": url },
+        ],
+      },
+    ],
   };
 
   const hasTOC     = (article.headings?.length ?? 0) > 0;
@@ -119,7 +131,7 @@ export default async function ArticlePage({
     <div className="fn-page">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
 
       <CinemaNav />

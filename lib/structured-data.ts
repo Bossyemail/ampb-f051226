@@ -4,11 +4,9 @@ export const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Aylen Montenegro",
-  "alternateName": "clausevault",
   "url": "https://aylenmontenegro.com",
   "logo": "https://aylenmontenegro.com/images/logo.png",
-  "description": "Helping South Florida real estate agents close more deals with contract management, email templates, and proven frameworks.",
-  "foundingDate": "2024",
+  "description": "Real estate transaction coordination and software for South Florida agents and brokerages. Licensed Florida real estate professional with 20+ years of experience and 3,000+ closings supported.",
   "founder": {
     "@type": "Person",
     "name": "Aylen Montenegro",
@@ -34,30 +32,22 @@ export const organizationData = {
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Real Estate Tools & Services",
+    "name": "Real Estate Services & Software",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Transaction Coordination Services",
-          "description": "VIP transaction coordination and systems for real estate agents"
+          "name": "Real Estate Transaction Coordination",
+          "description": "Contract-to-close transaction coordination for agents and brokerages across Miami-Dade, Broward, and Palm Beach County"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "SoftwareApplication",
-          "name": "ClauseVault",
-          "description": "Searchable, copy-ready contract clauses for real estate professionals"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "BossyEmail",
-          "description": "Email templates that close deals faster"
+          "name": "CloseAdmin",
+          "description": "Transaction management software built for real estate professionals. Currently in private beta."
         }
       }
     ]
@@ -107,27 +97,12 @@ export const websiteData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Aylen Montenegro",
-  "alternateName": "clausevault",
   "url": "https://aylenmontenegro.com",
-  "description": "Real estate tools, resources, and services for South Florida agents. Contract management, email templates, and proven frameworks to close more deals.",
+  "description": "Transaction coordination, software, and editorial writing on real estate operations for South Florida agents and brokerages.",
   "inLanguage": "en-US",
-  "copyrightYear": "2025",
-  "creator": {
-    "@type": "Person",
-    "name": "Aylen Montenegro"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Aylen Montenegro"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://aylenmontenegro.com/search?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "copyrightYear": "2026",
+  "creator": { "@id": "https://aylenmontenegro.com/#person" },
+  "publisher": { "@id": "https://aylenmontenegro.com/#organization" }
 };
 
 export const breadcrumbData = (items: Array<{name: string, url: string}>) => ({

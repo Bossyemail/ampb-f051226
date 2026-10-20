@@ -251,21 +251,16 @@ export default function P8About() {
           }}>
             Read my story
           </a>
-          <a href="https://instagram.com/aylenbuilds"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-            style={{
-              fontFamily:    'var(--font-dm-mono)',
-              fontSize:      '10px',
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              padding:       '16px 36px',
-              display:       'inline-block',
-              flexShrink:    0,
-            }}
-          >
-            Follow @aylenbuilds
+          <a href="/field-notes" className="btn-outline" style={{
+            fontFamily:    'var(--font-dm-mono)',
+            fontSize:      '10px',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            padding:       '16px 36px',
+            display:       'inline-block',
+            flexShrink:    0,
+          }}>
+            Field Notes
           </a>
         </div>
       </div>
