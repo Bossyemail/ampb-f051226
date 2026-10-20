@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { rateLimiters, withRateLimit, getClientIdentifier } from '@/lib/rate-limiter'
 
 const Q_LABELS: Record<string, string> = {
   // Q1 — pricing alignment
@@ -112,6 +113,10 @@ function buildEmail(d: Record<string, unknown>): string {
 }
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 5 intake form submissions per hour per IP
+  const rateLimitResponse = withRateLimit(rateLimiters.contact, getClientIdentifier)(req)
+  if (rateLimitResponse) return rateLimitResponse
+
   let data: Record<string, unknown>
   try {
     data = await req.json()

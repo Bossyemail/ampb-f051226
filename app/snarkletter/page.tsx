@@ -11,12 +11,11 @@ import SocialBar      from '@/components/SocialBar'
 import WatermarkPatch from '@/components/WatermarkPatch'
 import PanelIndex  from '@/components/PanelIndex'
 import Footer      from '@/components/Footer'
+import { trackEvent } from '@/lib/analytics'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const BG = ['#363231', '#2a2827', '#2a2827', '#114B4D']
-
-const KIT_ACTION = 'https://app.kit.com/forms/b3faf3ce2a/subscriptions'
 
 const CARDS = [
   { title: 'Compliance breakdowns', body: "Anonymized breakdowns of real transaction failures — what happened, what was missed, and how to prevent it." },
@@ -34,24 +33,43 @@ const PILLARS = [
 function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
   const isDark = variant === 'dark'
   const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'active' | 'pending' | 'error'>('idle')
+  const submittingRef = useRef(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email) return
-    fetch(KIT_ACTION, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ email_address: email }).toString(),
-      mode: 'no-cors',
-    })
-    setSubmitted(true)
+    if (!email || submittingRef.current) return
+    submittingRef.current = true
+    setStatus('submitting')
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'snarkletter' }),
+      })
+      if (!res.ok) throw new Error()
+      const data = await res.json()
+      const newStatus = data.status === 'active' ? 'active' : 'pending'
+      setStatus(newStatus)
+      if (newStatus === 'active') trackEvent('newsletter_subscribed', { source: 'snarkletter' })
+    } catch {
+      setStatus('error')
+      submittingRef.current = false
+    }
   }
 
-  if (submitted) {
+  if (status === 'active') {
     return (
       <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: 0 }}>
         You&apos;re on the list. First issue incoming.
+      </p>
+    )
+  }
+
+  if (status === 'pending') {
+    return (
+      <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: 0 }}>
+        Almost there — check your inbox to confirm your subscription.
       </p>
     )
   }
@@ -84,6 +102,7 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
         />
         <button
           type="submit"
+          disabled={status === 'submitting'}
           style={{
             height:        '48px',
             background:    isDark ? 'var(--teal)' : 'var(--cream)',
@@ -95,12 +114,14 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
             padding:       isDark ? '0 32px' : '0 40px',
             border:        'none',
             boxSizing:     'border-box' as const,
-            cursor:        'pointer',
+            cursor:        status === 'submitting' ? 'default' : 'pointer',
             whiteSpace:    'nowrap',
             transition:    'background 0.2s, color 0.2s',
             flexShrink:    0,
+            opacity:       status === 'submitting' ? 0.6 : 1,
           }}
           onMouseEnter={e => {
+            if (status === 'submitting') return
             const b = e.currentTarget
             b.style.background = isDark ? 'var(--teal2)' : '#2a2827'
             if (!isDark) b.style.color = 'var(--cream)'
@@ -111,9 +132,14 @@ function SubscribeForm({ variant = 'dark' }: { variant?: 'dark' | 'teal' }) {
             if (!isDark) b.style.color = 'var(--teal)'
           }}
         >
-          Subscribe
+          {status === 'submitting' ? '…' : 'Subscribe'}
         </button>
       </div>
+      {status === 'error' && (
+        <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: 'rgba(239,100,100,0.8)', margin: '8px 0 0 0' }}>
+          Something went wrong. Please try again.
+        </p>
+      )}
     </form>
   )
 }
@@ -127,19 +153,30 @@ function P1Hero() {
   const bodyRef    = useRef<HTMLParagraphElement>(null)
   const pillarsRef = useRef<HTMLDivElement>(null)
   const formRef    = useRef<HTMLDivElement>(null)
-  const [heroEmail, setHeroEmail]         = useState('')
-  const [heroSubmitted, setHeroSubmitted] = useState(false)
+  const [heroEmail, setHeroEmail]   = useState('')
+  const [heroStatus, setHeroStatus] = useState<'idle' | 'submitting' | 'active' | 'pending' | 'error'>('idle')
+  const heroSubmittingRef           = useRef(false)
 
-  const handleHeroSubmit = (e: React.FormEvent) => {
+  const handleHeroSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!heroEmail) return
-    fetch(KIT_ACTION, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ email_address: heroEmail }).toString(),
-      mode: 'no-cors',
-    })
-    setHeroSubmitted(true)
+    if (!heroEmail || heroSubmittingRef.current) return
+    heroSubmittingRef.current = true
+    setHeroStatus('submitting')
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: heroEmail, source: 'snarkletter' }),
+      })
+      if (!res.ok) throw new Error()
+      const data = await res.json()
+      const newStatus = data.status === 'active' ? 'active' : 'pending'
+      setHeroStatus(newStatus)
+      if (newStatus === 'active') trackEvent('newsletter_subscribed', { source: 'snarkletter' })
+    } catch {
+      setHeroStatus('error')
+      heroSubmittingRef.current = false
+    }
   }
 
   useEffect(() => {
@@ -233,9 +270,11 @@ function P1Hero() {
             <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', margin: '0 0 16px 0' }}>
               Get on the List
             </p>
-            {heroSubmitted ? (
+            {(heroStatus === 'active' || heroStatus === 'pending') ? (
               <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: 0 }}>
-                You&apos;re on the list. First issue incoming.
+                {heroStatus === 'active'
+                  ? "You're on the list. First issue incoming."
+                  : "Almost there — check your inbox to confirm."}
               </p>
             ) : (
               <form onSubmit={handleHeroSubmit} style={{ width: '100%' }}>
@@ -265,6 +304,7 @@ function P1Hero() {
                   />
                   <button
                     type="submit"
+                    disabled={heroStatus === 'submitting'}
                     style={{
                       height:        '48px',
                       background:    'var(--teal-mid)',
@@ -275,18 +315,24 @@ function P1Hero() {
                       textTransform: 'uppercase',
                       padding:       '0 32px',
                       border:        'none',
-                      cursor:        'pointer',
+                      cursor:        heroStatus === 'submitting' ? 'default' : 'pointer',
                       whiteSpace:    'nowrap',
                       flexShrink:    0,
                       transition:    'background 0.2s',
                       boxSizing:     'border-box' as const,
+                      opacity:       heroStatus === 'submitting' ? 0.6 : 1,
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'var(--teal2)' }}
+                    onMouseEnter={e => { if (heroStatus !== 'submitting') e.currentTarget.style.background = 'var(--teal2)' }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'var(--teal-mid)' }}
                   >
-                    Subscribe
+                    {heroStatus === 'submitting' ? '…' : 'Subscribe'}
                   </button>
                 </div>
+                {heroStatus === 'error' && (
+                  <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: 'rgba(239,100,100,0.8)', margin: '8px 0 0 0' }}>
+                    Something went wrong. Please try again.
+                  </p>
+                )}
               </form>
             )}
           </div>

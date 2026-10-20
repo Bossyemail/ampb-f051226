@@ -1,82 +1,74 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { rateLimiters, withRateLimit, getClientIdentifier } from '@/lib/rate-limiter';
+
+// Form IDs are resolved server-side — never exposed to the client.
+const FORM_IDS: Record<string, string> = {
+  snarkletter: 'b3faf3ce2a',
+  closeadmin:  'f77b69ba04',
+};
 
 export async function POST(request: NextRequest) {
+  // Rate limit: 10 email captures per hour per IP
+  const rateLimitResponse = withRateLimit(rateLimiters.emailCapture, getClientIdentifier)(request);
+  if (rateLimitResponse) return rateLimitResponse;
+
+  let email: string;
+  let source: string;
+
   try {
-    const { email, name, source = 'spill-page' } = await request.json();
+    const body = await request.json();
+    email  = (body.email  ?? '').trim().toLowerCase();
+    source = (body.source ?? '').trim();
+  } catch {
+    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+  }
 
-    // Validate email
-    if (!email || !email.includes('@')) {
-      return NextResponse.json(
-        { error: 'Valid email address is required' },
-        { status: 400 }
-      );
-    }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: 'Valid email address is required' }, { status: 400 });
+  }
 
-    // Log subscription for tracking
-    console.log(`Newsletter subscription: ${email} (${name}) from ${source}`);
-    
-    // Try KIT integration if configured
-    const kitApiKey = process.env.KIT_API_KEY;
-    
-    if (kitApiKey) {
-      try {
-        // Subscribe to KIT newsletter
-        const kitApiUrl = process.env.KIT_API_URL || 'https://snarkletter.kit.com/api/v1/subscribe';
-        const kitApiSecret = process.env.KIT_API_SECRET;
+  const formId = FORM_IDS[source];
+  if (!formId) {
+    return NextResponse.json({ error: 'Unknown source' }, { status: 400 });
+  }
 
-        // Prepare headers for KIT custom subdomain
-        const headers: Record<string, string> = {
-          'Content-Type': 'application/json',
-        };
+  const apiKey = process.env.KIT_API_KEY;
+  if (!apiKey) {
+    console.error('KIT_API_KEY is not configured');
+    return NextResponse.json({ error: 'Service unavailable' }, { status: 503 });
+  }
 
-        // KIT custom subdomain authentication (snarkletter.kit.com)
-        if (kitApiSecret) {
-          headers['Authorization'] = `Basic ${Buffer.from(`${kitApiKey}:${kitApiSecret}`).toString('base64')}`;
-        } else {
-          headers['Authorization'] = `Bearer ${kitApiKey}`;
-        }
-
-        const kitResponse = await fetch(kitApiUrl, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            email: email,
-            name: name || '',
-            source: source,
-            tags: ['snarkletter', 'spill-page'],
-          }),
-        });
-
-        if (kitResponse.ok) {
-          const kitData = await kitResponse.json();
-          console.log(`Newsletter subscription successful via KIT: ${email} from ${source}`);
-          return NextResponse.json({ 
-            success: true, 
-            message: 'Successfully subscribed to the Snarkletter!',
-            data: kitData 
-          });
-        } else {
-          console.error('KIT subscription failed, using fallback');
-        }
-      } catch (error) {
-        console.error('KIT integration error, using fallback:', error);
+  try {
+    const kitRes = await fetch(
+      `https://api.kit.com/v4/forms/${formId}/subscribers`,
+      {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({ email_address: email }),
       }
+    );
+
+    // 422 = subscriber already exists on this form — treat as active
+    if (kitRes.status === 422) {
+      return NextResponse.json({ success: true, status: 'active' });
     }
 
-    // Fallback: Always return success and log subscription
-    console.log(`Newsletter subscription logged: ${email} (${name}) from ${source}`);
-    
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Successfully subscribed to the Snarkletter!',
-      data: { email, name, source, timestamp: new Date().toISOString() }
-    });
+    if (!kitRes.ok) {
+      const text = await kitRes.text().catch(() => '');
+      console.error(`Kit API error ${kitRes.status}:`, text);
+      return NextResponse.json({ error: 'Subscription failed' }, { status: 502 });
+    }
 
-  } catch (error) {
-    console.error('Newsletter subscription API error:', error);
-    return NextResponse.json(
-      { error: 'Failed to subscribe to newsletter' },
-      { status: 500 }
-    );
+    const data = await kitRes.json();
+    const subscriberState: string = data?.subscriber?.state ?? '';
+    const status = subscriberState === 'active' ? 'active' : 'pending';
+
+    return NextResponse.json({ success: true, status });
+  } catch (err) {
+    console.error('Kit API request failed:', err);
+    return NextResponse.json({ error: 'Service unavailable' }, { status: 503 });
   }
 }

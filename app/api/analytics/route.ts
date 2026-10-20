@@ -333,6 +333,11 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  const adminSecret = process.env.ADMIN_SECRET;
+  if (!adminSecret || request.headers.get('authorization') !== `Bearer ${adminSecret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const event = searchParams.get('event');

@@ -1,7 +1,12 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 // Mock funnel data - in production, this would come from your database
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const adminSecret = process.env.ADMIN_SECRET;
+  if (!adminSecret || request.headers.get('authorization') !== `Bearer ${adminSecret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     // Define funnel steps
     const funnelSteps = [

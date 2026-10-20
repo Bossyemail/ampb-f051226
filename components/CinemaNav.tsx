@@ -5,9 +5,10 @@ import TCIntakeForm from './TCIntakeForm'
 import modalStyles from './TCIntakeModal.module.css'
 
 const LINKS = [
-  { label: 'TC Services',  href: '/tc-services' },
-  { label: 'CloseAdmin',   href: '/closeadmin'  },
+  { label: 'TC Services',  href: '/tc-services'  },
+  { label: 'CloseAdmin',   href: '/closeadmin'   },
   { label: 'Snarkletter',  href: '/snarkletter'  },
+  { label: 'Field Notes',  href: '/field-notes'  },
   { label: 'About',        href: '/about'        },
 ]
 
@@ -93,7 +94,7 @@ export default function CinemaNav() {
   }, [modalOpen])
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
+    const check = () => setIsMobile(window.innerWidth < 900)
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
@@ -171,7 +172,7 @@ export default function CinemaNav() {
           </button>
         ) : (
           /* Desktop nav links */
-          <div style={{ display: 'flex', alignItems: 'center', gap: '36px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
             {LINKS.map(link => (
               <a
                 key={link.label}

@@ -10,6 +10,7 @@ import CinemaNav   from '@/components/CinemaNav'
 import SocialBar   from '@/components/SocialBar'
 import PanelIndex  from '@/components/PanelIndex'
 import Footer      from '@/components/Footer'
+import { trackEvent } from '@/lib/analytics'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -46,18 +47,29 @@ function P1Hero() {
   const bodyRef    = useRef<HTMLParagraphElement>(null)
   const formRef    = useRef<HTMLDivElement>(null)
   const pillarsRef = useRef<HTMLDivElement>(null)
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [email, setEmail]   = useState('')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'active' | 'pending' | 'error'>('idle')
+  const submittingRef       = useRef(false)
 
-  const handleNotifySubmit = () => {
-    if (!email) return
-    fetch('https://app.kit.com/forms/f77b69ba04/subscriptions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ email_address: email }).toString(),
-      mode: 'no-cors',
-    })
-    setSubmitted(true)
+  const handleNotifySubmit = async () => {
+    if (!email || submittingRef.current) return
+    submittingRef.current = true
+    setStatus('submitting')
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email, source: 'closeadmin' }),
+      })
+      if (!res.ok) throw new Error()
+      const data = await res.json()
+      const newStatus = data.status === 'active' ? 'active' : 'pending'
+      setStatus(newStatus)
+      if (newStatus === 'active') trackEvent('waitlist_joined', { source: 'closeadmin' })
+    } catch {
+      setStatus('error')
+      submittingRef.current = false
+    }
   }
 
   useEffect(() => {
@@ -142,29 +154,39 @@ function P1Hero() {
           <span style={{ display: 'block', fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', marginBottom: '14px' }}>
             Join the Waitlist
           </span>
-          {submitted ? (
+          {(status === 'active' || status === 'pending') ? (
             <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', margin: '8px 0 0 0' }}>
-              You&apos;re on the list. We&apos;ll be in touch.
+              {status === 'active'
+                ? "You're on the list. We'll be in touch."
+                : "Almost there — check your inbox to confirm."}
             </p>
           ) : (
-            <div className="ca-form-row" style={{ display: 'flex', gap: 0, maxWidth: '460px' }}>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                style={{ flex: 1, background: 'rgba(239,235,226,0.06)', border: '0.5px solid rgba(239,235,226,0.2)', borderRight: 'none', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '13px', padding: '15px 20px', outline: 'none' }}
-                onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
-                onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.2)' }}
-              />
-              <button
-                onClick={handleNotifySubmit}
-                className="btn-teal"
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '18px 32px', border: '0.5px solid rgba(239,235,226,0.2)', flexShrink: 0 }}
-              >
-                Notify Me
-              </button>
-            </div>
+            <>
+              <div className="ca-form-row" style={{ display: 'flex', gap: 0, maxWidth: '460px' }}>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  style={{ flex: 1, background: 'rgba(239,235,226,0.06)', border: '0.5px solid rgba(239,235,226,0.2)', borderRight: 'none', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '13px', padding: '15px 20px', outline: 'none' }}
+                  onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
+                  onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.2)' }}
+                />
+                <button
+                  onClick={handleNotifySubmit}
+                  disabled={status === 'submitting'}
+                  className="btn-teal"
+                  style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '18px 32px', border: '0.5px solid rgba(239,235,226,0.2)', flexShrink: 0, opacity: status === 'submitting' ? 0.6 : 1, cursor: status === 'submitting' ? 'default' : 'pointer' }}
+                >
+                  {status === 'submitting' ? '…' : 'Notify Me'}
+                </button>
+              </div>
+              {status === 'error' && (
+                <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: 'rgba(239,100,100,0.8)', margin: '8px 0 0 0' }}>
+                  Something went wrong. Please try again.
+                </p>
+              )}
+            </>
           )}
         </div>
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '9px', color: 'rgba(239,235,226,0.3)', margin: '12px 0 0 0', lineHeight: 1.6 }}>
@@ -413,18 +435,29 @@ function P3Proof() {
 function P4CTA() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [email, setEmail]     = useState('')
+  const [ctaStatus, setCtaStatus] = useState<'idle' | 'submitting' | 'active' | 'pending' | 'error'>('idle')
+  const ctaSubmittingRef          = useRef(false)
 
-  const handleWaitlistSubmit = () => {
-    if (!email) return
-    fetch('https://app.kit.com/forms/f77b69ba04/subscriptions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ email_address: email }).toString(),
-      mode: 'no-cors',
-    })
-    setSubmitted(true)
+  const handleWaitlistSubmit = async () => {
+    if (!email || ctaSubmittingRef.current) return
+    ctaSubmittingRef.current = true
+    setCtaStatus('submitting')
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email, source: 'closeadmin' }),
+      })
+      if (!res.ok) throw new Error()
+      const data = await res.json()
+      const newStatus = data.status === 'active' ? 'active' : 'pending'
+      setCtaStatus(newStatus)
+      if (newStatus === 'active') trackEvent('waitlist_joined', { source: 'closeadmin' })
+    } catch {
+      setCtaStatus('error')
+      ctaSubmittingRef.current = false
+    }
   }
 
   useGSAP(() => {
@@ -478,29 +511,39 @@ function P4CTA() {
         <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 'clamp(14px,1.2vw,15px)', color: 'rgba(239,235,226,0.65)', maxWidth: '480px', margin: '20px auto 0', textAlign: 'center', lineHeight: 1.8 }}>
           Start free. No credit card. Full access to every module. If it saves you time, you&apos;ll know in a week. If it doesn&apos;t, close the tab and forget you met me.
         </p>
-        {submitted ? (
+        {(ctaStatus === 'active' || ctaStatus === 'pending') ? (
           <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '12px', color: 'var(--teal-mid)', marginTop: '48px', textAlign: 'center' }}>
-            You&apos;re on the list. We&apos;ll be in touch.
+            {ctaStatus === 'active'
+              ? "You're on the list. We'll be in touch."
+              : "Almost there — check your inbox to confirm."}
           </p>
         ) : (
-          <div className="ca-form-row ca-form-on-teal" style={{ marginTop: '48px', width: '100%', maxWidth: '500px', margin: '48px auto 0', display: 'flex', gap: 0 }}>
-            <input
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              style={{ flex: 1, background: 'rgba(239,235,226,0.1)', border: '0.5px solid rgba(239,235,226,0.3)', borderRight: 'none', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '13px', padding: '16px 20px', outline: 'none' }}
-              onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
-              onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.3)' }}
-            />
-            <button
-              onClick={handleWaitlistSubmit}
-              className="btn-inverted"
-              style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '16px 36px', border: '0.5px solid var(--cream)', flexShrink: 0 }}
-            >
-              Join Waitlist
-            </button>
-          </div>
+          <>
+            <div className="ca-form-row ca-form-on-teal" style={{ marginTop: '48px', width: '100%', maxWidth: '500px', margin: '48px auto 0', display: 'flex', gap: 0 }}>
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                style={{ flex: 1, background: 'rgba(239,235,226,0.1)', border: '0.5px solid rgba(239,235,226,0.3)', borderRight: 'none', color: 'var(--cream)', fontFamily: 'var(--font-dm-mono)', fontSize: '13px', padding: '16px 20px', outline: 'none' }}
+                onFocus={e  => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.5)' }}
+                onBlur={e   => { e.currentTarget.style.borderColor = 'rgba(239,235,226,0.3)' }}
+              />
+              <button
+                onClick={handleWaitlistSubmit}
+                disabled={ctaStatus === 'submitting'}
+                className="btn-inverted"
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', padding: '16px 36px', border: '0.5px solid var(--cream)', flexShrink: 0, opacity: ctaStatus === 'submitting' ? 0.6 : 1, cursor: ctaStatus === 'submitting' ? 'default' : 'pointer' }}
+              >
+                {ctaStatus === 'submitting' ? '…' : 'Join Waitlist'}
+              </button>
+            </div>
+            {ctaStatus === 'error' && (
+              <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '11px', color: 'rgba(239,100,100,0.8)', margin: '12px auto 0', textAlign: 'center' }}>
+                Something went wrong. Please try again.
+              </p>
+            )}
+          </>
         )}
       </div>
 

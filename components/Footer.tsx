@@ -64,6 +64,7 @@ export default function Footer({ hideSocial, easterEgg }: { hideSocial?: boolean
             { label: 'TC Services',  href: '/tc-services'  },
             { label: 'CloseAdmin',   href: '/closeadmin'   },
             { label: 'Snarkletter',  href: '/snarkletter'  },
+            { label: 'Field Notes',  href: '/field-notes'  },
             { label: 'About',        href: '/about'        },
           ].map(({ label, href }) => (
             <a key={label} href={href} style={linkBase} onMouseEnter={hIn} onMouseLeave={hOut}>{label}</a>

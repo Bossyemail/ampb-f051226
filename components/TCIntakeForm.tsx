@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import styles from './TCIntakeForm.module.css'
+import { trackEvent } from '@/lib/analytics'
 
 type FormData = {
   firstName:        string
@@ -85,6 +86,7 @@ function CheckOption({ name, value, label, checked, onChange }: {
 export default function TCIntakeForm() {
   const [data, setData] = useState<FormData>(initial)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const submittingRef = useRef(false)
 
   function setRadio(field: keyof FormData, value: string) {
     setData(d => ({ ...d, [field]: value }))
@@ -99,6 +101,8 @@ export default function TCIntakeForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    if (submittingRef.current) return
+    submittingRef.current = true
     setStatus('submitting')
     try {
       const res = await fetch('/api/tc-intake', {
@@ -108,8 +112,10 @@ export default function TCIntakeForm() {
       })
       if (!res.ok) throw new Error()
       setStatus('success')
+      trackEvent('tc_inquiry_submitted')
     } catch {
       setStatus('error')
+      submittingRef.current = false
     }
   }
 

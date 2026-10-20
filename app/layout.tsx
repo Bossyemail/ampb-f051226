@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cormorant_Garamond, DM_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond, DM_Mono, Lora, Newsreader } from "next/font/google";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -32,6 +32,22 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -100,7 +116,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmMono.variable}`}>
+      <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmMono.variable} ${lora.variable} ${newsreader.variable}`}>
         <head>
           {/* Image copyright protection */}
           <meta name="copyright" content={`© ${new Date().getFullYear()} Aylen Montenegro. All rights reserved.`} />
@@ -109,15 +125,36 @@ export default function RootLayout({
 
           {/* Fonts are loaded via Next.js font loader - removed duplicate Google Fonts link */}
           
-          {/* Google Analytics */}
+          {/* Google Analytics — Consent Mode v2 */}
+          {/* Runs before any script: sets consent defaults, then restores returning-visitor preference */}
+          <Script id="gtag-consent-init" strategy="beforeInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                wait_for_update: 500
+              });
+              try {
+                var _cp = localStorage.getItem('cookie-preferences');
+                if (_cp) {
+                  var _prefs = JSON.parse(_cp);
+                  if (_prefs && typeof _prefs.analytics === 'boolean') {
+                    gtag('consent', 'update', {
+                      analytics_storage: _prefs.analytics ? 'granted' : 'denied'
+                    });
+                  }
+                }
+              } catch(e) {}
+            `}
+          </Script>
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-TVDC1JQ6MK"
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-TVDC1JQ6MK');
             `}
@@ -140,8 +177,8 @@ export default function RootLayout({
                   "@type": "Person",
                   "@id": "https://aylenmontenegro.com/#person",
                   "name": "Aylen Montenegro",
-                  "jobTitle": "Transaction Coordinator",
-                  "description": "Licensed Florida real estate professional and South Florida transaction coordinator with 20+ years of experience and 3,000+ closings supported.",
+                  "jobTitle": "Real Estate Contract Manager",
+                  "description": "Licensed Florida real estate professional and Real Estate Contract Manager with 20+ years of experience and 3,000+ closings supported across Miami-Dade, Broward, and Palm Beach counties.",
                   "url": "https://aylenmontenegro.com",
                   "image": "https://aylenmontenegro.com/images/og-image.jpg",
                   "email": "hello@aylenmontenegro.com",

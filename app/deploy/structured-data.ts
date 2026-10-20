@@ -20,7 +20,7 @@ export const structuredData = {
   "author": {
     "@type": "Person",
     "name": "Aylen Montenegro",
-    "jobTitle": "Real Estate Consultant",
+    "jobTitle": "Real Estate Contract Manager",
     "description": "Two decades of contract management, agent wrangling, and deal-saving experience."
   },
   "featureList": [

@@ -16,7 +16,6 @@ export const organizationData = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-305-XXX-XXXX",
     "contactType": "customer service",
     "email": "hello@aylenmontenegro.com",
     "availableLanguage": "English"
@@ -28,10 +27,9 @@ export const organizationData = {
     "addressCountry": "US"
   },
   "sameAs": [
+    "https://www.linkedin.com/in/aylen-montenegro-pa-02083939/",
     "https://instagram.com/aylenbuilds",
-    "https://linkedin.com/in/aylenmontenegro",
-    "https://youtube.com/@aylenmontenegro",
-    "https://tiktok.com/@aylenbuilds",
+    "https://youtube.com/@aylenmontenegropa",
     "https://threads.net/@aylenbuilds"
   ],
   "hasOfferCatalog": {
@@ -72,8 +70,8 @@ export const personData = {
   "name": "Aylen Montenegro",
   "url": "https://aylenmontenegro.com",
   "image": "https://aylenmontenegro.com/images/aylen-profile.jpg",
-  "description": "Real estate transaction coordinator and business systems expert helping agents close more deals in South Florida.",
-  "jobTitle": "Transaction Coordinator & Real Estate Business Consultant",
+  "description": "Real Estate Contract Manager and licensed Florida real estate professional serving South Florida agents. 20+ years experience, 3,000+ closings supported.",
+  "jobTitle": "Real Estate Contract Manager",
   "worksFor": {
     "@type": "Organization",
     "name": "Aylen Montenegro"
@@ -85,12 +83,10 @@ export const personData = {
     "addressCountry": "US"
   },
   "email": "hello@aylenmontenegro.com",
-  "telephone": "+1-305-XXX-XXXX",
   "sameAs": [
+    "https://www.linkedin.com/in/aylen-montenegro-pa-02083939/",
     "https://instagram.com/aylenbuilds",
-    "https://linkedin.com/in/aylenmontenegro",
-    "https://youtube.com/@aylenmontenegro",
-    "https://tiktok.com/@aylenbuilds",
+    "https://youtube.com/@aylenmontenegropa",
     "https://threads.net/@aylenbuilds"
   ],
   "knowsAbout": [

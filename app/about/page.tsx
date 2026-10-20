@@ -1077,9 +1077,9 @@ export default function AboutPage() {
           '@context': 'https://schema.org',
           '@type': 'Person',
           'name': 'Aylen Montenegro',
-          'jobTitle': 'Licensed Real Estate Transaction Coordinator',
+          'jobTitle': 'Real Estate Contract Manager',
           'url': 'https://aylenmontenegro.com',
-          'description': 'Real estate transaction coordinator and SaaS founder serving South Florida agents. 20+ years experience, 3,000+ closed transactions.',
+          'description': 'Real Estate Contract Manager and licensed Florida real estate professional serving South Florida agents. 20+ years experience, 3,000+ closings supported.',
           'knowsAbout': [
             'Real estate transaction coordination',
             'Real estate contracts',
