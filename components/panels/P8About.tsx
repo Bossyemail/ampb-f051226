@@ -239,7 +239,7 @@ export default function P8About() {
         </div>
 
         {/* CTAs */}
-        <div className="about-cta-row" style={{ display: 'flex', gap: '16px', marginTop: '44px' }}>
+        <div className="about-cta-row" style={{ display: 'flex', gap: '16px', marginTop: '44px', flexWrap: 'wrap' }}>
           <a href="/about" className="btn-teal" style={{
             fontFamily:    'var(--font-dm-mono)',
             fontSize:      '10px',
@@ -261,6 +261,23 @@ export default function P8About() {
             flexShrink:    0,
           }}>
             Field Notes
+          </a>
+          <a
+            href="https://instagram.com/aylenbuilds"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+            style={{
+              fontFamily:    'var(--font-dm-mono)',
+              fontSize:      '10px',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              padding:       '16px 36px',
+              display:       'inline-block',
+              flexShrink:    0,
+            }}
+          >
+            Instagram
           </a>
         </div>
       </div>
