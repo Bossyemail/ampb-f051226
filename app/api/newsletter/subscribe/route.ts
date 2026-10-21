@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimiters, withRateLimit, getClientIdentifier } from '@/lib/rate-limiter';
 
-// Form IDs are resolved server-side — never exposed to the client.
+// Kit v4 requires the numeric integer form ID, not the public embed UID.
+// Verified against GET /v4/forms: snarkletter uid=d6f8f840c5, closeadmin uid=f77b69ba04.
 const FORM_IDS: Record<string, string> = {
-  snarkletter: 'b3faf3ce2a',
-  closeadmin:  'f77b69ba04',
+  snarkletter: '9340634',
+  closeadmin:  '8934860',
 };
 
 export async function POST(request: NextRequest) {
