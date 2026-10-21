@@ -33,8 +33,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unknown source' }, { status: 400 });
   }
 
-  // Kit v4 API key authentication uses the X-Kit-Api-Key header.
-  // Authorization: Bearer is for OAuth tokens only — do not conflate the two.
   const apiKey = process.env.KIT_API_KEY;
   if (!apiKey) {
     console.error('KIT_API_KEY is not configured');
@@ -42,36 +40,60 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const kitRes = await fetch(
+    // Step 1 — Create or find the subscriber.
+    // Kit's POST /v4/subscribers is an upsert: creates a new subscriber if the email
+    // is unknown, or returns the existing subscriber. We intentionally omit `state`
+    // so Kit applies its own account-level double-opt-in settings rather than forcing
+    // a state we choose here.
+    // 200 = subscriber already existed, 201 = newly created.
+    const createRes = await fetch('https://api.kit.com/v4/subscribers', {
+      method: 'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'X-Kit-Api-Key': apiKey,
+      },
+      body: JSON.stringify({ email_address: email }),
+    });
+
+    if (!createRes.ok) {
+      const text = await createRes.text().catch(() => '');
+      console.error(`Kit create-subscriber error ${createRes.status}:`, text);
+      return NextResponse.json({ error: 'Subscription failed' }, { status: 502 });
+    }
+
+    // Step 2 — Add the now-existing subscriber to the form.
+    // Kit's documentation states the subscriber must already exist before calling
+    // this endpoint — Step 1 satisfies that precondition.
+    // 200 = already on this form (active), 201 = newly associated (parse state).
+    const formRes = await fetch(
       `https://api.kit.com/v4/forms/${formId}/subscribers`,
       {
         method:  'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type':  'application/json',
           'X-Kit-Api-Key': apiKey,
         },
         body: JSON.stringify({ email_address: email }),
       }
     );
 
-    // 200 = subscriber was already on this form — treat as active.
-    // 201 = newly added — parse subscriber state.
-    // All other non-2xx = a real error; never report success.
-    if (kitRes.status === 200) {
+    if (formRes.status === 200) {
       return NextResponse.json({ success: true, status: 'active' });
     }
 
-    if (kitRes.status === 201) {
-      const data = await kitRes.json();
+    if (formRes.status === 201) {
+      const data = await formRes.json();
       const subscriberState: string = data?.subscriber?.state ?? '';
       const status = subscriberState === 'active' ? 'active' : 'pending';
       return NextResponse.json({ success: true, status });
     }
 
-    // Any other status (401, 404, 422, 5xx) is a failure.
-    const text = await kitRes.text().catch(() => '');
-    console.error(`Kit API error ${kitRes.status}:`, text);
+    // Step 2 failed — subscriber exists in Kit but was not added to the form.
+    // Log the form ID and status for diagnostics; never report this as a success.
+    const text = await formRes.text().catch(() => '');
+    console.error(`Kit add-to-form error ${formRes.status} (form ${formId}):`, text);
     return NextResponse.json({ error: 'Subscription failed' }, { status: 502 });
+
   } catch (err) {
     console.error('Kit API request failed:', err);
     return NextResponse.json({ error: 'Service unavailable' }, { status: 503 });
