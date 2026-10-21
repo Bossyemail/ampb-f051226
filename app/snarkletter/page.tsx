@@ -209,7 +209,7 @@ function P1Hero() {
       }}
     >
       {/* Left text column */}
-      <div className="snarkletter-text-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 6% 40px 80px', position: 'relative', zIndex: 1 }}>
+      <div className="snarkletter-text-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 3% 40px 80px', position: 'relative', zIndex: 1 }}>
 
         {/* Eyebrow */}
         <div ref={eyebrowRef} style={{ display: 'flex', alignItems: 'center', gap: '14px', opacity: 0 }}>
@@ -261,11 +261,11 @@ function P1Hero() {
         <div ref={formRef} style={{ opacity: 0 }}>
           {/* Card */}
           <div style={{
-            maxWidth:       '480px',
+            maxWidth:       '520px',
             border:         '1px solid rgba(239,235,226,0.15)',
             background:     'rgba(239,235,226,0.04)',
             backdropFilter: 'blur(8px)',
-            padding:        '32px 40px',
+            padding:        '32px 24px',
           }}>
             <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--teal-mid)', margin: '0 0 16px 0' }}>
               Get on the List
@@ -295,7 +295,7 @@ function P1Hero() {
                       color:       'var(--cream)',
                       fontFamily:  'var(--font-dm-mono)',
                       fontSize:    '13px',
-                      paddingLeft: '16px',
+                      padding:     '0 16px',
                       outline:     'none',
                       boxSizing:   'border-box' as const,
                     }}
