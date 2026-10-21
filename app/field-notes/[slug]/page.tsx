@@ -4,19 +4,17 @@ import Link from "next/link";
 import CinemaNav from "@/components/CinemaNav";
 import Footer from "@/components/Footer";
 import ArticleBody from "@/components/field-notes/ArticleBody";
-import { getAllArticles, getArticleBySlug, getSchedulableArticleSlugs } from "@/lib/field-notes";
+import { getAllArticles, getArticleBySlug } from "@/lib/field-notes";
 
-// Revalidate every 5 minutes so a scheduled article transitions from 404 to
-// 200 without redeployment once its scheduledAt timestamp has passed.
+// Revalidate every 5 minutes so a newly-published article becomes visible
+// without redeployment once its scheduledAt timestamp has passed.
 export const revalidate = 300;
 
-// Block requests for slugs not in generateStaticParams (production safety)
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
-  // Include ALL non-draft slugs (published + scheduled) so ISR can pre-build
-  // scheduled articles as 404 and later revalidate them to 200.
-  return getSchedulableArticleSlugs().map(slug => ({ slug }));
+  // Only pre-build currently-published articles. Future-scheduled articles are
+  // served dynamically (dynamicParams defaults to true), so they never get
+  // stored as static 404 files that ISR has to overwrite.
+  return getAllArticles().map(a => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({
