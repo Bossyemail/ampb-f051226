@@ -1,5 +1,5 @@
 // components/AboutPeek.tsx
-import { ChevronRight, Instagram, Youtube, Facebook, Linkedin } from "lucide-react";
+import { ChevronRight, Instagram, Youtube, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 
 const ACCENT = "#D6C3F3"; // Lavender Fog

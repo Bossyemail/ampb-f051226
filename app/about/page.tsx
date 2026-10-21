@@ -1107,8 +1107,10 @@ export default function AboutPage() {
         <HeroPanel />
         <StatsStrip />
         <ExperienceTimeline />
-        <StickyNav active={activeSection} />
-        <CardCarousel onCardChange={setActiveSection} />
+        <div>{/* Sticky scope wrapper — limits StickyNav to the carousel section only */}
+          <StickyNav active={activeSection} />
+          <CardCarousel onCardChange={setActiveSection} />
+        </div>
         <CTAClose />
       </main>
       <Footer />

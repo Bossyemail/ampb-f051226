@@ -25,7 +25,6 @@ export const organizationData = {
     "addressCountry": "US"
   },
   "sameAs": [
-    "https://www.linkedin.com/in/aylen-montenegro-pa-02083939/",
     "https://instagram.com/aylenbuilds",
     "https://youtube.com/@aylenmontenegropa",
     "https://threads.net/@aylenbuilds"
@@ -74,7 +73,6 @@ export const personData = {
   },
   "email": "hello@aylenmontenegro.com",
   "sameAs": [
-    "https://www.linkedin.com/in/aylen-montenegro-pa-02083939/",
     "https://instagram.com/aylenbuilds",
     "https://youtube.com/@aylenmontenegropa",
     "https://threads.net/@aylenbuilds"

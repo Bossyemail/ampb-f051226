@@ -183,7 +183,6 @@ export default function RootLayout({
                   "image": "https://aylenmontenegro.com/images/og-image.jpg",
                   "email": "hello@aylenmontenegro.com",
                   "sameAs": [
-                    "https://www.linkedin.com/in/aylen-montenegro-pa-02083939/",
                     "https://instagram.com/aylenbuilds",
                     "https://youtube.com/@aylenmontenegropa",
                     "https://threads.net/@aylenbuilds"

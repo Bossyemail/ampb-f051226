@@ -135,7 +135,6 @@ export default function P7CTA() {
         <div style={{ display: 'flex', gap: '28px', justifyContent: 'center', flexWrap: 'wrap' }}>
           {[
             { label: 'Email',     href: 'mailto:hello@aylenmontenegro.com' },
-            { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/aylen-montenegro-pa-02083939/' },
             { label: 'Instagram', href: 'https://instagram.com/aylenbuilds' },
             { label: 'YouTube',   href: 'https://youtube.com/@aylenmontenegropa' },
             { label: 'Threads',   href: 'https://threads.net/@aylenbuilds' },

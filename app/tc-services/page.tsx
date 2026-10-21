@@ -801,40 +801,61 @@ function P6FAQ() {
           <span style={{ fontStyle: 'italic' }}>asked.</span>
         </h2>
 
-        <div style={{ maxWidth: '800px' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto' }}>
           {FAQ_ITEMS.map((item, i) => (
-            <div
+            <details
               key={i}
               style={{
                 borderTop:    '0.5px solid rgba(239,235,226,0.1)',
                 borderBottom: i === FAQ_ITEMS.length - 1 ? '0.5px solid rgba(239,235,226,0.1)' : 'none',
-                padding:      '36px 0',
               }}
             >
-              <h3 style={{
-                fontFamily:    'var(--font-cormorant)',
-                fontSize:      'clamp(20px,1.8vw,26px)',
-                fontWeight:    600,
-                fontStyle:     'italic',
-                color:         'var(--cream)',
-                margin:        '0 0 20px 0',
-                lineHeight:    1.2,
-                letterSpacing: '-0.01em',
+              <summary style={{
+                display:        'flex',
+                justifyContent: 'space-between',
+                alignItems:     'flex-start',
+                gap:            '24px',
+                padding:        '36px 0',
+                cursor:         'pointer',
+                listStyle:      'none',
               }}>
-                {item.q}
-              </h3>
-              {item.a.map((para, j) => (
-                <p key={j} style={{
-                  fontFamily: 'var(--font-dm-mono)',
-                  fontSize:   '13px',
-                  color:      'rgba(188,175,175,0.85)',
-                  lineHeight: 1.85,
-                  margin:     j === 0 ? 0 : '12px 0 0 0',
+                <span style={{
+                  fontFamily:    'var(--font-cormorant)',
+                  fontSize:      'clamp(20px,1.8vw,26px)',
+                  fontWeight:    600,
+                  fontStyle:     'italic',
+                  color:         'var(--cream)',
+                  lineHeight:    1.2,
+                  letterSpacing: '-0.01em',
                 }}>
-                  {para}
-                </p>
-              ))}
-            </div>
+                  {item.q}
+                </span>
+                <span className="faq-icon" style={{
+                  fontFamily:  'var(--font-dm-mono)',
+                  fontSize:    '22px',
+                  fontWeight:  300,
+                  color:       'var(--teal-mid)',
+                  flexShrink:  0,
+                  marginTop:   '1px',
+                  transition:  'transform 0.25s ease',
+                  display:     'inline-block',
+                  lineHeight:  1,
+                }}>+</span>
+              </summary>
+              <div style={{ paddingBottom: '36px' }}>
+                {item.a.map((para, j) => (
+                  <p key={j} style={{
+                    fontFamily: 'var(--font-dm-mono)',
+                    fontSize:   '13px',
+                    color:      'rgba(188,175,175,0.85)',
+                    lineHeight: 1.85,
+                    margin:     j === 0 ? 0 : '12px 0 0 0',
+                  }}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </details>
           ))}
         </div>
 

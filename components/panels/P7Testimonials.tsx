@@ -110,7 +110,7 @@ function ScrollColumn({ reviews, animClass, paused }: {
         {reviews.map((r, i) => <ReviewCard key={`a-${i}`} r={r} />)}
         {/* Clone set — injected client-side only so crawlers see one copy per testimonial */}
         {mounted && (
-          <div aria-hidden="true">
+          <div aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '18px' }}>
             {reviews.map((r, i) => <ReviewCard key={`b-${i}`} r={r} />)}
           </div>
         )}

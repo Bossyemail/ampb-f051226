@@ -515,6 +515,10 @@ details[open] .details-chevron {
   transform: rotate(180deg);
 }
 
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
 details .details-content {
   display: none;
 }
