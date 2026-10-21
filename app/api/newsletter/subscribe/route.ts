@@ -32,6 +32,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unknown source' }, { status: 400 });
   }
 
+  // Kit v4 API key authentication uses the X-Kit-Api-Key header.
+  // Authorization: Bearer is for OAuth tokens only — do not conflate the two.
   const apiKey = process.env.KIT_API_KEY;
   if (!apiKey) {
     console.error('KIT_API_KEY is not configured');
@@ -44,29 +46,31 @@ export async function POST(request: NextRequest) {
       {
         method:  'POST',
         headers: {
-          'Content-Type':  'application/json',
-          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'X-Kit-Api-Key': apiKey,
         },
         body: JSON.stringify({ email_address: email }),
       }
     );
 
-    // 422 = subscriber already exists on this form — treat as active
-    if (kitRes.status === 422) {
+    // 200 = subscriber was already on this form — treat as active.
+    // 201 = newly added — parse subscriber state.
+    // All other non-2xx = a real error; never report success.
+    if (kitRes.status === 200) {
       return NextResponse.json({ success: true, status: 'active' });
     }
 
-    if (!kitRes.ok) {
-      const text = await kitRes.text().catch(() => '');
-      console.error(`Kit API error ${kitRes.status}:`, text);
-      return NextResponse.json({ error: 'Subscription failed' }, { status: 502 });
+    if (kitRes.status === 201) {
+      const data = await kitRes.json();
+      const subscriberState: string = data?.subscriber?.state ?? '';
+      const status = subscriberState === 'active' ? 'active' : 'pending';
+      return NextResponse.json({ success: true, status });
     }
 
-    const data = await kitRes.json();
-    const subscriberState: string = data?.subscriber?.state ?? '';
-    const status = subscriberState === 'active' ? 'active' : 'pending';
-
-    return NextResponse.json({ success: true, status });
+    // Any other status (401, 404, 422, 5xx) is a failure.
+    const text = await kitRes.text().catch(() => '');
+    console.error(`Kit API error ${kitRes.status}:`, text);
+    return NextResponse.json({ error: 'Subscription failed' }, { status: 502 });
   } catch (err) {
     console.error('Kit API request failed:', err);
     return NextResponse.json({ error: 'Service unavailable' }, { status: 503 });
