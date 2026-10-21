@@ -52,13 +52,20 @@ function LeadStory({ article }: { article: ArticleMeta }) {
       </div>
       <div className="fn-lead-image-col">
         {article.archiveImage?.src ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={article.archiveImage.src}
-            alt={article.archiveImage.alt}
-            loading="eager"
-            decoding="async"
-          />
+          <a
+            href={`/field-notes/${article.slug}`}
+            aria-hidden="true"
+            tabIndex={-1}
+            style={{ display: 'block', width: '100%' }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={article.archiveImage.src}
+              alt={article.archiveImage.alt}
+              loading="eager"
+              decoding="async"
+            />
+          </a>
         ) : (
           <div className="fn-lead-image-placeholder" aria-hidden="true" />
         )}
