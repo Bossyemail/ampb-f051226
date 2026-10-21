@@ -336,13 +336,13 @@ export default function ArchiveClient({ articles }: { articles: ArticleMeta[] })
           <p className="fn-masthead-date">{formatMastheadDate(latestDate)}</p>
         )}
 
-        <h1 className="fn-pub-title">
-          Field Notes<span className="fn-period" aria-hidden="true">.</span>
-        </h1>
+        <p className="fn-masthead-byline">Aylen Montenegro / An Editorial Journal</p>
 
-        <p className="fn-masthead-tag">
-          Observations on real estate, work, judgment, and the people who make all three more complicated than necessary.
-        </p>
+        <h1 className="fn-pub-title">Field Notes</h1>
+
+        <hr className="fn-masthead-rule" aria-hidden="true" />
+
+        <p className="fn-masthead-tag">Real Estate · Business · Human Nature</p>
 
         {/* Section nav — centered items */}
         <nav className="fn-section-nav" aria-label="Browse by section">
