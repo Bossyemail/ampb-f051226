@@ -94,20 +94,97 @@ function ReviewCard({ r }: { r: Review }) {
   )
 }
 
-function ScrollColumn({ reviews, animClass, paused }: {
+function ScrollColumn({ reviews, duration, paused }: {
   reviews: Review[]
-  animClass: string
+  duration: number
   paused: boolean
 }) {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
+  const [mounted, setMounted]  = useState(false)
+  const trackRef  = useRef<HTMLDivElement>(null)
+  const origRef   = useRef<HTMLDivElement>(null)
+  const tweenRef  = useRef<gsap.core.Tween | null>(null)
+  // Ref so resize handler always reads current pause state without a stale closure
+  const pausedRef = useRef(paused)
+  // Last measured scroll distance — lets ResizeObserver skip no-op recalculations
+  const distRef   = useRef(0)
+
+  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => { pausedRef.current = paused }, [paused])
+
+  useEffect(() => {
+    if (!mounted) return
+    const track = trackRef.current
+    const orig  = origRef.current
+    if (!track || !orig) return
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    // canceled flag prevents the fonts.ready promise from firing after unmount
+    let canceled = false
+
+    // Kill any existing tween, reset position, measure, and restart.
+    // Called both on initial setup and whenever origRef's height changes.
+    const startTween = () => {
+      tweenRef.current?.kill()
+      gsap.set(track, { y: 0 })
+      distRef.current = orig.offsetHeight  // includes paddingBottom:18px
+      tweenRef.current = gsap.to(track, {
+        y:        -distRef.current,
+        duration,
+        ease:     'none',
+        repeat:   -1,
+        paused:   pausedRef.current,
+      })
+    }
+
+    // ResizeObserver: skip the initial observation callback (height hasn't
+    // changed yet — we just measured it in startTween), then debounce
+    // subsequent fires and only recalculate if height actually changed.
+    let roInitialFired = false
+    let debounceTimer: ReturnType<typeof setTimeout>
+    const ro = new ResizeObserver(() => {
+      if (!roInitialFired) { roInitialFired = true; return }
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
+        if (!canceled && orig.offsetHeight !== distRef.current) startTween()
+      }, 150)
+    })
+
+    const setup = () => {
+      if (canceled) return
+      startTween()
+      ro.observe(orig)
+    }
+
+    // Measure after fonts have loaded so Cormorant card heights are final
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(setup)
+    } else {
+      setup()
+    }
+
+    return () => {
+      canceled = true
+      tweenRef.current?.kill()
+      ro.disconnect()
+      clearTimeout(debounceTimer)
+    }
+  }, [mounted]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sync pause / resume when parent toggles
+  useEffect(() => {
+    if (!tweenRef.current) return
+    paused ? tweenRef.current.pause() : tweenRef.current.resume()
+  }, [paused])
 
   return (
     <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
-      <div className={`${animClass}${paused ? ' testimonials-scroll-paused' : ''}`}
-        style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}
-      >
-        {reviews.map((r, i) => <ReviewCard key={`a-${i}`} r={r} />)}
+      {/* No gap on the outer track — each group is self-contained with paddingBottom */}
+      <div ref={trackRef} style={{ display: 'flex', flexDirection: 'column' }}>
+        {/* Original group — paddingBottom:18px creates the trailing inter-group gap */}
+        <div ref={origRef} style={{ display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '18px' }}>
+          {reviews.map((r, i) => <ReviewCard key={`a-${i}`} r={r} />)}
+        </div>
         {/* Clone set — injected client-side only so crawlers see one copy per testimonial */}
         {mounted && (
           <div aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', gap: '18px', paddingBottom: '18px' }}>
@@ -290,12 +367,12 @@ export default function P7Testimonials() {
           zIndex:        10,
           pointerEvents: 'none',
         }} />
-        <ScrollColumn reviews={COL1} animClass="ticker-testimonials-col-slow" paused={paused} />
+        <ScrollColumn reviews={COL1} duration={100} paused={paused} />
         <div className="mobile-hide" style={{ flex: 1, overflow: 'hidden' }}>
-          <ScrollColumn reviews={COL2} animClass="ticker-testimonials-col-mid" paused={paused} />
+          <ScrollColumn reviews={COL2} duration={78} paused={paused} />
         </div>
         <div className="mobile-hide" style={{ flex: 1, overflow: 'hidden' }}>
-          <ScrollColumn reviews={COL3} animClass="ticker-testimonials-col-fast" paused={paused} />
+          <ScrollColumn reviews={COL3} duration={62} paused={paused} />
         </div>
       </div>
     </section>

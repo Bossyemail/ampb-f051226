@@ -50,42 +50,9 @@
   }
 }
 
-/* Testimonials: vertical infinite columns (duplicate block = 50% height → translateY -50%) */
-@keyframes testimonial-scroll-y {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-
-.ticker-testimonials-col-slow {
-  animation: testimonial-scroll-y 100s linear infinite;
-  will-change: transform;
-}
-.ticker-testimonials-col-mid {
-  animation: testimonial-scroll-y 78s linear infinite;
-  will-change: transform;
-}
-.ticker-testimonials-col-fast {
-  animation: testimonial-scroll-y 62s linear infinite;
-  will-change: transform;
-}
-
-/* Paused when user clicks the testimonial strip (see Testimonials.tsx) */
-.testimonials-scroll-paused {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-testimonials-col-slow,
-  .ticker-testimonials-col-mid,
-  .ticker-testimonials-col-fast {
-    animation: none;
-    transform: translateY(0);
-  }
-}
+/* Testimonials: vertical infinite columns animated by GSAP (see P7Testimonials.tsx).
+   CSS animation removed — translateY(-50%) + will-change:transform caused the compositor
+   to cache a stale loop distance before font-display:swap reflows settled. */
 
 :root { 
   font-size: 16px; 
