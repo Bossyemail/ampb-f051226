@@ -10,6 +10,9 @@ section: Judgment
 editorialOrder: 1
 deck: "On the difference between looking important and getting the deal closed."
 archiveDescription: "After more than 3,000 closings, the agents who consistently get good outcomes tend to have one thing in common: they do the work when nobody is watching."
+heroImage:
+  src: /images/field-notes-3000-closings.jpg
+  alt: Layered contract folders and handwritten notes on a softly lit desk.
 archiveImage:
   src: /images/field-notes-3000-closings.jpg
   alt: Layered contract folders and handwritten notes on a softly lit desk.

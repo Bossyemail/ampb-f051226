@@ -135,12 +135,31 @@ export default async function ArticlePage({
       <CinemaNav />
 
       <main id="main-content" tabIndex={-1}>
-        {/* ── Centered article header ─────────────────────────── */}
-        <div className="fn-article-head">
+        {/* ── Back link — above hero ───────────────────────────── */}
+        <div className="fn-article-back-row">
           <Link href="/field-notes" className="fn-article-back">
             ← Field Notes
           </Link>
+        </div>
 
+        {/* ── 16:9 hero image — above headline ────────────────── */}
+        {hasHero && (
+          <figure className="fn-article-hero-above">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={article.heroImage!.src}
+              alt={article.heroImage!.alt}
+              loading="eager"
+              decoding="async"
+            />
+            {article.heroImage!.caption && (
+              <figcaption>{article.heroImage!.caption}</figcaption>
+            )}
+          </figure>
+        )}
+
+        {/* ── Centered article header ─────────────────────────── */}
+        <div className="fn-article-head">
           <div className="fn-article-eyebrow">
             {article.section && <span>{article.section}</span>}
             {article.section && <span className="fn-article-meta-dot" aria-hidden="true">·</span>}
@@ -166,22 +185,6 @@ export default async function ArticlePage({
             )}
           </div>
         </div>
-
-        {/* ── 21:9 hero image ─────────────────────────────────── */}
-        {hasHero && (
-          <figure className="fn-article-hero-wide">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={article.heroImage!.src}
-              alt={article.heroImage!.alt}
-              loading="eager"
-              decoding="async"
-            />
-            {article.heroImage!.caption && (
-              <figcaption>{article.heroImage!.caption}</figcaption>
-            )}
-          </figure>
-        )}
 
         {/* ── Prose + sidebar grid ─────────────────────────────── */}
         {hasSidebar ? (

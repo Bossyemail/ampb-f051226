@@ -119,7 +119,8 @@ function BodyWithPullQuotes({
       const insertAfter = Math.round(((qi + 1) / (pullQuotes.length + 1)) * usable)
       if (i === insertAfter) {
         usedQuotes.add(qi)
-        result.push(<PullQuote key={`pq-${qi}`} text={quote} />)
+        const side = qi % 2 === 0 ? 'right' : 'left'
+        result.push(<PullQuote key={`pq-${qi}`} text={quote} side={side} />)
       }
     })
   })
