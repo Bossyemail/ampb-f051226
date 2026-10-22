@@ -118,7 +118,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--fn-ink-soft);
-  margin: 0 auto 36px;
+  margin: 0 auto 24px;
   line-height: 1;
 }
 
@@ -127,6 +127,8 @@
   border-top: 3px double var(--fn-ink);
   border-bottom: 1px solid var(--fn-rule);
   padding: 0 var(--fn-gutter);
+  display: flex;
+  align-items: center;
 }
 
 /* Centered section link list inside the nav band */
@@ -134,6 +136,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  flex: 1;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -166,26 +169,53 @@
   border-bottom-color: var(--fn-cognac);
 }
 
-/* Search — slim row beneath the section nav, right-aligned to content container */
-.fn-section-search {
-  max-width: var(--fn-max);
-  margin: 0 auto;
-  padding: 10px var(--fn-gutter) 12px;
+/* Search toggle — right side of nav band */
+.fn-nav-search {
+  flex-shrink: 0;
   display: flex;
-  justify-content: flex-end;
-  border-bottom: 0.5px solid var(--fn-rule);
+  align-items: center;
 }
 
-.fn-masthead-search {
-  display: none;
+/* Icon button that opens search */
+.fn-search-open-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fn-ink-soft);
+  font-size: 17px;
+  padding: 14px 0 14px 16px;
+  line-height: 1;
+  transition: color 0.15s;
 }
 
+.fn-search-open-btn:hover {
+  color: var(--fn-ink);
+}
+
+/* Close button inside the search form */
+.fn-search-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fn-ink-soft);
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 0 0 8px;
+  transition: color 0.15s;
+}
+
+.fn-search-close-btn:hover {
+  color: var(--fn-ink);
+}
+
+/* Inline search form inside the nav band */
 .fn-search-form {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border-bottom: 1px solid rgba(54, 50, 49, 0.25);
-  padding-bottom: 4px;
+  padding-bottom: 3px;
+  margin-left: 16px;
   transition: border-color 0.2s;
 }
 
@@ -207,7 +237,7 @@
   background: transparent;
   border: none;
   outline: none;
-  width: 180px;
+  width: 160px;
   padding: 0;
   transition: width 0.2s ease;
 }
@@ -219,15 +249,7 @@
 }
 
 .fn-search-input:focus {
-  width: 240px;
-}
-
-.fn-search-icon {
-  color: var(--fn-ink-soft);
-  font-size: 13px;
-  pointer-events: none;
-  user-select: none;
-  flex-shrink: 0;
+  width: 200px;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -1417,8 +1439,6 @@
   margin: 0;
 }
 
-/* ── Back link ────────────────────────────────────────────────── */
-
 /* ── Back link row — above hero ──────────────────────────── */
 
 .fn-article-back-row {
@@ -1513,10 +1533,6 @@
     letter-spacing: 0.12em;
   }
 
-  .fn-section-search {
-    justify-content: center;
-  }
-
   .fn-section-links {
     overflow-x: auto;
     flex-wrap: nowrap;
@@ -1526,6 +1542,14 @@
 
   .fn-section-btn {
     flex-shrink: 0;
+  }
+
+  .fn-search-input {
+    width: 120px;
+  }
+
+  .fn-search-input:focus {
+    width: 140px;
   }
 
   .fn-list-item {
@@ -1600,6 +1624,8 @@
   .fn-cta-link,
   .fn-search-input,
   .fn-search-form,
+  .fn-search-open-btn,
+  .fn-search-close-btn,
   .fn-section-btn,
   .fn-topic-btn,
   .fn-band-submit {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useId } from 'react'
+import { useState, useMemo, useId, useRef, useEffect } from 'react'
 import type { ArticleMeta } from '@/lib/field-notes'
 import DarkBandForm from './DarkBandForm'
 
@@ -282,7 +282,13 @@ function FilteredResults({
 export default function ArchiveClient({ articles }: { articles: ArticleMeta[] }) {
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const [query, setQuery]                 = useState('')
+  const [searchOpen, setSearchOpen]       = useState(false)
   const searchResultsId                   = useId()
+  const searchInputRef                    = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (searchOpen) searchInputRef.current?.focus()
+  }, [searchOpen])
 
   const sections = useMemo(() => {
     const seen = new Set<string>()
@@ -344,7 +350,7 @@ export default function ArchiveClient({ articles }: { articles: ArticleMeta[] })
 
         <p className="fn-masthead-tag">Real Estate · Business · Human Nature</p>
 
-        {/* Section nav — centered items */}
+        {/* Section nav with inline search toggle — single band */}
         <nav className="fn-section-nav" aria-label="Browse by section">
           <ul className="fn-section-links">
             <li>
@@ -368,25 +374,49 @@ export default function ArchiveClient({ articles }: { articles: ArticleMeta[] })
               </li>
             ))}
           </ul>
-        </nav>
 
-        {/* Search — slim row beneath nav, right-aligned to content container */}
-        <div className="fn-section-search" role="search" aria-label="Search Field Notes">
-          <form className="fn-search-form" onSubmit={e => e.preventDefault()}>
-            <input
-              type="search"
-              className="fn-search-input"
-              placeholder="Search"
-              value={query}
-              onChange={e => { setQuery(e.target.value); setActiveSection(null) }}
-              aria-label="Search Field Notes articles"
-              aria-controls={searchResultsId}
-              autoComplete="off"
-              spellCheck={false}
-            />
-            <span className="fn-search-icon" aria-hidden="true">⌕</span>
-          </form>
-        </div>
+          {/* Search toggle — right side of nav band */}
+          <div className="fn-nav-search" role="search" aria-label="Search Field Notes">
+            {searchOpen ? (
+              <form className="fn-search-form" onSubmit={e => e.preventDefault()}>
+                <input
+                  ref={searchInputRef}
+                  type="search"
+                  className="fn-search-input"
+                  placeholder="Search"
+                  value={query}
+                  onChange={e => { setQuery(e.target.value); setActiveSection(null) }}
+                  onKeyDown={e => {
+                    if (e.key === 'Escape') { setSearchOpen(false); setQuery('') }
+                  }}
+                  aria-label="Search Field Notes articles"
+                  aria-controls={searchResultsId}
+                  autoComplete="off"
+                  spellCheck={false}
+                />
+                <button
+                  type="button"
+                  className="fn-search-close-btn"
+                  onClick={() => { setSearchOpen(false); setQuery('') }}
+                  aria-label="Close search"
+                >
+                  ×
+                </button>
+              </form>
+            ) : (
+              <button
+                type="button"
+                className="fn-search-open-btn"
+                onClick={() => setSearchOpen(true)}
+                aria-label="Open search"
+                aria-expanded={false}
+                aria-controls={searchResultsId}
+              >
+                <span aria-hidden="true">⌕</span>
+              </button>
+            )}
+          </div>
+        </nav>
       </header>
 
       {/* ── Content ───────────────────────────────────────────────── */}
