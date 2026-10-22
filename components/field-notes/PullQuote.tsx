@@ -2,20 +2,9 @@
 // They are configured in each article's frontmatter under `pullQuotes: [...]`.
 // Do not insert pull quote text that does not appear verbatim in the article body.
 
-export default function PullQuote({
-  text,
-  side = 'center',
-}: {
-  text: string
-  side?: 'left' | 'right' | 'center'
-}) {
-  const cls =
-    side === 'left'  ? 'fn-pull-quote fn-pull--left'  :
-    side === 'right' ? 'fn-pull-quote fn-pull--right' :
-    'fn-pull-quote'
-
+export default function PullQuote({ text }: { text: string }) {
   return (
-    <aside className={cls} aria-hidden="true">
+    <aside className="fn-pull-quote" aria-hidden="true">
       <blockquote>{text}</blockquote>
     </aside>
   )

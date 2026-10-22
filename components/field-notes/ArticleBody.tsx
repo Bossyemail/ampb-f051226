@@ -70,9 +70,8 @@ function ArticleCTABlock({ article }: { article: Article }) {
 }
 
 // ── Pull quote interleaving ───────────────────────────────────────────────────
-// Pull quotes are distributed evenly through the article body.
-// They are displayed as asides between paragraphs — never at the very start
-// or end of the body, and never consecutively.
+// Pull quotes are placed between paragraphs near the midpoint of the article body.
+// Only the first pull quote is used; additional ones are ignored.
 // Each pull quote must be an exact passage from the approved article text.
 
 function BodyWithPullQuotes({
@@ -85,7 +84,6 @@ function BodyWithPullQuotes({
   isFeature: boolean
 }) {
   // Split on block-level boundaries to find insertion points.
-  // We split after closing block tags so each segment ends with one block element.
   const segments = bodyHtml.split(/(?<=<\/(?:p|h[2-6]|ul|ol|blockquote)>)/i)
 
   if (pullQuotes.length === 0 || segments.length < 3) {
@@ -97,11 +95,12 @@ function BodyWithPullQuotes({
     )
   }
 
-  // Distribute pull quotes evenly, skipping the first and last segments.
-  const usable = segments.length - 2  // exclude first and last
-  const result: React.ReactNode[] = []
-  const usedQuotes = new Set<number>()
+  // Insert the first pull quote at roughly the midpoint of the body,
+  // but never after the first or last segment.
+  const midpoint = Math.floor(segments.length / 2)
+  const insertAfter = Math.max(1, Math.min(midpoint, segments.length - 2))
 
+  const result: React.ReactNode[] = []
   segments.forEach((segment, i) => {
     result.push(
       <div
@@ -110,19 +109,9 @@ function BodyWithPullQuotes({
         dangerouslySetInnerHTML={{ __html: segment }}
       />
     )
-
-    // Determine which pull quote to insert after this segment (if any)
-    if (i === 0 || i === segments.length - 1) return  // never after first or last
-
-    pullQuotes.forEach((quote, qi) => {
-      if (usedQuotes.has(qi)) return
-      const insertAfter = Math.round(((qi + 1) / (pullQuotes.length + 1)) * usable)
-      if (i === insertAfter) {
-        usedQuotes.add(qi)
-        const side = qi % 2 === 0 ? 'right' : 'left'
-        result.push(<PullQuote key={`pq-${qi}`} text={quote} side={side} />)
-      }
-    })
+    if (i === insertAfter) {
+      result.push(<PullQuote key="pq-0" text={pullQuotes[0]} />)
+    }
   })
 
   return (

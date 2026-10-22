@@ -1204,49 +1204,51 @@
   color: var(--fn-teal);
 }
 
-/* ── Pull quote — restrained floated editorial style ──────── */
+/* ── Pull quote — full-column between paragraphs ─────────── */
 
 .fn-pull-quote {
-  font-family: var(--fn-display);
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1.48;
-  color: var(--fn-ink);
-  border-left: 1.5px solid var(--fn-cognac);
-  padding: 2px 0 2px 14px;
-  margin: 0;
+  display: block;
+  width: 100%;
+  margin: 2.2em 0;
+  padding: 0;
+  text-align: center;
+  border: none;
+}
+
+.fn-pull-quote::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 0.5px;
+  background: var(--fn-rule);
+  margin: 0 auto 1.1em;
+}
+
+.fn-pull-quote::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 0.5px;
+  background: var(--fn-rule);
+  margin: 1.1em auto 0;
 }
 
 .fn-pull-quote blockquote {
-  font-family: inherit;
-  font-size: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  color: inherit;
-  line-height: inherit;
+  font-family: var(--fn-display);
+  font-size: clamp(20px, 2.6vw, 27px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--fn-ink);
   margin: 0;
   padding: 0;
   border: none;
+  letter-spacing: 0.01em;
 }
 
 .fn-pull-quote blockquote::before,
 .fn-pull-quote blockquote::after {
   content: none;
-}
-
-/* Float right (first pull quote) */
-.fn-pull--right {
-  float: right;
-  width: 38%;
-  margin: 0.3em 0 0.9em 1.8em;
-}
-
-/* Float left */
-.fn-pull--left {
-  float: left;
-  width: 38%;
-  margin: 0.3em 1.8em 0.9em 0;
 }
 
 /* ── Inline image ─────────────────────────────────────────────── */
@@ -1585,12 +1587,6 @@
     font-size: 16px;
   }
 
-  .fn-pull--left,
-  .fn-pull--right {
-    float: none;
-    width: auto;
-    margin: 1.6em 0;
-  }
 
   .fn-cta {
     padding: 24px 20px;
