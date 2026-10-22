@@ -921,13 +921,14 @@
 
 .fn-article-title {
   font-family: var(--fn-display);
-  font-size: clamp(30px, 4.2vw, 44px);
+  font-size: clamp(28px, 3.8vw, 40px);
   font-weight: 400;
   font-style: normal;
   color: var(--fn-ink);
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   margin: 0 0 24px;
+  text-wrap: balance;
 }
 
 .fn-article-deck {
@@ -1050,7 +1051,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .fn-toc-item a {
@@ -1061,7 +1061,8 @@
   line-height: 1.5;
   color: var(--fn-ink-soft);
   text-decoration: none;
-  padding: 4px 0;
+  padding: 7px 0;
+  border-bottom: 0.5px solid var(--fn-rule);
   transition: color 0.15s;
 }
 
