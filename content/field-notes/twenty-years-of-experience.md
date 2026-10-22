@@ -8,6 +8,9 @@ layout: standard
 section: Judgment
 editorialOrder: 3
 archiveDescription: "Years in the industry may build expertise, but they don't automatically produce good judgment or professional behavior."
+heroImage:
+  src: /images/field-notes-twenty-years-of-experience.jpg
+  alt: Group of professionals standing together while looking at digital devices.
 archiveImage:
   src: /images/field-notes-twenty-years-of-experience.jpg
   alt: Group of professionals standing together while looking at digital devices.

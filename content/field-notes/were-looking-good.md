@@ -9,6 +9,9 @@ section: Communication
 editorialOrder: 4
 deck: "On the difference between reassurance and information."
 archiveDescription: "Reassuring language is easy. Providing useful information that actually moves a transaction forward requires considerably more."
+heroImage:
+  src: /images/field-notes-were-looking-good.jpg
+  alt: Bright minimalist desk with laptop, notebook, pens and reading glasses.
 archiveImage:
   src: /images/field-notes-were-looking-good.jpg
   alt: Bright minimalist desk with laptop, notebook, pens and reading glasses.

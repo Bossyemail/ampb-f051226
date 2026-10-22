@@ -10,6 +10,9 @@ section: Mindset
 editorialOrder: 1
 deck: "On resourcefulness, preparation paralysis, and the phone camera in your pocket."
 archiveDescription: "Somewhere, someone else has already recorded six videos with their phone resting on a stack of books. They have something you don't: six published videos."
+heroImage:
+  src: /images/field-notes-do-what-you-can.jpg
+  alt: Smartphone propped on a stack of books beside a daylight window, an improvised filming setup.
 archiveImage:
   src: /images/field-notes-do-what-you-can.jpg
   alt: Smartphone propped on a stack of books beside a daylight window, an improvised filming setup.

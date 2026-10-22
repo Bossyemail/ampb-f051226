@@ -8,6 +8,9 @@ layout: standard
 section: Operations
 editorialOrder: 2
 archiveDescription: "Delegation requires more than completing tasks. Real agency comes from knowing what needs to happen next."
+heroImage:
+  src: /images/field-notes-hiring-an-assistant.jpg
+  alt: Minimalist workspace with keyboard, smartphone, mouse and writing tools.
 archiveImage:
   src: /images/field-notes-hiring-an-assistant.jpg
   alt: Minimalist workspace with keyboard, smartphone, mouse and writing tools.

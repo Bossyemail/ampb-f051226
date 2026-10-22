@@ -9,6 +9,10 @@ section: Clients
 editorialOrder: 1
 deck: "On the hidden cost of keeping a client you should have let go."
 archiveDescription: "When saving one difficult transaction quietly damages the professional relationships you've spent years building."
+heroImage:
+  src: /images/field-notes-most-expensive-client.jpg
+  alt: Miami waterfront skyline and luxury yachts overlooking Biscayne Bay.
+  placement: right
 archiveImage:
   src: /images/field-notes-most-expensive-client.jpg
   alt: Miami waterfront skyline and luxury yachts overlooking Biscayne Bay.

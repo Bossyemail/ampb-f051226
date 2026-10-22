@@ -15,7 +15,7 @@ export default function PullQuote({
     'fn-pull-quote'
 
   return (
-    <aside className={cls} aria-label="Pull quote">
+    <aside className={cls} aria-hidden="true">
       <blockquote>{text}</blockquote>
     </aside>
   )

@@ -10,6 +10,9 @@ section: Business
 editorialOrder: 1
 deck: "What's left after the closing photo, the split, the taxes, and everything that didn't close."
 archiveDescription: "Real estate may be the only industry where someone can announce a $10 million year and still be wondering whether to put the next brokerage invoice on a credit card."
+heroImage:
+  src: /images/field-notes-brutal-math.jpg
+  alt: Elegant ledger, calculator, paperwork and receipts on a desk.
 archiveImage:
   src: /images/field-notes-brutal-math.jpg
   alt: Elegant ledger, calculator, paperwork and receipts on a desk.

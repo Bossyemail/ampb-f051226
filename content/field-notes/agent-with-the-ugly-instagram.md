@@ -10,6 +10,9 @@ section: Marketing
 editorialOrder: 1
 deck: "Visibility and a thriving business are not the same accomplishment."
 archiveDescription: "The agent with the crooked closing photo and seventeen exclamation points just got another referral. She probably hasn't checked her engagement rate. She's busy answering the phone."
+heroImage:
+  src: /images/field-notes-ugly-instagram.jpg
+  alt: Candid vintage-looking smartphone beside understated handwritten referral notes.
 archiveImage:
   src: /images/field-notes-ugly-instagram.jpg
   alt: Candid vintage-looking smartphone beside understated handwritten referral notes.

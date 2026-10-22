@@ -10,6 +10,9 @@ section: Communication
 editorialOrder: 1
 deck: "What impressive sounds like to the person hiring you."
 archiveDescription: "I told a prospect I'd already closed about 200 transactions that year. She heard: please take a number. Your estimated wait time is three to five business days."
+heroImage:
+  src: /images/field-notes-talking-shop.jpg
+  alt: Two professional figures in calm editorial conversation across a table.
 archiveImage:
   src: /images/field-notes-talking-shop.jpg
   alt: Two professional figures in calm editorial conversation across a table.

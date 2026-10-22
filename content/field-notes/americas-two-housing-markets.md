@@ -10,6 +10,9 @@ section: Market
 editorialOrder: 1
 deck: "Same rates, same county, two entirely different conversations."
 archiveDescription: "One buyer is calculating whether the monthly payment leaves enough for childcare. The other is wondering whether the dock can accommodate a larger boat."
+heroImage:
+  src: /images/field-notes-stretch-vs-shrug.jpg
+  alt: A family reviewing budgets at a kitchen table alongside a South Florida waterfront property.
 archiveImage:
   src: /images/field-notes-stretch-vs-shrug.jpg
   alt: A family reviewing budgets at a kitchen table alongside a South Florida waterfront property.

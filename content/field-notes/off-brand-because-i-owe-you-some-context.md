@@ -10,6 +10,9 @@ section: Perspective
 editorialOrder: 1
 deck: "On money, freedom, and the strange things people will do to look like they're winning."
 archiveDescription: "I drive a paid-off 2017 Hyundai Tucson. I'm not trying to look rich. I'm trying to buy optionality."
+heroImage:
+  src: /images/field-notes-off-brand-context.jpg
+  alt: Worn travel journal, simple car keys, espresso and a European city map on a quiet surface.
 archiveImage:
   src: /images/field-notes-off-brand-context.jpg
   alt: Worn travel journal, simple car keys, espresso and a European city map on a quiet surface.
