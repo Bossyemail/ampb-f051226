@@ -1071,33 +1071,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Person',
-          'name': 'Aylen Montenegro',
-          'jobTitle': 'Real Estate Contract Manager',
-          'url': 'https://aylenmontenegro.com',
-          'description': 'Real Estate Contract Manager and licensed Florida real estate professional serving South Florida agents. 20+ years experience, 3,000+ closings supported.',
-          'knowsAbout': [
-            'Real estate transaction coordination',
-            'Real estate contracts',
-            'South Florida real estate',
-            'SaaS development',
-          ],
-          'areaServed': [
-            { '@type': 'AdministrativeArea', 'name': 'Miami-Dade County' },
-            { '@type': 'AdministrativeArea', 'name': 'Broward County' },
-            { '@type': 'AdministrativeArea', 'name': 'Palm Beach County' },
-          ],
-          'sameAs': [
-            'https://instagram.com/aylenbuilds',
-            'https://youtube.com/@aylenmontenegropa',
-            'https://threads.net/@aylenbuilds',
-          ],
-        }) }}
-      />
       <Cursor />
       <ProgressBar />
       <CinemaNav />

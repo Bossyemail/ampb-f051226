@@ -66,9 +66,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://aylenmontenegro.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: "Aylen Montenegro | Real Estate Operations & Transaction Management",
     description: "Aylen Montenegro manages real estate transactions for South Florida agents and develops software for better real estate operations. 3,000+ closings since 2004.",
@@ -118,10 +115,9 @@ export default function RootLayout({
   return (
       <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmMono.variable} ${lora.variable} ${newsreader.variable}`}>
         <head>
-          {/* Image copyright protection */}
+          {/* Image copyright */}
           <meta name="copyright" content={`© ${new Date().getFullYear()} Aylen Montenegro. All rights reserved.`} />
           <meta name="author" content="Aylen Montenegro" />
-          <meta name="robots" content="noimageindex" />
 
           {/* Fonts are loaded via Next.js font loader - removed duplicate Google Fonts link */}
           

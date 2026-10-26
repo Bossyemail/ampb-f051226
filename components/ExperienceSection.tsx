@@ -27,11 +27,11 @@ function ExperienceItem({ company, role, dates, description }: ExperienceItemPro
 export default function ExperienceSection() {
   const experiences = [
     {
-      company: "BOSSYEMAIL",
+      company: "CLOSEADMIN",
       description: "Smart email generator + instant templates. Keep manually typing the same follow-ups if you want... or use this and never send another \"just checking in\" again."
     },
     {
-              company: "clausevault",
+      company: "CLOSEADMIN",
       description: "The cheat code your contracts have been waiting for. A searchable library of razor-sharp real estate clauses so airtight your paperwork could win in court wearing flip-flops."
     },
     {
