@@ -3,8 +3,8 @@ export const structuredData = {
   "@type": "NewsMediaOrganization",
   "name": "SPILL Newsletter",
   "description": "The Real Estate Snarkletter - Your virtual BFF in the trenches of real estate, dishing out unfiltered truths, battle-tested tips, and inbox gold you'll actually look forward to reading.",
-  "url": "https://yourdomain.com/spill",
-  "logo": "https://yourdomain.com/logo.png",
+  "url": "https://aylenmontenegro.com/spill",
+  "logo": "https://aylenmontenegro.com/logo.png",
   "sameAs": [
     "https://linkedin.com/company/spill-newsletter",
     "https://facebook.com/spillnewsletter"
@@ -13,7 +13,7 @@ export const structuredData = {
   "publisher": {
     "@type": "Organization",
     "name": "Aylen Montenegro",
-    "url": "https://yourdomain.com"
+    "url": "https://aylenmontenegro.com"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -45,10 +45,10 @@ export const structuredData = {
       }
     ]
   },
-  "image": "https://yourdomain.com/spill-hero.jpg",
+  "image": "https://aylenmontenegro.com/spill-hero.jpg",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://yourdomain.com/spill"
+    "@id": "https://aylenmontenegro.com/spill"
   }
 };
 
@@ -56,8 +56,8 @@ export const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "SPILL Newsletter",
-  "url": "https://yourdomain.com",
-  "logo": "https://yourdomain.com/logo.png",
+  "url": "https://aylenmontenegro.com",
+  "logo": "https://aylenmontenegro.com/logo.png",
   "description": "The Real Estate Snarkletter - Unfiltered industry insights for real estate agents",
   "foundingDate": "2024",
   "address": {
@@ -84,13 +84,13 @@ export const breadcrumbData = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://yourdomain.com"
+      "item": "https://aylenmontenegro.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "SPILL",
-      "item": "https://yourdomain.com/spill"
+      "item": "https://aylenmontenegro.com/spill"
     }
   ]
 };

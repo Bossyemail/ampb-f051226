@@ -6,8 +6,8 @@ export const structuredData = {
   "provider": {
     "@type": "Organization",
     "name": "Elevate TC Services",
-    "url": "https://yourdomain.com/elevate",
-    "logo": "https://yourdomain.com/logo.png",
+    "url": "https://aylenmontenegro.com/elevate",
+    "logo": "https://aylenmontenegro.com/logo.png",
     "sameAs": [
       "https://linkedin.com/company/elevate-tc-services",
       "https://facebook.com/elevatetcservices"
@@ -59,11 +59,11 @@ export const structuredData = {
       }
     ]
   },
-  "url": "https://yourdomain.com/elevate",
-  "image": "https://yourdomain.com/elevate-hero.jpg",
+  "url": "https://aylenmontenegro.com/elevate",
+  "image": "https://aylenmontenegro.com/elevate-hero.jpg",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://yourdomain.com/elevate"
+    "@id": "https://aylenmontenegro.com/elevate"
   }
 };
 
@@ -71,8 +71,8 @@ export const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Elevate TC Services",
-  "url": "https://yourdomain.com",
-  "logo": "https://yourdomain.com/logo.png",
+  "url": "https://aylenmontenegro.com",
+  "logo": "https://aylenmontenegro.com/logo.png",
   "description": "Premium transaction coordination service for South Florida real estate agents",
   "foundingDate": "2024",
   "address": {
@@ -99,13 +99,13 @@ export const breadcrumbData = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://yourdomain.com"
+      "item": "https://aylenmontenegro.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Elevate",
-      "item": "https://yourdomain.com/elevate"
+      "item": "https://aylenmontenegro.com/elevate"
     }
   ]
 };

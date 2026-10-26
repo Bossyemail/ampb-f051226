@@ -3,7 +3,7 @@ export const structuredData = {
   "@type": "SoftwareApplication",
   "name": "ClauseVault",
   "description": "Smart clause library built for real estate professionals who want to close deals and protect clients without reinventing the wheel.",
-  "url": "https://yourdomain.com/deploy",
+  "url": "https://aylenmontenegro.com/deploy",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web Browser",
   "offers": {
@@ -11,11 +11,6 @@ export const structuredData = {
     "price": "0",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "1000"
   },
   "author": {
     "@type": "Person",
@@ -29,7 +24,7 @@ export const structuredData = {
     "Proven legal language",
     "Fire drill mode for urgent situations"
   ],
-  "screenshot": "https://yourdomain.com/images/clausevault-screenshot.jpg",
+  "screenshot": "https://aylenmontenegro.com/images/clausevault-screenshot.jpg",
   "softwareVersion": "1.0",
   "datePublished": "2024-01-01",
   "dateModified": "2024-01-01"
@@ -39,8 +34,8 @@ export const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "ClauseVault",
-  "url": "https://yourdomain.com",
-  "logo": "https://yourdomain.com/images/clausevault-logo.png",
+  "url": "https://aylenmontenegro.com",
+  "logo": "https://aylenmontenegro.com/images/clausevault-logo.png",
   "description": "Smart clause library for real estate professionals",
   "foundingDate": "2024",
   "founder": {
@@ -61,13 +56,13 @@ export const breadcrumbData = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://yourdomain.com"
+      "item": "https://aylenmontenegro.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "ClauseVault",
-      "item": "https://yourdomain.com/deploy"
+      "item": "https://aylenmontenegro.com/deploy"
     }
   ]
 };

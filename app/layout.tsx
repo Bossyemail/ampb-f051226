@@ -36,9 +36,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://aylenmontenegro.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: "Aylen Montenegro, Contract Manager • SaaS Builder • Author",
     description: "Learn to manage contracts, build real estate systems, and create tools that turn chaos into closings. 20+ years of expertise in transaction management, SaaS development, and deal coordination.",
