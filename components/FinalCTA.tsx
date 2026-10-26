@@ -28,13 +28,11 @@ export default function FinalCTA() {
           className="mt-3"
         >
           <a
-            href="https://bossyemail.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/closeadmin"
             className="inline-flex items-center gap-2 px-7 py-3.5 text-sm sm:text-base font-semibold bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-md"
             style={{ color: '#000000' }}
           >
-            Try BossyEmail →
+            Try CloseAdmin →
           </a>
           <p className="t-label mt-2">Get started in under 60 seconds.</p>
         </motion.div>

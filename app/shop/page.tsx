@@ -159,7 +159,7 @@ export default function ShopPage() {
               <ChevronRight className="w-4 h-4" />
             </span>
           </a>
-          <a href="/spill" className="group border border-white/10 bg-white/5 backdrop-blur-xl p-6 hover:-translate-y-0.5 hover:shadow-xl transition">
+          <a href="/snarkletter" className="group border border-white/10 bg-white/5 backdrop-blur-xl p-6 hover:-translate-y-0.5 hover:shadow-xl transition">
             <div className="cap text-zinc-400">Newsletter</div>
             <h3 className="mt-2 text-xl font-semibold text-white">The Snarkletter</h3>
             <p className="mt-2 text-zinc-300">Unfiltered. Useful. Occasional chaos control.</p>

@@ -34,10 +34,10 @@ const items: Item[] = [
     ),
   },
   {
-    title: "BossyEmail",
+    title: "CloseAdmin",
     desc:
-      "Say It Like a Pro — in Seconds\nInstant templates and real-estate-ready emails that chase docs, follow up, and diffuse chaos without sounding like a robot… unless you want to.",
-    href: "/bossyemail",
+      "Run the Deal Without the Chaos\nInstant templates and real-estate-ready emails that chase docs, follow up, and diffuse chaos without sounding like a robot… unless you want to.",
+    href: "/closeadmin",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ const items: Item[] = [
     ),
   },
   {
-            title: "clausevault Pro",
+    title: "CloseAdmin",
     desc:
       "Your Secret Weapon for Bulletproof Contracts\nStop copy-pasting outdated clauses. Get a vetted library built for South Florida real estate — and keep your deals airtight.",
     href: "/closeadmin",

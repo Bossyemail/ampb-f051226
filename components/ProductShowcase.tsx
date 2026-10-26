@@ -36,20 +36,20 @@ const MagneticButton = ({ children, className = "", ...props }: any) => {
 
 const products = [
   {
-    id: "bossyemail",
-    title: "BOSSYEMAIL",
+    id: "closeadmin",
+    title: "CLOSEADMIN",
     subtitle: "Your personal deal-closing ghostwriter.",
     description: "Emails so sharp they cut through inbox clutter and make you look like you've been doing this for decades. Instant. Polished. Uncopyable.",
-    cta: "Get Bossy",
+    cta: "Try CloseAdmin",
     videoUrl: "https://player.vimeo.com/video/328217847?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&controls=0&portrait=0&sidedock=0",
     color: "#7B8E90"
   },
   {
-    id: "clausevault",
-    title: "CLAUSE VAULT",
+    id: "closeadmin-clauses",
+    title: "CLOSEADMIN",
     subtitle: "The kind of clauses that make attorneys nod in approval.",
     description: "Searchable. Dangerous (in a good way). And absolutely not for amateurs.",
-    cta: "Browse Clauses",
+    cta: "Try CloseAdmin",
     videoUrl: "https://player.vimeo.com/video/328217847?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&controls=0&portrait=0&sidedock=0",
     color: "#d3ccd6"
   },
@@ -135,19 +135,19 @@ export default function ProductShowcase() {
         </div>
       </motion.div>
       
-      {/* Second Section - BossyEmail Video */}
-      <motion.div 
+      {/* Second Section - CloseAdmin Video */}
+      <motion.div
         className="h-[450px] w-full relative"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <video 
+        <video
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay 
-          loop 
-          muted 
+          autoPlay
+          loop
+          muted
           playsInline
           preload="auto"
         >
@@ -157,17 +157,17 @@ export default function ProductShowcase() {
         <div className="absolute inset-0 flex items-center justify-end">
           <div className="text-right px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1">
-              BOSSYEMAIL
+              CLOSEADMIN
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-white mb-1">
               Emails That Close Deals and Get People to Actually Reply
             </h3>
             <p className="text-base text-gray-300 max-w-3xl leading-relaxed mb-6">
-              Built by someone who's written thousands of real estate emails and lived to tell about it. BossyEmail gives you the exact words to chase docs, follow up without sounding desperate, and put out fires like a pro—without spending your whole life in your inbox.
+              Built by someone who's written thousands of real estate emails and lived to tell about it. CloseAdmin gives you the exact words to chase docs, follow up without sounding desperate, and put out fires like a pro—without spending your whole life in your inbox.
             </p>
-            <button 
+            <button
               className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-150 backdrop-blur-sm bg-white/5 rounded-none select-none active:scale-[0.97] active:shadow-[inset_0_2px_12px_rgba(0,0,0,0.35)] active:brightness-90"
-              onClick={() => trackEvent('click', 'CTA', 'bossyemail_hero')}
+              onClick={() => trackEvent('click', 'CTA', 'closeadmin_hero')}
             >
               Get Started Today
               <ChevronRight className="w-4 h-4" />
@@ -175,20 +175,20 @@ export default function ProductShowcase() {
           </div>
         </div>
       </motion.div>
-      
-              {/* Third Section - clausevault Video */}
-      <motion.div 
+
+      {/* Third Section - CloseAdmin clauses Video */}
+      <motion.div
         className="h-[450px] w-full relative"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <video 
+        <video
           className="absolute inset-0 w-full h-full object-cover"
-          autoPlay 
-          loop 
-          muted 
+          autoPlay
+          loop
+          muted
           playsInline
           preload="auto"
         >
@@ -198,7 +198,7 @@ export default function ProductShowcase() {
         <div className="absolute inset-0 flex items-center justify-start">
           <div className="text-left px-8 lg:px-16">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-1">
-              clausevault
+              CLOSEADMIN
             </h2>
             <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-white mb-1">
               Your Contract's Secret Weapon
@@ -206,9 +206,9 @@ export default function ProductShowcase() {
             <p className="text-base text-gray-300 max-w-3xl leading-relaxed mb-6">
               A library of powerful, ready-to-use clauses designed to protect your deals, your commission, and your sanity. No more digging through Google or begging other agents for "that one clause." Everything you need—organized, editable, and instantly ready for battle.
             </p>
-            <button 
+            <button
               className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-150 backdrop-blur-sm bg-white/5 rounded-none select-none active:scale-[0.97] active:shadow-[inset_0_2px_12px_rgba(0,0,0,0.35)] active:brightness-90"
-              onClick={() => trackEvent('click', 'CTA', 'clausevault_hero')}
+              onClick={() => trackEvent('click', 'CTA', 'closeadmin_clauses_hero')}
             >
               Get Started Today
               <ChevronRight className="w-4 h-4" />

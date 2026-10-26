@@ -12,11 +12,6 @@ export const structuredData = {
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "1000"
-  },
   "author": {
     "@type": "Person",
     "name": "Aylen Montenegro",
